@@ -1,0 +1,156 @@
+﻿<html>
+    <head>
+        <title>Groups/Providers</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="refresh" content="180; URL=./index.html" />
+        <link rel="stylesheet" href="./css/gr_prv.css?011110-18" type="text/css" />
+        <link rel="stylesheet" href="./css/cel.css?011110-18" type="text/css" />
+        <link rel="stylesheet" href="./css/loto.css?011110-18" type="text/css" />
+		
+        <script src="./prv_values.js" type="text/javascript"></script>
+        <script src="./prv_validate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+        <script src="./phones_kg.js"></script>
+        
+        <script src="./func/engine/new_engine/utils.js?011110-18" type="text/javascript"></script>
+        <script src="./func/engine/new_engine/storage.js?011110-18" type="text/javascript"></script>
+        <script src="./func/engine/new_engine/base.js?011110-18" type="text/javascript"></script>
+        <script src="./advert_content.js?011110-18" type="text/javascript"></script>
+
+        <script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>
+	<script type="text/javascript" src="./advert_content.js"></script>
+
+        <script src="./func/engine/new_engine/phones.js?011110-18" type="text/javascript"></script>
+        <script src="./func/engine/new_engine/loto-cellular.js?011110-18" type="text/javascript"></script> 
+        <script src="./func/engine/new_engine/fields.js?011110-18" type="text/javascript"></script>
+	
+
+        <script src="./mini_adv.js" type="text/javascript"></script>
+
+    </head>
+    <body onload="initPage();">
+        <form id="ff" name="ff" method="post" action="#">
+            <input type="hidden" name="prv_id" />
+            <input type="hidden" name="prv_name" />
+            <input type="hidden" name="getAccountNumber" />
+            <input type="hidden" name="EmbedParams" value="" />
+            <input type="hidden" name="komissiya" value="" />
+            <input type="hidden" name="MaxCashLimit" value="" />
+            <input type="hidden" name="Language" value="">
+
+            <input type="hidden" name="_extra_auth_page" value="" />
+            <input type="hidden" name="_extra_auth_success" value="" />
+            <input type="hidden" name="_extra_auth_fail" value="" />
+
+            <div id="inp"></div>
+            <div class="init" id="content">
+                <div id="container1">
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+                        <tr>
+                            <td height="180">
+                                <div style="width: 1209px; height: 180px; margin-left: 31px;">
+                                    <div id="qiwi_logo"></div>
+                                    <div id="advert_1"></div>
+                                </div>
+                            </td>                    
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="container2">
+                                    <div id="container3">
+                                        <div class="init_l" id="field_bg_l"></div>
+                                        <div class="init_l" id="field_bg_c">
+                                            <div id="container4">
+                                                <input id="number" type="text" value="0" style="text-align: left; width: 0px;" />
+                                                <div id="cellular_input" style="overflow: hidden;">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div id="title"><div id="cellular_title_text"></div></div>
+                                        </div>
+                                        <div class="init_l" id="field_bg_r"></div>
+                                        <div class="init_r" id="btn_del" onClick="press('c')">
+                                            <!--<img src="./img/ui/delbtn.gif" onClick="press('c')" />-->
+                                            <div id="button_delete"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div align="center" id="container5">
+                                    <div class="init_l" id="container6">
+                                        <div class="init_l lotoImg" id="container7">                                            
+                                            <div id="logo_container">
+                                                <div id="provider_not_found" style="position: absolute; left: 50%;"></div>
+                                                <div id="logo" class="provider-button" style="vertical-align: middle;">
+                                                    <div></div><p></p>
+                                                </div>
+                                            </div>
+                                            <div style="width: 303px; height: 250px; margin-top: 50px; margin-left: 62px;">
+                                                <div align="center" class="orange-line"></div>
+                                                <div align="left" class="enter-rules"><div id="cellular_notice_text"></div></div>
+                                                <div id="num_info">
+                                                    <div align="left" id="num_info_txt"></div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div id="keyboard">
+                                        <table id="norm_keyboard" cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" align="center">
+                                            <tr align="center" valign="middle">
+                                                <td>
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" align="center">
+                                                        <tr align="center" valign="top">
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on1.gif" onClick="press('1')" /></td>
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on2.gif" onClick="press('2')" /></td>
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on3.gif" onClick="press('3')" /></td>
+                                                        </tr>
+                                                        <tr align="center" valign="top">
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on4.gif" onClick="press('4')" /></td>
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on5.gif" onClick="press('5')" /></td>
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on6.gif" onClick="press('6')" /></td>
+                                                        </tr>
+                                                        <tr align="center" valign="top">
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on7.gif" onClick="press('7')" /></td>
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on8.gif" onClick="press('8')" /></td>
+                                                            <td><img src="./img/ui/keyboard/digital/newbtn_on9.gif" onClick="press('9')" /></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr align="center" valign="top" id="big_zero">
+                                                <td><img  src="./img/ui/keyboard/digital/newbtn_0_on.gif" onClick="press('0')" style="width: 468px; height: 132px" /></td>
+                                            </tr>
+                                        </table>
+
+                                        
+                                    </div>
+                                    <div id="container8">
+                                        <div id="advert_2"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>                
+                <div class="bottom-button-left" style="display:none" id="btn_back" onClick="backward();">
+                    <!--<img src="./img/ui/navigation/back_empty.gif" />-->
+                    <div id="button_back"></div>
+                </div>
+                <div class="bottom-button-right" id="btn_forward" style="display: none;" onclick='forward();'>
+                    <!--<img src="./img/ui/navigation/forward_empty.gif" onclick='forward();' /> -->
+                    <div id="button_forward_loto"></div>
+                </div>
+            </div>
+        </form>
+        <!--<script type="text/javascript">initProvider(storage.get('provider'))</script>-->
+        <div id="soundContainer"></div>
+        <script type="text/javascript">selectProviderSound()</script>
+        <!--<bgsound src="./sound/enter_number.wav" loop="1"></bgsound>-->
+</body>
+</html>

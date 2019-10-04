@@ -1,0 +1,148 @@
+﻿<html>
+<head>
+    <title>Lottery Account</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" content="180; URL=./index.html" />
+    <link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+    <link rel="stylesheet" href="./css/loto.css" type="text/css" />
+    <link rel="stylesheet" href="./css/loto_new.css" type="text/css" />
+
+    <script src="./advert.js" type="text/javascript"></script>
+    <script src="./advert_content.js" type="text/javascript"></script>
+    <script src="./mini_adv.js" type="text/javascript"></script>
+    <script src="prv_values.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/engine/pars_cookie.js"></script>
+    <script type="text/javascript" src="func/jquery.min.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/lottery_new.js"></script>
+</head>
+
+<body onload="init();">
+    <div id="content">
+        <div id="container1">
+            <div id="qiwi_logo">
+                <img alt="" src="./img/ui/qiwicel.gif" />
+            </div>
+            <div id="advert_1"></div>
+        </div>
+        <div id="back_warn" style="text-align: center; background-color: #FE9800;">
+            <p id="par_back_warn">
+                <span id="loto_news_line"></span>
+            </p>
+        </div>
+
+        <form id="ff" name="ff" method="post" action="validate_confirm.html">
+            <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+            <input id="prv_id" name="prv_id" type="hidden" value="" />
+            <div id="dial_panel">
+                <table id="dial_buttons" width="100%">
+                    <tbody>
+                        <tr>
+                            <td id="td1" onclick="buttonPress(id)">01</td>
+                            <td id="td2" onclick="buttonPress(id)">02</td>
+                            <td id="td3" onclick="buttonPress(id)">03</td>
+                            <td id="td4" onclick="buttonPress(id)">04</td>
+                            <td id="td5" onclick="buttonPress(id)">05</td>
+                            <td id="td6" onclick="buttonPress(id)">06</td>
+                            <td id="td7" onclick="buttonPress(id)">07</td>
+                            <td id="td8" onclick="buttonPress(id)">08</td>
+                            <td id="td9" onclick="buttonPress(id)">09</td>
+                            <td id="td10" onclick="buttonPress(id)">10</td>
+                        </tr>
+                        <tr>
+                            <td id="td11" onclick="buttonPress(id)">11</td>
+                            <td id="td12" onclick="buttonPress(id)">12</td>
+                            <td id="td13" onclick="buttonPress(id)">13</td>
+                            <td id="td14" onclick="buttonPress(id)">14</td>
+                            <td id="td15" onclick="buttonPress(id)">15</td> 
+                            <td id="td16" onclick="buttonPress(id)">16</td>
+                            <td id="td17" onclick="buttonPress(id)">17</td>
+                            <td id="td18" onclick="buttonPress(id)">18</td>
+                            <td id="td19" onclick="buttonPress(id)">19</td>
+                            <td id="td20" onclick="buttonPress(id)">20</td>
+                        </tr>
+                        <tr>
+                            <td id="td21" onclick="buttonPress(id)">21</td>
+                            <td id="td22" onclick="buttonPress(id)">22</td>
+                            <td id="td23" onclick="buttonPress(id)">23</td>
+                            <td id="td24" onclick="buttonPress(id)">24</td>
+                            <td id="td25" onclick="buttonPress(id)">25</td> 
+                            <td id="td26" onclick="buttonPress(id)">26</td>
+                            <td id="td27" onclick="buttonPress(id)">27</td>
+                            <td id="td28" onclick="buttonPress(id)">28</td>
+                            <td id="td29" onclick="buttonPress(id)">29</td>
+                            <td id="td30" onclick="buttonPress(id)">30</td>
+                        </tr>
+                        <tr>
+                            <td id="td31" onclick="buttonPress(id)">31</td>
+                            <td id="td32" onclick="buttonPress(id)">32</td>
+                            <td id="td33" onclick="buttonPress(id)">33</td>
+                            <td id="td34" onclick="buttonPress(id)">34</td>
+                            <td id="td35" onclick="buttonPress(id)">35</td> 
+                            <td id="td36" onclick="buttonPress(id)">36</td>
+                            <td id="td37" onclick="buttonPress(id)">37</td>
+                            <td id="td38" onclick="buttonPress(id)">38</td>
+                            <td id="td39" onclick="buttonPress(id)">39</td>
+                            <td id="td40" onclick="buttonPress(id)">40</td>
+                        </tr>
+                        <tr>
+                            <td id="td41" onclick="buttonPress(id)">41</td>
+                            <td id="td42" onclick="buttonPress(id)">42</td>
+                            <td id="td43" onclick="buttonPress(id)">43</td>
+                            <td id="td44" onclick="buttonPress(id)">44</td>
+                            <td id="td45" onclick="buttonPress(id)">45</td> 
+                            <td id="td46" onclick="buttonPress(id)">46</td>
+                            <td id="td47" onclick="buttonPress(id)">47</td>
+                            <td id="td48" onclick="buttonPress(id)">48</td>
+                            <td id="td49" onclick="buttonPress(id)">49</td>
+                            <td id="td50" onclick="buttonPress(id)">50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="clear:both"></div>
+            <hr color="#ffc304" style="margin-top:-5px;"/>
+            <div id="id_loto_success" class="text_loto_success"></div>
+            <div id="result_table">
+                <div id="t1" class="result_t"></div>
+                <div id="t2" class="result_t"></div>
+                <div id="t3" class="result_t"></div>
+                <div id="t4" class="result_t"></div>
+                <div id="t5" class="result_t"></div>
+                <div id="clrBtn" onclick="clBtnCl()"></div>
+            </div>
+        </form>
+        <div id="bottom_menu">
+            <div id="btn_left" class="bottom-button-left" onclick="onMenuBtnClick('BACKWARD');">                
+                <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+            </div>
+            <div id="btn_center" class="bottom-button-center" onclick="onMenuBtnClick('MENU');">                
+                <div id="bottom-button-center-container">
+                    <div id="button_menu"></div>
+                </div>
+            </div>
+            <div id="btn_right" class="bottom-button-right" onclick="onMenuBtnClick('FORWARD');">                
+                <div id="bottom-button-right-container">
+                    <div id="button_forward"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

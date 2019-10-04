@@ -1,0 +1,831 @@
+﻿<html>
+<head>
+    <title>The Traffic Police Keyboard</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <!--meta http-equiv="refresh" content="180; URL=./index.html" /-->
+    <link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+    <link rel="stylesheet" href="./css/keyboard.css" type="text/css" />
+
+    <!-- Scripts loaded
+        ================ -->
+    <script src="./advert.js" type="text/javascript"></script>
+    <script src="./advert_content.js" type="text/javascript"></script>
+    <script src="prv_values.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/engine/pars_cookie.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+    <script type="text/javascript" src="mini_adv.js"></script>
+
+    <script type="text/javascript">
+        var sLocale = "ru_ru";
+
+        function init() {
+            log.add('Cellular start');
+            startAdvert("Adv_Cellular");
+
+            new CInnerShadow($('btn_left').getElementsByTagName('img')[0], { color: 30 });
+            new CInnerShadow($('btn_center').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+            new CInnerShadow($('btn_right').getElementsByTagName('img')[0], { color: 30 });
+
+            processTranslate();
+        }
+
+        function processTranslate() {
+            sLocale = getcookie('locale');
+            getTextById("button_back", sLocale);
+            getTextById("button_forward", sLocale);
+            getTextById("button_menu", sLocale);
+        }
+
+        function onMenuBtnClick(btn) {
+            switch (btn) {
+                case "BACKWARD":
+                    log.add('Cellular :: Backward!');
+                    document.location.href = "./index.html";
+                    storage.put("pay_info", "null");
+                    break;
+                case "MENU":
+                    log.add('Cellular :: Menu!');
+                    document.location.href = "./index.html";
+                    storage.put("pay_info", "null");
+                    break;
+                case "FORWARD":
+                    log.add('Cellular :: Complete!');
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body onload="init();">
+    <div id="content">
+        <div id="container1">
+            <div id="qiwi_logo">
+                <img alt="" src="./img/ui/qiwicel.gif" />
+            </div>
+            <div id="advert_1"></div>
+        </div>
+        
+        <div class="head-keyboard"></div>
+
+        <div id="page_page_body" class="page_body">
+            <div style="WIDTH: 100%; HEIGHT: 100%" id="page_page_body_tab">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                    <tbody>
+                        <tr>
+                            <td style="WIDTH: 100%; HEIGHT: 100%" valign="center" align="middle">
+                                <table style="MARGIN-BOTTOM: 5px" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td height="100%" valign="center" width="310" align="left">
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="provider-element" valign="center" align="middle">
+                                                                <div id="providerButton" class="provider-button">
+                                                                    <div style="BACKGROUND-IMAGE: url(./img/ui_item/odnoklassniki.png)"></div>
+                                                                    <p style="MARGIN-TOP: 33px">Od&shy;nok&shy;lass&shy;ni&shy;ki.ru</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td id="page.tab__fields_place" valign="top" align="middle">
+                                                <div>
+                                                    <table border="0" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td id="page.tab__fld_account_place" valign="top"><span style="COLOR: #26b; FONT-SIZE: 22px; FONT-WEIGHT: normal">Введите реквизит</span><br>
+                                                                    <div style="WIDTH: 618px; OVERFLOW: hidden">
+                                                                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td id="page.tab_._fld_account_block_0_place">
+                                                                                        <table style="FILTER: alpha(opacity: 100)" id="page.tab_._fld_account.block0_table" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="WIDTH: 28px; BACKGROUND: url(./img/ui/field/l_a.gif); HEIGHT: 95px" align="middle"></td>
+                                                                                                    <td style="BACKGROUND: url(./img/ui/field/c_a.gif) repeat-x" class="field_chunk" align="middle">
+                                                                                                        <div style="WIDTH: 660px; OVERFLOW: hidden" id="page.tab_._fld_account.block0_chunk_0_place">
+                                                                                                            <input id="page.tab_._fld_account.block0.chunk_0_place" class="field_chunk w_100"></div>
+                                                                                                    </td>
+                                                                                                    <td style="WIDTH: 28px; BACKGROUND: url(./img/ui/field/r_a.gif); HEIGHT: 95px"></td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <span style="COLOR: #ff4800"></span></td>
+                                                                <td style="WIDTH: 10px"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                            <td valign="center">
+                                                <div style="WIDTH: 301px; HEIGHT: 121px" id="page.tab__bs">
+                                                    <div style="WIDTH: 301px; BACKGROUND: url(./img/ui/navigation/delete_empty.gif) no-repeat; HEIGHT: 100%">
+                                                        <div style="MARGIN-TOP: 45px; FONT: 26px 'Tahoma',Arial; COLOR: white; MARGIN-LEFT: 125px; TOP: 130px; LEFT: 0px" id="button_delete">УДАЛИТЬ</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="page.tab__kb_place" align="middle">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td height="100%" valign="center" width="100%" align="middle">
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <table style="HEIGHT: 91px" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_1" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_1_td_span">1</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_2" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_2_td_span">2</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_3" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_3_td_span">3</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_4" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_4_td_span">4</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_5" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_5_td_span">5</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_6" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_6_td_span">6</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_7" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_7_td_span">7</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_8" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_8_td_span">8</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_9" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_9_td_span">9</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_10" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_10_td_span">0</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_11" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_11_td_span">-</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_12" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_12_td_span">=</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_13" height="87" valign="center" width="87" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_13_td_span">|</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table style="HEIGHT: 91px" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_14" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_14_td_span">q</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_15" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_15_td_span">w</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_16" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_16_td_span">e</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_17" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_17_td_span">r</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_18" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_18_td_span">t</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_19" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_19_td_span">y</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_20" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_20_td_span">u</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_21" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_21_td_span">i</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_22" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_22_td_span">o</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_23" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_23_td_span">p</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_24" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_24_td_span">[</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_25" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_25_td_span">]</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_26" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_26_td_span">@</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table style="HEIGHT: 91px" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_27" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_27_td_span">a</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_28" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_28_td_span">s</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_29" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_29_td_span">d</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_30" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_30_td_span">f</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_31" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_31_td_span">g</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_32" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_32_td_span">h</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_33" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_33_td_span">j</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_34" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_34_td_span">k</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_35" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_35_td_span">l</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_36" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_36_td_span">;</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_37" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_37_td_span">*</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_tab" valign="top" align="right">
+                                                                                <div style="WIDTH: 184px; BACKGROUND: url(./img/ui/keyboard/al/2btnorange_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.btn_tab_td_span">TAB</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table style="HEIGHT: 91px" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_38" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_38_td_span">z</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_39" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_39_td_span">x</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_40" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_40_td_span">c</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_41" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_41_td_span">v</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_42" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_42_td_span">b</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_43" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_43_td_span">n</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_44" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_44_td_span">m</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_45" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_45_td_span">,</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_46" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_46_td_span">.</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_47" valign="center" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/blue_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.button_47_td_span">/</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" id="page.tab_.kb_btn_lang" align="middle">
+                                                                                <div style="WIDTH: 87px; BACKGROUND: url(./img/ui/keyboard/al/orange_btn_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 30px" id="page.tab_.kb.btn_lang_td_span">���</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" id="page.tab_.kb_btn_shift" valign="top" align="right">
+                                                                                <div style="WIDTH: 184px; BACKGROUND: url(./img/ui/keyboard/al/2btnorange_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.btn_shift_td_span">Shift</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table style="MARGIN-TOP: 4px" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 3px; PADDING-TOP: 2px" id="page.tab_.kb_btn_capslock" valign="top" align="left">
+                                                                                <div style="WIDTH: 282px; BACKGROUND: url(./img/ui/keyboard/al/3btnorange_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 35px" id="page.tab_.kb.btn_capslock_td_span">CapsLock</span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 3px; PADDING-TOP: 2px" id="page.tab_.kb_btn_space" valign="top" align="middle">
+                                                                                <div style="WIDTH: 678px; BACKGROUND: url(./img/ui/keyboard/al/space_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 117px">
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 50px" id="page.tab_.kb.btn_space_td_span"></span></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td valign="top" align="right">
+                                                                                <div style="WIDTH: 100%" id="page.tab_.kb_btn_clear">
+                                                                                    <div style="WIDTH: 282px; BACKGROUND: url(./img/ui/keyboard/al/3btnorange_unpress.gif) no-repeat center 50%; FLOAT: left; HEIGHT: 87px">
+                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td height="100%" valign="center" width="100%" align="middle"><span style="COLOR: #fff; FONT-SIZE: 35px" id="page.tab_.kb.btn_clear_td_span">������� ���</span></td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div style="CLEAR: both; PADDING-TOP: 10px" id="page.tab_.kb_pic_lang">
+                                                                                    <img src="file:///D:/osmp/exe/osmp_kg/site/img/ui/keyboard/al/latin.gif"></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+          
+        <div id="bottom_menu">
+            <div id="btn_left" class="bottom-button-left" onclick="onMenuBtnClick('BACKWARD');">
+                <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+            </div>
+            <div id="btn_center" class="bottom-button-center" onclick="onMenuBtnClick('MENU');">
+                <div id="bottom-button-center-container">
+                    <div id="button_menu"></div>
+                </div>
+            </div>
+            <div id="btn_right" class="bottom-button-right" onclick="onMenuBtnClick('FORWARD');">
+                <div id="bottom-button-right-container">
+                    <div id="button_forward"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

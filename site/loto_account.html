@@ -1,0 +1,137 @@
+﻿<html>
+<head>
+    <title>Loto_Account</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" content="180; URL=./index.html" />
+    <link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+    <link rel="stylesheet" href="./css/loto.css" type="text/css" />
+
+    <script src="./advert.js" type="text/javascript"></script>
+    <script src="./advert_content.js" type="text/javascript"></script>
+    <script src="prv_values.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+    <!--<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>-->
+    <script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/lottery.js"></script>
+</head>
+
+<body onload="init();">
+    <div id="content">
+        <div id="container1">
+            <div id="qiwi_logo">
+                <img alt="" src="./img/ui/qiwicel.gif" />
+            </div>
+            <div id="advert_1"></div>
+        </div>
+        <div id="back_warn" style="text-align: center; background-color: #FE9800;">
+            <p id="par_back_warn" style="color: #f5f5f5; overflow: hidden; text-transform: uppercase; text-align: center; font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-weight: bold; height: 40px; color: #2268c6; width: 1024px;">
+                <span style="font: bold 30px Arial, FreeSans, Helvetica, Tahoma, sans-serif; color: white;">Каждую среду по КТР в 9 вечера происходит розыгрыш!</span>
+            </p>
+        </div>
+
+        <form id="ff" name="ff" method="post" action="validate_confirm.html">
+
+            <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+            <input id="prv_id" name="prv_id" type="hidden" value="" />
+
+            <input type="hidden" name="disp1" id="disp1" value="" />
+            <input type="hidden" name="disp2" id="disp2" value="" />
+
+            <div id="dial_panel" style="float: left; margin: 10px 0px 0px 10px; padding: 0 0 0 5px; width: 1005px; height: 320px;">
+                <table id="dial_buttons" width="100%">
+                    <tbody>
+                        <tr>
+                            <td id="td1" onclick="buttonPress('td1')"></td>
+                            <td id="td2" onclick="buttonPress('td2')"></td>
+                            <td id="td3" onclick="buttonPress('td3')"></td>
+                            <td id="td4" onclick="buttonPress('td4')"></td>
+                            <td id="td5" onclick="buttonPress('td5')"></td>                            
+                            <td id="cl1" onclick="clBtnCl(1)"
+                                style="background-image: url('img/lottery/b_inactive_cl.png'); width: 220px; font-size: 31px;">ОЧИСТИТЬ</td>
+                        </tr>
+                        <tr>
+                            <td id="td6" onclick="buttonPress('td6')"></td>
+                            <td id="td7" onclick="buttonPress('td7')"></td>
+                            <td id="td8" onclick="buttonPress('td8')"></td>
+                            <td id="td9" onclick="buttonPress('td9')"></td>
+                            <td id="td10" onclick="buttonPress('td10')"></td>                            
+                            <td id="cl2" onclick="clBtnCl(2)"
+                                style="background-image: url('img/lottery/b_inactive_cl.png'); width: 220px; font-size: 31px;">ОЧИСТИТЬ</td>
+                        </tr>
+                        <tr>
+                            <td id="td11" onclick="buttonPress('td11')"></td>
+                            <td id="td12" onclick="buttonPress('td12')"></td>
+                            <td id="td13" onclick="buttonPress('td13')"></td>
+                            <td id="td14" onclick="buttonPress('td14')"></td>
+                            <td id="td15" onclick="buttonPress('td15')"></td>                            
+                            <td id="cl3" onclick="clBtnCl(3)"
+                                style="background-image: url('img/lottery/b_inactive_cl.png'); width: 220px; font-size: 31px;">ОЧИСТИТЬ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="information-panel">
+               <img alt="" src="./img/lottery/balls.gif" />
+            </div>
+        </form>
+        <div id="back_warn" style="text-align: center; background-color: #fe9800; height: 10px;">
+            <p id="par_back_warn" style="color: #f5f5f5; overflow: hidden; text-transform: uppercase; text-align: center; font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-weight: bold; margin-top: 0; height: 40px; color: #2268c6;">
+                <span style="font: bold 30px Arial, FreeSans, Helvetica, Tahoma, sans-serif; color: white;">КОЛИЧЕСТВО РАЗЫГРЫВАЕМЫХ НЕДЕЛЬ</span>
+            </p>
+        </div>
+        <div id="week_panel" style="float: left; margin: 10px 0px 0px 10px; padding: 0 0 0 5px; width: 1010px; height: 200px;">
+            <table id="week_buttons" width="100%">
+                <tbody>
+                    <tr>
+                        <td id="wd_1" onclick="buttonPressWeek(this, 1)">1</td>
+                        <td id="wd_2" onclick="buttonPressWeek(this, 2)">2</td>
+                        <td id="wd_3" onclick="buttonPressWeek(this, 3)">3</td>
+                        <td id="wd_4" onclick="buttonPressWeek(this, 4)">4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="price-panel">
+            <p style="margin-top: 40px; color:#000;">Общая сумма:</p>
+            <p id="totalAmount_text" style="font-size:50px;color:#000;">0 с</p>
+        </div>
+        <div id="bottom_menu">
+            <div id="btn_left" class="bottom-button-left" onclick="onMenuBtnClick('BACKWARD');">
+                <!--<img alt="" src="./img/ui/navigation/back_empty.gif" onClick="onMenuBtnClick('BACKWARD');" />-->
+                <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+            </div>
+            <div id="btn_center" class="bottom-button-center" onclick="onMenuBtnClick('MENU');">
+                <!--<img alt="" src="./img/ui/navigation/menu.gif" onClick="onMenuBtnClick('MENU');" />-->
+                <div id="bottom-button-center-container">
+                    <div id="button_menu"></div>
+                </div>
+            </div>
+            <div id="btn_right" class="bottom-button-right" onclick="onMenuBtnClick('FORWARD');">
+                <!--<img alt="" src="./img/ui/navigation/forward.gif" onClick="onMenuBtnClick('FORWARD');" />-->
+                <div id="bottom-button-right-container">
+                    <div id="button_forward"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

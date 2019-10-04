@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Числовая клавиатура</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link href="./css/num_keyboard.css" rel="stylesheet" />
+
+	<script src="./func/jquery.min.js" type="text/javascript"></script>
+	<script src="./prv_values.js" type="text/javascript"></script>
+	<script src="./prv_validate.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+	<script src="./func/engine/pars_cookie.js" type="text/javascript"></script>
+
+    <script src="func/engine/myDom_init.js"></script>
+    <script src="func/engine/new_engine/unselect_all.js" type="text/javascript"></script>
+
+    <!--todo Вынести в стили все-->
+    <style>
+    	.gobvo.active { background: url('img/q2/90.jpg') !important }
+        .stil {
+            margin-top: 130px;
+        }
+        .stil2 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body onload="initPageKeyboard()">
+	<div class="wrapper">
+		<div class="header">
+			<div class="img_logo"></div>
+			<div class="right-top-alert" id="advert_1"></div>
+			<div class="clearfix"></div>
+			<div class="header-left">
+				<img class="left_img" src="img/ui/es/left_input_image.png" />
+				<input type="text" class="input_text" id="account_input" />
+				<img class="right_img" src="img/ui/es/right_input_images.png" />
+				<div class="clearfix"></div>    
+				<p class="cellular_title_text"></p>
+			</div>
+			<div id="delete_symbol" class="header-right" onclick="pressSymbol('kill', this.id)"></div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="content">
+			<div class="container-advert">
+				
+				<div class="container-logo">
+					<div class="prv_logo"></div>
+				</div>
+				<div class="container-prv_name">
+					<div class="prv_name_text"></div>
+				</div>
+				
+				<div class="container-alert-text">
+					<div class="alert-text"></div>
+				</div>
+
+				<div class="container-result-text">
+					<div class="result-text"></div>
+				</div>
+
+			</div>
+
+			<div class="keyboard">
+				<div class="numeral" id="key_1" onclick="pressSymbol('1', this.id)">1</div>
+				<div class="numeral" id="key_2" onclick="pressSymbol('2', this.id)">2</div>
+				<div class="numeral" id="key_3" onclick="pressSymbol('3', this.id)">3</div>
+				<div class="clearfix"></div>
+				<div class="numeral" id="key_4" onclick="pressSymbol('4', this.id)">4</div>
+				<div class="numeral" id="key_5" onclick="pressSymbol('5', this.id)">5</div>
+				<div class="numeral" id="key_6" onclick="pressSymbol('6', this.id)">6</div>
+				<div class="clearfix"></div>
+				<div class="numeral" id="key_7" onclick="pressSymbol('7', this.id)">7</div>
+				<div class="numeral" id="key_8" onclick="pressSymbol('8', this.id)">8</div>
+				<div class="numeral" id="key_9" onclick="pressSymbol('9', this.id)">9</div>
+				<div class="clearfix"></div>
+				<div class="numeral0" id="key_0" onclick="pressSymbol('0', this.id)"></div>
+			</div>
+
+		    <div class="clearfix"></div>
+
+			<div class="back" id="button_back" onclick="pressSymbol('back', this.id)"></div>
+			<div class="forward" id="button_forward" onclick="pressSymbol('forward', this.id)"></div>
+			
+		</div>
+	</div>
+</body>
+</html>

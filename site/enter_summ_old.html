@@ -1,0 +1,271 @@
+﻿<html>
+<head>
+	<title>global_index / no refresh</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+</head>
+
+<script src="./func/ui/objects.js"></script>
+<script src="./func/engine/pars_cookie.js"></script>
+<script src="./advert.js"></script>
+<script src="./advert_content.js"></script>
+
+<script>
+
+var bIsEnterSumm = true;
+
+var comissionInfoWin = 0;
+
+function backward() {
+	parent.location = "./validate_confirm.html";
+}
+
+function forward() {    
+    startAdvert('Enter_Summ');
+    if (bIsEnterSumm)
+        enter_summ();
+}
+
+function $(elem)
+{
+    return document.getElementById(elem);
+}
+
+function enter_summ(){        
+	document.cookie="Sum=" + ff.getAmount.value;
+	ff.submit();
+}
+
+function bdef(){
+	backward_yes.style.display='none';
+	backward_no.style.display='';
+	forward_yes.style.display='none';
+	forward_no.style.display='none';
+	pay.style.display='';
+	menu_yes.style.display='none';
+	menu_no.style.display='';
+	var curent_page = document.location.href;
+	document.cookie='last_page=' + curent_page;
+}
+
+function showComissionInfo(hide)
+{
+	var x = 10; //event.clientX - 200 +'px';
+	var y = 100; //event.clientY+'px';
+
+	var text = document.ff.comissionInfoText.value;
+	
+	
+	if (text != '')
+	{
+		var obj = document.getElementById('comissionInfoTextArea');
+		obj.innerHTML = text;	
+	}
+	
+	var obj = document.getElementById('comissionInfo');
+	obj.style.top = y;
+	obj.style.left = x;
+	if ((comissionInfoWin == 1) || (hide == 1))
+	{
+		obj.style.display = 'none';
+		comissionInfoWin = 0;
+	}
+	else
+	{
+		obj.style.display = '';
+		comissionInfoWin = 1;
+		setTimeout('showComissionInfo(1);',15000);
+	}
+}
+
+function showComissionInfo2(hide)
+{
+	var x = 10; //event.clientX - 200 +'px';
+	var y = 100; //event.clientY+'px';
+
+	var text = document.ff.comissionInfoText2.value;
+	
+	
+	if (text != '')
+	{
+		var obj = document.getElementById('comissionInfoTextArea2');
+		obj.innerHTML = text;	
+	}
+	
+	var obj = document.getElementById('comissionInfo2');
+	obj.style.top = y;
+	obj.style.left = x;
+	if ((comissionInfoWin == 1) || (hide == 1))
+	{
+		obj.style.display = 'none';
+		comissionInfoWin = 0;
+	}
+	else
+	{
+		obj.style.display = '';
+		comissionInfoWin = 1;
+		setTimeout('showComissionInfo2(1);',15000);
+	}
+}
+
+function dop_komission()
+{
+    if (ff.SecondPrvComm.value == 'true')
+        document.getElementById('dop_kom').style.display = 'block';
+    else
+        document.getElementById('dop_kom').style.display = 'none';
+}
+
+function set_prv2_type()
+{
+    if (ff.Prv2Type.value == '1')
+        document.getElementById('prv2_type').value = 'Перечисление сдачи';
+    else  if (ff.Prv2Type.value == '2')
+        document.getElementById('prv2_type').value = 'Второй провайдер';
+    else
+        document.getElementById('prv2_type').value = '';
+}
+
+</script>
+
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+<body onLoad="bdef();" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+<bgsound src="./sound/enter_summ.wav" loop="1">
+<div id="advert_1"></div>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+	<tr>
+	<td align="center" valign="top">
+		<br>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+		<td align="center" valign="top">
+			<table cellpadding="0" cellspacing="0" border="0" width="80%">
+			<tr>
+			<td width="11" background="./img/ui/title_left.gif"></td>
+			<td class="on_page_title" background="./img/ui/title_bg.gif"><img border="0" src="./img/ui/title_enter_summ.gif"></td>
+			<td width="11" background="./img/ui/title_right.gif"></td>
+			</tr>
+			</table>
+        </td>
+		</tr>
+		<tr>
+		<td align="center" valign="middle">
+			<form name="ff" action="ok.html" method="post">
+				<br>
+				<table bgcolor="#dedede" cellpadding="0" cellspacing="0" border="0" width="80%">
+					<tr>
+					<td><img border="0" src="./img/ui/summ_standart.gif"></td>
+					<td width="150"><input type="text" name="min_summ" class="inp" style="width:150px; text-align: right;" value=""></td>
+					<td><img border="0" src="./img/ui/summ_standart_rub.gif"></td>
+					</tr>
+				</table>
+				
+				<br>
+				<table bgcolor="#dedede" cellpadding="5" cellspacing="0" border="0" width="80%">
+					<tr>
+					<td><img border="0" src="./img/ui/summ_summ.gif"></td>
+					<td width="150" height="100"><input type="text" name="getAmount" style="width:370px; height:80; text-align: right;" class="last_inp" value="" onpropertychange="$('advert_1').style.display = 'none';"></td>
+					<td><img border="0" src="./img/ui/summ_rub.gif"></td>
+					</tr>
+				</table>
+
+				<br>
+				<table cellpadding="2" cellspacing="0" border="0" width="80%">
+					<tr><td align="left">
+					<input type="text" name="komisswarn" class="last_inp2" style="width:700px; text-align: left;" value="Комиссия ........................................................................................................................................................................................................"><input type="text" name="komiss" class="inp2" style="width:75px;" value=""><input type="text" name="komissprop" class="last_inp2" style="width:40px; text-align:right;" value="%">
+					</td>
+					<td rowspan=3 align="center">
+						<div id="comissionInfoButton" style="display:none;">
+							<a href=# onClick="showComissionInfo(); event.returnValue = false;"><img src="./img/ui/info_komiss.gif" border="0"></a>
+						</div>					
+					</td>
+					</tr>
+					<tr><td align="left">
+					<input type="text" id="komm_warn" name="komissprofile" class="last_inp2" style="width:790px; text-align: left;" value="">
+					</td></tr>
+					<tr><td align="left">
+					<input type="text" class="last_inp2" style="width:700px; text-align: left;" value="К зачислению на счет абонента ....................................................................."><input type="text" name="really_summ" class="inp2" style="width:75px;" value=""><input type="text" class="last_inp2" style="width:40px; text-align:right;" value="руб">
+					</td></tr>
+				</table>
+				<div id="dop_kom"  style="display: none; margin-top: 80px;">			
+				    <table bgcolor="#dedede" cellpadding="2" cellspacing="0" border="0" width="80%">
+				     <tr><td align="center">
+					    <input type="text" id="prv2_type" class="last_inp2" style="width:700px; text-align: center; color:blue" value="">
+					    </td>
+					   </tr>
+				    </table>
+				    <table cellpadding="2" cellspacing="0" border="0" width="80%">
+					    <tr><td align="left">
+					    <input type="text" name="komisswarn2" class="last_inp2" style="width:700px; text-align: left;" value="Комиссия ........................................................................................................................................................................................................"><input type="text" name="komiss2" class="inp2" style="width:75px;" value=""><input type="text" name="komissprop2" class="last_inp2" style="width:40px; text-align:right;" value="%">
+					    </td>
+					    <td rowspan=3 align="center">
+						    <div id="comissionInfoButton2" style="display:none;">
+							    <a href=# onClick="showComissionInfo2(); event.returnValue = false;"><img src="./img/ui/info_komiss.gif" border="0"></a>
+						    </div>					
+					    </td>
+					    </tr>
+					    <tr><td align="left">
+					    <input type="text" id="Text1" name="komissprofile2" class="last_inp2" style="width:790px; text-align: left;" value="">
+					    </td></tr>
+					    <tr><td align="left">
+					    <input type="text" class="last_inp2" style="width:700px; text-align: left;" value="К зачислению на счет абонента ....................................................................."><input type="text" name="really_summ2" class="inp2" style="width:75px;" value=""><input type="text" class="last_inp2" style="width:40px; text-align:right;" value="руб">
+					    </td></tr>
+				    </table>
+				</div>
+
+				<br>
+				<table bgcolor="#dedede" cellpadding="0" cellspacing="0" border="0" width="80%">
+					<tr><td colspan="3" align="center">
+					<img border="0" src="./img/ui/summ_anonce.gif">
+					<br><br>
+					</td></tr>
+					<tr>
+					<td width="21"  background="./img/ui/alert_big_left.gif"></td>
+					<td background="./img/ui/alert_big_bg.gif" align="center"><img border="0" src="./img/ui/alert_summ_no_money.gif"></td>
+					<td width="21" background="./img/ui/alert_big_right.gif"></td>
+					</tr>
+				</table>
+								<table bgcolor="#dedede" cellpadding="10" cellspacing="0" border="0" width="80%">
+										<tr><td colspan="2" align="center">
+					    <strong>Максимальная сумма платежа для данного провайдера: </strong>
+					    <input type="text" name="max_cash_summ" class="inp2" style="width:150px;" value="не ограничена"></td></tr>
+				</table>
+				<input type="hidden" name="comissionInfoText" value="" onpropertychange="document.getElementById('comissionInfoButton').style.display = 'inline';">
+			    <input type="hidden" name="comissionInfoText2" value="" onpropertychange="document.getElementById('comissionInfoButton2').style.display = 'inline';">
+			    <input type="hidden" name="Prv2Type" value="" onpropertychange="set_prv2_type();">
+			    <input type="hidden" name="SecondPrvComm" value="" onpropertychange="dop_komission();">
+			</form>
+		</td>
+		</tr>
+		<form name="alert">
+		<tr>
+		<td align="center" valign="middle">
+			<input name="alert1" type="text" class="inp" style="width:800; height:80;" value="">
+		</td>
+		</tr>
+		</form>
+		</table>
+	</td>
+	</tr>
+	<script>bottom_menu();</script>
+</table>
+
+<div id="comissionInfo" style="position: absolute; top:0; display: none; filter: alpha(opacity=90, style=0);">
+<table cellspacing=1 cellpadding=20 bgcolor=#000000 border=0>
+<tr><td valign=top bgcolor=#FFFFEE id="comissionInfoTextArea"><center><strong>Нет дополнительной информации</strong></center></td></tr>
+</table>
+</div>
+<div id="comissionInfo2" style="position: absolute; top:0; display: none; filter: alpha(opacity=90, style=0);">
+<table cellspacing=1 cellpadding=20 bgcolor=#000000 border=0>
+<tr><td valign=top bgcolor=#FFFFEE id="comissionInfoTextArea2"><center><strong>Нет дополнительной информации</strong></center></td></tr>
+</table>
+</div>
+
+</body>
+</html>
+
+
+
+

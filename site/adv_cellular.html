@@ -1,0 +1,833 @@
+﻿<html>
+
+<head>
+
+	<title>global_index / no refresh</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="120; URL=./index.html">
+
+</head>
+
+<script src="./phones.js"></script>
+
+<script src="./func/ui/objects.js"></script>
+
+<script src="./advert.js"></script>
+
+<script src="./advert_content.js"></script>
+
+<script src="./prv_values.js"></script>
+
+<script src="./func/engine/prv_image.js"></script>
+
+<script src="./func/engine/pars_cookie.js"></script>
+
+<script src="./func/engine/redirect.js"></script>
+
+<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/en_gb.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/cn_cn.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/ar_ir.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/bg_bg.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/ro_ro.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/es_pa.js" type="text/javascript"></script>
+	
+<script>
+
+
+var sLocale = getcookie('locale');
+
+function processTranslate(sLang)
+{
+	//var sLocale = getcookie('locale');
+	getTextProp("index_text_direction",sLocale );
+	//alert(sLocale);
+	getTextById("main_pkr",sLocale);
+	getTextById("main_cellular",sLocale);
+	getTextById("main_ecommerce",sLocale);
+	getTextById("main_internet",sLocale);
+	getTextById("main_tv",sLocale);
+	getTextById("main_zkh",sLocale);
+	getTextById("main_other",sLocale);
+	getTextById("title_phone_number",sLocale);
+	
+	getTextById("b_menu_center",sLocale);
+	getTextById("b_ra",sLocale);
+	getTextById("b_la",sLocale);
+
+}
+
+
+
+
+function test() {
+	
+	idPrv = '';
+	var namePrv = '';
+	var s = document.getElementById("code").value + document.getElementById("phone_wd").value;
+	if( loaded == 2 ) {
+		var i, foundPriority = 99, prv='',region='', r = pref[parseInt(s.substr(0,3), 10)];
+			if( r ) for( i = 0; i < r.length; i++ ) {
+				var s1 = (s+'0000000000').substr(0,10), s2 = (s+'9999999999').substr(0,10);
+					if( s1 >= r[i].from && s2 <= r[i].to && r[i].priority <= foundPriority ) {
+						foundPriority = r[i].priority;
+						prv = r[i].prv;
+						
+						if (regions[r[i].region])
+    						region = regions[ r[i].region ];
+    					else
+    					    region = 'Регион не определен';	
+					    
+					    idPrv = prv;
+						ff.prv_id.value = idPrv;
+					    
+					    if (p[prv])
+					    {
+					        if (r[i].prv == 2 && r[i].priority == 50)
+					            namePrv = 'Билайн Интернет';
+					        else    
+					            namePrv = p[prv];
+					    }    
+					    else    
+					        namePrv = 'Провайдер не определен';    
+						
+						ff.prv_name.value = namePrv;
+					}
+				}
+
+				document.getElementById("prv").innerHTML = ''+(prv==''?'-':namePrv);
+
+				document.getElementById("region").innerHTML = ''+(region==''?'-':region);
+
+			}
+		}
+
+function backward() 
+{
+
+	document.cookie = "prv_value=null";
+
+	parent.location = "./main.html"
+
+}
+
+function menu() 
+{
+
+	parent.location = "./main.html"
+
+}
+
+
+function forward() 
+{
+	if(x.length > 9)
+	{
+		if(idPrv == '')
+		{	
+			var ph = '8('+ff.code.value+')'+ff.phone.value;
+			var ph_acc = ff.code.value + ff.phone_wd.value;
+			document.cookie="Phone_Number="+ph;
+			document.cookie="bevalValue=" + ph_acc;
+			document.cookie="prv_folder=cellular";
+			ff.action="./pages.html";
+			ff.submit();
+		}
+		else
+		{
+			var ph = '8('+ff.code.value+')'+ff.phone.value;
+			redirect(ff.prv_id.value,ff.getAccountNumber.value,ph,'');
+		}
+	}
+}
+
+function bdef(){
+
+	backward_yes.style.display='';
+
+	backward_no.style.display='none';
+
+	forward_yes.style.display='none';
+
+	forward_no.style.display='';
+
+	menu_yes.style.display='';
+
+	menu_no.style.display='none';
+
+	var curent_page = document.location.href;
+
+	document.cookie='last_page=' + curent_page;
+        
+
+}
+
+window.onload = start;
+
+var x = '';
+
+var idPrv = '';
+
+var pause = 2;
+
+var prvSet = '';
+
+var warnSet = '';
+
+var type_provider = '';
+
+function start() {
+
+	press('c');
+
+	Set_C();
+
+	if (document.all)
+
+	setInterval("doBlink()",500);
+}
+
+function doBlink() {
+
+	var blink = document.all.tags("BLINK")
+
+	var blinklen = blink.length;
+
+	for (var i=0; i<blinklen; i++)
+
+	{
+
+		if(idPrv == '')
+
+		{
+
+			if(blink[i].style.visibility == "" & pause > 0 )
+
+			{
+
+		 	    pause--;
+
+			}
+
+			else
+
+			{
+
+				blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "";
+
+				pause =2;
+
+			}
+
+		}
+
+		else
+
+		{
+
+			blink[i].style.visibility = "";
+
+		}
+
+	}
+
+}
+
+function Set_C() {
+
+	var tmp = document.cookie;
+
+   	var tmp2 = tmp.split("; ");
+
+        var tmp2 = tmp.split("; ");
+
+	for (var i = 0; i < tmp2.length; i++) {
+
+		var j = tmp2[i].split("=");
+
+		if(j[0]=="prv_id"){type_provider=j[1];}
+	}
+
+	if(prvImg[type_provider]){document.images["prv_img"].src = prvImg[type_provider];}
+	
+	document.cookie="Phone_Number=''";
+
+	document.cookie="Sum=''";
+
+	return true;
+
+}
+
+var isFieldFull = false;
+
+function press(digit) {
+	var locale = getcookie('locale');
+	if (digit == 'c') 
+	{
+	    document.getElementById('txt').innerHTML = document.getElementById('txt_header').innerHTML;
+	    isFieldFull = false;
+	    x='';
+	    document.getElementById("advert_2").innerHTML = "";
+	    document.getElementById("advert_3").innerHTML = "";
+	    document.getElementById("bird").innerHTML = "";
+	}
+
+	else if (digit == 'bs') 
+	{
+	    document.getElementById('txt').innerHTML = document.getElementById('txt_header').innerHTML;
+	    isFieldFull = false;
+	    x = x.substring(0,x.length-1);
+	    if (x.length == 0)
+	    {
+    	    document.getElementById("advert_2").innerHTML = "";
+    	    document.getElementById("advert_3").innerHTML = "";
+    	    document.getElementById("bird").innerHTML = "";
+	    }
+	}
+
+	else {
+
+		if(x.length == 1) {
+
+		    x = x + digit;
+
+		    if(x.charAt(0) == '7') x = x.slice(1);
+
+		    else if(x.charAt(0) == '8') {		        
+
+			if(digit == '9'){x = x.slice(1);}		       
+
+		    }
+
+		}
+
+		else if(x.length < 10) {x = x + digit; }
+	}
+	
+	ff.code.value = '';
+
+	ff.phone.value = '';
+
+	ff.phone_wd.value = '';
+
+	ocode = '';
+
+	ophone = '';
+
+	phone_wd = '';
+	
+	if (x.length < 7) {
+		ocode = x.substring(0,3);
+		ophone = x.substring(3,6);
+	}
+
+	if ((x.length > 6) & (x.length < 9)) {
+		ocode = x.substring(0,3);
+		ophone += x.substring(3,6) + '-' + x.substring(6,8);
+		phone_wd = x.substring(3,10);
+	}
+
+	if (x.length > 8) {
+		ocode = x.substring(0,3);
+		ophone += x.substring(3,6) + '-' + x.substring(6,8) + '-' + x.substring(8,10);
+		phone_wd = x.substring(3,10);
+	}
+	
+	ff.code.value = ocode;
+	ff.phone.value = ophone;
+	ff.getAccountNumber.value = x;
+	hid.getAccountNumber.value = '';
+	hid.getAccountNumber.value = ff.getAccountNumber.value;
+	ff.phone_wd.value = phone_wd;
+
+
+	if (x.length < 4) {
+		document.code_i.src='./img/ui/arrow_on.gif';
+		document.phone_i.src='./img/ui/arrow_off.gif';
+	}
+
+	else {
+		document.code_i.src='./img/ui/arrow_off.gif';
+		document.phone_i.src='./img/ui/arrow_on.gif';
+	}
+
+	if (x.length > 9) {
+		document.code_i.src='./img/ui/arrow_off.gif';
+		document.phone_i.src='./img/ui/arrow_off.gif';
+	}
+	if (x.length > 9) {
+        if (isFieldFull)
+		    return;
+		isFieldFull = true;
+		
+		var advert3 = document.getElementById("advert_3");
+		prvSet = 1;
+		test(); 
+
+		if(idPrv != ''){
+			forward_yes.style.display='';
+			forward_no.style.display='none';
+			var prv_value = idPrv;
+			var prv_img = '';
+			try
+			{
+			    prv_img = value[prv_value]["prv_image"];
+			}
+			catch(e){}
+			if(prv_img){
+				document.images["prv_img"].src = value[prv_value]["prv_image"];
+				ff.prv_id.value = value[prv_value]["prv_id"];
+				ff.prv_name.value = value[prv_value]["prv_name"];
+				document.cookie = "prv_value=" + value[prv_value]["prv_id"];
+			}
+			else {
+				document.images["prv_img"].src = "./img/ui/null.gif";
+			}
+			//alert(sLocale);
+	    	document.getElementById("inf").innerHTML =  getText("trns_cellular_input_num_info",locale);//'Информация о введенном номере:';
+    		document.getElementById("gen").innerHTML = '';
+
+			if (advert3.style.display == 'none')
+			{
+    			document.getElementById('txt').innerHTML += show_comment.innerHTML;
+			}
+			else
+			{
+			    document.getElementById('txt').innerHTML = show_comment.innerHTML;
+			}
+		    
+		    if (prv_value == '51') 
+		    {
+		    	document.getElementById('txt').innerHTML += document.getElementById('show_advert').innerHTML;
+			   	document.getElementById("include").innerHTML = 'Возможна оплата проводной телефонии Utel Пермского края и юга Тюменской области.';
+			}
+			
+		}
+		else {
+			forward_yes.style.display='';
+			forward_no.style.display='none';			
+			
+	   		document.getElementById("inf").innerHTML = getText("trns_cellular_input_num_info",locale);//'Информация о введенном номере:';
+   	    	document.getElementById("prv").innerHTML = getText("trns_cellular_undefine_num",locale);//'Номер не определен!';
+    		document.getElementById("region").innerHTML = getText("trns_cellular_check_num_errors",locale);//'Проверьте, не ошиблись ли Вы при вводе номера';
+    		document.getElementById("gen").innerHTML = getText("trns_cellular_if_right_press_next",locale);//'Если номер набран правильно, нажмите "Вперед"';
+
+			if (advert3.style.display == 'none')
+			{
+    			document.getElementById('txt').innerHTML += show_comment.innerHTML;
+			}
+			else
+			{
+			    document.getElementById('txt').innerHTML = show_comment.innerHTML;
+			}
+			
+			document.images["prv_img"].src = "./img/ui/null.gif";
+			document.cookie = "prv_value=" + "";
+		}
+    	
+    	document.getElementById('advert_1').style.display = 'none';
+	    document.getElementById('advert_2').style.display = 'none';
+	    document.getElementById('advert_3').style.display = 'none';
+
+	    startAdvert('Adv_Cellular');
+	    getBird();
+	}
+	else
+	{
+		if(prvSet != ''){
+			forward_yes.style.display='none';
+			forward_no.style.display='';
+			document.getElementById("inf").innerHTML = ' ';
+			document.getElementById("prv").innerHTML = ' '; 
+			document.getElementById("region").innerHTML = ' ';
+        		document.getElementById("gen").innerHTML = ' ';
+			prv_id = '';
+			prvSet = '';
+			document.images["prv_img"].src = "./img/ui/null.gif"
+		}
+		else {
+			if(warnSet){warnSet = ''; document.getElementById("prv").innerHTML = '';}
+		}
+	}
+}
+
+function getBird()
+{
+    var OK_FILE = "./img/swf/kiwi_ok.swf";
+    var NO_FILE = "./img/swf/kiwi_no.swf";
+    
+    var bird = document.getElementById("bird");
+    
+    if (document.getElementById("prv").innerHTML != 'Номер не определен!')
+        bird.innerHTML = '<embed width="100%" height="100%" wmode="transparent" src="' + OK_FILE + '"></embed>';
+    else
+        bird.innerHTML = '<embed width="100%" height="100%" wmode="transparent" src="' + NO_FILE + '"></embed>';
+        
+    bird.style.display = "block";    
+}
+
+function init()
+{
+	bdef();
+	prv_image(); 
+	document.getElementById('txt').innerHTML = document.getElementById('txt_header').innerHTML;
+	beelineModify();
+	startAdvert('Adv_Cellular');
+    cookie.setCookie("prv_folder", "cellular");
+	processTranslate("");
+}
+
+function beelineModify()
+{
+    if (cookie.getCookie("prv_value") == 2)
+    {
+        $("footer").innerHTML = "Внимание! Номер телефона или лицевого счета<br>вводится без<8>, в формате: (ХХХ) ХХХ-ХХ-ХХ";
+        $("title_phone_number").style.backgroundImage = "url('./img/ui/title_phone_account_number.gif')";    
+    }
+    else
+    {
+        $("footer").innerHTML = "Внимание! Номер телефона вводится без<8>,<br>в формате: (ХХХ) ХХХ-ХХ-ХХ";
+        //$("title_phone_number").src = "./img/ui/title_phone_number.gif";    
+    }
+}
+
+function $(el)
+{
+    return document.getElementById(el);
+}
+
+</script>
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+<body onload="init();" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+
+<div id="index_text_direction" style="unicode-bidi: normal" >
+
+<div id="advert_2", style="position:absolute; width:540px; height:80px; display:none; top:210; left:330;"></div>
+
+<div id="bird", style="position:absolute; width:400; height:318; display:none; top:310; left:530;"></div>
+
+<span id="ph" style="display:none"></span>
+
+<bgsound src="./sound/enter_number.wav" loop="1">
+
+<center>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+
+<tr>
+
+<td id="advert_td_1" valign="top"><div id="advert_1" style="display:none; width:100%; height: 200px;"></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" valign="top">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 10 20 0 20">
+
+<tr>
+
+	<td align="right" valign="top">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+                <form name="ff" action="" method="post">
+
+                <input type="hidden" name="prv_id">
+
+                <input type="hidden" name="prv_name">
+
+                <input type="hidden" name="EmbedParams" value="">
+                
+                <input type="hidden" name="getAccountNumber">
+
+                <input type="hidden" name="komissiya" value="1">
+
+                <input type="hidden" id="phone_wd" name="phone_wd">
+
+                <div id="hiddens"></div>
+
+                <tr>
+
+                <td>
+
+			<table cellpadding="10" cellspacing="0" border="0">
+
+			<tr>
+
+			<td bgcolor="#dedede">
+
+				<table cellpadding="0" cellspacing="0" border="0" height="51" style="direction:ltr">
+
+				<tr>
+
+				<td width="11" background="./img/ui/title_left.gif"></td>
+
+				<td background="./img/ui/title_bg.gif" align="center" valign="middle">
+		
+					<div id='title_phone_number' style="position:relative;"/></div></td>
+
+				<td width="11" background="./img/ui/title_right.gif"></td>
+
+				</tr>
+
+				</table>
+
+			</td>
+
+			</tr>
+
+			</table>
+
+		</td>
+
+		</tr>
+
+		<tr><td height="20"></td></tr>
+
+		<tr>
+
+		<td>
+
+			<table cellpadding="10" cellspacing="0" border="0">
+
+			<tr>
+
+			<td bgcolor="#dedede">
+
+				<table cellpadding="0" cellspacing="0" border="0" style="direction:ltr">
+
+				<tr>
+
+				<td colspan="3"></td>
+
+				<td width="10"></td>
+
+				<td></td>
+
+				<td colspan="2">префикс:</td>
+
+				<td width="10"></td>
+
+				<td></td>
+
+				<td colspan="2">номер:</td>
+
+				</tr>
+
+
+				<tr >
+
+				<td width="11" background="./img/ui/input_left.gif"></td>
+
+				<td background="./img/ui/input_bg.gif" height="68"><input type="text" class="inp" style="width:50px;" value="8"></td>
+
+				<td width="11" background="./img/ui/input_right.gif"></td>
+
+				<td width="10"></td>
+
+				<td width="11" background="./img/ui/input_left.gif"></td>
+
+				<td background="./img/ui/input_bg.gif" height="68"><input type="text" id="code" name="code" class="inp" style="width:100px;"></td>
+
+				<td width="11" background="./img/ui/input_right.gif"></td>
+
+				<td width="10"></td>
+
+				<td width="11" background="./img/ui/input_left.gif"></td>
+
+				<td background="./img/ui/input_bg.gif" height="68"><input type="text" id="phone" name="phone" class="inp" style="width:250px;"></td>
+
+				<td width="11" background="./img/ui/input_right.gif"></td>
+
+
+				</tr>
+
+				<tr>
+
+				<td colspan="3"></td>
+
+				<td width="10"></td>
+
+				<td align="center" colspan="3" height="23"><img name="code_i" border="0" src="./img/ui/arrow_on.gif"></td>
+
+				<td width="10"></td>
+
+				<td align="center" colspan="3" height="23"><img name="phone_i" border="0" src="./img/ui/arrow_off.gif"></td>
+
+				</tr>
+
+				</table>
+
+                <div id="txt" style="height:190; display:block"></div>
+				
+				<div id="txt_header" style="display:none">
+				
+				<table cellpadding="10" cellspacing="0" border="0">
+
+				<tr><td height="15"></td></tr>
+
+				<tr>
+
+				<td id="footer">Внимание! Номер телефона вводится без<8>,<br>в формате: (ХХХ) ХХХ-ХХ-ХХ<br>
+
+				</td>
+
+				</tr>
+
+				</table>
+				
+				</div>
+
+			</td>
+
+			</tr>
+
+			</table>
+
+		</td>
+
+		</tr>
+
+		<tr>
+
+		<td>
+
+		<div id="show_comment" style="display:none;">
+
+			<table cellpadding="10" cellspacing="0" border="0" width="505" bgcolor="#dedede">
+
+			<tr>
+
+			<td>
+
+				<blink>
+
+				<table cellpadding="10" cellspacing="0" border="0" width="100%">
+
+				<tr><td>
+
+					<span id="inf" style="color:#a61d00; text-decoration: underline;"></span><br/><br/>
+
+					<span id="prv"></span><br/>
+
+					<span id="region"></span><br/>
+
+					<span id="gen"></span>
+
+				</td></tr>
+
+				</table>
+
+				</blink>
+
+			</td>
+
+			</tr>
+
+			</table>
+
+		</div>
+
+		<div id="show_advert" style="display:none;">
+
+			<table cellpadding="10" cellspacing="0" border="0" width="505" bgcolor="#dedede">
+
+
+			<tr><td height="1" bgcolor="#c0c0c0"></td></tr>
+
+			<tr><td height="1" bgcolor="#f0f0f0"></td></tr>
+
+			<tr>
+
+			<td>
+
+				<table cellpadding="10" cellspacing="0" border="0" width="100%">
+
+				<tr><td>
+
+					<p id="include"></p>
+
+				</td></tr>
+
+				</table>
+
+			</td>
+
+			</tr>
+
+			</table>
+
+		</div>
+		
+		<div style="width:850; height:200; display:block;"><div id="advert_3" style="width:850px; height:200px; display:none;"></div></div>
+
+		</td>
+
+		</tr>
+
+		</form>
+
+		<form name="hid" method="post"><input type="hidden" name="getAccountNumber" value=""></form>
+
+		</table>
+
+	</td>
+
+	<td width="254" valign="top" align="right" style="direction:ltr">
+
+		<table cellpadding="0" cellspacing="7" border="0" bgcolor="#dedede">
+
+		<tr>
+
+		<td> 
+
+		<script>ui_item_left();</script><img id="prv_image" name="prv_img" src="./img/ui/null.gif" border="0"><script>ui_item_right();</script>
+
+		</td>
+
+		</tr>
+
+		<tr>
+
+		<td align="center">
+
+		<script>get_keypad();</script>
+
+		</td>
+		
+		</tr>
+		
+		</table>
+
+	</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+<script>bottom_menu();</script>
+
+</table>
+
+</center>
+
+</div>
+
+</body>
+
+</html>

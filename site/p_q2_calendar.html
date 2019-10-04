@@ -1,0 +1,518 @@
+﻿<html>
+<head>
+	<title>Validate_Confirm</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+
+        <script src="./advert.js" type="text/javascript"></script>
+        <script src="./advert_content.js" type="text/javascript"></script>
+        <script src="prv_values.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<!--<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>-->
+	<script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+
+        <style type="text/css">
+            #calendar_buttons tr {
+                margin-top: 5px;
+                padding-top: 5px;
+                height: 95px;
+            }
+
+            #calendar_buttons td {
+                background-image: url('img/ui/p_sportloto/button.gif');
+                background-repeat: no-repeat;
+                width: 92px;
+                height: 100px;
+                text-align: center;
+                font-size: 65px;
+                color: white;
+            }
+
+            #beginPeriod {
+                margin-top: 30px;
+            }
+
+            #endPeriod {
+                margin-top: 30px;
+            }
+
+            .prev {
+                background-image: url('img/q2/prev.gif');
+                background-repeat: no-repeat;
+                width: 102px;
+                height: 109px;
+                display: inline;
+            }
+
+            .next {
+                background-image: url('img/q2/next.gif');
+                background-repeat: no-repeat;
+                width: 102px;
+                height: 109px;
+                display: inline;
+            }
+
+            .curr {
+                background-image: url('img/q2/curr.gif');
+                background-repeat: no-repeat;
+                width: 229px;
+                height: 118px;
+                display: inline;
+                padding-top: 5px;
+            }
+
+            .right-handed {                
+                display: inline;
+
+            }
+
+            .period-label {
+                font-size: 48px;
+                color: #FE9800;
+            }
+
+            .info-label {
+                font-size: 32px;
+                font-weight: bold;
+                color: #FE9800;
+            }
+
+            .month-year {
+                text-align: center;
+                text-transform: uppercase;
+                padding-top: 40px;
+                font-size: 40px;
+                color: #FE9800;
+                font-weight: bold;
+            }
+
+            .date-part {
+                background-image: url('img/q2/date-part.gif');
+                background-repeat: no-repeat;
+                width: 113px;
+                height: 78px;
+                display: inline;
+                margin-left: 5px;
+                margin-right: 5px;
+                text-align: center;
+                padding-top: 15px;
+                font-size: 40px;
+                color: #FE9800;
+                font-weight: bold;
+            }
+
+            .perbtn {
+                color: white;
+                font-size: 26px;                
+            }
+        </style>
+
+	<script type="text/javascript">
+
+        var g_sPrvType = '',
+            logo;
+        var sLocale = "ru_ru";
+        var paymentAccount = "";
+        var prvId = "";
+        var account = '';
+        var accountCount = 0;
+
+        var DATE = new Date;
+        var MONTH = DATE.getMonth();
+        var YEAR = DATE.getYear()
+        var LASTDAY = DATE.getDate();     
+        var prvTag = null;
+
+        var months = new Array();
+        months[0] = {name: "январь"};
+        months[1] = {name: "февраль"};        
+        months[2] = {name: "март"};
+        months[3] = {name: "апрель"};
+        months[4] = {name: "май"};
+        months[5] = {name: "июнь"};
+        months[6] = {name: "июль"};
+        months[7] = {name: "август"};
+        months[8] = {name: "сентябрь"};
+        months[9] = {name: "октябрь"};
+        months[10] = {name: "ноябрь"};
+        months[11] = { name: "декабрь" };
+
+        
+        var currentPeriod = "end";
+        var symbolCost = 1;
+
+        function increaseCurrentPeriod(cp) {
+            return "end";
+        }
+        
+        function init() {            
+            //startAdvert("");
+
+            //new CInnerShadow($('btn_left').getElementsByTagName('img')[0], { color: 30 });
+            //new CInnerShadow($('btn_center').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+            //new CInnerShadow($('btn_right').getElementsByTagName('img')[0], { color: 30 });
+
+           processTranslate();
+
+           $("currentYear").innerHTML = YEAR;
+           $("currentMonth").innerHTML = months[MONTH].name;            
+		   
+		   var countSkip = 1;
+		   if (!$isNoU(storage.get('prv_tag')))
+		   {
+                prvTag = Object.deserialize(storage.get('prv_tag'));
+				if (prvTag.isTv) countSkip = 2;
+		   }
+            else {                
+                document.location = 'index.html';
+            }
+			
+            updatePeriodValues("begin", DATE.getDate() + countSkip);
+            updatePeriodValues("end", DATE.getDate() + countSkip);
+
+            drawCalendar(YEAR, MONTH);            
+
+            selectPeriod(currentPeriod);            
+                       
+        }
+
+        function updatePeriodValues(beginEnd, day) {
+            var strDay = day.toString();
+            if (strDay.length != "" && day > 0 && day < 32) {
+                if (strDay.length == 1)
+                    strDay = "0" + strDay;
+            }
+
+            if (beginEnd == "begin") {                
+                $("beginDay").innerHTML = strDay;
+                $("beginMonth").innerHTML = MONTH + 1;
+                $("beginYear").innerHTML = YEAR;
+            }
+            else if (beginEnd == "end") {
+                $("endDay").innerHTML = strDay;
+                $("endMonth").innerHTML = MONTH + 1;
+                $("endYear").innerHTML = YEAR;
+            }
+        }
+
+        function GetBeginPeriod() {
+            return $("beginYear").innerHTML + "." + $("beginMonth").innerHTML + "." + $("beginDay").innerHTML;
+        }
+
+        function GetEndPeriod() {
+            return $("endYear").innerHTML  + "." + $("endMonth").innerHTML + "." + $("endDay").innerHTML;
+        }
+
+        function getAdvertDays() {
+            var day = $("beginDay").innerHTML;
+            var month = $("beginMonth").innerHTML;
+            var year = $("beginYear").innerHTML;
+
+            var startDate = new Date(year, parseInt(month, 10) - 1, day);
+
+            day = $("endDay").innerHTML;
+            month = $("endMonth").innerHTML;
+            year = $("endYear").innerHTML;
+
+            var endDate = new Date(year, parseInt(month, 10) - 1, day);
+
+            var div = new Date(endDate - startDate);
+
+            return div.getDate();
+        }
+
+        function drawCalendar(year, month) {
+            var days = new Date(year, month + 1, 0).getDate();
+            var calendar = $('calendar_panel');
+            var innerText = '<table id="calendar_buttons" width="100%">';
+            for (var i = 1, k = 0; i <= days; i++) {
+                var btnDate = new Date(year, month, i - 1)                 
+                 
+                if (k == 0) innerText += '<tr>';
+                innerText += '<td id="td_'+i+'" onclick="buttonPress(this, '+i+')">'+i+'</td>';
+                ++k;
+                if (k == 6) {
+                    innerText += '</tr>';
+                    k = 0;
+                }
+            }
+            innerText += "</table>";
+            calendar.innerHTML = innerText;
+
+            for (var i = 1; i <= days; i++) {                
+                var btnDate = new Date(year, month, i - 1)
+                if (!inStartAndEndPeriod(btnDate)) {
+                    $('td_'+i).style.backgroundImage = "url(img/ui/p_sportloto/button_updwon_inactive.gif)";
+                    $('td_'+i).onclick = null;
+                }
+            }            
+        }
+
+        function changeYear(upDown) {
+            YEAR += upDown;
+            $("currentYear").innerHTML = YEAR;
+            updatePeriodValues(currentPeriod, LASTDAY);
+            drawCalendar(YEAR, MONTH);
+        }
+
+        function changeMonth(upDown) {            
+            if (upDown > 0) MONTH++;
+            else if (upDown < 0) MONTH--; 
+            if (MONTH > 11) MONTH = 0;
+            if (MONTH < 0) MONTH = 11; 
+            
+            $("currentMonth").innerHTML = months[MONTH].name;
+            updatePeriodValues(currentPeriod, LASTDAY);            
+            drawCalendar(YEAR, MONTH);
+        }
+
+        function selectPeriod(value) {            
+            if (value == "begin") {
+                $("spBegin").style.backgroundImage = "url('img/ui/2btnorange_pressed.gif')";
+                $("spEnd").style.backgroundImage = "url('img/ui/2btnorange_unpress.gif')";
+                currentPeriod = value;
+            }
+            else if (value == "end") {
+                $("spBegin").style.backgroundImage = "url('img/ui/2btnorange_unpress.gif')";
+                $("spEnd").style.backgroundImage = "url('img/ui/2btnorange_pressed.gif')";
+                currentPeriod = value;
+            }
+        }
+
+        function inStartAndEndPeriod(date) {
+            var startDate = new Date(DATE.getYear(), DATE.getMonth(), DATE.getDate())
+            var endDate = new Date(startDate.getYear(), startDate.getMonth(), startDate.getDate() + 60);
+            if (date > startDate && date <= endDate)                 
+                return true;
+            
+            return false;
+        }
+
+        function processTranslate(sLang) {
+            sLocale = getcookie('locale');
+            getTextById("button_back", sLocale);
+            getTextById("button_forward", sLocale);
+            getTextById("button_menu", sLocale);
+            //getTextById("button_delete", sLocale);
+        }
+
+        function setPressedButton(button) {
+            button.style.backgroundImage = "url('img/ui/p_sportloto/button_pressed.gif')";
+        }
+
+        function setUnpressedButton(button) {
+            button.style.backgroundImage = "url('img/ui/p_sportloto/button.gif')";
+        }
+
+        function setUpDownButton(button) {
+            button.style.backgroundImage = "url('img/ui/p_sportloto/button_updwon.gif')";
+        }
+
+        function buttonPress(sender, ch) {
+            setUpDownButton(sender);
+            setTimeout(function() {
+                setUnpressedButton(sender);
+
+                updatePeriodValues(currentPeriod, ch);
+                //currentPeriod = increaseCurrentPeriod();
+                LASTDAY = ch;
+            }, 150);
+        }
+
+        function IsValidPeriods() {
+            var beginDate = new Date($("beginYear").innerHTML, parseInt($("beginMonth").innerHTML, 10) - 1, $("beginDay").innerHTML, 0, 0, 0, 0);
+            var endDate = new Date($("endYear").innerHTML, parseInt($("endMonth").innerHTML, 10) - 1, $("endDay").innerHTML, 0, 0, 0, 0);
+            return (beginDate <= endDate);
+        }
+
+        function onMenuBtnClick(sBtn) {
+            switch (sBtn) {
+                case "BACKWARD":
+                    document.location = 'pages.html';
+                    break;
+                case "MENU":
+                    document.location = 'index.html';
+                    break;
+                case "FORWARD":
+                    if (!IsValidPeriods()) return;
+
+                    $('getAccountNumber').value = account;
+                    $('prv_id').value = getcookie("prv_id");
+
+                    var oProvider = {};
+                    oProvider.prvId = getcookie("prv_id");
+                    oProvider.prvName = getcookie("prv_name");
+                    oProvider.prvLogo = getcookie("prv_image");
+                    oProvider.account = account;
+                    oProvider.minSum = '0';
+                    oProvider.maxSum = '0';
+                    oProvider.prvGroup = storage.get("prv_group");
+                    oProvider.isCellular = 'false';
+                    oProvider.extraAccount = $('disp1').value;
+                    
+                    storage.put("pay_info", oProvider.serialize());
+                    //storage.put("Phone_Number", $("accountText").value);
+                    storage.put("locale", sLocale, true);
+
+                    prvTag.period = getAdvertDays();
+                    storage.put("prv_tag", prvTag.serialize());
+
+                    storage.put("q2_begin_period", GetBeginPeriod());
+                    storage.put("q2_end_period", GetEndPeriod());
+
+                    ff.submit();
+                    break;
+                case "DELETE":                    
+                    deleteLastNum();
+                    break;
+            }
+
+        }
+
+	</script>
+</head>
+<body onLoad="init();">
+<div id="content">
+    <div id="container1">
+        <div id="qiwi_logo"><img alt="" src="./img/ui/qiwicel.gif" /></div>
+        <div id="advert_1">
+		
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+	                       <tr>
+	                           <td align="center" valign="middle" class="on_page_title">
+	                               <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="100%" height="100%">
+                                       <param name="allowScriptAccess" value="sameDomain" />
+                                       <param name="movie" value="img\swf\banner.swf" />
+                                       <param name="quality" value="best" />
+                                       <param name="wmode" value="transparent" />
+                                   </object>
+	                           </td>
+	                       </tr>
+	                    </table>
+		
+		</div>
+    </div>
+    <div id="back_warn" style="text-align: center; background-color: #FE9800;">
+        <p id="par_back_warn" style="color: #f5f5f5; overflow: hidden; text-transform: uppercase; text-align: center; font-family:Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-weight:bold;  height:40px;color:#2268c6;">
+            <span style="font: bold 30px Arial, FreeSans, Helvetica, Tahoma, sans-serif; color: white;">Телефон для справок 898-580</span>
+        </p>
+    </div>
+
+    <form id="ff" name="ff" method="post" action="p_q2_keyboard.html">
+
+        <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+        <input id="prv_id" name="prv_id" type="hidden" value="" />
+
+        <input type="hidden" name="disp1" id="disp1" value="" />
+        <input type="hidden" name="disp2" id="disp2" value="" />
+
+        <div id="calendar_panel" style="float:left; margin: 5px 0px 0px 5px; padding: 0 0 0 5px; width: 605px; height: 600px;"></div>
+        <div id="info_panel" style="margin: 5px 0px 0px 10px; padding: 0; width: 655px;  height: 600px;">
+            <div id="yearInfo">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <span class="period-label">Год</span>
+                        </td>
+                        <td align="right">
+                            <div id="prevYear" class="prev" onclick="changeYear(-1)"></div>
+                            <div id="currentYear" class="curr month-year"></div>
+                            <div id="nextYear" class="next" onclick="changeYear(1)"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="monthInfo">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <span class="period-label">Месяц</span>
+                        </td>
+                        <td align="right">
+                            <div id="prevMonth" class="prev" onclick="changeMonth(-1)"></div>
+                            <div id="currentMonth" class="curr month-year"></div>
+                            <div id="nextMonth" class="next" onclick="changeMonth(1)"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="beginPeriod">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <span class="info-label">Начало периода</span>
+                        </td>
+                        <td align="right">
+                            <div id="beginDay" class="date-part"></div>
+                            <div id="beginMonth" class="date-part"></div>
+                            <div id="beginYear" class="date-part"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="endPeriod">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <span class="info-label">Конец периода</span>
+                        </td>
+                        <td align="right">
+                            <div id="endDay" class="date-part"></div>
+                            <div id="endMonth" class="date-part"></div>
+                            <div id="endYear" class="date-part"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table style="margin-top: 15px;" cellpadding="0" cellspacing="0" border="0" width="510" height="124">
+                <tr>
+                    <td id="spBegin" width="250" height="117" onClick="selectPeriod('begin');" align="center" valign="middle" style="background-image:url(./img/ui/2btnorange_pressed.gif); background-repeat: no-repeat;">
+                        <span class="perbtn">Выбрать начало периода</span>
+                    </td>
+                    <td id="spEnd" width="250" height="117" onClick="selectPeriod('end');" align="center" valign="middle" style="background-image:url(./img/ui/2btnorange_unpress.gif); background-repeat: no-repeat;">
+                        <span class="perbtn">Выбрать конец периода</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <div id="bottom_menu">
+        <div id="btn_left" class="bottom-button-left" onClick="onMenuBtnClick('BACKWARD');">
+                <!--<img alt="" src="./img/ui/navigation/back_empty.gif" onClick="onMenuBtnClick('BACKWARD');" />-->
+                <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+        </div>
+        <div id="btn_center" class="bottom-button-center" onClick="onMenuBtnClick('MENU');">
+            <!--<img alt="" src="./img/ui/navigation/menu.gif" onClick="onMenuBtnClick('MENU');" />-->
+            <div id="bottom-button-center-container">
+                <div id="button_menu"></div>
+            </div>
+        </div>
+        <div id="btn_right" class="bottom-button-right" onClick="onMenuBtnClick('FORWARD');">
+            <!--<img alt="" src="./img/ui/navigation/forward.gif" onClick="onMenuBtnClick('FORWARD');" />-->
+            <div id="bottom-button-right-container">
+                <div id="button_forward"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

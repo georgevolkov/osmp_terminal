@@ -1,0 +1,275 @@
+﻿<html>
+
+<head>
+
+	<title>provider / 180</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="180; URL=./index.html">
+
+</head>
+
+<script src="./func/ui/objects.js"></script>
+
+<script src="./advert.js"></script>
+
+<script src="./advert_content.js"></script>
+
+<script src="./prv_values.js"></script>
+
+<script src="./func/engine/pars_cookie.js"></script>
+
+<script src="./func/engine/prv_image.js"></script>
+
+
+
+<script>
+
+function backward() {
+	document.cookie = "prv_value=null";
+	//var get_back = getcookie('last_folder');
+        parent.location = "./pages.html";
+}
+
+
+function forward() {
+	document.cookie = "Phone_Number=" + ff.getAccountNumber.value;
+	ff.submit();
+}
+
+
+function menu() {
+	parent.location = "./main.html";
+}
+
+function bdef(){
+	backward_yes.style.display='';
+	backward_no.style.display='none';
+	forward_yes.style.display='none';
+	forward_no.style.display='';
+	menu_yes.style.display='';
+	menu_no.style.display='none';
+	var curent_page = document.location.href;
+	document.cookie='last_page=' + curent_page;       
+}
+
+var x = '';
+
+function press(digit) {
+
+	if (digit == 'c') {x='';}
+
+	else if (digit == 'bs') {x = x.substring(0,x.length-1)}
+
+	else {
+
+		if (x.length < 15) {x = x + digit;}
+
+	}
+	
+	ff.code.value = '';
+
+	ff.getAccountNumber.value = '';
+
+
+	ff.code.value = x.substring(0,15);
+
+	ff.getAccountNumber.value = x;
+
+	
+	if (x.length < 15) {
+
+	document.code.src='./img/ui/arrow_on.gif';
+
+	}
+
+	else {
+
+	document.code.src='./img/ui/arrow_off.gif';
+
+	}
+
+	if (x.length > 14) {
+
+	document.code.src='./img/ui/arrow_off.gif';
+
+	}
+	
+	if (x.length > 3) {
+
+	forward_yes.style.display='';
+
+	forward_no.style.display='none';
+
+	}
+
+	else {
+
+	forward_yes.style.display='none';
+
+	forward_no.style.display='';
+
+	}
+}
+
+</script>
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+<body onload="bdef(); startAdvert('Provider'); prv_image();" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+
+<center>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+
+<tr>
+
+<td id="advert_td_1" valign="top"><div id="advert_1" style="display:none; width:100%; height: 200px;"></div></td>
+
+</tr>
+
+<tr>
+
+<td align="center" valign="top">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 10 50 0 50;">
+
+<tr>
+
+	<td align="right" valign="top">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+
+		<form name="ff" action="./validate_confirm.html" method="post">
+
+		<input type="hidden" name="getAccountNumber" value="">
+
+		<tr>
+
+		<td>
+
+			<table cellpadding="10" cellspacing="0" border="0">
+
+			<tr>
+
+			<td bgcolor="#dedede">
+
+				<table cellpadding="0" cellspacing="0" border="0">
+
+				<tr>
+
+				<td width="11" background="./img/ui/title_left.gif"></td>
+
+				<td background="./img/ui/title_bg.gif"><img border="0" src="./img/ui/title_megaline_account_number.gif"></td>
+
+				<td width="11" background="./img/ui/title_right.gif"></td>
+
+				</tr>
+
+				</table>
+
+			</td>
+
+			</tr>
+
+			</table>
+
+		</td>
+
+		</tr>
+
+		<tr><td height="20"></td></tr>
+
+		<tr>
+
+		<td>
+
+			<table cellpadding="10" cellspacing="0" border="0">
+
+			<tr>
+
+			<td bgcolor="#dedede">
+
+				<table cellpadding="0" cellspacing="0" border="0">
+
+				<tr>
+
+				<td width="11" background="./img/ui/input_left.gif"></td>
+
+				<td background="./img/ui/input_bg.gif" height="68"><input type="text" name="code" class="inp" style="width:350px;"></td>
+
+				<td width="11" background="./img/ui/input_right.gif"></td>
+
+				</tr>
+
+				<tr>
+
+				<td align="center" colspan="3" height="23"><img name="code" border="0" src="./img/ui/arrow_on.gif"></td>
+
+				</tr>
+
+				</table>
+
+			</td>
+
+			</tr>
+
+			</table>
+
+		</td>
+
+		</tr>
+
+		</form>
+
+		</table>
+
+	</td>
+
+	<td width="25%" valign="top" align="right">
+
+		<table cellpadding="0" cellspacing="10" border="0" bgcolor="#dedede" width="100%">
+
+		<tr>
+
+		<td> 
+
+		<script>ui_item_left();</script><img name="prv_image" src="./img/ui/null.gif" border="0"><script>ui_item_right();</script>
+
+		</td>
+
+		</tr>
+
+		<tr>
+
+		<td align="center">
+
+		<script>get_keypad();</script>
+
+		</td>
+		
+		</tr>
+		
+		</table>
+
+	</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+<script>bottom_menu();</script>
+
+</table>
+
+</body>
+
+</html>

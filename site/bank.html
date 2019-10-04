@@ -1,0 +1,422 @@
+<html>
+
+<head>
+
+	<title>provider / 180</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="30; URL=./index.html">
+
+</head>
+
+<script src="./func/ui/objects.js"></script>
+<script src="./prv_values.js"></script>
+<script src="./func/engine/pars_cookie.js"></script>
+
+
+<script>
+
+var footer1 = 'Будьте внимательны: при пополнении баланса в программе "Личный Кабинет" на сумму менее 300 рублей на некоторых автоматах возможно применение дополнительной комиссии в размере 3%, но не менее 3 рублей. Возможно погашать кредиты только в рублях и пополнять только рублевые счета. Максимальная сумма одного платежа не должна превышать 30 000 рублей.';
+var footer2 = 'Будьте внимательны: при пополнении баланса в программе «Личный Кабинет» на сумму менее 300 рублей на некоторых автоматах возможно применение дополнительной комиссии в размере 3%, но не менее 3 рублей. Операции возможны только на рублевые счета <i>резидентов</i> и только в рублях. Максимальная сумма одного платежа не должна превышать 29 000 рублей в сутки на один номер карты/счета/договора.';
+var footer3 = 'Будьте внимательны: при пополнении баланса в программе «Личный Кабинет» на сумму менее 300 рублей на некоторых автоматах возможно применение дополнительной комиссии в размере 3%, но не менее 3 рублей. Операции возможны только на рублевые счета <i>резидентов</i> и только в рублях. Максимальная сумма одного платежа 3 500 рублей. Максимальная сумма платежей на один номер карты/счета/договора в сутки не должна превышать 29 000 рублей.';
+
+var banks = new Array();
+banks.push({name: "1-й Процессинговый", id: 868, img: "./img/ui_item/bank1pb.gif", comission: "3", img_inactive: "./img/ui_item/bank1pb_inactive.gif", active: 1, term: "моментально", foot: footer2});
+banks.push({name: "Альфабанк", id: 464, img: "./img/ui_item/alfabank.gif", comission: "3", img_inactive: "", active: 1, term: "моментально", foot: footer1});
+banks.push({name: "Тинькофф", id: 466, img: "./img/ui_item/tinkoff.gif", comission: "0", img_inactive: "", active: 1, term: "3 рабочих дня", foot: footer1});
+banks.push({name: "Хандибанк", id: 581, img: "./img/ui_item/handybank.gif", comission: "3", img_inactive: "", active: 1, term: "моментально", foot: footer2});
+banks.push({name: "КРЕДИТ ЕВРОПА БАНК", id: 931, img: "./img/ui_item/kreditevropa.gif", comission: "3", img_inactive: "", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({ name: "Движение", id: 137, img: "./img/ui_item/dvizenie.gif", comission: "0,5", img_inactive: "", active: 1, term: "3 рабочих дня", foot: footer3 });
+banks.push({ name: "Алтайэнергобанк", id: 134, img: "./img/ui_item/altayenergo.gif", comission: "0,5", img_inactive: "", active: 1, term: "3 рабочих дня", foot: footer3 });
+banks.push({ name: "Отпбанк", id: 804, img: "./img/ui_item/otpbank.gif", comission: "3", img_inactive: "", active: 1, term: "3 рабочих дня", foot: footer2 });
+banks.push({ name: "Юниаструмбанк", id: 807, img: "./img/ui_item/uniastrbank.gif", comission: "3", img_inactive: "./img/ui_item/uniastrbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2 });
+//banks.push({name: "Сбербанк России", id: 1064, img: "./img/ui_item/sberbankrossii.gif", comission: "0,5", img_inactive: "./img/ui_item/sberbankrossii_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Русский стандарт", id: 815, img: "./img/ui_item/russianstandart.gif", comission: "3", img_inactive: "./img/ui_item/russianstandart_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "ВТБ24", id: 816, img: "./img/ui_item/vtb24.gif", comission: "3", img_inactive: "./img/ui_item/vtb24_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Ренессанс Кредит", id: 881, img: "./img/ui_item/renesanscredit.gif", comission: "3", img_inactive: "./img/ui_item/renesanscredit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Хоум Кредит", id: 313, img: "./img/ui_item/houmkredit.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Росбанк", id: 817, img: "./img/ui_item/rosbank.gif", comission: "3", img_inactive: "./img/ui_item/rosbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Банк Москвы", id: 871, img: "./img/ui_item/bankmoskvy.gif", comission: "3", img_inactive: "./img/ui_item/bankmoskvy_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Восточный", id: 820, img: "./img/ui_item/vostexpress.gif", comission: "3", img_inactive: "./img/ui_item/vostexpress_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "УРСА", id: 803, img: "./img/ui_item/ursabank.gif", comission: "3", img_inactive: "./img/ui_item/ursabank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Райфайзербанк", id: 872, img: "./img/ui_item/raiffbank.gif", comission: "3", img_inactive: "./img/ui_item/raiffbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Русфинанс банк", id: 818, img: "./img/ui_item/rusfinance.gif", comission: "3", img_inactive: "./img/ui_item/rusfinance_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Россельхоз банк", id: 810, img: "./img/ui_item/rosselhoz.gif", comission: "3", img_inactive: "./img/ui_item/rosselhoz_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Траст", id: 822, img: "./img/ui_item/trustbank.gif", comission: "3", img_inactive: "./img/ui_item/trustbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Транскредитбанк", id: 823, img: "./img/ui_item/transcredbank.gif", comission: "3", img_inactive: "./img/ui_item/transcredbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Уралсиб", id: 802, img: "./img/ui_item/uralsib.gif", comission: "3", img_inactive: "./img/ui_item/uralsib_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Смоленский Банк", id: 1131, img: "./img/ui_item/smolenskiy.gif", comission: "3", img_inactive: "./img/ui_item/smolenskiy_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Петрокоммерц", id: 831, img: "./img/ui_item/petrocommerc.gif", comission: "3", img_inactive: "./img/ui_item/petrocommerc_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Юникредит", id: 819, img: "./img/ui_item/unicerditbank.gif", comission: "3", img_inactive: "./img/ui_item/unicerditbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Балтийский банк", id: 825, img: "./img/ui_item/balt_bank.gif", comission: "3", img_inactive: "./img/ui_item/balt_bank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Газпром", id: 842, img: "./img/ui_item/gazprombank.gif", comission: "3", img_inactive: "./img/ui_item/gazprombank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "КБ ДельтаКредит", id: 314, img: "./img/ui_item/deltakredit.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Ханты-Мансийский банк", id: 328, img: "./img/ui_item/hantymansiysk.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "МБРР", id: 873, img: "./img/ui_item/mbrr.gif", comission: "3", img_inactive: "./img/ui_item/mbrr_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Северная казна", id: 826, img: "./img/ui_item/bseverkazn.gif", comission: "3", img_inactive: "./img/ui_item/bseverkazn_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Русьбанк", id: 832, img: "./img/ui_item/rusbank.gif", comission: "3", img_inactive: "./img/ui_item/rusbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Бинбанк", id: 827, img: "./img/ui_item/binbank.gif", comission: "3", img_inactive: "./img/ui_item/binbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Девон-Кредит", id: 1132, img: "./img/ui_item/devon_credit.gif", comission: "3", img_inactive: "./img/ui_item/devon_credit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "ЗАПСИБКОМБАНК", id: 874, img: "./img/ui_item/zapsikombank.gif", comission: "3", img_inactive: "./img/ui_item/zapsikombank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "АК БАРС", id: 315, img: "./img/ui_item/akbars.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "АТБ", id: 1133, img: "./img/ui_item/atb.gif", comission: "3", img_inactive: "./img/ui_item/atb_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "МОСКОВСКИЙ КРЕДИТНЫЙ БАНК", id: 1134, img: "./img/ui_item/moscb.gif", comission: "3", img_inactive: "./img/ui_item/moscb_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Региональный кредитный", id: 837, img: "./img/ui_item/regcredbank.gif", comission: "3", img_inactive: "./img/ui_item/regcredbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "БСЖВ", id: 845, img: "./img/ui_item/bsgv.gif", comission: "3", img_inactive: "./img/ui_item/bsgv_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Примсоцбанк", id: 1135, img: "./img/ui_item/primsocbank.gif", comission: "3", img_inactive: "./img/ui_item/primsocbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Москоммерцбанк", id: 316, img: "./img/ui_item/moskommerc.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Центр-инвест", id: 806, img: "./img/ui_item/bankcentrinvest.gif", comission: "3", img_inactive: "./img/ui_item/bankcentrinvest_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "СЕВЕРГАЗБАНК", id: 1136, img: "./img/ui_item/severgazbank.gif", comission: "3", img_inactive: "./img/ui_item/severgazbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Левобережный", id: 1137, img: "./img/ui_item/levoberezny.gif", comission: "3", img_inactive: "./img/ui_item/levoberezny_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Ижкомбанк", id: 1148, img: "./img/ui_item/izkombank.gif", comission: "3", img_inactive: "./img/ui_item/izkombank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "СОЦГОРБАНК", id: 1138, img: "./img/ui_item/socgorbank.gif", comission: "3", img_inactive: "./img/ui_item/socgorbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Агропромкредит", id: 814, img: "./img/ui_item/agropromkredit.gif", comission: "3", img_inactive: "./img/ui_item/agropromcred_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Санкт-Петербург", id: 317, img: "./img/ui_item/sanktpeterburg.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Русь-Банк-Урал", id: 1139, img: "./img/ui_item/rusbankural.gif", comission: "3", img_inactive: "./img/ui_item/rusbankural_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "СКБ-Банк", id: 320, img: "./img/ui_item/skbbank.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "ЧЕЛИНДБАНК", id: 1140, img: "./img/ui_item/chelindbank.gif", comission: "3", img_inactive: "./img/ui_item/chelindbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "МДМ", id: 824, img: "./img/ui_item/mdmbank.gif", comission: "3", img_inactive: "./img/ui_item/mdmbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "ГАЗБАНК", id: 300, img: "./img/ui_item/gazbank.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Союз", id: 836, img: "./img/ui_item/banksouz.gif", comission: "3", img_inactive: "./img/ui_item/banksouz_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "РБР", id: 809, img: "./img/ui_item/rusbankrazv.gif", comission: "3", img_inactive: "./img/ui_item/rusbankrazv.gif_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "СДМ", id: 833, img: "./img/ui_item/sdmbank.gif", comission: "3", img_inactive: "./img/ui_item/sdmbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "БыстроБанк", id: 1142, img: "./img/ui_item/bystrobank.gif", comission: "3", img_inactive: "./img/ui_item/bystrobank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Инвестиционный Городской Банк", id: 1143, img: "./img/ui_item/ingorbank.gif", comission: "3", img_inactive: "./img/ui_item/ingorbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "АМИ-БАНК", id: 844, img: "./img/ui_item/amibank.gif", comission: "3", img_inactive: "./img/ui_item/amibank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Русский Славянский Банк", id: 1144, img: "./img/ui_item/russlavbank.gif", comission: "3", img_inactive: "./img/ui_item/russlavbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Промсвязьбанк", id: 821, img: "./img/ui_item/promsvyazbank.gif", comission: "3", img_inactive: "./img/ui_item/promsvyazbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Авангард", id: 813, img: "./img/ui_item/bankavang.gif", comission: "3", img_inactive: "./img/ui_item/bankavang_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Ухтабанк", id: 1145, img: "./img/ui_item/uhtabank.gif", comission: "3", img_inactive: "./img/ui_item/uhtabank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Собинбанк", id: 828, img: "./img/ui_item/sobinbank.gif", comission: "3", img_inactive: "./img/ui_item/sobinbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Абсолют банк", id: 812, img: "./img/ui_item/absolutbank.gif", comission: "3", img_inactive: "./img/ui_item/absolutbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "НОМОС-БАНК", id: 876, img: "./img/ui_item/nomosbank.gif", comission: "3", img_inactive: "./img/ui_item/nomosbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "УБРиР", id: 326, img: "./img/ui_item/ubrir.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Возрождение", id: 808, img: "./img/ui_item/vozrozhdbank.gif", comission: "3", img_inactive: "./img/ui_item/vozrozhdbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Транскапиталбанк", id: 805, img: "./img/ui_item/transkapt.gif", comission: "3", img_inactive: "./img/ui_item/transkapt_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "БТА", id: 797, img: "./img/ui_item/btabank.gif", comission: "3", img_inactive: "./img/ui_item/btabank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Китфинанс", id: 829, img: "./img/ui_item/kitfinance.gif", comission: "3", img_inactive: "./img/ui_item/kitfinance_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Москомприватбанк", id: 830, img: "./img/ui_item/privatbank.gif", comission: "3", img_inactive: "./img/ui_item/privatbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Ситибанк", id: 834, img: "./img/ui_item/citibank.gif", comission: "3", img_inactive: "./img/ui_item/citibank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Транспортный", id: 835, img: "./img/ui_item/banktransportn.gif", comission: "3", img_inactive: "./img/ui_item/banktransportn_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Пробизнесбанк", id: 838, img: "./img/ui_item/probiznesbank.gif", comission: "3", img_inactive: "./img/ui_item/probiznesbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Мосстройэкономбанк", id: 1146, img: "./img/ui_item/mosstroyekonom.gif", comission: "3", img_inactive: "./img/ui_item/mosstroyekonom_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "КМБ-БАНК", id: 839, img: "./img/ui_item/kmbbank.gif", comission: "3", img_inactive: "./img/ui_item/kmbbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Банк Финсервис", id: 1147, img: "./img/ui_item/finservis.gif", comission: "3", img_inactive: "./img/ui_item/finservis_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Газэнергопромбанк", id: 1149, img: "./img/ui_item/gazenergo.gif", comission: "3", img_inactive: "./img/ui_item/gazenergo_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "СБ Банк", id: 840, img: "./img/ui_item/sbbank.gif", comission: "3", img_inactive: "./img/ui_item/sbbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "Джии мани банк", id: 841, img: "./img/ui_item/gemoneybank.gif", comission: "3", img_inactive: "./img/ui_item/gemoneybank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+banks.push({name: "СМП", id: 843, img: "./img/ui_item/smpbank.gif", comission: "3", img_inactive: "./img/ui_item/smpbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "ОРГРЭСБАНК", id: 1150, img: "./img/ui_item/orgresbank.gif", comission: "3", img_inactive: "./img/ui_item/orgresbank_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+banks.push({name: "Банк ЗЕНИТ", id: 811, img: "./img/ui_item/bankzenit.gif", comission: "3", img_inactive: "./img/ui_item/bankzenit_inactive.gif", active: 1, term: "3 рабочих дня", foot: footer2});
+
+//banks.push({name: "Ренесансбанк",img: "./img/ui_item/renesansbank.gif", comission: "3", img_inactive: "./img/ui_item/renesansbank_inactive.gif", active: 0, term: "3 рабочих дня", foot: footer1});
+//banks.push({name: "Метробанк",img: "./img/ui_item/metrobank.gif", comission: "3", img_inactive: "./img/ui_item/metrobank_inactive.gif", active: 0, term: "3 рабочих дня", foot: footer1});
+
+
+var current_id_num = 0;
+var bank_id;
+
+function pos()
+{
+    document.getElementById("EmbedParams").value = bank_id;
+    ff.submit();
+}
+
+function getBanks(id_num) 
+{
+    var result = '';
+    var page_banks = banks.slice(id_num, (id_num + 16));
+    
+    var COLUMNS_COUNT = 4;
+    var ROWS_COUNT = 4;
+    
+    var currentColumn = 0;
+    var currentRow = 0;
+    
+    result = '<table cellpadding="0" cellspacing="0" border="0" style="padding: 10px 10px 10px 10px;">';
+    for (var i = 0; i < page_banks.length; i++)
+    {
+        if (((currentRow == 0) && (currentColumn == 0)) 
+             || ((currentRow == 1) && (currentColumn == 0)) 
+             || ((currentRow == 2) && (currentColumn == 0)) 
+             || ((currentRow == 3) && (currentColumn == 0)))
+            result += '<tr>';
+
+
+//          result += '<td><table cellpadding="0" cellspacing="0" border="0" height="140"' + ((!page_banks[i].active) ? '' : ' onclick="bank_id = '+ page_banks[i].id +'; getPageX(\'4\',\'Стоимость услуг -  ' + page_banks[i].comission + '% от суммы платежа.<br>Срок зачисления платежа - ' + page_banks[i].term + '.<br>Для пользования услугой зайдите в «Личный Кабинет».<br>\', \'' + escape(page_banks[i].foot) + '\');"') + '>';
+//          result += '<td width="25" style="background: url(\'./img/ui/ui_item_left.gif\') no-repeat;"></td><td width="250" style="background: url(\'./img/ui/ui_item_bg.gif\');" align="center" valign="middle"><img src="' + ((!page_banks[i].active) ? page_banks[i].img_inactive : page_banks[i].img) + '" /></td><td width="25" style="background: url(\'./img/ui/ui_item_right.gif\') no-repeat;"></td></tr>';
+//          result += '</table></div>';
+        
+        result += '<td><table cellpadding="0" cellspacing="0" border="0" height="140"' + ((!page_banks[i].active) ? '' : ' onclick="bank_id = '+ page_banks[i].id +'; getPageX(\'4\',\'Стоимость услуг -  ' + page_banks[i].comission + '% от суммы платежа' + ((page_banks[i].id == 1237 || page_banks[i].id == 1238) ? ', но не менее 60 рублей.' : '.') + '<br>Срок зачисления платежа - ' + page_banks[i].term + '.<br>Для пользования услугой зайдите в «Личный Кабинет».<br>\', \'' + escape(page_banks[i].foot) + '\');"') + '>';
+        result += '<td width="25" style="background: url(\'./img/ui/ui_item_left.gif\') no-repeat;"></td><td width="250" style="background: url(\'./img/ui/ui_item_bg.gif\');" align="center" valign="middle"><img src="' + ((!page_banks[i].active) ? page_banks[i].img_inactive : page_banks[i].img) + '" /></td><td width="25" style="background: url(\'./img/ui/ui_item_right.gif\') no-repeat;"></td></tr>';
+        result += '</table></div>';
+
+             
+        currentColumn++;
+
+        if (currentColumn == COLUMNS_COUNT)
+        {
+            currentRow++;
+            currentColumn = 0;
+            result += '</tr>';
+        }
+        
+    }
+    document.getElementById('page2').innerHTML = result;
+    
+    if ((id_num + 16) >= banks.length)
+    {
+    	forward_yes.style.display='none';
+	    forward_no.style.display='';
+    }
+    else
+    {
+    	forward_yes.style.display='';
+	    forward_no.style.display='none';
+    }
+}
+
+function backward() {
+	document.cookie = "prv_value=null";
+
+    if (current_id_num > 0)
+        getBanks(current_id_num -= 16)
+    else
+        document.location.href = './main.html';
+}
+
+function forward() {
+    getBanks(current_id_num += 16);
+}
+
+
+function menu() {
+	parent.location = "./index.html";
+}
+
+function getPageX(num,message,foot){
+    pos();
+    return;
+
+    forward_yes.style.display = 'none';
+    forward_no.style.display='';
+
+	backward_yes.style.display='none';
+    backward_no.style.display='';
+
+	page2.style.display = 'none';
+	page4.style.display = 'none';
+
+
+	var showPage = "page" + num;
+
+	document.getElementById(showPage).style.display = '';
+
+	if (num == 3) {
+		document.getElementById("pageNav").style.display = '';
+		return;
+	}
+
+	if (num == 4) {
+		document.getElementById("pageNav").style.display = '';
+		document.getElementById("bankMessageContent").innerHTML = message;
+		document.getElementById("footer").innerHTML = unescape(foot);
+		return;
+	}
+	else return;
+}
+
+function bdef(){
+	backward_yes.style.display='';
+	backward_no.style.display='none';
+	forward_yes.style.display='none';
+	forward_no.style.display='';
+	menu_yes.style.display='';
+	menu_no.style.display='none';
+	var curent_page = document.location.href;
+	document.cookie='last_page=' + curent_page;
+}
+
+
+</script>
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+<body onload="bdef(); getBanks(0);" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+<form name="ff" method="post" action="./embed_flash_mylk.html">
+    <input type="hidden" id="EmbedParams" name="EmbedParams" value="" />
+</form>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="1024" bgcolor="#e6e6e6">
+
+	<tr>
+	<td valign="top">
+
+
+<div id="page2" style="display:; ">
+</div>
+
+	<div id="page3" style="display:none;">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 10px 10px 10px 10px;">
+		<tr>
+
+		<td align="center" valign="top">
+
+			<table cellpadding="0" cellspacing="0" border="0" width="750">
+			<tr>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_topleft.gif');"></td>
+			<td style="height:37px; background:#dedede;"></td>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_topright.gif');"></td>
+			</tr>
+
+			<tr>
+			<td style="width:37px; background:#dedede;"></td>
+			<td style="height:37px; background:#dedede;" align="center">
+
+				<div id="bank_message_content" style="text-align: left; font-size:18px;"></div>
+
+				<table cellpadding="0" cellspacing="0" border="0" width="600" height="124" onclick="getPage('4');">
+				<tr>
+				<td width="30" background="./img/ui/b_mylk_left.gif"></td>
+				<td background="./img/ui/bg_mylk_button.gif" align="center" valign="middle"><img border="0" src="./img/ui/b_mylk_info.gif"></td>
+				<td width="30" background="./img/ui/b_mylk_right.gif"></td>
+				</tr>
+				</table><br>
+
+				<table cellpadding="0" cellspacing="0" border="0" width="310" height="124" onclick="backward();">
+				<tr>
+				<td width="30" background="./img/ui/b_left.gif"></td>
+				<td background="./img/ui/b_bg.gif" align="center" valign="middle"><img border="0" src="./img/ui/b_la.gif"></td>
+				<td width="30" background="./img/ui/b_right.gif"></td>
+				</tr>
+				</table>
+
+			</td>
+			<td style="width:37px; background:#dedede;"></td>
+			</tr>
+
+			<tr>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_bottomleft.gif');"></td>
+			<td style="height:37px; background:#dedede;"></td>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_bottomright.gif');"></td>
+			</tr>
+			</table>
+
+
+		</td>
+		</tr>
+
+		<tr><td colspan="4">&nbsp;</td></tr>
+
+		</table>
+	</div>
+
+
+	<div id="page4" style="display:none;">
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 10px 10px 10px 10px;">
+		<tr>
+		<td align="center" valign="top">
+			<table cellpadding="0" cellspacing="0" border="0" width="750">
+			<tr>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_topleft.gif');"></td>
+			<td style="height:37px; background:#dedede;"></td>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_topright.gif');"></td>
+			</tr>
+			<tr>
+			<td style="width:37px; background:#dedede;"></td>
+			<td style="height:37px; background:#dedede;" align="center">
+				<div style="text-align: left; font-size:18px;">Вы можете производить погашение потребительского кредита, погашение задолженности по банковской карте или пополнение счета/карты, став участником программы "Личный Кабинет"</div><br>
+				<div id="bankMessageContent" style="text-align: left; font-size:18px; background: #f0f0f0; padding: 5px;"></div><br>
+				<table cellpadding="0" cellspacing="0" border="0" width="580" height="124" onclick="pos();">
+				<tr>
+				<td width="30" background="./img/ui/b_mylk_left.gif"></td>
+				<td background="./img/ui/bg_mylk_button.gif" align="center" valign="middle"><img border="0" src="./img/ui/b_mylk_reg.gif"></td>
+				<td width="30" background="./img/ui/b_mylk_right.gif"></td>
+				</tr>
+				</table><br>
+				<table cellpadding="0" cellspacing="0" border="0" width="480" height="124" onclick="pos();">
+				<tr>
+				<td width="30" background="./img/ui/b_mylk_left.gif"></td>
+				<td background="./img/ui/bg_mylk_button.gif" align="center" valign="middle"><img border="0" src="./img/ui/b_mylk_enter.gif"></td>
+				<td width="30" background="./img/ui/b_mylk_right.gif"></td>
+				</tr>
+				</table><br>
+				<div id="footer" style="text-align: left; font-size:11px; color: #888888;"></div>
+			</td>
+			<td style="width:37px; background:#dedede;"></td>
+			</tr>
+
+			<tr>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_bottomleft.gif');"></td>
+			<td style="height:37px; background:#dedede;"></td>
+			<td style="width:37px; height:37px; background:url('./img/ui/sp_bank_bottomright.gif');"></td>
+			</tr>
+			</table>
+
+
+		</td>
+		</tr>
+
+
+
+		</table>
+	</div>
+
+
+	</td>
+	</tr>
+
+	<tr>
+	    <td valign="middle" align="center" style="height: 200px;"><div style="margin: 0px 15px 0px 15px; font-size: 18px;">Операции по переводу денежных средств в целях погашения кредитов,пополнения счета и/или иного  использования плательщиками услуг Банков, указанных выше, осуществляются АКБ «1-й Процессинговый» (ЗАО).<br />Лицензия  № 2241 на осуществление банковских операций в рублях и иностранной валюте со средствами физических лиц, выдана Банком России 23.07.08.</div></td>
+	</tr>
+	<tr>
+	<td height="161">
+		<div id="pageNav" style="display:;">
+
+		<table cellpadding="0" cellspacing="0" width="100%"><td><tr>
+		<script>bottom_menu();</script>
+		</td></tr></table>
+
+		</div>
+
+	</td>
+	</tr>
+
+
+</table>
+
+
+
+
+</body>
+</html>

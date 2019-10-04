@@ -1,0 +1,241 @@
+﻿html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	color: #000;
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("../fonts/GOTHIC.eot");
+}
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	cursor: pointer;
+}
+*:focus {
+	outline: none;
+}
+body {
+	background: #f5f5f5;
+	overflow: hidden;
+}
+.wrapper {
+	width: 1280px;
+}
+.clearfix {
+	clear: both;
+}
+
+.qiwi_logo {
+	background: url("../logo_2.png") ;
+	width: 84px;
+	height: 140px;
+	margin: 21px 0 0 45px;
+	float: left;
+	background-repeat: no-repeat;
+}
+.right-top-alert {
+	float: left;
+	width: 1090px;
+	margin-left: 25px; 
+	margin-top: 20px; 
+	height: 180px;
+    display: none;
+}
+
+.left-header {
+	float: left;
+	margin-top: 20px;
+	margin-left: 12px;
+	width: 300px;
+	height: 114px;
+	background: url("../img/ui/vc/logo2.gif") no-repeat;
+}
+.prv_logo {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-top: 6px;
+	margin-left: 11px;
+}
+.prv_name_text {
+	font-family: MyCustomFont, Arial;
+	font-size: 18px;
+	font-weight: bold;
+	color: #4d4d6e;
+	width: 175px;
+	height: 110px;
+	text-align: center;
+	margin-left: 115px;
+}
+
+.center-header {
+	float: left;
+	width: 595px;
+	margin-top: 20px;
+	margin-left: 25px;
+}
+.cellular_title_text {
+	font-family: MyCustomFont, Arial;
+	font-size: 16px;
+	font-weight: normal;
+	color: #26b;
+	float: left;
+	margin-top: -6px;
+	margin-bottom: 0px;
+}
+.vvod {
+	width: 892px;
+	height: 95px;
+	float: left;
+	background: url(../img/ui/field/c_a.gif) repeat-x;
+}
+.input_text {
+	color: #2268c6;
+	font-weight: normal;
+	font-size: 45px;
+	font-family: Consolas, Arial;
+	border: none;
+	margin-top: 20px;
+	text-align: left;
+	width: 890px;
+	padding-left: 10px;
+}
+.image_l_a {
+	position: absolute;
+	left: 317px;
+	background: url(../img/ui/field/l_a.gif) repeat-x;
+	width: 28px;
+	height: 95px;
+}
+.image_r_a {
+	position: absolute;
+	right: 24px;
+	background: url(../img/ui/field/r_a.gif) repeat-x;
+	width: 28px;
+	height: 95px;
+    top: 200px;
+}
+
+.content {
+	margin-top: 15px;
+	margin-left: 10px;
+	width: 1255px;
+}
+.keyword {
+	float: left;
+	margin-right: 10.53px;
+	margin-bottom: 6px;
+	line-height: 90px;
+	width: 86px;
+	height: 86px;
+	background: url(../img/ui/keyboard/al/blue_btn_unpress.gif);
+	text-decoration: none;
+	text-align: center;
+	color: #fff;
+	font-family: Consolas, Arial;
+	font-size: 55px;
+}
+.keyword.click {
+	background: url(../img/ui/keyboard/al/blue_btn_press.gif);
+}
+.large-keyword {
+	float: left;
+	margin-bottom: 6px;
+	width: 184px;
+	height: 86px;
+	text-align: center;
+	color: #fff;
+	font-family: MyCustomFont, Arial;
+	font-size: 35px;
+	background: url(../img/ui/keyboard/al/2btnorange_unpress.gif);
+	line-height: 2.6;
+}
+.large-keyword.click {
+	background: url(../img/ui/keyboard/al/2btnorange_press.gif);
+}
+.color-keyword {
+	float: left;
+	margin-right: 9px;
+	margin-bottom: 6px;
+	line-height: 2.6;
+	width: 86px;
+	height: 86px;
+	background: url(../img/ui/keyboard/al/orange_btn_unpress.gif);
+	text-align: center;
+	color: #fff;
+	font-family: MyCustomFont, Arial;
+	font-size: 35px;
+}
+.color-keyword.click {
+	background: url(../img/ui/keyboard/al/orange_btn_press.gif);
+}
+.big-large-keyword {
+	margin-right: 4px;
+	float: left;
+	line-height: 2.6;
+	width: 282px;
+	height: 86px;
+	text-align: center;
+	color: #fff;
+	font-family: MyCustomFont, Arial;
+	font-size: 35px;
+	background: url(../img/ui/keyboard/al/3btnorange_unpress.gif);
+}
+.big-large-keyword.click {
+	background: url(../img/ui/keyboard/al/3btnorange_press.gif);
+}
+.big-large-keyword.active {
+	background: url(../img/ui/keyboard/al/3btnorange_press.gif);
+}
+.space-keyword {
+	float: left;
+	margin-right: 4px;
+	width: 678px;
+	height: 117px;
+	background: url(../img/ui/keyboard/al/space_unpress.gif);
+}
+.space-keyword.click {
+	background: url(../img/ui/keyboard/al/space_press.gif);
+}
+
+.back {
+	position: absolute;
+	left: 15px;
+	bottom: 20px;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/back.gif) no-repeat;
+}
+.back.click {
+	background: url(../img/ui/navigation/back_inactive.gif) no-repeat;
+}
+.forward {
+	position: absolute;
+	right: 25px;
+	bottom: 20px;
+	float: right;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/forward.gif) no-repeat;
+}
+.forward.click {
+	background: url(../img/ui/navigation/forward_press.gif) no-repeat;
+}
+.index {
+	position: absolute;
+	left: 490px;
+	bottom: 20px;
+	float: right;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/menu.gif) no-repeat;
+}
+.index.click {
+	background: url(../img/ui/navigation/menu_press.gif) no-repeat;
+}

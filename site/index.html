@@ -1,0 +1,456 @@
+﻿<html>
+
+	<head>
+
+		<title>Main</title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="pragma" content="no-cache">        
+
+		<link rel="stylesheet" href="./css/df.css" type="text/css">
+		<link rel="stylesheet" href="./css/main.css" type="text/css">
+
+		<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+
+		<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>	
+
+		<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>
+	<script type="text/javascript" src="./advert_content.js"></script>
+
+		<script src="./config.js"></script>
+		<script src="./func/engine/extra_prv.js"></script>
+		<script src="./prv_on_first_page.js"></script>
+		<script src="./prv_on_first_page_static.js"></script>
+		<script src="./prv_on_main_page.js"></script>
+		<script src="./prv_values.js"></script>
+		<script src="./advert.js"></script>
+		<script src="./advert_content.js"></script>
+		<script src="./func/engine/pars_cookie.js"></script>
+		<script src="./func/ui/top5_load.js"></script>
+		<script src="./func/ui/top5_show.js"></script>
+		<script src="./func/ui/objects.js"></script>
+		<script src="./func/engine/redirect.js"></script>
+
+		<script src="func/engine/folder_history.js"></script>
+	    <script src="func/clears.custom_cookies.js"></script>
+
+		<script type="text/javascript">
+		var sLocale = "ru_ru";
+
+		function initPage() {
+		    clearCustomCookies();
+
+			storage.clearExcept(["_adv_counter", "_group_rotator"]);
+			
+			storage.put('locale', sLocale, true);
+
+			processTranslate('cn');
+			clear_cookie();
+			bdef();
+			startAdvert('Main');
+			load_top5();            
+
+			document.cookie = "last_page=" + document.location;
+
+			insertLocaleBar(sLocale);
+			//redirect("11823","","","");  
+		}
+
+		function redirectToFolder() {
+			var initFolder = getcookie("init_folder");
+			if (initFolder && initFolder == 'zkh') {
+				set_folder("zkh", "main_zkh");
+				document.cookie = "init_folder=null";
+			}
+		}
+
+		function getDownLeftFlash(content)
+		{
+		   html =
+						'<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">' +
+						'   <tr>' +
+						'       <td align="center" valign="middle" class="on_page_title">' +
+						'           <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="100%" height="100%">' +
+						'               <param name="allowScriptAccess" value="sameDomain" />' +
+						'               <param name="movie" value="../adv/' + content + '" />' +
+						'               <param name="quality" value="best" />' +
+						'               <param name="wmode" value="transparent" />' +
+						'           </object>' +
+						'       </td>' +
+						'   </tr>' +
+						'</table>';
+						return html;
+		}
+
+		function bdef(){
+			backward_yes.style.display='none';
+			
+			backward_no.innerHTML = "";
+			//backward_no.style.backgroundImage="url('img/ui_item/button_to4ka_qiwi.gif')";
+			//backward_no.innerHTML = getDownLeftFlash('mainb.swf');
+			//backward_no.style.display='none';
+			backward_no.style.width = "310px";
+			backward_no.style.height = "124px";
+
+			forward_yes.style.display='none';
+			forward_no.style.display='none';
+			menu_yes.style.display='';
+			menu_no.style.display='none';
+			search.style.display='';
+		}
+
+		function menu() {
+			if (sLocale != "kg")
+				parent.location = "./main_" + sLocale +".html";
+			else
+				parent.location = "./main.html";
+		}
+
+		function search_provider() {
+			parent.location = "./search_providers.html";
+		}
+
+		function clear_cookie() {
+			document.cookie = "prv_id=null";
+			document.cookie = "prv_value=null";
+			document.cookie = "Phone_Number=null";
+			document.cookie = "Summ=null";
+		}
+
+		function getFolderInfo(sFolderName) {            
+			var aFolders = [
+				{name: "cellular", path: "./img/ui_item/icon_mobile.gif"},
+				{name: "internet", path: "./img/ui_item/Icon_internet_telephons.gif"},
+				{name: "tv", path:"./img/ui_item/icon_tv.gif"},
+				{name: "zkh", path:"./img/ui_item/icon_zkh.gif"},
+				{name: "fixed", path:"./img/ui_item/icon_ip.gif"},
+				{name: "tax", path:"./img/ui_item/tax.gif"},
+				{name: "content", path:"./img/ui_item/icon_content.gif"},
+				{name: "folder_online_pay", path: "./img/ui_item/icon_e-commerc.gif" },
+				{name: "adv", path:"./img/ui_item/adv.gif"},
+				{name: "commerc", path: "./img/ui_item/commerc.gif" },
+				{name: "other", path:"./img/ui_item/icon_other.gif"},
+				{name: "foreign", path:"./img/ui_item/icon_ino_providers.gif"},
+				{name: "charity", path:"./img/ui_item/grp212sub_charity.gif"},
+				{name: "bank", path:"./img/ui_item/icon_safe.gif"}
+			];
+
+			for (var f in aFolders) {
+				if (!aFolders.hasOwnProperty(f)) continue;
+				if (aFolders[f].name == sFolderName) return aFolders[f];
+			}
+
+			return "";
+		}
+
+		function set_folder(name, groupId){
+			document.cookie = "prv_folder=" + name;
+			document.cookie = "last_page="+document.location;
+			/*if (name == 'cellular') {
+				clear_cookie();                
+				parent.location = "./cellular.html";
+				return;
+			}*/
+
+			if (name == 'bank_page') {
+				parent.location = "./bank.html";
+				return;
+			}
+
+			else {
+				var fi = getFolderInfo(name);
+				document.cookie = "prv_grp_old_image="+"";
+				document.cookie = "prv_grp_image="+fi.path;
+				document.cookie = "grp_name="+groupId;
+				clearFolderHistory();
+				pushFolder(name);
+				parent.location = "./pages.html";
+				return;
+			}
+
+		}
+
+		function set_value(name){
+			document.cookie = "prv_value=" + name;
+			document.cookie = "prv_folder=ecommerce";            
+		}
+
+		function set_t5(num){
+			var ppp = document.getElementById('prov_'+num).value;
+			document.cookie="prv_value=" + ppp;
+			var prv_value = getcookie('prv_value');
+			var folder = value[prv_value]["prv_folder"];
+			redirect(ppp, "", "", folder);
+		}
+
+		function switchEnRus(sLang) {
+			var x = 0;
+			var langIndex = 1;
+			$(sLang).style.display = 'none';
+			for (var e in langArray) if (langArray.hasOwnProperty(e)) {
+				if (langArray[e] ==  false) {
+					$(e).style.display = 'inline';
+					$(e).style.marginLeft = x + 'px';
+					getTextById("lang_invitation" + langIndex, e);
+					x = 25;
+					langIndex = 2;
+				}
+			}
+		}
+
+		var langArray = {};
+		function changeLocale(sLocale)
+		{            
+			document.cookie="locale="+sLocale;
+			storage.put('locale', sLocale, true);
+
+			langArray.kg = false;
+			langArray.ru_ru = false;
+			langArray.en_en = false;
+			langArray[sLocale] = true;
+
+			processTranslate(sLocale);
+			switchEnRus(sLocale);
+		}
+
+		function insertLocaleBar(currentLocale) {
+			var html = '<div style="text-align: center; margin-top: 10px;">'+
+			'<div id="lang_invitation1" style="display: inline; text-align: center; font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-size: 14px; color: #666; text-align: center; text-transform: uppercase; width: 115px; height: 17px;" style="text-align: center;"></div>' +
+			'<div id="lang_invitation2" style="display: inline; text-align: center; margin-left: 25px; font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-size: 14px; color: #666; text-transform: uppercase; width: 115px; height: 17px;"></div>' +
+			'<div id="kg" style="display: inline; width: 115px; height: 73px; background-image: url(\'./img/ui/flag_kg.gif\'); background-repeat: no-repeat;" onclick="changeLocale(\'kg\');"></div>' +
+			'<div id="ru_ru" style="display: inline; margin-left: 0px; width: 115px; height: 73px; background-image: url(\'./img/ui/flag_rus.gif\'); background-repeat: no-repeat;" onclick="changeLocale(\'ru_ru\');"></div>' +
+			'<div id="en_en" style="display: inline; margin-left: 0px; width: 115px; height: 73px; background-image: url(\'./img/ui/flag_eng.gif\'); background-repeat: no-repeat;" onclick="changeLocale(\'en_en\');"></div>' +
+	'</div>';
+
+			backward_no.style.backgroundImage = "url(img/ui/gray.gif)";
+			backward_no.style.backgroundRepeat = "no-repeat";
+			backward_no.innerHTML = html;
+
+			changeLocale(currentLocale);
+		}
+
+		function processTranslate(sLang)
+		{
+			sLocale = getcookie('locale');
+			
+			getTextById("button_menu",sLocale);
+
+			getTextById("biggest_providers",sLocale);
+
+			getTextById("button_search", sLocale);
+
+			getTextProp("index_text_direction",sLocale );
+			getTextById("main_pkr",sLocale);
+			getTextById("main_cellular",sLocale);
+			getTextById("main_ecommerce",sLocale);
+			getTextById("main_internet",sLocale);
+			getTextById("main_tv",sLocale);
+			getTextById("main_zkh",sLocale);
+			getTextById("main_other",sLocale);
+			getTextById("main_tickets",sLocale);
+
+			getTextById("main_fixed_cellular", sLocale);
+			getTextById("main_tax", sLocale);
+			getTextById("main_content", sLocale);
+			getTextById("main_money", sLocale);
+			getTextById("main_commerc", sLocale);
+
+			getTextById("main_games",sLocale);
+			getTextById("main_cdma",sLocale);
+			getTextById("main_other",sLocale);
+			getTextById("main_charity", sLocale);
+			getTextById("main_foreign", sLocale);
+			getTextById("main_bank", sLocale);
+
+			getTextById("b_menu_center",sLocale);
+			getTextById("b_ra",sLocale);
+			getTextById("b_la",sLocale);
+
+		}
+	</script>
+
+	</head>
+	
+	<body onLoad="initPage();" bgcolor="#f5f5f5" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+		<script type="text/javascript">redirectToFolder()</script>
+		<div id="main-content">
+			<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f5f5" >
+
+				<tr>
+					<td>
+						<table width="100%" style="border-collapse: collapse;"> <!-- cellpadding="0" cellspacing="0" -->
+							<tr>
+								<td width="148" height="181">
+									<div id="qiwi-logo"></div>
+								</td>
+
+								<td id="advert_td_1" valign="center"  bgcolor="#f5f5f5">
+									<div id="advert_1"></div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td valign="top">
+						<table cellpadding="0" cellspacing="0" border="0"  width="100%" style="margin-top: 28px;">
+							<tr height="172" bgcolor="#f5f5f5">
+								<td colspan="4">
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td>												
+												<div style="margin:0; padding:0; background:url(./img/ui/top_providers_title.gif) center no-repeat; position:absolute; left:440px; top:200px; width:343px; height:25px;">
+														<div id="biggest_providers" style="width:100%; position: absolute; letter-spacing: 1px;"></div>
+												</div>
+												<div id="top5place"></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+
+						<table width="100%" style="margin-top:14px;" cellpadding="0" cellspacing="0">
+							<tr>
+								<td>
+									<table width="100%" bgcolor="#f5f5f5" cellpadding="0" cellspacing="0">
+										<tr>
+											<td style="background:url('./img/ui_item/button_cell.jpg') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("cellular", "main_cellular")'>
+												<div style=" height: 140px; ">
+													<!--<img src="./img/ui_item/icon_mobile.gif" style="margin-top:15px; margin-left:-10px; float:left" />-->
+													<div id='main_cellular' style="position:relative;"></div>
+												</div>
+											</td>                                         
+
+											<td style="background:url('./img/ui_item/button_internet.jpg') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("internet", "main_internet");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/Icon_internet_telephons.gif" style="margin-top:15px; float:left" />-->
+													<div id='main_internet' style="position:relative;"> </div>
+												</div>
+											</td>
+
+											<td style="background:url('./img/ui_item/button_tv.jpg') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("tv", "main_tv");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/icon_tv.gif" style="margin-top:15px; float:left" />-->
+													<div id='main_tv' style="position:relative;"></div>
+												</div>
+											</td>
+
+											<td style="background:url('./img/ui_item/button_zkh.jpg') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("zkh", "main_zkh");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/icon_zkh.gif" style="margin-top:15px; float:left" />-->
+													<div id='main_zkh' style="position:relative;"></div>
+												</div>
+											</td>
+
+										</tr>
+									</table>
+								</td>
+
+							</tr>
+
+							<tr>
+								<td>
+									<table width="100%" bgcolor="#f5f5f5" style="margin-top:14px;" cellpadding="0" cellspacing="0">
+										<tr>
+											<td style="background:url('./img/ui_item/button_fixed.jpg') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("fixed", "main_fixed_cellular");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/icon_ip.gif" style="margin-top:15px; float:left" />-->
+													<div id='main_fixed_cellular' style="position:relative;"></div>
+												</div>
+											</td>
+
+											<td style="background:url('./img/ui_item/button_bank.gif') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("bank", "main_bank");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/adv.gif" style="margin-top:15px; float:left" />-->
+													<div id='main_bank' style="position:relative;"></div>
+												</div>
+											</td>
+
+											<td style="background:url('./img/ui_item/button_content.jpg') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("content", "main_content");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/icon_content.gif" style="margin-top:15px; float:left" />-->
+													<div id='main_content' style="position:relative;"></div>
+												</div>
+											</td>
+
+											 <td style="background:url('./img/ui_item/button_other.jpg') center no-repeat" width="300" height="140" align="center" valign="middle" onclick='set_folder("other", "main_other");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/icon_other.gif" style="margin-top:15px; float:left" />-->
+													<div id='main_other' style="position:relative;"></div>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+
+							</tr>
+
+							<tr>
+								<td>
+									<table width="100%" bgcolor="#f5f5f5" style="margin-top:14px;" cellpadding="0" cellspacing="0">
+										<tr>
+											<td style="background: url('./img/ui_item/button_foreign.gif') center no-repeat" width="300" height="140" align="center" valign="middle" onclick='set_folder("foreign", "main_foreign");'>
+												<div style="width: 300px; height: 140px;">
+													<div id="main_foreign" style="position: relative;"></div>
+												</div>
+											</td>
+
+											<td style="background:url('./img/ui_item/button_money.png') center no-repeat" width="301" height="140" align="center" valign="middle" onclick='set_folder("folder_online_pay", "main_money");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/catalog.png" style="margin-top:15px; margin-left: 15px; float:left" />-->
+													<div id='main_money' style="position:relative;"></div>
+												</div>
+											</td>                                           
+
+											<td style=";background:url('./img/ui_item/button_commerc.png') center no-repeat" width="300" height="140" align="center" valign="middle" onclick='set_folder("commerc", "main_commerc");'>
+												<div style="width: 301px; height: 140px; ">
+													<!--<img src="./img/ui_item/tax.png" style="margin-top:15px; margin-left: 10px; float:left" />-->
+													<div id='main_commerc' style="position:relative;"></div>
+												</div>
+											</td>											
+											
+											<td style="background:url('./img/ui_item/button_tax.gif') center no-repeat;"  width="301" height="140" align="center" valign="middle">
+											<div width="301" height="140" align="center" valign="middle" onclick='set_folder("tax", "main_tax");'>
+												<div style="width: 301px; height: 140px; ">                                                    
+													<div id='main_tax' style="position:relative;"></div>
+												</div>
+											</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+
+						</table>
+
+			</table>
+
+			<form name="ff" action="" method="post">
+				<input type="hidden" name="prv_id" value="">
+				<input type="hidden" name="prv_name" value="">                
+				<input type="hidden" name="komissiya" value="">
+				<input type="hidden" name="EmbedParams" value="">
+				<input type="hidden" name="_receipt_prt_top_reklama" value="">
+				<input type="hidden" name="_receipt_prt_bottom_reklama" value="">
+				<input type="hidden" name="_receipt_prt_top_msg" value="">
+				<input type="hidden" name="Language" value="">
+
+			</form>
+
+			<script>bottom_menu();</script>
+
+			<div style="display: block; height: 17px; margin:0; padding:0;"></div>
+		</div>        
+</body>
+
+</html>

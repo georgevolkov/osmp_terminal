@@ -1,0 +1,268 @@
+﻿@import url("base.css");
+
+.banner
+{
+    overflow: hidden;
+}
+
+
+#content
+{
+    width: 1280px;
+    height: 1024px;
+    margin: 0 auto;
+}
+
+#panel
+{
+    width: 1280px; 
+    height: 107px; 
+    background: url('../img/ui/index/index_up.gif') no-repeat;
+}
+
+#c_l
+{
+    width: 1280px; 
+    height: 524px; 
+    margin-top: 159px;
+    padding-left: 338px;
+}
+
+#buttons
+{ 
+    float: left; 
+    width: 604px; 
+    height: 524px;
+}
+
+#logo
+{
+    position: absolute;
+    top: 50px;
+    left: 593px;
+    width: 150px;
+    height: 158px;
+    background: url('../img/ui/qiwi-logo.png') no-repeat;
+}
+#logo div
+{
+	position: absolute;
+	right: -20px;
+	top: -22px;
+	width: 175px;
+	height: 200px;
+	/*opacity: 0.5;*/
+	background: #F5F5F5;
+}
+
+#advert_4
+{
+    position: absolute;
+    top: 305px;
+    left: 30px;
+    width: 240px; 
+    height: 450px;
+    z-index: 10;
+    display: none;
+}
+
+#advert_5
+{
+    position: absolute;
+    top: 440px;
+    left: 30px;
+    width: 240px; 
+    height: 180px;
+    z-index: 10;
+}
+
+#advert_2
+{
+    width: 240px; 
+    height: 180px; 
+    float: left; 
+    margin-top: 170px; 
+    margin-left: 70px; 
+}
+
+#advert_1
+{
+    width: 500px; 
+    height: 200px; 
+    float: left;
+}
+
+#advert_3
+{
+    width: 500px; 
+    height: 200px; 
+    float: right;
+}
+
+#btn_1
+{
+    width: 604px; 
+    height: 169px; 
+    background: url('../img/ui/index/btn_top_empty.gif') no-repeat;    
+}
+
+#btn_2
+{
+    width: 604px; 
+    height: 154px;
+    margin-top: 15px;  
+    background: url('../img/ui/index/btn_center_empty.gif') no-repeat;
+}
+
+#btn_3
+{
+    width: 604px; 
+    height: 171px; 
+    margin-top: 15px;
+    background: url('../img/ui/index/_btn_bottom_z_kh_empty.gif') no-repeat;
+}
+
+#btn_1 img,
+#btn_2 img,
+#btn_3 img
+{
+	visibility: hidden;
+	display: block;
+}
+#btn_1.show img,
+#btn_2.show img,
+#btn_3.show img
+{
+	visibility: visible;
+}
+
+#btn_info
+{
+    width: 111px;
+    height: 97px;
+    float: left;
+    margin-left: 85px;
+    background: url('../img/ui/inf_empty.gif') center no-repeat;
+}
+
+#clock
+{
+    width: 120px;
+    height: 60px;
+    font-size: 45px;
+    color: #2266bb;
+    font-weight: normal;
+    position: absolute;
+    left: 50%;
+    top: 42px;
+    margin-left: -560px;
+}
+
+#lang_invitation1
+{
+    position: absolute;
+    margin-left: 1020px;
+    margin-top: -990px;
+    font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    text-transform: uppercase;
+    width: 115px;
+    height: 17px;
+}
+
+#lang_invitation2
+{
+    position: absolute;
+    margin-left: 1145px;
+    margin-top: -990px;
+    font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    text-transform: uppercase;
+    width: 115px;
+    height: 17px;
+}
+
+#kg
+{
+    width: 115px;
+    height: 73px;
+    background-image: url('../img/ui/flag_kg.gif');
+    background-repeat: no-repeat;
+    margin-left: 1020px;
+    margin-top: -960px;
+    position: absolute;
+}
+
+#ru_ru
+{
+    width: 115px;
+    height: 73px;
+    background-image: url('../img/ui/flag_rus.gif');
+    background-repeat: no-repeat;
+    margin-left: 1145px;
+    margin-top: -960px;
+    position: absolute;
+}
+
+#en_en
+{
+    width: 115px;
+    height: 73px;
+    background-image: url('../img/ui/flag_eng.gif');
+    background-repeat: no-repeat;
+    margin-left: 1145px;
+    margin-top: -960px;
+    position: absolute;
+    
+}
+
+#date
+{
+    width: 262px;
+    height: 60px;
+    text-align: center;
+    font-size: 22px;
+    color: #666;
+    font-weight: normal;
+    position: absolute;
+    /*left: 50%;*/
+    top: 10px;
+    margin-left: 5px;
+}
+
+#con
+{
+    width: 1280px; 
+    height: 200px; 
+    margin-top: 10px; 
+}
+
+#text_info
+{
+    width: 1280px; 
+    height: 24px; 
+    background: #bfbfbf;   
+}
+
+#preload
+{
+	position: absolute;
+	left: 0; 
+	top: -100%; 
+	width: 100%; 
+	height: 100%; 
+	border: 0 none; 
+	margin: 0; 
+	padding: 0; 
+	z-index: 25000;
+	overflow: hidden;
+}
+#preload.active
+{
+	left: 0px;
+	top: 0px;
+}

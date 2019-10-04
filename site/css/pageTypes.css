@@ -1,0 +1,154 @@
+﻿html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	color: #000;
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("../fonts/GOTHIC.eot");
+}
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	cursor: pointer;
+}
+*:focus {
+	outline: none;
+}
+body {
+	background: #f5f5f5;
+	overflow: hidden;
+}
+.wrapper {
+	width: 1280px;
+}
+.clearfix {
+	clear: both;
+}
+
+.img_logo {
+	background: url("../logo_2.png") ;
+	width: 84px;
+	height: 140px;
+	margin: 21px 0 0 45px;
+	float: left;
+	background-repeat: no-repeat;
+}
+.right-top-alert {
+	float: left;
+	width: 1090px;
+	margin-left: 25px; 
+	margin-top: 20px; 
+	height: 140px;
+}
+.panel {
+	float: left;
+	margin-top: 17px;
+	margin-left: 12px;
+	height: 121px;
+	width: 1250px;
+	background: url("../img/ui/grp_panel/grp3.png");
+}
+.prv_logo {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+.prv_name_text {
+	margin-left: 65px;
+	margin-top: 45px;
+	float: left;
+	font: bold 25px 'Myriad Pro',Arial;
+	text-transform: uppercase;
+	color: white;
+}
+
+.atention {
+	text-transform: uppercase;
+	font-family: MyCustomFont;
+	background: #FE9800;
+	text-align: center;
+	font-size: 36px;
+	padding: 7px 0;
+	margin: 12px auto 0 auto;
+	width: 1250px;
+}
+.atention.inverse {
+	color: #FE9800;
+	background: none;
+}
+
+.content {
+	margin-top: 15px;
+}
+.buttom_key {
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	width: 300px;
+	height: 114px;
+	background: url("../img/ui/vc/logo2.gif")
+}
+.buttom_key.color {
+	background: url("../img/ui/vc/color_page.gif")
+}
+.buttom_key_name {
+	font-family: MyCustomFont;
+	text-transform: uppercase;
+	margin-top: 40px;
+	font-size: 16px; 
+	font-weight: bold;
+	color: #5d5d5d;
+	width: 290px;
+	text-align: center;
+}
+.buttom_key.color .buttom_key_name {
+	color: #fff;
+}
+.hiddenPage {
+	display: none
+}
+
+
+.button_back {
+	position: absolute;
+	left: 15px;
+	bottom: 20px;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/back.gif) no-repeat;
+}
+.button_back.click {
+	background: url(../img/ui/navigation/back_inactive.gif) no-repeat;
+}
+.button_forward {
+	position: absolute;
+	right: 25px;
+	bottom: 20px;
+	float: right;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/forward.gif) no-repeat;
+}
+.button_forward.click {
+	background: url(../img/ui/navigation/forward_press.gif) no-repeat;
+}
+.menu_back {
+	position: absolute;
+	left: 490px;
+	bottom: 20px;
+	float: right;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/menu.gif) no-repeat;
+}
+.menu_back.click {
+	background: url(../img/ui/navigation/menu_press.gif) no-repeat;
+}

@@ -1,0 +1,189 @@
+﻿<html>
+<head>
+	<title>Online_Auth_Error</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/online_auth_error.css" type="text/css" />
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript">
+
+        function processTranslate(sLang) {
+            var sLocale = getcookie('locale');            
+            getTextById("button_menu", sLocale);
+            getTextById("button_back", sLocale);
+            getTextById("online_check_error_warning", sLocale);
+            getTextById("online_check_error_text", sLocale);
+            getTextById("auth_msg_finca_1", sLocale);
+            getTextById("auth_msg_finca_2", sLocale);
+            getTextById("auth_msg_finca_3", sLocale);
+			
+			var prv_val = getcookie('prv_value');
+			if (prv_val != null && (prv_val == '9872' || prv_val == '9873' || prv_val == '11140' || prv_val == '11141' || prv_val == '11142' || prv_val == '11143' || prv_val == '11144'))
+			{	    
+				var valueError = document.getElementById('auth_msg').value;	
+				var messageError = '';				
+				var code = valueError.split(':')[0];
+				if (code == '5'){
+					 messageError = '5:Абонент в базе налоговой не найден';
+					 document.getElementById('auth_msg').value = messageError;			
+				}else
+				if (code == '7'){
+					 messageError = '7:Патент не может быть продлен';
+					 document.getElementById('auth_msg').value = messageError;			
+				}else
+				if (code == '130'){
+					 messageError = '8:Услуга оплаты не предоставляется';
+					 document.getElementById('auth_msg').value = messageError;			
+				}			    
+			}else if (prv_val != null && prv_val == '11823') {
+                var valueError = document.getElementById('auth_msg').value;
+                var messageError = '';
+                var code = valueError.split(':')[0];
+                if (code == '5') {
+                    $("auth_msg_finca_1").style.display = "block";
+                    document.getElementById('auth_msg').value = "";
+                } else if (code == '7') {
+                    $("auth_msg_finca_2").style.display = "block";
+                    $("auth_msg_finca_3").style.display = "block";
+                    document.getElementById('auth_msg').value = "";
+                }
+            } else if (prv_val != null && prv_val == '22008') {
+                var valueError = document.getElementById('auth_msg').value;
+                var messageError = '';
+                var code = valueError.split(':')[0];
+                if (code == '5') {
+                    $("auth_msg_finca_1").style.display = "block";
+                    document.getElementById('auth_msg').value = "";
+                } else if (code == '7') {
+                    $("auth_msg_finca_2").style.display = "block";
+                    $("auth_msg_finca_3").style.display = "block";
+                    document.getElementById('auth_msg').value = "";
+                }
+            } else if (prv_val != null && prv_val == '11255') {
+                var valueError = document.getElementById('auth_msg').value;
+                var messageError = '';
+                var code = valueError.split(':')[0];
+                if (code == '5') {
+                    messageError = 'Все близжайшие игры закрыты, попробуйте позже.';
+                    document.getElementById('auth_msg').value = messageError;
+                } else if (code == '1') {
+                    messageError = 'Провайдер временно не доступен.';
+                    document.getElementById('auth_msg').value = messageError;
+                }
+            }
+        }
+
+        function onMenuBtnClick(sBtn)
+        {			
+            switch (sBtn)
+            {
+                case "BACKWARD":
+                    var oPayInfo = Object.deserialize(storage.get("pay_info"));
+					
+                    if($isNoU(oPayInfo))
+                    {
+                        document.location.href = "./index.html";
+                        return;
+                    }
+                    if (oPayInfo.prvId == "11823") {
+                        document.location.href = "./cellular_finca.html";
+                        return;
+					}
+                    if (oPayInfo.prvId == "11859") {
+                        document.location.href = "./ttp_redirect.html";
+                        return;
+                    }
+                    if (oPayInfo.prvId == "16244") {
+                        document.location.href = "./dmm_redirect.html";
+                        return;
+                    }
+                    if (oPayInfo.prvId == '9872' || oPayInfo.prvId == '9873' || oPayInfo.prvId == "11140" || oPayInfo.prvId == "11141" || oPayInfo.prvId == "11142" || oPayInfo.prvId == "11143" || oPayInfo.prvId == "11144") {
+						storage.put("pay_info", "null");
+                        document.location.href = "./gns-deleteCookie.html";
+                        return;
+					}
+					if (oPayInfo.prvId == "5157") {
+                        document.location.href = "./cellular_tazalyk.html";
+                        return;
+                    }
+					if (oPayInfo.prvId == "11255") {
+                        document.location.href = "./loto_account_new.html";
+                        return;
+					}
+                    //Для услуги AVN росинбанка далем переход на страницу ./cellular_tazalyk.html в связи с тем что у них используется "-" при наборе л.с.
+					if (oPayInfo.prvId == "15702") {
+					    document.location.href = "./cellular_tazalyk.html";
+					    return;
+					}
+                    //Для услуги AVN росинбанка далем переход на страницу ./cellular_tazalyk.html в связи с тем что у них используется "-" при наборе л.с.
+					if (oPayInfo.prvId == "16067") {
+					    document.location.href = "./cellular_tazalyk.html";
+					    return;
+					}
+					if (oPayInfo.prvId == "22008") {
+					    document.location.href = "./cellular_finca_bank.html";
+					    return;
+					}
+
+                    ///закоментил в связи с тем что если вышло сообщение о проверки. при нажатии кнопки назад переход делается в ненужную страницу
+                    //if (storage.get("prv_is_cellular") == "true"){
+					//	storage.put("prov","false");
+                    //    document.location.href = "./provider.html";
+					//	return;
+                    //}
+                    //var cook = new CookieClass();
+					
+					if (oPayInfo.isCellular == 'false')
+                        document.location.href = "./provider.html";
+					else 
+                        document.location.href = "./cellular.html";
+					
+                break;
+                case "MENU":
+                    document.location.href = "./index.html";
+                break;
+            }
+        }
+
+	</script>
+</head>
+<body onload="processTranslate('ru_ru');">
+    <div id="content">
+        <div style="height: 160px"></div>
+        <div id="img">
+            <div id="online_check_error_warning" style="position: absolute; letter-spacing: 7px"></div>
+            <div id="online_check_error_text" style="position: absolute;"></div>
+        </div>
+        <div id="msg">
+            <form id="ff" name="ff" method="post" action="#">
+				<div id="auth_msg_finca_1" class="inp w_100 t_a_c" style="display:none"></div>
+				<div id="auth_msg_finca_2" class="inp w_100 t_a_c" style="display:none"></div>
+				<div id="auth_msg_finca_3" class="inp w_100 t_a_c" style="display:none"></div>
+                <input id="auth_msg" name="auth_msg" class="inp w_100 t_a_c" type="text" value="" />
+            </form>
+        </div>
+        <div id="btn_left" class="bottom-button-left" onclick="onMenuBtnClick('BACKWARD');">
+            <!--<img alt="" src="./img/ui/navigation/back.gif" onclick="onMenuBtnClick('BACKWARD');" />-->
+            <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+        </div>
+        <div id="btn_center" class="bottom-button-center" onclick="onMenuBtnClick('MENU');">
+            <!--<img alt="" src="./img/ui/navigation/menu.gif" onclick="onMenuBtnClick('MENU');" /> -->
+            <div id="bottom-button-center-container">
+                <div id="button_menu"></div>
+            </div>
+        </div>
+        <div id="btn_right" class="bottom-button-right"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+﻿#dial_buttons tr {
+    margin-top: 5px;
+    padding-top: 5px;
+    height: 95px;
+}
+
+#dial_panel {
+    background: #fff;
+    float: left;
+    padding: 10px 0px 0px 30px;
+    height: 320px;
+    width: 1280px;
+}
+
+.invisble {
+    display: none;
+}
+
+.disposBtnCl {
+    background-image: url('../img/lottery/button_updwon_inactive.gif') !important;
+}
+
+.enableBtnCl {
+    background-image: url('../img/lottery/button.gif') !important;
+}
+
+.pressQP {
+    background-image: url('../img/lottery/b_inactive_ra_on.png') !important;
+}
+
+.normQP {
+    background-image: url('../img/lottery/b_inactive_ra.png') !important;
+}
+
+.pressCL {
+    background-image: url('../img/lottery/b_inactive_on.png') !important;
+}
+
+.normCL {
+    background-image: url('../img/lottery/b_inactive_cl.png') !important;
+}
+
+.updownBtnCl {
+    background-image: url('../img/lottery/button_updwon.gif') !important;
+}
+
+#dial_buttons td {
+    background-image: url('../img/lottery/button.gif');
+    background-repeat: no-repeat;
+    width: 92px;
+    height: 100px;
+    text-align: center;
+    font-size: 65px;
+    color: white;
+}
+
+#information-panel {
+    /*background-image: url('../img/lottery/loto2_03.png');
+	background-repeat: no-repeat;*/
+    position: absolute;
+    height: 187px;
+    top: 320px;
+    right: 16px;
+}
+
+    #information-panel p {
+        margin-top: 5px;
+        width: 260px;
+        padding-left: 15px;
+        padding-right: 20px;
+        font-size: 27px;
+        color: #fe9800;
+    }
+
+#info_button {
+    margin-top: 10px;
+    background-image: url('../img/lottery/info_button.png');
+    background-repeat: no-repeat;
+    padding-top: 31px;
+    padding-left: 10px;
+    color: #fff;
+    width: 220px;
+    margin-right: 10px;
+    height: 91px;
+    font-size: 26px;
+}
+
+#week_buttons tr {
+    margin-top: 5px;
+    padding-top: 5px;
+    height: 203px;
+}
+
+#week_buttons td {
+    background-image: url('../img/lottery/lloto2_07.png');
+    background-repeat: no-repeat;
+    width: 92px;
+    height: 203px;
+    text-align: center;
+    padding-left: 10px;
+    font-size: 130px;
+    color: white;
+}
+
+#week_buttons .pressedWeek {
+    background-image: url('../img/lottery/lloto2_off.png');
+    background-repeat: no-repeat;
+    width: 92px;
+    height: 203px;
+    text-align: center;
+    padding-left: 10px;
+    font-size: 130px;
+    color: white;
+}
+
+#week_buttons .activeWeek {
+    background-image: url('../img/lottery/lloto2_on.png');
+    background-repeat: no-repeat;
+    width: 92px;
+    height: 203px;
+    text-align: center;
+    padding-left: 10px;
+    font-size: 130px;
+    color: white;
+}
+
+#price-panel {
+    background-image: url('../img/lottery/loto2_03.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 187px;
+    bottom: 185px;
+    right: 20px;
+}
+
+    #price-panel p {
+        width: 245px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 27px;
+        color: #fe9800;
+        margin-top: 0;
+        text-align: center;
+    }
+
+.Lottery_kodeks p {
+    font-size: 18px !important;
+    margin-top: -20px !important;
+    padding-left: 50px !important;
+    padding-right: 40px !important;
+    width: 1240px !important;
+    height: 45px !important;
+    text-align: left !important;
+    color: #000 !important;
+}
+
+.Lottery_kodeks {
+    background: url('../img/lottery/danger.png') no-repeat;
+    height: 558px;
+    width: 1240px;
+    margin: 20px 0 0 20px;
+    padding-top: 122px;
+}
+
+    .Lottery_kodeks .category {
+        margin-left: 30px;
+        color: #2268c6 !important;
+    }
+
+    .Lottery_kodeks .site_loto {
+        color: #001cac;
+        text-decoration: underline;
+    }
+
+.read_all_lottery img {
+    position: absolute;
+    left: 80px;
+    bottom: 15px;
+}
+
+.forward_lottery img {
+    position: absolute;
+    right: 105px;
+    bottom: 15px;
+}
+
+.backward_lottery img {
+    position: absolute;
+    right: 405px;
+    bottom: 15px;
+}
+
+.rules_readAll_d {
+    background-image: url('../img/lottery/read_on.png') !important;
+    text-align: center;
+}
+
+.rules_readAll_e {
+    background-image: url('../img/lottery/read.png') !important;
+    text-align: center;
+}
+
+.next_read {
+    background-image: url('../img/lottery/next_rule.gif') !important;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 120px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+#par_back_warn {
+    color: #f5f5f5;
+    padding-top: 7px;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 1280px;
+}
+#par_back_warn2 {
+    color: #FE9800;;
+    padding-top: 7px;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+    font-weight: bold;
+    height: 90px;
+    width: 1280px;
+}
+#rules_prv_name {
+    position: absolute;
+    bottom: 215px;
+    left: 655px;
+    font: bold 16px 'Myriad Pro',Arial,sans-serif;
+    color: #4d4d4d;
+}

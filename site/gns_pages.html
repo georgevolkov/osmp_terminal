@@ -1,0 +1,313 @@
+﻿<html>
+
+<head>
+
+	<title>provider_list / 180</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="refresh" content="120; URL=./index.html">
+
+        <link rel="stylesheet" href="./css/pages.css" type="text/css">
+
+        <script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>	
+
+        <script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>
+	<script type="text/javascript" src="./advert_content.js"></script>
+        
+        <script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+
+<script src="./advert.js"></script>
+<script src="./advert_content.js"></script>
+<script src="./prv_values.js"></script>
+<script src="./func/engine/pars_cookie.js"></script>
+<script src="./func/ui/objects.js"></script>
+<script src="./func/engine/renderpage.js"></script>
+<script src="./func/engine/sort_page.js"></script>
+<script src="./func/engine/extra_prv.js"></script>
+<script src="./func/engine/redirect.js"></script>
+<script src="./sort.js"></script>
+<script src="./config.js"></script>
+
+<script src="func/engine/folder_history.js"></script>
+
+<script>
+
+var providers = '';
+
+function get_folder(){
+	var folder = getcookie('prv_folder');	
+	
+	var folders = [            
+            [['folder_gns'], [ ['obl_bishkek','folder_obl_bishkek'], ['obl_chyi','folder_obl_chyi'], ['obl_issikyl','folder_obl_issikyl'], 
+			['obl_osh','folder_obl_osh'], ['obl_narin','folder_obl_narin'], ['obl_dj_abad','folder_obl_dj_abad'], ['obl_talas','folder_obl_talas'], 
+			['obl_batken','folder_obl_batken'], ['obl_city_osh','folder_obl_city_osh'], ['obl_ukkn','folder_obl_ukkn'] ]],
+			
+			[['folder_obl_bishkek'], []],			
+			[['folder_obl_chyi'], []],			
+			[['folder_obl_issikyl'], []],
+			[['folder_obl_osh'], []],
+			[['folder_obl_narin'], []],
+			[['folder_obl_dj_abad'], []],
+			[['folder_obl_talas'], []],
+			[['folder_obl_batken'], []],
+			[['folder_obl_city_osh'], []],
+			[['folder_obl_ukkn'], []],		
+	];	
+	
+	setSourceArray(folders);        
+	providers = transformArray(linkExtraPrv(getFolder("folder_gns"),folder));
+}
+
+function initPage() {
+    processTranslate('cn');
+    drawGroupInfo();
+    startAdvert('Pages');
+    get_folder();
+    bdef(); 
+    //initPageControl(305,124,5);
+    initPageControl(305,124,5);
+    pageForward();
+}
+
+function changeLocale(sLocale)
+{    
+    if(!sLocale)
+    {
+        sLocale="ru_ru";
+    }
+    document.cookie="locale="+sLocale;
+    processTranslate(sLocale);
+}
+
+    function processTranslate(sLocale)
+    {
+        var sLocale = getcookie('locale');
+        getTextById("button_menu", sLocale);
+        getTextById("button_back_page", sLocale);
+        getTextById("button_search", sLocale);
+        getTextById("button_next_page", sLocale);
+    }
+
+function backward (){        
+    if (currentPage > 1)
+        pageBack();
+    else {
+        popFolder(); //вызываем 2 раза, нам же нужна не текущая folder а предыдущая
+        var fld = popFolder();
+        if (fld == "") {
+            clearFolderHistory();
+            pageBack();
+        }
+        else {
+            go_folder(fld);
+        }
+    }
+} 
+
+function forward(){        
+	pageForward();        
+}
+
+function menu() {
+        clearFolderHistory();
+	parent.location = "./index.html";
+}
+
+function search_provider() {
+            parent.location = "./search_providers.html";
+        }
+
+function bdef(){
+	menu_yes.style.display='';
+	menu_no.style.display='none';
+}
+
+    function drawGroupImage() {
+        var sGroupImage = getcookie("prv_grp_image");
+        if (sGroupImage) {
+            var e = document.getElementById("grp_image");
+            e.style.backgroundImage = "url(" + sGroupImage + ")";
+            e.style.backgroundRepeat = "no-repeat";
+            e.style.width = "100%";
+            e.style.height = "122px";
+            e.style.marginTop = "2px";
+        }
+    }
+
+function drawGroupName() {
+    var sGroupId = getcookie("grp_name");
+    var sLocale = getcookie('locale');
+    if (sGroupId) {
+        var e = document.getElementById("grp_name");
+        e.innerHTML = getTextWithoutBR(sGroupId, sLocale);
+    }
+}
+
+function drawGroupInfo() {    
+    drawGroupImage();
+    drawGroupName();
+}
+
+function switchDiv(){
+	if (currentDiv != 'dp1'){
+		renderPage('page1');
+		currentDiv = 'dp1';
+		dp2.style.display = 'none';
+		dp1.style.display = '';
+	}
+
+	else{
+		renderPage('page2');
+		currentDiv = 'dp2';
+		dp1.style.display = 'none';
+		dp2.style.display = '';
+	}
+
+}
+
+function pageForward(){
+	if (currentPage == pagesCount){
+		currentPage = pagesCount;
+	}
+	currentPage += 1;
+	switchDiv();
+	switchControls();
+}
+
+function pageBack(){
+	currentPage -= 1;
+	if (currentPage < 1){
+		parent.location = './index.html';
+		return true;
+	}
+
+	switchDiv();
+	switchControls();
+}
+        
+function switchControls(){        
+
+	if(currentPage == 1){
+		forward_yes.style.display = '';
+		forward_no.style.display = 'none';
+	}
+
+       	if(currentPage == pagesCount){
+		forward_yes.style.display = 'none';
+		forward_no.style.display = '';
+	}
+
+       	else {
+		forward_yes.style.display = '';
+		forward_no.style.display = 'none';
+	}
+
+	backward_yes.style.display = '';
+	backward_no.style.display = 'none';       
+}
+
+</script>
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+</head>
+<body onLoad="initPage();" bgcolor="#f5f5f5" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+
+<bgsound src="./sound/choose_operators.wav" loop="1" />
+
+    <div style="position:relative; left:50%; width:1245px; unicode-bidi: normal; margin:18 20 0 -620px;">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#f5f5f5">
+            <tr>
+                <td>
+                    <table width="100%" style="border-collapse: collapse;">
+                        <tr>
+                            <td width="148" height="181">
+                                <div id="qiwi-logo"></div>
+                            </td>
+
+                            <td id="advert_td_1" valign="center"  bgcolor="#f5f5f5">
+                                <div id="advert_1" style="display:none; width:100%; height: 181px;"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td valign="top">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td>
+                                <table style="border-collapse: collapse;" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td width="301" onclick="search_provider();">
+                                            <div style="background-image:url(./img/ui/navigation/search_empty.gif); background-repeat: no-repeat; margin-top:28px; width:100%; display:block; height:122px;">
+                                                <div id="button_search"></div>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div style="background-image:url(./img/ui/grp_panel/grp.gif); background-repeat: no-repeat; margin-left:14px; margin-top:28px; width:100%; display:block; height:122px;">
+                                                <div id="grp_image">
+                                                    <div id="grp_name" style="position: relative; font: bold 25px 'Myriad Pro',Arial; color: white; top: 40px; left: 150px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div style="overflow: hidden; height:491px; width:100%; display:block; margin-bottom:18px; margin-top:18px;">
+                                    <div id='dp1' style='display:'>
+                                        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <tr><td id='page1' align="center">-</td></tr>
+                                        </table>
+                                    </div>
+
+                                    <div id='dp2' style='display:none'>
+                                        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <tr><td id='page2' align="center">-</td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <script type="text/javascript">bottom_menu();</script>
+
+        </table>
+
+        <form name="ff" action="" method="post">
+            <input type="hidden" name="prv_id" value="">
+            <input type="hidden" name="prv_name" value="">
+            <input type="hidden" name="komissiya" value="">
+            <input type="hidden" name="EmbedParams" value="">
+            <input type="hidden" name="_receipt_prt_top_reklama" value="">
+            <input type="hidden" name="_receipt_prt_bottom_reklama" value="">
+            <input type="hidden" name="_receipt_prt_top_msg" value="">
+            <input type="hidden" name="Language" value="">
+            <div id="hiddens"></div>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+﻿<html>
+<head>
+	<title>global_index / no refresh</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="refresh" content="60; URL=./index.html">
+</head>
+
+<script src="./func/ui/objects.js"></script>
+<script src="./advert.js"></script>
+<script src="./advert_content.js"></script>
+<script src="./prv_values.js"></script>
+<script src="./func/engine/pars_cookie.js"></script>
+<script src="./func/engine/prv_image.js"></script>
+<script src="./sort.js"></script>
+<script src="./func/engine/extra_prv.js"></script>
+
+<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/en_gb.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/cn_cn.js" type="text/javascript"></script>
+<script src="./func/ui/translate/locale/ar_ir.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/bg_bg.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/ro_ro.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/es_pa.js" type="text/javascript"></script>
+<script>
+
+function validate_confirm() {
+	addExtraPrvToValues();
+	var phone_number = getcookie('Phone_Number');
+	ff.phoneNumber.value = phone_number;
+
+	var prv_value = getcookie('prv_value');
+
+	var ps = value[prv_value]["prv_alert"];
+
+	if ((ps != '') & (typeof(ps) != 'undefined' )) {
+
+        	document.getElementById('alert').innerHTML = ps;	
+	}
+
+	else {
+        	document.getElementById('alert').innerHTML = '';		
+	}
+
+}
+
+</script>
+
+<script>
+
+function backward() {
+	var last_page = getcookie('last_page');
+	parent.location = last_page;
+}
+
+
+function forward() {
+	ff.submit();
+}
+
+function menu() {
+	parent.location = "./main.html";
+}
+
+function bdef(){
+	backward_yes.style.display='';
+	backward_no.style.display='none';
+	forward_yes.style.display='';
+	forward_no.style.display='none';
+	menu_yes.style.display='';
+	menu_no.style.display='none';
+}
+
+function setSpans()
+{
+    for (var i=1; i<4; i++)
+        if (document.getElementById('ahtung_printer' + i).value != '')
+            document.getElementById('ahtung_printer_span' + i).innerHTML = document.getElementById('ahtung_printer' + i).value;
+}
+
+function showInformationContent()
+{
+    var infContent = document.getElementById('information_content');
+    var sysInformation = document.getElementById('system_information');
+    var advert2 = document.getElementById('advert_2');
+    var ahtPrinter1 = document.getElementById('ahtung_printer1');
+    var ahtPrinter2 = document.getElementById('ahtung_printer2');
+    var ahtPrinter3 = document.getElementById('ahtung_printer3');
+    
+    advert2.style.display = 'none';
+    
+    if ((advert2.innerHTML == '') ||
+        ((ahtPrinter1.value != '') ||
+         (ahtPrinter2.value != '') ||
+         (ahtPrinter3.value != '')))
+        infContent.innerHTML = sysInformation.innerHTML;
+    else
+    {
+        infContent.innerHTML = advert2.innerHTML;
+        infContent.style.width = 850;
+        infContent.style.height = 200;    
+    }
+}
+
+function processTranslate(sLang)
+{
+
+	var sLocale = getcookie('locale');
+	getTextProp("index_text_direction",sLocale );
+	getTextById("main_pkr",sLocale);
+	getTextById("main_cellular",sLocale);
+	getTextById("main_ecommerce",sLocale);
+	getTextById("main_internet",sLocale);
+	getTextById("main_tv",sLocale);
+	getTextById("main_zkh",sLocale);
+	getTextById("main_other",sLocale);
+	getTextById("main_tickets",sLocale);
+	
+	getTextById("b_menu_center",sLocale);
+	getTextById("b_ra",sLocale);
+	getTextById("b_la",sLocale);
+
+}
+</script>
+
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+<body onload="bdef(); validate_confirm(); prv_image(); startAdvert('Validate_Confirm'); setSpans(); processTranslate('ru')" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+<bgsound src="./sound/validate.wav" loop="1">
+
+<center>
+<div id="index_text_direction" style="unicode-bidi: normal" >
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+<tr>
+<td id="advert_td_1" valign="top"><div id="advert_1" style="display:none; width:100%; height: 200px;"></div></td>
+</tr>
+
+<tr>
+	<td align="center" valign="top">
+		<table cellpadding="0" cellspacing="0" border="0" width="70%" style="padding: 10 0 10 0;">
+		<form name="ff" action="./enter_summ.html" method="post">
+		<tr>
+		<td align="center" bgcolor="#dedede">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+			<td width="11" background="./img/ui/title_left.gif"></td>
+			<td class="on_page_title" background="./img/ui/title_bg.gif"><img border="0" src="./img/ui/title_validate_confirm.gif"></td>
+			<td width="11" background="./img/ui/title_right.gif"></td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		    <script>ui_item_left();</script>
+		    
+		    <div style="position: relative; float: left;">
+		        <img name="prv_image" src="./img/ui/null.gif" border="0" style="margin-right: 15px; width: 180; height:139;">
+		    </div>
+            <div style="width:73%; position:relative; float: left; top: 40px;">
+       			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	            	<tr>
+	                	<td width="11" background="./img/ui/input_left.gif"></td>
+		                <td background="./img/ui/input_bg.gif" height="68" align="center"><input type="text" name="phoneNumber" class="inp" style="width:100%;"></td>
+		                <td width="11" background="./img/ui/input_right.gif"></td>
+		            </tr>
+		        </table>
+            </div>
+            <script>ui_item_right();</script>
+        </td>
+		</tr>
+		<tr>
+		<td align=center>	
+			<div style="display:block; width:850; height:250;"><div id="advert_2" style="display:none; width:850px; height:250px;"></div>
+			</div>
+		</td>
+		</tr>	
+		<tr>	
+		<td align="center">
+			<div style="display:none;">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+			<td align="center">
+			<input type="text" id="ahtung_printer1" name="ahtung_printer1" value="" style="width:620; height:40; font-size:18;" class="inp">
+			</td>
+			</tr>
+			<tr>
+			<td align="center">
+			<input type="text" id="ahtung_printer2" name="ahtung_printer2" value="" style="width:620; height:40; font-size:18;" class="inp">
+			</td>
+			</tr>
+			<tr align="center">
+			<td>
+			<input type="text" id="ahtung_printer3" name="ahtung_printer3" value="" style="width:620; height:40; font-size:18;" class="inp">
+			</td>
+			</tr>
+			</table>
+			</div>
+
+			<div id="information_content" style="display:none; width:100%; height:100%;">
+			</div>
+			
+			<div id="system_information" style="display:block; text-align:center;">
+			    <span id="alert" style="width:620; font-size:18; color:#a61d00;"></span>
+			    <span id="ahtung_printer_span1" style="width:620; font-size:18; color:#a61d00;"></span>
+			    <span id="ahtung_printer_span2" style="width:620; font-size:18; color:#a61d00;"></span>
+			    <span id="ahtung_printer_span3" style="width:620; font-size:18; color:#a61d00;"></span>
+			</div>
+		</td>
+		</tr>
+		</form>
+		</table>
+	</td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<script>bottom_menu();</script>
+
+</table>
+</div>
+</center>
+</body>
+</html>

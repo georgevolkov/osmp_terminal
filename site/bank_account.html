@@ -1,0 +1,344 @@
+﻿<html>
+
+<head>
+
+	<title>provider / 180</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="180; URL=./index.html">
+
+</head>
+
+<script src="./func/ui/objects.js"></script>
+<script src="./advert.js"></script>
+<script src="./advert_content.js"></script>
+<script src="./prv_values.js"></script>
+<script src="./func/engine/pars_cookie.js"></script>
+<script src="./func/engine/prv_image.js"></script>
+
+<script>
+
+function getKey(bic, account) {
+	var k = parseInt(account.charAt(8));
+	var s=0;
+	s = 7*bic.charAt(6)+1*bic.charAt(7)+3*bic.charAt(8) + 7*account.charAt(0)+1*account.charAt(1)+3*account.charAt(2)+ 7*account.charAt(3)+1*account.charAt(4)+3*account.charAt(5)+ 7*account.charAt(6)+1*account.charAt(7)+7*account.charAt(9)+ 1*account.charAt(10)+3*account.charAt(11)+7*account.charAt(12)+ 1*account.charAt(13)+3*account.charAt(14)+7*account.charAt(15)+ 1*account.charAt(16)+3*account.charAt(17)+7*account.charAt(18)+1*account.charAt(19);
+	s = ((s%10)*3)%10;
+	return s;
+}
+
+function check_bik(bic) {
+	re = new RegExp('^0445');
+	if(bic.search(re) != -1) return true;
+	else return false;
+}
+
+
+function check_acc(account) {
+	var tmp = new Array();
+	var cur_num=account.charAt(0);
+	for(var i=0;i<8;i++){
+	    if(cur_num!=account.charAt(i)) return true;
+	}
+	return false; 
+}
+
+function check_bank(account,bank) {
+//    if(!bank_acc[bank] || !bank_acc[bank].length) return true;
+	if(!bank_acc[bank] || !bank_acc[bank].length) 	bank='all';
+	var re = '';
+	for(var i=0;i<bank_acc[bank].length;i++){
+		re = new RegExp('^'+bank_acc[bank][i]+'');
+		if(account.search(re) != -1) return true
+	}
+	return false;
+}
+
+function backward() {
+	document.cookie = "prv_value=null";
+//	var get_back = getcookie('last_folder');
+	parent.location = "./pages.html";
+}
+
+function forward() {
+	ff.getAccountNumber.value = ff.prefix.value + ff.code.value;
+	var bik = ff._extra_bik.value;
+	var getAccountNumber  = ff.getAccountNumber.value;
+   	var res = getKey(bik,getAccountNumber);
+	var Phone_Number = ff.getAccountNumber.value;
+	var tmp = document.getElementById('err_bik');
+	if (res != getAccountNumber.charAt(8) || !check_acc(getAccountNumber) || !check_bik(bik)){
+			forward_yes.style.display='none';
+			forward_no.style.display='';
+			document.getElementById('error_message').innerHTML = 'Неверный номер счета.<br>Пожалуйста убедитесь в правильности ввода и повторите попытку.';
+		return false;
+	}
+
+	else {
+	ff.getAccountNumber.value = ff.prefix.value + ff.code.value;
+	document.cookie = "Phone_Number=" + ff.getAccountNumber.value;
+	ff.submit();
+	}
+}
+
+
+function menu() {
+	parent.location = "./main.html";
+}
+
+function bdef(){
+	backward_yes.style.display='';
+	backward_no.style.display='none';
+	forward_yes.style.display='none';
+	forward_no.style.display='';
+	menu_yes.style.display='';
+	menu_no.style.display='none';
+	var curent_page = document.location.href;
+	document.cookie='last_page=' + curent_page;
+
+
+	var prv = getcookie('prv_value');
+
+	if (prv == '264') {
+		ff._extra_bik.value = '044525593';
+		ff._extra_oper_type.value = '1';
+		return;
+	}
+
+	if (prv == '264a') {
+		ff._extra_bik.value = '044525593';
+		ff._extra_oper_type.value = '2';
+		return;
+	}
+
+	if (prv == '433') {
+		ff._extra_bik.value = '044583974';
+		ff._extra_oper_type.value = '2';
+		return;
+	}
+
+
+
+}
+
+var x = '';
+var cur_win = 1;
+
+function getCurval() {
+
+	switch(cur_win){
+		case 1 : return ff.code.value;
+		default: return '';
+	}
+}
+
+function setCurval(inp) {
+	switch(cur_win){
+		case 1 : ff.code.value = inp; break;
+	}
+
+}
+
+function press(digit) {
+
+	var curVal = getCurval();
+
+	if (digit == 'tab') {
+		if (curVal.length == 0) return;
+		if (cur_win < 1) {
+			cur_win += 1;
+			tab();
+			return;
+		}
+
+		if (cur_win == 2) {
+			cur_win = 1;
+			tab();
+			return;
+		}
+	}
+
+	if (digit == 'c') {
+		ff.code.value = '';
+		cur_win = 1;
+		tab();
+		return;
+	}
+
+
+	if (digit == 'bs') {
+		if (curVal.length == 0) {
+			if (cur_win > 1) {
+				cur_win -= 1;
+				curVal = getCurval();
+				tab();
+			}
+		}
+		curVal = curVal.substring(0,curVal.length - 1);
+		setCurval(curVal);
+		return;
+	}
+
+	if (curVal.length >= 12) {
+		document.code.src = './img/ui/arrow_off.gif';
+		return;
+	}
+
+	else {
+		document.code.src = './img/ui/arrow_on.gif';
+	}
+
+	curVal += digit;
+	setCurval(curVal);
+
+
+	if (curVal.length >= 12){
+		forward_yes.style.display = '';
+		forward_no.style.display = 'none';
+		return;
+	}
+
+
+	else{
+		forward_yes.style.display = 'none';
+		forward_no.style.display = '';
+		return;
+	}
+
+                     
+}
+
+
+
+function tab(){
+
+	document.code.src = './img/ui/arrow_off.gif';
+
+	if (cur_win == 1) {
+
+		document.code.src = './img/ui/arrow_on.gif';
+
+		return;
+
+	}
+}
+
+</script>
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+<body onload="bdef(); startAdvert('Provider'); prv_image(); tab();" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+<center>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+<tr>
+	<td id="advert_td_1"><div id="advert_1" style="display:none; width:100%; height: 200px;"></div></td>
+
+</tr>
+<tr>
+	<td align="center" valign="top">
+
+	<div id="page1" name="page1" style="display:;">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="padding: 10 10 0 10;">
+
+			<tr>
+				<td valign="top" align="right" width="50%"><img border="0" src="./img/ui_item/bank_prefix_42301810.gif" onclick="ff.prefix.value=42301810; page1.style.display='none'; page2.style.display='';"></td>
+				<td valign="top" align="left" width="50%"><img border="0" src="./img/ui_item/bank_prefix_40817810.gif" onclick="ff.prefix.value=40817810; page1.style.display='none'; page2.style.display='';"></td>
+
+
+
+			</tr>
+
+		</table>
+
+
+	</div>
+
+	<div id="page2" name="page1" style="display:none;">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 10 50 0 50;">
+			<tr>
+				<td align="right" valign="top">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+						<form name="ff" action="./validate_confirm.html" method="post">
+						<input type="hidden" name="getAccountNumber" value="">
+						<input type="hidden" name="_extra_oper_type" value="">
+						<input type="hidden" name="_extra_bik" value="">
+						<tr>
+							<td>
+								<table cellpadding="10" cellspacing="0" border="0">
+									<tr>
+										<td bgcolor="#dedede">
+											<table cellpadding="0" cellspacing="0" border="0">
+												<tr>
+													<td width="11" background="./img/ui/title_left.gif"></td>
+													<td background="./img/ui/title_bg.gif"><img border="0" src="./img/ui/title_account_number.gif"></td>
+													<td width="11" background="./img/ui/title_right.gif"></td>
+                                                                        			</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td height="20"></td>
+						</tr>
+
+						<tr>
+							<td>
+								<table cellpadding="10" cellspacing="0" border="0">
+									<tr>
+										<td bgcolor="#dedede">
+											<table cellpadding="0" cellspacing="0" border="0">
+												<tr>
+													<td width="11" background="./img/ui/input_left.gif"></td>
+													<td background="./img/ui/input_bg.gif" height="68"><input type="text" id="prefix" maxlength="10" class="inp" style="width:200px;"></td>
+													<td background="./img/ui/input_bg.gif" height="68"><input type="text" id="code" maxlength="10" class="inp" style="width:280px; text-align:left;"></td>
+													<td width="11" background="./img/ui/input_right.gif"></td>
+												</tr>
+												<tr>
+													<td align="center" colspan="4" height="23"><img name="code" border="0" src="./img/ui/arrow_on.gif"></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+						<tr><td>
+							<table cellpadding="10" cellspacing="0" border="0" width="0">
+							<tr><td id="error_message"></td></tr>
+							</table>
+						</td></tr>
+						</form>
+					</table>
+				</td>
+				<td width="25%" valign="top" align="right">
+					<table cellpadding="0" cellspacing="10" border="0" bgcolor="#dedede" width="100%">
+						<tr>
+							<td> 
+								<script>ui_item_left();</script><img name="prv_image" src="./img/ui/null.gif" border="0"><script>ui_item_right();</script>
+							</td>
+						</tr>
+						<tr>
+							<td align="center">
+								<script>get_keypad();</script>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+	</td>
+</tr>
+<script>bottom_menu();</script>
+</table>
+
+</body>
+</html>

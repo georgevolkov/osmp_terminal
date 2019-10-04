@@ -1,0 +1,134 @@
+﻿<html>
+<head>
+	<title>Validate_Confirm</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="20; URL=./index.html" />
+	<link rel="stylesheet" href="./css/ok.css" type="text/css" />
+
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>
+	<script type="text/javascript" src="./advert_content.js"></script>
+
+        <script type="text/javascript" src="mini_adv.js"></script>
+	<script type="text/javascript">
+
+            var sLocale = "ru_ru";
+
+        function init() {
+            var oPayInfo = Object.deserialize(storage.get("pay_info"));
+            //var advert = new AdvertClass("Ok");
+            if ($isNoU(oPayInfo)) {
+                document.location.href = "./index.html";
+            }
+            displayPayInfo(oPayInfo);
+
+            startAdvert("Ok");
+
+            //advert.placeAdv();
+	    new CInnerShadow($('btn_center').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+
+            //drawImage('advert_2', 'img/ui/namba_ok.png');
+            //drawFlash('advert_2', 'img/ui/777.swf');
+
+            processTranslate();
+            // beeline
+            if (oPayInfo.prvId == '5135'/* '14166'*/ && storage.get("rt_") == '1')
+                document.location.href = "./ok_beeline_new.html";
+        }
+
+        function getVisibleAccount(oInfo) {
+            return oInfo.account;
+        }
+
+        function processTranslate(sLang) {
+            sLocale = getcookie('locale');
+            getTextById("button_menu", sLocale);
+            getTextById("easy_pay", sLocale);
+            getTextById("thank_you_text", sLocale);
+            getTextById("account_text", sLocale);
+            getTextById("accepted_text", sLocale);
+        }
+
+        function displayPayInfo(oInfo) {
+            if (isCorrect(oInfo.account)) {
+                $("num_inp").value = oInfo.account == '0000000000' ? 'Номер не указан' : getVisibleAccount(oInfo);
+            }
+            else {
+                $("num_inp").value = "";
+            }
+            if (isCorrect(oInfo.summ)) {
+                $("summ_txt").innerHTML = oInfo.summ;
+            }
+            else {
+                $("summ_txt").innerHTML = "";
+            }
+        }
+
+        function isCorrect(s) {
+            return (!$isNoU(s) && s.is(String) && s.length > 0);
+        }
+
+        function onMenuBtnClick(sBtn) {
+            switch (sBtn) {
+                case "FORWARD":
+                    document.location.href = "./index.html";
+                    break;
+            }
+        }
+
+	</script>
+</head>
+<body onload="init();">
+<bgsound src="./sound/kvitanc.wav" loop="1"></bgsound>
+<form id="ff" name="ff" method="post" action="#">
+        <div id="content">
+            <div id="contener1">
+                <div class="advert1" id="advert_1"></div>
+                <div class="advert1" id="advert_2"></div>
+            </div>
+            <div id="contener2">
+                <div id="qiwi_logo"></div>
+                <div id="title">
+                    <div id="easy_pay"></div>
+                    <div id="thank_you_text" align="center"></div>                    
+                    <div id="num_txt"><input id="num_inp" name="num_inp" type="text" value="" /></div>                    
+                    <div id="contener_summ">
+                        <div style="float: left; width:635px;">
+                            <div id="account_text"></div>
+                            <div id="accepted_text"></div>
+                        </div>
+                        <div id="summ_txt"></div>
+                    </div>                    
+                </div>                
+            </div>
+            <div id="contener3">
+                <div class="advert2" id="advert_3"></div>
+                <div class="advert2" id="advert_4"></div>
+                <div class="advert2" id="advert_5"></div>
+            </div>
+            <div id="bottom_menu">
+                <div id="btn_left" class="bottom-button-left"></div>
+                <div id="btn_center" class="bottom-button-center" onclick="onMenuBtnClick('FORWARD');">
+                    <!--<img alt="" src="./img/ui/navigation/menu.gif" onclick="onMenuBtnClick('FORWARD');" />-->
+                    <div id="bottom-button-center-container">
+                        <div id="button_menu"></div>
+                    </div>
+                </div>
+                <div id="btn_right" class="bottom-button-right">
+                    
+                </div>
+            </div>
+        </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,199 @@
+﻿<html>
+
+<head>
+
+	<title>global_index / no refresh</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="20; URL=./index.html">
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+</head>
+
+<script src="./func/ui/objects.js"></script>
+<script src="./func/engine/pars_cookie.js"></script>
+
+<script>
+
+function backward() {
+
+	history.go(-1);
+}
+
+
+function forward() {
+
+var gCookies = new CookieClass();
+
+gCookies.deleteCookie("priceContentAdv");
+gCookies.deleteCookie("codeContentAdv");
+gCookies.deleteCookie("Phone_Number_Adv");
+gCookies.deleteCookie("Sum_Adv");
+
+ parent.location = "./index.html";
+}
+
+function bdef(){
+	backward_yes.style.display='none';
+
+	backward_no.style.display='';
+
+	forward_yes.style.display='';
+
+	forward_no.style.display='none';
+
+	menu_yes.style.display='none';
+
+	menu_no.style.display='';
+	
+}
+
+function ok() {
+
+	var tmp = document.cookie;
+
+	var tmp2 = tmp.split("; ");
+
+	for (var i = 0; i < tmp2.length; i++){
+
+		var j = tmp2[i].split("=");
+
+		if(j[0]=="Phone_Number_Adv")	ff.phoneNumber.value=j[1];
+
+		if(j[0]=="Sum_Adv")			ff.Sum.value=j[1];
+	}
+
+	return true;
+
+}
+
+</script>
+
+
+
+
+<body onload="bdef(); ok();"  bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+
+<bgsound src="./sound/kvitanc.wav" loop="1">
+
+<center>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+
+
+<tr>
+<td height="200" align="center" valign="middle" class="on_page_title" background="./img/ui/advert_bg.gif"> 
+    <embed width=100% height=100% src="./img/swf/banner.swf"></embed> 
+</td>
+</tr>
+<tr>
+
+<td align="center" valign="top">
+
+	<table cellpadding="10" cellspacing="10" border="0" width="70%" style="padding: 10 50 0 50;">
+
+	<form name="ff" action="./enter_summ_zagruzka.html" method="post">
+
+	<input type="hidden" name="provider">
+
+	<tr>
+
+	<td align="center" bgcolor="#dedede">
+		
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+		<tr>
+
+		<td width="11" background="./img/ui/title_left.gif"></td>
+
+		<td class="on_page_title" background="./img/ui/title_bg.gif"><img border="0" src="./img/ui/title_ok.gif"></td>
+
+		<td width="11" background="./img/ui/title_right.gif"></td>
+
+		</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+	
+	</table>
+
+	<table cellpadding="10" cellspacing="10" border="0" width="70%" style="padding: 0 50 0 50;">
+
+
+	<tr>
+
+	<td align="center" bgcolor="#dedede">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+		<tr><td colspan="3"><img border="0" src="./img/ui/ok_in.gif"></td></tr>
+
+		<tr>
+
+		<td width="11" background="./img/ui/input_left.gif"></td>
+
+		<td background="./img/ui/input_bg.gif" height="68" align="center"><input type="text" name="phoneNumber" class="inp" style="width:715px;"></td>
+
+		<td width="11" background="./img/ui/input_right.gif"></td>
+
+		</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr>
+
+	<td align="center" bgcolor="#dedede">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+		<tr><td colspan="3"><img border="0" src="./img/ui/ok_summ.gif"></td></tr>
+
+		<tr>
+
+		<td width="11" background="./img/ui/input_left.gif"></td>
+
+		<td background="./img/ui/input_bg.gif" height="68" align="center"><input type="text" name="Sum" class="inp" style="width:715px;"></td>
+
+		<td width="11" background="./img/ui/input_right.gif"></td>
+
+		</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr><td>
+
+
+</td></tr>
+
+	</form>	
+
+<tr><td></td></tr>
+	</table>
+
+    <div id="magitel" style="display:block ; width:100%"><font style="font-family: Arial, Helvetica, sans-serif; font-size: large; color: #a61d00">Спасибо за покупку.<br>В течение  нескольких минут на ваш телефон придет ссылка на купленый элемент.</font></div>
+
+</td>
+
+</tr>	
+<tr><td></td></tr>
+
+<script>bottom_menu();</script>
+
+</table>
+
+</body>
+
+</html>

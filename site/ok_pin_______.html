@@ -1,0 +1,94 @@
+﻿<html>
+
+<head>
+
+	<title>global_index / no refresh</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="20; URL=./index.html">
+
+</head>
+
+<script src="./js/lang/str_PA.js"></script>
+<script src="./js/lang/str_ZA.js"></script>
+<script src="./js/engine/utils.js"></script>
+<script src="./js/engine/advert.js"></script>
+<script src="./js/engine/pars_cookie.js"></script>
+<script src="./advert_content.js"></script>
+<script src="./js/ui/objects.js"></script>
+
+<script>
+
+function start() {
+    setTimeout(ok, 300);
+    startAdvert("Ok");
+    uiNavigationButton('back_btn', 'LEFT_DISABLED', '');
+    uiNavigationButton('menu_btn', 'MENU_DISABLED', '');
+    uiNavigationButton('forward_btn', 'RIGHT_ENABLED', 'forward()');
+}
+
+function forward() {
+	parent.location = "./index.html";
+}
+
+function ok() {
+    if ($("disp1").value.length > 0) {
+        $("msg").innerHTML = getStr("final_pin_msg_ok");
+        return true;
+    }
+    else {
+        $("msg").innerHTML = getStr("final_pin_msg_err");
+        return false;
+    }
+}
+
+</script>
+
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+<body onload="start();"  bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+<div id="sound"/>
+<bgsound src="./sound/thanks.wav" loop="1">
+    <form id="ff" name="ff" method="post" action="#">
+        <input id="disp1" name="disp1" type="hidden" value="" />
+    </form>        
+</form>
+<center>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+
+
+<tr>
+<td id="advert_td_1" valign="top" height="0" style="height: 200px;"><div id="advert_1" style="height: 200px;"></div></td>
+</tr>
+<tr>
+
+<td align="center" valign="middle">
+    <div id="msg" class="inp" style="font-size: 30px;"></div>
+</td>
+</tr>
+<tr><td></td></tr>
+<tr>
+<td style="height: 140px;">
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+    
+            <td id="back_btn" align="left" width="33%"></td>
+    
+            <td id="menu_btn" align="center" width="34%"></td>
+
+            <td id="forward_btn" align="right" width="33%"></td>
+    
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+
+</body>
+
+</html>

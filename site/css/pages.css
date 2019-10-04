@@ -1,0 +1,9 @@
+﻿#qiwi-logo {
+    width:150px;
+    height:140px;    
+    position: relative;    
+    margin:24px 32px 17px 32px;
+    padding: 0;
+    background-image:url(../img/ui/qiwi-logo.png);
+    background-repeat: no-repeat;    
+}

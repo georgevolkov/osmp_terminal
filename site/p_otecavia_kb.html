@@ -1,0 +1,684 @@
+﻿<html>
+<head>
+	<title>Validate_Confirm</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+
+        <script src="./advert.js" type="text/javascript"></script>
+        <script src="./advert_content.js" type="text/javascript"></script>
+        <script src="prv_values.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<!--<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>-->
+	<script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+
+        <style type="text/css">
+            #header {
+                margin-bottom: 5px;                
+            }
+
+            #text {
+                height: 95px;
+                margin-left: 2px;
+                float: left;
+            }
+
+            #right-panel {
+                float: right;
+                padding-right: 15px;
+            }
+
+            .txt-input {
+                width: 720px;
+                height: 65px;
+                font-size: 50px;
+                text-align: left;                
+            }
+
+            .txt-input-above-30 {
+                width: 720px;
+                height: 65px;
+                font-size: 40px;
+                text-align: left;
+            }
+
+            .field_l {
+                background: url('img\ui\field\l_a.gif') no-repeat;
+                width: 28px;
+                height: 95px;
+                display: inline;           
+            }
+
+            .field_r {
+                background: url('img\ui\field\r_a.gif') no-repeat;
+                width: 28px;
+                height: 95px;
+                display: inline;
+            }
+
+            .field_c {
+                background: url('img\ui\field\c_a.gif') repeat-x;
+                width: 840px;
+                height: 95px;
+                display: inline;
+            }
+
+            .perbtn {
+                color: white;
+                font-size: 26px;                
+            }           
+
+            .kb_btn {
+                width: 87px;
+                height: 95px;
+                background: url('./img/ui/keyboard/al/blue_btn_unpress.gif') no-repeat;
+                font-size: 50px;
+                color: #fff;
+                font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .kb_btn_tab {
+                width: 184px;
+                height: 87px;
+                background: url('./img/ui/keyboard/al/2btnorange_unpress.gif') no-repeat;
+                font-size: 50px;
+                color: #fff;
+                font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .kb_btn_abc {
+                width: 87px;
+                height: 87px;
+                background: url('./img/ui/keyboard/al/orange_btn_unpress.gif') no-repeat;
+                font-size: 30px;
+                color: #fff;
+                font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .kb_btn_capslock {
+                width: 87px;
+                height: 117px;
+                background: url('./img/ui/keyboard/al/3btnorange_unpress.gif') no-repeat;
+                font-size: 35px;
+                color: #fff;
+                font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+                font-weight: bold;                
+                padding-top: 25px;
+                padding-left: 25px;
+            }
+
+            .kb_btn_delete_all {
+                width: 87px;
+                height: 117px;
+                background: url('./img/ui/keyboard/al/3btnorange_unpress.gif') no-repeat;
+                font-size: 35px;
+                color: #fff;
+                font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+                font-weight: bold;
+                padding-top: 15px;
+                padding-left: 25px;
+            }
+
+            .kb_btn_space {
+                width: 87px;
+                height: 117px;
+                background: url('./img/ui/keyboard/al/space_unpress.gif') no-repeat;
+                font-size: 35px;
+                color: #fff;
+                font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .up-left {
+                width: 28px;
+                height: 23px;
+                background: url('./img/ui/field/text-table/ul-corner.gif') no-repeat;
+            }
+
+            .up-right {
+                width: 28px;
+                height: 23px;
+                background: url('./img/ui/field/text-table/ur-corner.gif') no-repeat;
+            }
+
+            .left-middle {
+                width: 28px;
+                height: 50px;
+                background: url('./img/ui/field/text-table/ml.gif') repeat-y;
+            }
+
+            .right-middle {
+                width: 28px;
+                height: 2px;
+                background: url('./img/ui/field/text-table/middle-right.gif') repeat-y;
+            }
+
+            .down-left {
+                width: 28px;
+                height: 47px;
+                background: url('./img/ui/field/text-table/dl-corner.gif') no-repeat;
+            }
+
+            .down-right {
+                width: 28px;
+                height: 26px;
+                background: url('./img/ui/field/text-table/dr-corner.gif') no-repeat;
+            }
+
+            .up-center {
+                width: 720px;
+                height: 23px;
+                background: url('./img/ui/field/text-table/uc.gif') repeat-x;
+            }
+
+            .center {
+                width: 720px;
+                height: 50px;
+                background-color: white;
+            }
+
+            .down-center {
+                width: 720px;
+                height: 26px;
+                background: url('./img/ui/field/text-table/dc.gif') repeat-x;                
+            }
+
+            .delete-button {
+                width: 301px;
+                height: 121px;
+                background: url('./img/ui/navigation/delete_empty.gif') no-repeat;
+                text-transform: uppercase;
+                color: white;
+                font-size: 28px;
+                padding: 40px 0px 0px 130px;
+				position: absolute;
+				top: 60px;
+				left: 982px;
+            }
+
+            .left-index {
+                width: 28px;
+                height: 50px;
+                font-size: 40px;
+                font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif;
+                color: #2266BB;
+            }
+
+            #header-info {
+                width: 100%;
+                height: 28px;
+                background-color: #FE9800;
+                color: white;
+                font-size: 28px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            #sum-info {
+                margin-top: 5px;
+                width: 298px;
+                height: 116px;
+                background: url('./img/q2/sum-info.gif') no-repeat;
+                color: black;
+                text-align: center;
+                padding-top: 30px;
+            }
+
+            #sum-info span {
+                color: black;
+                font-size: 23px;
+            }
+        </style>
+
+	<script type="text/javascript">
+
+        var prvTag = null;
+        var sLocale = "ru_ru";
+        var sAlertMsg = 'Нажимая на кнопку "Далее", я соглашаюсь на возможные исправления введенного объявления в рамках правил данного СМИ. Контактный телефон 460812';
+        var LINE_LEN = 30;
+
+        var oPayInfo = null;
+
+        function init() {
+            oPayInfo = Object.deserialize(storage.get("pay_info"));
+
+            LINE_LEN = 30;
+            FIELDS_COUNT = 2;
+            INPUT_STRINGS = new Array(FIELDS_COUNT)
+            for (var i = 0; i < FIELDS_COUNT; i++)
+                FIELDS_COUNT[i] = "";
+
+            drawTextFields('text', FIELDS_COUNT);
+            clearTextFields();
+            drawKeyboard('kb', 'minEngKb');                        
+			
+	processTranslate();
+        }
+
+        var keyBoards = [
+            {type: "minEngKb", keyboard: {0: "1234567890-=|", 1: "qwertyuiop[]@", 2: "asdfghjkl;*", 3: "zxcvbnm,./"}},
+            {type: "bigEngKb", keyboard: {0: "12345678()_+/", 1: "QWERTYUIOP{}~", 2: "ASDFGHJKL:*", 3: "ZXCVBNM<>/"}},
+            {type: "minRusKb", keyboard: {0: "1234567890-=|", 1: "йцукенгшщзхъё", 2: "фывапролджэ", 3: "ячсмитьбю."}},
+            {type: "bigRusKb", keyboard: {0: "12345678()_+/", 1: "ЙЦУКЕНГШЩЗХЪЁ", 2: "ФЫВАПРОЛДЖЭ", 3: "ЯЧСМИТЬБЮ,"}}
+        ];        
+
+        var FIELDS_COUNT;
+
+        var CURRLANG = "";
+        var SHIFT = false;
+        var CAPS = false;
+
+        var CURRSTRING = 0;
+        var INPUT_STRINGS = ["", "", "", ""];
+
+        function validKeyForPhone(key) {
+            return /^[0-9()]{1}$/.test(key);
+        }
+
+        function inputKey(key) {
+            if (CURRSTRING == 0) {
+                if (!validKeyForPhone(key)) return;
+            }         
+
+            if (INPUT_STRINGS[CURRSTRING].length < LINE_LEN)
+                INPUT_STRINGS[CURRSTRING] = INPUT_STRINGS[CURRSTRING] + key;
+
+            redrawTextFields();            
+        }
+
+        function GetSymbolsCount() {
+            var count = 0;
+            for (var i = 0; i < INPUT_STRINGS.length; i++) {
+                for (var j = 0; j < INPUT_STRINGS[i].length; j++) {
+                    if (INPUT_STRINGS[i].charAt(j) == ' ') {
+                        if (prvTag.calcSpace) count++;
+                    }   
+                    else {
+                        count++;
+                    }
+                }
+            }
+            
+            return count;
+        }
+
+        function isPunctuation(ch) {
+           if (ch == '') return true;
+
+           return (/^[., !]{1}$/.test(ch));
+        }
+
+        function isWord(str) {
+            if (str == '') return false;
+
+            for (var i = 0; i < str.length; i++) {
+                if (isPunctuation(str.charAt(i))) return false;
+            }
+
+            return true;
+        }
+
+        function deleteLastKey() {
+            if (INPUT_STRINGS[CURRSTRING].length == 0 && CURRSTRING > 0)
+                --CURRSTRING;
+
+            INPUT_STRINGS[CURRSTRING] = INPUT_STRINGS[CURRSTRING].substr(0, INPUT_STRINGS[CURRSTRING].length - 1);
+            
+            redrawTextFields();
+        }
+
+        function newLine() {
+            if (CURRSTRING < FIELDS_COUNT - 1) ++CURRSTRING;
+        }
+
+        function clearTextFields() {
+            for (var i = 0; i < INPUT_STRINGS.length; i++)
+                INPUT_STRINGS[i] = "";
+            CURRSTRING = 0;
+            redrawTextFields();
+        }
+
+        function redrawTextFields() {
+            for (var i = 0; i < INPUT_STRINGS.length; i++) {
+                //if (INPUT_STRINGS[i].length == 0) break;
+                $("t" + i).value = INPUT_STRINGS[i];
+            }
+
+            if (INPUT_STRINGS[0].length <= 5) {
+                $("btn_right").style.display = "none";
+            }
+            else {
+                $("btn_right").style.display = "";
+            }            
+        }
+
+        function drawKeyboard(place, type) {            
+            if (type == 'minEngKb' || type == 'bigEngKb') CURRLANG = "Eng";
+            else if (type == 'minRusKb' || type == 'bigRusKb') CURRLANG = "Rus";
+
+            var kbText = "";
+            kbText += "<table width=\"100%\">";
+
+            for (var kbs = 0; kbs < keyBoards.length; kbs++) {
+                if (keyBoards[kbs].type != type) continue;
+                for (var i in keyBoards[kbs].keyboard) {
+                    if (!keyBoards[kbs].keyboard.hasOwnProperty(i)) continue;
+                    kbText += "<tr>";
+                    for (var j = 0; j < keyBoards[kbs].keyboard[i].length; j++)
+                        kbText += "<td class=\"kb_btn\" onclick=\"buttonClick(this, '"+keyBoards[kbs].keyboard[i].charAt(j)+"')\">" + keyBoards[kbs].keyboard[i].charAt(j) + "</td>";
+
+                    switch (i) {
+                        case "2":
+                            kbText += "<td colspan=\"2\" class=\"kb_btn_tab\" onclick=\"buttonClick(this, 'enter')\">Enter</td>";
+                            break;
+
+                        case "3":
+                            var langText = "";
+                            if (type == "minEngKb" || type == "bigEngKb") langText = "абв";
+                            if (type == "minRusKb" || type == "bigRusKb") langText = "abc";
+                            kbText += "<td class=\"kb_btn_abc\" onclick=\"buttonClick(this, '"+langText+"')\">"+langText+"</td>";
+                            kbText += "<td id=\"shiftbtn\" colspan=\"2\" class=\"kb_btn_tab\" onclick=\"buttonClick(this, 'shift')\">Shift</td>";
+                            break;
+                    }
+                    
+                    kbText += "</tr>";
+                }
+            }
+
+            kbText += "<tr><td id=\"caps\" align=\"center\" valign=\"top\" colspan=\"3\" class=\"kb_btn_capslock\" onclick=\"buttonClick(this, 'capslock')\">CapsLock</td><td colspan=\"7\" class=\"kb_btn_space\" onclick=\"buttonClick(this, 'space')\"></td><td align=\"center\" valign=\"top\" colspan=\"3\" class=\"kb_btn_delete_all\" onclick=\"buttonClick(this, 'delete_all')\">Стереть все</td></tr>";
+
+            kbText += "</table>";
+
+            $(place).innerHTML = kbText;
+
+            if (CAPS)
+                setPressedButton($('caps'), 'capslock');
+
+            if (SHIFT)
+                setPressedButton($('shiftbtn'), 'shift');
+        }
+
+        function drawTextFields(place, fieldsCount) {
+            var text = '<table>';
+
+            var inputClass = (LINE_LEN > 30 ? "txt-input-above-30" : "txt-input");
+
+            for (var i = 0; i < fieldsCount; i++) {
+                var caption = "";
+                if (i == 0)
+                    caption = "Телефон";
+                else if (i == 1)
+                    caption = "Email";
+                text += '<tr><td></td><td class="up-left"></td><td class="up-center"></td><td class="up-right"></td></tr>';
+                text += '<tr><td class="left-index">'+caption+'</td><td class="left-middle"></td><td class="center"><input id="t' +i+ '" class="'+inputClass+'" type="text" value="" onclick="textFieldClick(this)" /></td><td class="right-middle"></td></tr>';
+                text += '<tr><td></td><td class="down-left"></td><td class="down-center"></td><td class="down-right"></td></tr>';                
+            }
+
+            text += '</table>';
+
+            $(place).innerHTML = text;
+        }
+
+        function textFieldClick(thisVal) {
+            if (thisVal.id == 't0') {
+                CURRSTRING = 0;
+            }
+            else if (thisVal.id == 't1') {
+                CURRSTRING = 1;
+            }
+        }
+
+        function isCorrect(s) {
+            return (!$isNoU(s) && s.is(String) && s.length > 0);
+        }
+
+        function displayAlertMsg(sInfo) {
+            if (isCorrect(sInfo)) {
+                var sAlertContent =
+                    '<div class="alert" style="left: ' + (screen.width - 801) / 2 + 'px; top: ' + (screen.height - 482) / 2 + 'px;">' +
+                    '  <div class="alert_header">Внимание!</div>' +
+                    '  <div class="alert_msg">' + sInfo + '</div>' +
+                    '  <div class="alert_footer">Если Вы согласны, нажмите «ВПЕРЕД» для оплаты<br />или нажмите «НА ГЛАВНУЮ» для отмены операции</div>' +
+                    '</div>';
+                document.body.innerHTML += sAlertContent;
+            }
+        }
+
+        function setPressedButton(button, key) {
+            var btnName = "";
+            switch (key) {
+                case 'tab': case 'shift': case 'enter': btnName = "2btnorange_press.gif"; break;
+                case 'абв': case 'abc': btnName = "orange_btn_press.gif" ; break;
+                case 'capslock': case 'delete_all': btnName = "3btnorange_press.gif"; break;
+                case 'space': btnName = "space_press.gif"; break;
+                default:
+                    btnName = "blue_btn_press.gif";
+                    break;
+            }
+            button.style.backgroundImage = "url('./img/ui/keyboard/al/" + btnName + "')";
+        }
+
+        function setUnpressedButton(button, key) {
+            var btnName = "";
+            switch (key) {
+                case 'tab': case 'shift': case 'enter': btnName = "2btnorange_unpress.gif"; break;
+                case 'абв': case 'abc': btnName = "orange_btn_unpress.gif" ; break;
+                case 'capslock': case 'delete_all': btnName = "3btnorange_unpress.gif"; break;
+                case 'space': btnName = "space_unpress.gif"; break;
+                default:
+                    btnName = "blue_btn_unpress.gif";
+                    break;
+            }
+            button.style.backgroundImage = "url('./img/ui/keyboard/al/" + btnName + "')";
+        }
+
+        function resetShift() {
+            SHIFT = false;
+            drawKeyboard('kb', (CAPS ? 'big' : 'min') + CURRLANG + 'Kb');
+        }
+
+        function getRegister() {
+            var reg = "min";
+            if (CAPS) {
+                reg = (SHIFT ? 'min' : 'big');
+            }
+            else {
+                reg = (SHIFT ? 'big' : 'min');
+            }
+            return reg;
+        }
+
+        function buttonClick(sender, key) {
+            setPressedButton(sender, key);
+            setTimeout(function() {
+
+                switch (key) {
+                case 'enter':                    
+                    setUnpressedButton(sender, key);
+                    newLine();
+                    break;
+                case 'tab':
+                    setUnpressedButton(sender, key);
+                    resetShift();
+                    break;
+                case 'shift':
+                    if (SHIFT) {
+                        SHIFT = !SHIFT;
+                        drawKeyboard('kb', getRegister() + CURRLANG + 'Kb');
+                    }
+                    else {
+                        SHIFT = !SHIFT;    
+                        drawKeyboard('kb', getRegister() + CURRLANG + 'Kb');
+                    }
+                    break;
+                case 'абв':
+                    drawKeyboard('kb', getRegister() + 'RusKb');
+                    setUnpressedButton(sender, key);
+                    break;
+                case 'abc':
+                    drawKeyboard('kb', getRegister() + 'EngKb');
+                    setUnpressedButton(sender, key);
+                    break;
+                case 'capslock':
+                    resetShift();
+                    CAPS = !CAPS;                    
+                    drawKeyboard('kb', getRegister() + CURRLANG + 'Kb');
+                    break;
+                case 'delete_all':
+                    resetShift();
+                    setUnpressedButton(sender, key);
+                    clearTextFields();
+                    break;
+                case 'delete':
+                    deleteLastKey()
+                    break;
+                case 'space':
+                    resetShift();
+                    setUnpressedButton(sender, key);
+                    inputKey(' ');
+                    break;
+                default:
+                    resetShift();
+                    setUnpressedButton(sender, key);
+                    inputKey(key);
+                    break;
+            }            
+               
+            }, 150);            
+        }
+
+        function processTranslate(sLang) {
+            sLocale = getcookie('locale');
+            getTextById("button_back", sLocale);
+            getTextById("button_forward", sLocale);
+            getTextById("button_menu", sLocale);
+            //getTextById("button_delete", sLocale);
+        }
+
+       
+        function onMenuBtnClick(sBtn) {
+            switch (sBtn) {
+                case "BACKWARD":
+                    document.location = 'index.html';
+                    break;
+                case "MENU":
+                    document.location = 'index.html';
+                    break;
+                case "FORWARD":			                    
+                    var account = oPayInfo.account + ";" + INPUT_STRINGS[0] + ";" + INPUT_STRINGS[1];
+                    $('getAccountNumber').value = account;
+                    $('prv_id').value = getcookie("prv_id");
+
+                    var oProvider = {};
+                    oProvider.prvId = getcookie("prv_id");
+                    oProvider.prvName = getcookie("prv_name");
+                    oProvider.prvLogo = getcookie("prv_image");
+                    oProvider.account = account;
+                    oProvider.minSum = '0';
+                    oProvider.maxSum = '0';
+                    oProvider.prvGroup = storage.get("prv_group");
+                    oProvider.isCellular = 'false';
+                    oProvider.extraAccount = $('disp1').value;
+
+                    storage.put("pay_info", oProvider.serialize());
+                    storage.put("Phone_Number", account);
+                    storage.put("locale", sLocale, true);
+                    storage.put("useOnlinePayment", false);
+
+                    ff.submit();
+                    break;
+                case "DELETE":                    
+                    deleteLastNum();
+                    break;
+            }
+
+        }
+
+	</script>
+</head>
+<body onLoad="init();">
+<div id="content">
+    <form id="ff" name="ff" method="post" action="enter_summ.html">
+
+        <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+        <input id="prv_id" name="prv_id" type="hidden" value="" />
+		<input type="hidden" name="_extra_need-online-topay" value="false">                    		
+
+		<input id="_extra_result_int_page" name="_extra_result_int_page" type="hidden" value="ok.html" />
+
+        <input type="hidden" name="_extra_ev_adv_text" value="">
+        <input type="hidden" name="_extra_ev_calced_sum" value="">
+        <input type="hidden" name="_extra_ev_sum_for_pay" value="">
+        <input type="hidden" name="_extra_ev_begin_period" value="">
+        <input type="hidden" name="_extra_ev_end_period" value="">
+        <input type="hidden" name="_extra_ev_service_name" value="">
+
+
+        <input type="hidden" name="disp1" id="disp1" value="" />
+        <input type="hidden" name="disp2" id="disp2" value="" />
+
+        <div style="padding-left: 10px;">
+            <div id="header">
+                <div id="header-info">
+                    ОТЕКАВИА: введите номер телефона и email
+                </div>
+                <div>
+                    <div id="text">
+                    </div>
+                    <div id="right-panel">
+                        <div id="button_delete" onclick="deleteLastKey()" class="delete-button">удалить</div>                        
+                    </div>
+                </div>
+            </div>
+            <div id="kb">
+            </div>
+         </div>
+    </form>
+
+    <div id="bottom_menu">
+        <div id="btn_left" class="bottom-button-left" onClick="onMenuBtnClick('BACKWARD');">
+                <!--<img alt="" src="./img/ui/navigation/back_empty.gif" onClick="onMenuBtnClick('BACKWARD');" />-->
+                <div id="bottom-button-left-container">
+                    <div id="d"><div id="button_back"></div></div>
+                </div>
+        </div>
+        <div id="btn_center" class="bottom-button-center" onClick="onMenuBtnClick('MENU');">
+            <!--<img alt="" src="./img/ui/navigation/menu.gif" onClick="onMenuBtnClick('MENU');" />-->
+            <div id="bottom-button-center-container">
+                <div id="m"><div id="button_menu"></div></div>
+            </div>
+        </div>
+        <div id="btn_right" class="bottom-button-right" onClick="onMenuBtnClick('FORWARD');">
+            <!--<img alt="" src="./img/ui/navigation/forward.gif" onClick="onMenuBtnClick('FORWARD');" />-->
+            <div id="bottom-button-right-container">
+                <div id="f"><div id="button_forward"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

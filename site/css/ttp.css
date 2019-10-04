@@ -1,0 +1,119 @@
+﻿.borderline {
+    height: 140px;
+    width: 1px;
+    margin-left: 40px;
+    top: 40px;
+    position: absolute;
+    background: #F2692B;
+}
+.list_accounts_ttp {    
+    height:430px; 
+	width:1240px;
+    position: relative;    
+    margin:20px 0px 10px 20px;
+    padding: 0;
+    background-image: url(../img/ui/field/empty_fields5.gif);
+    background-repeat: no-repeat;    
+}
+.list_accounts_ttp input {
+    background: #ffffff !important;
+}
+
+.list_accounts_ttp_DMM {    
+    height:530px; 
+	width:1240px;
+    position: relative;    
+    margin:20px 0px 10px 20px;
+    padding: 0;
+    background-image: url(../img/ui/field/empty_fields2.gif);
+    background-repeat: no-repeat;    
+}
+.list_accounts_ttp_dmm input {
+    background: #ffffff !important;
+}
+
+.button_close_msg {
+    float: left;
+    background: url(../img/ui/3btnorange_unpress.gif);
+    color: #fff;
+    font-size: 26px;
+    position: absolute;
+    top: 250px;
+    left: 280px;
+    text-align: center;
+    padding: 42px 65px
+} 
+#oferta_ttp {
+    position: absolute;
+    background: url(../img/ui/navigation/but_commission_empty.gif) no-repeat;
+    padding: 0 0 0 100px;
+    width: 300px;
+    height: 120px;
+    text-align: center
+} 
+#back_ttp_warn {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 50px;
+    width: 1093px;
+    padding-bottom: 40px;
+    background: #ff0000;
+}
+#back_ttp_p_validate {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 50px;
+    width: 1093px;
+    height: 140px;
+    background: #fff;
+}
+.ttp-face {
+    position: absolute;
+}
+.ttp-face span {
+    position: absolute;
+    background: url(../img/ui/navigation/new/button_empty.gif) no-repeat;
+    width: 300px;
+    height: 125px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.ttp-face-press {
+    background: url(../img/ui/navigation/new/button_empty_press.png) no-repeat !important;
+}
+
+.ttp-faceDMM {
+    position: absolute;
+}
+.ttp-faceDMM span {
+    position: absolute;
+    background: url(../img/ui/navigation/new/dmm_bat.png) no-repeat;
+    width: 300px;
+    height: 45px;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.ttp-face-pressDMM {
+    background: url(../img/ui/navigation/new/dmm_button_empty_press.png) no-repeat !important;
+}
+
+
+
+
+.ttp-faceDMM_mal {
+    position: absolute;
+}
+.ttp-faceDMM_mal span {
+    position: absolute;
+    background: url(../img/ui/navigation/new/dmm_bat_mal.png) no-repeat;
+    width: 150px;
+    height: 45px;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.ttp-face-pressDMM_mal {
+    background: url(../img/ui/navigation/new/dmm_bat_mal_press.png) no-repeat !important;
+}

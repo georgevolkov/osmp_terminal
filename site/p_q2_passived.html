@@ -1,0 +1,89 @@
+﻿<html>
+<head>
+	<title>Validate_Confirm</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+
+        <script src="./advert.js" type="text/javascript"></script>
+        <script src="./advert_content.js" type="text/javascript"></script>
+        <script src="prv_values.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<!--<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>-->
+	<script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+	
+
+	<script type="text/javascript">
+
+        var oPayInfo = null;
+		
+        function init() {
+		oPayInfo = Object.deserialize(storage.get("pay_info"));
+		
+		var account = account = oPayInfo.account;
+                        $('getAccountNumber').value = account;
+                        $('prv_id').value = getcookie("prv_id");
+						
+						$("_extra_ev_adv_text").value = storage.get("q2_ev_adv_text");
+						$("_extra_ev_calced_sum").value = storage.get("q2_ev_calced_sum");
+						$("_extra_ev_sum_for_pay").value = storage.get("q2_ev_sum_for_pay");
+						$("_extra_ev_service_name").value = storage.get("q2_ev_service_name");
+		
+						if (!$isNoU(storage.get("q2_begin_period")))
+							$("_extra_ev_begin_period").value = storage.get("q2_begin_period");
+
+						if (!$isNoU(storage.get("q2_end_period")))
+							$("_extra_ev_end_period").value = storage.get("q2_end_period");
+                        
+		storage.put("useOnlinePayment", true);
+		
+		ff.submit();
+            
+        }            
+        
+
+	</script>
+</head>
+<body onLoad="init();">
+<div id="content">
+    <form id="ff" name="ff" method="post" action="enter_summ.html">
+
+        <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+        <input id="prv_id" name="prv_id" type="hidden" value="" />
+
+		<input type="hidden" name="_extra_need-online-topay" value="true">
+		<input type="hidden" name="_extra_online_payment" value="online_auth.html">
+		<input type="hidden" name="_extra_auth_success" value="ok.html">
+		<input type="hidden" name="_extra_auth_fail" value="ok.html">
+
+        <input type="hidden" name="_extra_ev_adv_text" id="_extra_ev_adv_text" value="">
+        <input type="hidden" name="_extra_ev_calced_sum" id="_extra_ev_calced_sum" value="">
+        <input type="hidden" name="_extra_ev_sum_for_pay" id="_extra_ev_sum_for_pay" value="">
+        <input type="hidden" name="_extra_ev_begin_period" id="_extra_ev_begin_period" value="">
+        <input type="hidden" name="_extra_ev_end_period" id="_extra_ev_end_period" value="">
+        <input type="hidden" name="_extra_ev_service_name" id="_extra_ev_service_name" value="">
+
+
+        <input type="hidden" name="disp1" id="disp1" value="" />
+        <input type="hidden" name="disp2" id="disp2" value="" />
+
+    </form>
+
+</div>
+</body>
+</html>

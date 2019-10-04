@@ -1,0 +1,340 @@
+<html>
+<head>
+	<title>Validate_Confirm</title>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+
+        <script src="./advert.js" type="text/javascript"></script>
+        <script src="./advert_content.js" type="text/javascript"></script>
+        <script src="prv_values.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<!--<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>-->
+	<script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+
+        <style type="text/css">
+            #dial_buttons tr {
+                margin-top: 5px;
+                padding-top: 5px;
+                height: 95px;
+            }
+
+            #dial_buttons td {
+                background-image: url('img/ui/p_sportloto/button.gif');
+                background-repeat: no-repeat;
+                width: 92px;
+                height: 100px;
+                text-align: center;
+                font-size: 65px;
+                color: white;
+            }
+        </style>
+
+	<script type="text/javascript">
+
+        var g_sPrvType = '',
+            logo;
+        var sLocale = "ru_ru";
+        var paymentAccount = "";
+        var prvId = "";
+        var account = '';
+        var accountCount = 0;        
+
+        function init() {
+
+            startAdvert("SportLoto_Account");
+
+            new CInnerShadow($('btn_left').getElementsByTagName('img')[0], { color: 30 });
+            new CInnerShadow($('btn_center').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+            new CInnerShadow($('btn_right').getElementsByTagName('img')[0], { color: 30 });
+            
+            $('gameNumber').innerHTML = 'розыгрыш № ' + $('disp1').value;
+            $('gameDate').innerHTML = 'от ' + convertDisp2ToDate();
+
+           processTranslate();
+        }
+
+        function convertDisp2ToDate() {
+            var disp2 = $('disp2').value;
+            var value = disp2.substring(6, 8) + '.' + disp2.substring(4, 6) + '.' + disp2.substring(0, 4);
+            return value;
+        }
+
+        function processTranslate(sLang) {
+            sLocale = getcookie('locale');
+            getTextById("button_back", sLocale);
+            getTextById("button_forward", sLocale);
+            getTextById("button_menu", sLocale);
+            getTextById("button_delete", sLocale); 
+        }
+
+        function numberAlreadyExist(num) {
+            if (account.length == 0) return -1;
+            var arr = account.split(';');
+            for (var i = 0; i < arr.length; i++)
+                if (arr[i] == num) return i;
+
+            return -1;
+        }
+
+        function lastNumber() {
+            if (account.length == 0) return '';
+            var arr = account.split(';');
+            if (arr.length > 0)
+                return arr[arr.length - 1];
+            return '';
+        }
+
+        function deleteNumberFromAccount(acc, index) {
+            if (acc.length == 0) return '';
+
+            var arr = acc.split(';');
+
+            if (index < 0 || index >= arr.length) return '';
+            
+            var newAcc = '';
+            var j = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (i != index) {
+                    if (j == 0)
+                        newAcc += arr[i];
+                    else
+                        newAcc += ';' + arr[i];
+                    j++;
+                }
+            }
+
+            return newAcc;
+        }
+
+        function setPressedButton(button) {
+            button.style.backgroundImage = "url('img/ui/p_sportloto/button_pressed.gif')";
+        }
+
+        function setUnpressedButton(button) {
+            button.style.backgroundImage = "url('img/ui/p_sportloto/button.gif')";
+        }
+
+        function setUpDownButton(button) {
+            button.style.backgroundImage = "url('img/ui/p_sportloto/button_updwon.gif')";
+        }
+
+        function buttonPress(sender, ch) {
+            setUpDownButton(sender);
+            setTimeout(function() {
+                setUnpressedButton(sender);
+                var delNum = numberAlreadyExist(ch);
+                if (delNum != -1) {
+                    account = deleteNumberFromAccount(account, delNum);
+                    setUnpressedButton(sender);
+                    accountCount--;
+                }
+                else {
+                    if (accountCount == 0) {
+                        account += ch;
+                        accountCount++;
+                        setPressedButton(sender);
+                    }
+                    else if (accountCount < 5) {
+                        account += ';' + ch;
+                        accountCount++;
+                        setPressedButton(sender);
+                    }
+                }
+                redrawAccount(account);
+            }, 150);
+        }
+
+        function deleteLastNum() {
+            if (account.length == 0) return;
+            var delNum = account.split(';').length - 1;
+            if (delNum != -1) {
+                setUnpressedButton(document.getElementById('td_' + lastNumber()));
+                account = deleteNumberFromAccount(account, delNum);
+                accountCount--;
+                redrawAccount(account);
+            }
+        }
+
+        function redrawAccount(acc) {            
+            var arr = acc.split(';');
+
+            $('accountText').value = '';
+            for (var i = 0; i < arr.length; i++) {
+                $('accountText').value += arr[i] + '  ';
+            }
+        }
+
+        function onMenuBtnClick(sBtn) {
+            switch (sBtn) {
+                case "BACKWARD":
+                    document.location = 'p_sport_loto_rules.html';
+                    break;
+                case "MENU":
+                    document.location = 'index.html';
+                    break;
+                case "FORWARD":
+                    $('getAccountNumber').value = account;
+                    $('prv_id').value = getcookie("prv_id");
+
+                    var oProvider = {};
+                    oProvider.prvId = getcookie("prv_id");
+                    oProvider.prvName = getcookie("prv_name");
+                    oProvider.prvLogo = getcookie("prv_image");
+                    oProvider.account = account;
+                    oProvider.minSum = '0';
+                    oProvider.maxSum = '0';
+                    oProvider.prvGroup = storage.get("prv_group");
+                    oProvider.isCellular = 'false';
+                    oProvider.extraAccount = $('disp1').value;
+                    
+                    storage.put("pay_info", oProvider.serialize());
+                    storage.put("Phone_Number", $("accountText").value);
+                    storage.put("locale", sLocale, true);
+
+                    ff.submit();
+                    break;
+                case "DELETE":                    
+                    deleteLastNum();
+                    break;
+            }
+
+        }
+
+	</script>
+</head>
+<body onLoad="init();">
+<div id="content">
+    <div id="container1">
+        <div id="qiwi_logo"><img alt="" src="./img/ui/qiwicel.gif" /></div>
+        <div id="advert_1"></div>
+    </div>
+    <div id="back_warn" style="text-align: center; background-color: #FE9800;">
+        <p id="par_back_warn" style="color: #f5f5f5; overflow: hidden; text-transform: uppercase; text-align: center; font-family:Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-weight:bold;  height:40px;color:#2268c6;">
+            <span style="font: bold 30px Arial, FreeSans, Helvetica, Tahoma, sans-serif; color: white;">Артлото - Тотализатор</span>
+        </p>
+    </div>
+
+    <form id="ff" name="ff" method="post" action="validate_confirm.html">
+
+        <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+        <input id="prv_id" name="prv_id" type="hidden" value="" />
+
+        <input type="hidden" name="disp1" id="disp1" value="" />
+        <input type="hidden" name="disp2" id="disp2" value="" />
+
+        <div id="dial_panel" style="float:left; margin: 5px 0px 0px 5px; padding: 0 0 0 5px; width: 605px; height: 600px;">
+            <table id="dial_buttons" width="100%">
+                <tbody>
+                    <tr>
+                        <td id="td_1" onclick="buttonPress(this, '1')">1</td>
+                        <td id="td_7" onclick="buttonPress(this, '7')">7</td>
+                        <td id="td_13" onclick="buttonPress(this, '13')">13</td>
+                        <td id="td_19" onclick="buttonPress(this, '19')">19</td>
+                        <td id="td_25" onclick="buttonPress(this, '25')">25</td>
+                        <td id="td_31" onclick="buttonPress(this, '31')">31</td>
+                    </tr>
+                    <tr>
+                        <td id="td_2" onclick="buttonPress(this, '2')">2</td>
+                        <td id="td_8" onclick="buttonPress(this, '8')">8</td>
+                        <td id="td_14" onclick="buttonPress(this, '14')">14</td>
+                        <td id="td_20" onclick="buttonPress(this, '20')">20</td>
+                        <td id="td_26" onclick="buttonPress(this, '26')">26</td>
+                        <td id="td_32" onclick="buttonPress(this, '32')">32</td>
+                    </tr>
+                    <tr>
+                        <td id="td_3" onclick="buttonPress(this, '3')">3</td>
+                        <td id="td_9" onclick="buttonPress(this, '9')">9</td>
+                        <td id="td_15" onclick="buttonPress(this, '15')">15</td>
+                        <td id="td_21" onclick="buttonPress(this, '21')">21</td>
+                        <td id="td_27" onclick="buttonPress(this, '27')">27</td>
+                        <td id="td_33" onclick="buttonPress(this, '33')">33</td>
+                    </tr>
+                    <tr>
+                        <td id="td_4" onclick="buttonPress(this, '4')">4</td>
+                        <td id="td_10" onclick="buttonPress(this, '10')">10</td>
+                        <td id="td_16" onclick="buttonPress(this, '16')">16</td>
+                        <td id="td_22" onclick="buttonPress(this, '22')">22</td>
+                        <td id="td_28" onclick="buttonPress(this, '28')">28</td>
+                        <td id="td_34" onclick="buttonPress(this, '34')">34</td>
+                    </tr>
+                    <tr>
+                        <td id="td_5" onclick="buttonPress(this, '5')">5</td>
+                        <td id="td_11" onclick="buttonPress(this, '11')">11</td>
+                        <td id="td_17" onclick="buttonPress(this, '17')">17</td>
+                        <td id="td_23" onclick="buttonPress(this, '23')">23</td>
+                        <td id="td_29" onclick="buttonPress(this, '29')">29</td>
+                        <td id="td_35" onclick="buttonPress(this, '35')">35</td>
+                    </tr>
+                    <tr>
+                        <td id="td_6" onclick="buttonPress(this, '6')">6</td>
+                        <td id="td_12" onclick="buttonPress(this, '12')">12</td>
+                        <td id="td_18" onclick="buttonPress(this, '18')">18</td>
+                        <td id="td_24" onclick="buttonPress(this, '24')">24</td>
+                        <td id="td_30" onclick="buttonPress(this, '30')">30</td>
+                        <td id="td_36" onclick="buttonPress(this, '36')">36</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="info_panel" style="margin: 5px 0px 0px 10px; padding: 0; width: 655px;  height: 600px;">
+            <div style=" padding-top: 7px; width: 652px; height: 191px; background-image: url('img/ui/p_sportloto/account.gif'); background-repeat: no-repeat;">
+                <span style="margin-left: 10px; color: white; font-size: 26px;">Выбранная комбинация</span>
+                <input type="text" id="accountText" style="margin-top: 23px; margin-left: 10px; font-size: 60px; font-weight: bold; color: #FE9800;" value="" />
+            </div>
+            <div style="float: left; width: 348px;">
+                <span id="gameNumber" style="display: block; margin-top: 50px; margin-left: 20px; text-transform: uppercase; font-size: 30px; color: #FF6C24;"></span>
+                <span id="gameDate" style="margin-top: 15px; margin-left: 20px; text-transform: lowercase; font-size: 30px; color: #FF6C24;"></span>
+            </div>
+            
+            <table style="margin-top: 15px;" cellpadding="0" cellspacing="0" border="0" width="300" height="124">
+                <tr>
+                    <td onClick="onMenuBtnClick('DELETE');"><div style="width:100%; height:121px; background-image:url(./img/ui/navigation/delete_empty.gif); background-repeat: no-repeat;"><div id="button_delete"></div></div></td>
+                </tr>
+            </table>
+
+            <div style="color: #FF6C24; padding-top: 15px; padding-left: 15px; margin-top: 15px; width: 655px; height: 245px; background-image: url('img/ui/p_sportloto/dop_info.gif'); background-repeat: no-repeat;">
+                <span style="font-size: 24px; width: 635px;">На циферблате слева наберите один, два, три, четыре или пять номеров по своему усмотрению (не более пяти).</span><br>
+                <span style="font-size: 24px; width: 635px;">Для коррекции ввода номеров комбинации нажмите кнопку "Удалить".</span>
+            </div>
+        </div>
+    </form>
+
+    <div id="bottom_menu">
+        <div id="btn_left" class="bottom-button-left" onClick="onMenuBtnClick('BACKWARD');">
+                <!--<img alt="" src="./img/ui/navigation/back_empty.gif" onClick="onMenuBtnClick('BACKWARD');" />-->
+                <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+        </div>
+        <div id="btn_center" class="bottom-button-center" onClick="onMenuBtnClick('MENU');">
+            <!--<img alt="" src="./img/ui/navigation/menu.gif" onClick="onMenuBtnClick('MENU');" />-->
+            <div id="bottom-button-center-container">
+                <div id="button_menu"></div>
+            </div>
+        </div>
+        <div id="btn_right" class="bottom-button-right" onClick="onMenuBtnClick('FORWARD');">
+            <!--<img alt="" src="./img/ui/navigation/forward.gif" onClick="onMenuBtnClick('FORWARD');" />-->
+            <div id="bottom-button-right-container">
+                <div id="button_forward"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

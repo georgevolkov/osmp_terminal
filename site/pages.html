@@ -1,0 +1,516 @@
+﻿<html>
+    <head>
+        <title>provider_list / 180</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="refresh" content="120; URL=./index.html">
+        <link rel="stylesheet" href="./css/pages.css" type="text/css">
+        <script type="text/javascript" src="./func/engine/new_engine/utils.js"> </script>
+        <script type="text/javascript" src="./func/engine/new_engine/base.js"> </script>
+        <script type="text/javascript" src="./func/engine/new_engine/storage.js"> </script>
+        <script type="text/javascript" src="./func/engine/new_engine/advert.js"> </script>
+        <script type="text/javascript" src="./advert_content.js"> </script>
+        <script type="text/javascript" src="./func/engine/new_engine/hyphen.js"> </script>
+        <script src="./func/ui/translate/translate.js" type="text/javascript"> </script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"> </script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"> </script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"> </script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"> </script>
+        <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"> </script>
+        <script src="./advert.js"> </script>
+        <script src="./advert_content.js"> </script>
+        <script src="./prv_values.js"> </script>
+        <script src="./func/engine/pars_cookie.js"> </script>
+        <script src="./func/ui/objects.js"> </script>
+        <script src="./func/engine/renderpage.js"> </script>
+        <script src="./func/engine/sort_page.js"> </script>
+        <script src="./func/engine/extra_prv.js"> </script>
+        <script src="./func/engine/redirect.js"> </script>
+        <script src="./sort.js"> </script>
+        <script src="./config.js"> </script>
+        <script src="func/engine/folder_history.js"> </script>
+        <script>
+            var providers = '';
+            function get_folder() {
+                var folder = getcookie('prv_folder');
+                var folders = [
+					/// *************************************************************************
+					/// Сотовые операторы
+					/// *************************************************************************
+                    [['cellular'], [5131, 5132, 5135]],
+					/// *************************************************************************
+					/// ИНТЕРНФЕТ
+					/// *************************************************************************
+                    [['internet'], [5144, 5191, 5192,/* ['aknet_folder', 'aknet'],*/ 22170, 5141, 5142, 5145, 22001, 5149, 11882, 8727, 22059, 5150, /*9765,*/  10288, 14629, 5179, 8785, 7590, 5147, 22168, 22186 /*, 15724*/]],
+					/// *************************************************************************
+					/// ТВ
+					/// *************************************************************************
+					[['tv'], [5153/*, 5178, 8730*/, 14254, 5183, 8952, 8953, 16422, 22009]],
+					/// *************************************************************************
+					/// ЖКХ
+					/// *************************************************************************
+					[['zkh'], 
+					[
+					['21', 'folder_garbage'], 
+					['22', 'folder_gas'], 
+					['23', 'folder_light'],
+					['24', 'folder_water'],		
+					['25', 'folder_elevator'],		
+					['26', 'folder_heating'],	
+					['domofon_folder', 'domofon'], 					
+					14366, 14628, 22075, /*22158,*/ 22162]
+					],
+					// 21 - Вывоз мусора
+					[['folder_garbage'], [['bishkek_garbage', 'folder_bishkek_garbage']]],
+					[['folder_bishkek_garbage'], [['bishkek_tazalik', 'folder_bishkek_tazalik'], ['bishkek_komptrans', 'folder_bishkek_komptrans']]],
+					[['folder_bishkek_tazalik'], [5157, 22058]],
+					[['folder_bishkek_komptrans'], [22103, 22104]],
+					// 22 - ГАЗ
+					[['folder_gas'], [['bishkek_gas', 'folder_bishkek_gas'], ['chui_gas', 'folder_chui_gas'], ['jal_gas', 'folder_jal_gas'], ['osh_gas', 'folder_osh_gas'], ['batken_gas', 'folder_batken_gas']]],
+					[['folder_bishkek_gas'], [5158, 5193]],
+					[['folder_chui_gas'], [22062, 22066]],
+					[['folder_jal_gas'], [22063, 22067]],
+					[['folder_osh_gas'], [22064, 22068]],
+                    [['folder_batken_gas'], [22065, 22069]],
+					// 23 - Свет
+					[['folder_light'], [['sever_light', 'folder_sever_light'],['ik_region_energy', 'folder_ik_region_energy']/*, 8478*/]],
+					[['folder_sever_light'], [22056, ['Sever_Elek_Yur_lit', 'folder_Sever_Elek_Yur_lit'], ['sever_elekro_peni', 'folder_sever_elekro_peni']]],
+					[['folder_Sever_Elek_Yur_lit'], [15846, 15847, 15848, 15849, 22105/* 15850, 15853 , 15852, */]],
+					[['folder_sever_elekro_peni'], [22057]],
+					[['folder_ik_region_energy'], [['ik_region_karakol', 'folder_ik_region_karakol'], ['ik_region_jetyogyz', 'folder_ik_region_jetyogyz'], ['ik_region_ton', 'folder_ik_region_ton'], ['ik_region_balykchy', 'folder_ik_region_balykchy'], ['ik_region_cholpon_ata', 'folder_ik_region_cholpon_ata'], ['ik_region_typ', 'folder_ik_region_typ'], ['ik_region_aksuu', 'folder_ik_region_aksuu']]],
+					[['folder_ik_region_karakol'], [7839, 7841]],
+					[['folder_ik_region_jetyogyz'], [7842, 7843]],
+					[['folder_ik_region_ton'], [7844, 7845]],
+					[['folder_ik_region_balykchy'], [7846, 7847]],
+                    [['folder_ik_region_cholpon_ata'], [7848, 7849]],
+                    [['folder_ik_region_typ'], [7850, 7851]],
+                    [['folder_ik_region_aksuu'], [7852, 7853]],
+					// Не используется Талас свет
+//					[['folder_talass_light'], [['talass_gorset_folder', 'talass_gorset_light'], ['talass_energosbyt_folder', 'talass_energosbyt_light'], ['bakaiatinskii_energosbyt_folder', 'bakaiatinskii_energosbyt_light'], ['karaburinckii_energosbyt_folder', 'karaburinckii_energosbyt_light'], ['manas_energosbyt_folder', 'manas_energosbyt_light']]],
+//                    [['talass_gorset_light'], [15511, 15550]],///Таласская горсеть
+//                    [['talass_energosbyt_light'], [15512, 15551]],//Таласский энергосбыт
+//                    [['bakaiatinskii_energosbyt_light'], [15513, 15552]],//Бакайатинский энергосбыт
+//                    [['karaburinckii_energosbyt_light'], [15514, 15553]],//Карабууринский энергосбыт
+//                    [['manas_energosbyt_light'], [15515, 15554]],//Манаский энергосбыт
+                    //[['folder_bishkek_light'], [['2100', 'folder_bishkek_light_prov'], ['Sever_Elek_Yur_lit', 'folder_Sever_Elek_Yur_lit']]],///БишкекЭнергосбыт разделение на Юр. и Физ. лица
+                    //[['folder_bishkek_light_prov'], [5174, 5205]],///БишкекЭнергосбыт Физ. лица (Пеня и свет)
+                    //[['folder_Sever_Elek_Yur_lit'], [15846, 15847, 15848, 15849, 15850 /*, 15853 , 15852, */]],///БишкекЭнергосбыт Юр. лица
+//                    [['folder_chu_light'], [['2200', 'folder_kemin_light'], ['2300', 'folder_moskow_light'], ['2400', 'folder_kant_light'], ['2500', 'folder_panfilov_light'], ['2600', 'folder_tokmok_light'], ['2700', 'folder_jail_light'], ['2800', 'folder_alamedin_light'], ['2900', 'folder_ysykatin_light'], ['2110', 'folder_sokuluk_light'], ['2113', 'folder_chu_light_prov']]],
+//                    [['folder_kemin_light'], [5164, 5194]],
+//                    [['folder_moskow_light'], [5165, 5195]],
+//                    [['folder_kant_light'], [5166, 5196]],
+//                    [['folder_panfilov_light'], [5167, 5197]],
+//                    [['folder_tokmok_light'], [5168, 5198]],
+//                    [['folder_jail_light'], [5169, 5199]],
+//                    [['folder_alamedin_light'], [5170, 5201]],
+//                    [['folder_ysykatin_light'], [5171, 5202]],
+//                    [['folder_sokuluk_light'], [5172, 5203]],
+//                    [['folder_chu_light_prov'], [5173, 5204]],
+					// 24 - Холодная вода
+					[['folder_water'], [['bishkek_water', 'folder_bishkek_water']]],
+					[['folder_bishkek_water'], [5185]],
+					// 25 - Лифт
+					[['folder_elevator'], [['bishkek_elevator', 'folder_bishkek_elevator']]],
+                    [['folder_bishkek_elevator'], [5159, 22070]],
+					// 26 - Отопление
+					[['folder_heating'], [['bishkek_heating', 'folder_bishkek_heating']]],
+                    [['folder_bishkek_heating'], [5162, 5163]],
+					// Домофон					
+					[['domofon'], [['csd_domofon', 'csd_domofon_folder'], 22021, 22358, 22363]],
+					[['csd_domofon_folder'], [22150, 8592/*, 10262*/]],
+					/// *************************************************************************
+					/// Банковские услуги
+					/// *************************************************************************
+                    [['bank'], 
+					[
+					//['czrk', 'folder_czrk'], 
+					['mkk', 'folder_mkk'], 
+					/*['bishkek_zalkar', 'folder_bishkek_zalkar'], ['finka_bank', 'folder_finka_bank'],*/ 
+					['eko_bank', 'folder_eko_bank'], 
+					/*10852,*/ 5792, /*15208,*/ 22118, 22071]
+					],
+					// Миркокредиты
+                    [['folder_mkk'], [/*8075,*/ 22077]],
+                    // [['folder_czrk'], [14371, 14372, 14373]],
+//                    //[['folder_finka_bank'], [11823, 22008]],///Finka
+                    [['folder_eko_bank'], [22035]],					
+                    [['folder_bishkek_zalkar'], [8931, 9813]],		
+					/// *************************************************************************
+					/// Фиксированная связь
+					/// *************************************************************************					
+                    [['fixed'], [5138, 5139]],
+					/// *************************************************************************
+					/// Контент 
+					/// *************************************************************************			
+					[['content'], 
+					[
+					['content_provs', 'folder_content_provs'], 
+					['internet_games', 'folder_internet_games'], 
+					['social_network', 'folder_social_network'], 
+					['internet_shop', 'folder_internet_shop'], 
+					['hosting_folder', 'hosting']]
+					],
+					// Контент провайдеры
+					[['folder_content_provs'], [10027, 5661, 14255, 13915, /*['diskont_kg', 'diskont_kg_folder'],*/ 11319, 11323,  6463]],
+					// Интернет игры
+					[['folder_internet_games'], [22030, 11322, /*12732,*/ 6410, 11325, 13914, 12733, 6411, /*6413,*/ 6414, 6412, /*6445,*/ 16213, 16214, /*16215,*/ 16216, 22015, 22016, 22108, 22110, 22111, 22112, 22113, 22114, 22115, 6432, 12734, 6428, 6454, 6430, 12735, 6452, 6419, 6442, 6415, 6459, 22137, 22136, 22135, 22133, 22132, 22130, 22129, 22131, 22134, 22138]],
+					// Соцсети
+					[['folder_social_network'], [6464, 6465, /*6466, 12635,*/ 22143]],
+					// Интернет магазины
+					[['folder_internet_shop'], [12232, 22125, 22155, 22161, 22197, 22196]],
+					// Хостинг
+					[['hosting'], [5175, 16099]],
+					//[['diskont_kg_folder'], [9944, 10022]],
+					/// *************************************************************************
+					/// Другие услуги 
+					/// *************************************************************************			
+					[['other'], 
+					[ /*['q2', 'folder_q2']*/
+					['charity_cat', 'folder_charity_cat'], 
+					['teach', 'folder_teach'], /*['Oberon_folders', 'Oberon_folder'],*/ 
+					22122, 22120, 22121, /*13650,*/ 6407, 22151, 13657, 5792, 14859, 15010, 5184, 14522,22116, 22123,/*5804,*/ 22074, /*12636, 8784,*/ /*['democraticheskaya_partiya', 'dem_part_folder'],*/ 11215, /*14365, 15970,*/ 
+					['dmm_folder', 'dmm_light'], /*16197,*/ 16843, /*22006, 22007,*/22169, 22019, 22023, 22034, 22050,22147, 22152, 22160, 22164]
+					],
+					// [['dem_part_folder'], [9868, 9867]],
+					// Благотворительность
+					[['folder_charity_cat'], [22119,7321, 7323, 8786, 12639,22126, 22022, 22010, 22011, /*16271,*/ 22149, 22156]],
+					// Образование
+					[['folder_teach'], [5761, /*['akademiaturizma', 'akademiaturizma_folder'], ['kolledjakademia', 'kolledjakademia_folder'], 22004,*/ 22052,/*['avn_folder', 'avn_light'],*/ 16274, 22163]],
+					//[['kolledjakademia_folder'], [10087, 10133, 10134]],
+                    //[['akademiaturizma_folder'], [8644, 8670, 8671]],
+					// Run the silkroad
+					[['dmm_light'], [15977, 15976, 15978, 16244]],//ОО "Дирекция международного марафона"
+					// [['Oberon_folder'], [['Fort_folders', 'Fort_folder'], ['Intal_folders', 'Intal_folder']]],
+                    // [['Fort_folder'], [22025, 22027]],
+                    // [['Intal_folder'], [22024, 22026]],					
+					/// *************************************************************************
+					/// Коммерческие услуги
+					/// *************************************************************************			
+					[['commerc'], 
+					[
+					['adverts', 'folder_adverts'],
+					['p_goods', 'goods'], 
+					['taxi', 'folder_taxi'], 
+					['zalkar_travel', 'zalkar_travel_folder'], 
+					['skylines_folder', 'skylines']]
+					],
+					// Рекламные услуги
+					[['folder_adverts'], [5181, 7324, 10072, 12226, 7589, 9836, 12849, 22049, 22048, 22055, 22072, 22153]],
+					// Товары по каталогу
+					[['goods'], [5186, 13989]],
+					// Такси
+					[['folder_taxi'], [13736, 13912, 22362, 14992, 5690, 15725, 16196, 22078, 22106, 16243, 22127, /*22124,*/ 16408, 22005, 22012, 22013, 22014, 22051, 22073, 22238, 22355, 22370]],
+					// Курорты и пансионаты
+					[['zalkar_travel_folder'], [11436]],
+					// Авиабилеты
+					[['skylines'], [16272]],
+					/// *************************************************************************
+					/// Электронные деньги
+					/// *************************************************************************		
+                    [['folder_online_pay'], [/*22117,22029, 22154, ['webmoney_page', 'folder_webmoney_page'],*/  /*10852,*/  13649, 15969, 22033, 22157]],
+					/// *************************************************************************
+					/// Налоги госплатежи сборы
+					/// *************************************************************************		
+                    [['tax'], 
+					[
+					['new_tax', 'folder_new_tax'], 
+					14364, 22028, 11859, 22036, /*22054,*/ 22159]
+					],
+					// Налоги для физических и индивидуальных лиц
+                    [['folder_new_tax'], [11140, 11141, 11142, 11143, 15077, 15078, 11144, ['patent', 'folder_patent']]],
+					// Налог за патент
+                    [['folder_patent'], [15076, 9872, 9873]],
+				
+                    //                    [['bet'], [/*15459, 5152, 9942, 15231*/]],///букмекерские конторы
+					/// *************************************************************************
+					/// Зарубежные услуги и провайдеры
+					/// *************************************************************************	
+					[['foreign'], 
+					[['travelSim', 'folder_travelSim'], 
+					['foreign_russia', 'foreign_russia_folder'], 
+					['foreign_belarus', 'foreign_belarus_folder'],
+					['foreign_tadjik', 'foreign_tadjik_folder'], 
+					['foreign_kazahstan', 'foreign_kazahstan_folder'], 
+					['foreign_armenia', 'foreign_armenia_folder'], 
+					['foreign_georgia', 'foreign_georgia_folder'], 
+					['foreign_ukraine', 'foreign_ukraine_folder'], 
+					['foreign_uzbekistan', 'foreign_uzbekistan_folder']]
+					],
+					// Туристические сим карты
+					[['folder_travelSim'], [13734, 13658, 22017]],
+					// Россия
+					[['foreign_russia_folder'], 
+					[
+					['russia_mobile', 'folder_russia_mobile'], 
+					//['russia_phone', 'folder_russia_phone'], 
+					['russia_tv', 'folder_russia_tv']]],
+					[['folder_russia_mobile'], [/*10577, 10578, 10813, 10812, 10811, 10810, 10809, 10807, 10808, 10590, 10576, 10814, 10815, 10586, */13916/*, 22079*/]],                    
+					//[['folder_russia_phone'], [10818, 10819, 10816, 10817]],
+					[['folder_russia_tv'], [22139, 22140, 22141, 22142]],
+					// Беларусь
+					[['foreign_belarus_folder'], [['belarus_mobile', 'folder_belarus_mobile']]],
+                    [['folder_belarus_mobile'], [22101, 22102]],  
+					// Таджикистан
+					[['foreign_tadjik_folder'], [['tadjik_mobile', 'folder_tadjik_mobile']]],
+					[['folder_tadjik_mobile'], [22093, 22094, 22096, 22097, 22098]],
+					// Казахстан
+					[['foreign_kazahstan_folder'], [['kazahstan_mobile', 'folder_kazahstan_mobile']]],///провайдеры Казахстана
+					[['folder_kazahstan_mobile'], [16198, 16199, 16210, 16211, 16212, 22080]],
+					// Армения
+					[['foreign_armenia_folder'], [['armenia_mobile', 'folder_armenia_mobile']]],
+					[['folder_armenia_mobile'], [22081, 22082, 22083]],
+					// Грузия
+					[['foreign_georgia_folder'], [['georgia_mobile', 'folder_georgia_mobile']]],
+					[['folder_georgia_mobile'], [22084, 22086, 22087, 22088, 22089, 22085]],
+                    // Украина
+                    [['foreign_ukraine_folder'], [['ukraine_mobile', 'folder_ukraine_mobile']]],
+					[['folder_ukraine_mobile'], [22090, 22091, 22092]],
+					// Узбекистан
+                    [['foreign_uzbekistan_folder'], [['uzbekistan_mobile', 'folder_uzbekistan_mobile']]],  
+                    [['folder_uzbekistan_mobile'], [22099, 22100]],    
+                    [['folder_q2'], [['q2_text', 'folder_q2_text'], 9031]],
+                    [['folder_q2_text'], [['q2_text_tv', 'folder_q2_text_tv'], ['q2_text_radio', 'folder_q2_text_radio'], 9336, 9337]],
+                    [['folder_q2_text_tv'], [['q2_alatv', 'folder_q2_alatv'], ['q2_smarttv', 'folder_q2_smarttv'], 9347, 9348, 9350, 9351, 9352, 9354, 9355, 9356, 9362, 9365, 9367]],
+                    [['folder_q2_alatv'], [9370, 9371, 9373, 9376, 9378, 9379]],
+                    [['folder_q2_smarttv'], [9385, 22047]],
+                    [['folder_q2_text_radio'], [9338, 9339, 9342, 9343, 9344, 9345]],
+                    [['folder_q2_vb'], []]
+                ];
+
+                setSourceArray(folders);
+                providers = transformArray(linkExtraPrv(getFolder(folder), folder));
+            }
+
+            function initPage() {
+                processTranslate('cn');
+                drawGroupInfo();
+                startAdvert('Pages');
+                get_folder();
+                bdef();
+                //initPageControl(305,124,5);
+                initPageControl(305, 124, 5);
+                pageForward();
+            }
+
+            function changeLocale(sLocale) {
+                if (!sLocale) {
+                    sLocale = "ru_ru";
+                }
+                document.cookie = "locale=" + sLocale;
+                processTranslate(sLocale);
+            }
+
+            function processTranslate(sLocale) {
+                var sLocale = getcookie('locale');
+                getTextById("button_menu", sLocale);
+                getTextById("button_back_page", sLocale);
+                getTextById("button_search", sLocale);
+                getTextById("button_next_page", sLocale);
+            }
+
+            function backward() {
+                if (currentPage > 1)
+                    pageBack();
+                else {
+                    popFolder(); //вызываем 2 раза, нам же нужна не текущая folder а предыдущая
+                    var fld = popFolder();
+                    if (fld == "") {
+                        clearFolderHistory();
+                        pageBack();
+                    } else {
+                        go_folder(fld);
+                    }
+                }
+            }
+
+            function forward() {
+                pageForward();
+            }
+
+            function menu() {
+                clearFolderHistory();
+                parent.location = "./index.html";
+            }
+
+            function search_provider() {
+                parent.location = "./search_providers.html";
+            }
+
+            function bdef() {
+                menu_yes.style.display = '';
+                menu_no.style.display = 'none';
+            }
+
+            function drawGroupImage() {
+                var sGroupImage = getcookie("prv_grp_image");
+                if (sGroupImage) {
+                    var e = document.getElementById("grp_image");
+                    e.style.backgroundImage = "url(" + sGroupImage + ")";
+                    e.style.backgroundRepeat = "no-repeat";
+                    e.style.width = "100%";
+                    e.style.height = "122px";
+                    e.style.marginTop = "2px";
+                }
+            }
+
+            function drawGroupName() {
+                var sGroupId = getcookie("grp_name");
+                var sLocale = getcookie('locale');
+                if (sGroupId) {
+                    var e = document.getElementById("grp_name");
+                    e.innerHTML = getTextWithoutBR(sGroupId, sLocale);
+                }
+            }
+
+            function drawGroupInfo() {
+                drawGroupImage();
+                drawGroupName();
+            }
+
+            function switchDiv() {
+                if (currentDiv != 'dp1') {
+                    renderPage('page1');
+                    currentDiv = 'dp1';
+                    dp2.style.display = 'none';
+                    dp1.style.display = '';
+                } else {
+                    renderPage('page2');
+                    currentDiv = 'dp2';
+                    dp1.style.display = 'none';
+                    dp2.style.display = '';
+                }
+
+            }
+
+            function pageForward() {
+                if (currentPage == pagesCount) {
+                    currentPage = pagesCount;
+                }
+                currentPage += 1;
+                switchDiv();
+                switchControls();
+            }
+
+            function pageBack() {
+                currentPage -= 1;
+                if (currentPage < 1) {
+                    parent.location = './index.html';
+                    return true;
+                }
+
+                switchDiv();
+                switchControls();
+            }
+
+            function switchControls() {
+
+                if (currentPage == 1) {
+                    forward_yes.style.display = '';
+                    forward_no.style.display = 'none';
+                }
+
+                if (currentPage == pagesCount) {
+                    forward_yes.style.display = 'none';
+                    forward_no.style.display = '';
+                } else {
+                    forward_yes.style.display = '';
+                    forward_no.style.display = 'none';
+                }
+
+                backward_yes.style.display = '';
+                backward_no.style.display = 'none';
+            }
+        </script>
+
+        <link rel="stylesheet" href="./css/df.css" type="text/css">
+    </head>
+    <body onload=" initPage(); " bgcolor="#f5f5f5" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+
+        <bgsound src="./sound/choose_operators.wav" loop="1" />
+
+        <div style="left: 50%; margin: 18px 20px 0 -620px; position: relative; unicode-bidi: normal; width: 1245px;">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#f5f5f5">
+                <tr>
+                    <td>
+                        <table width="100%" style="border-collapse: collapse;">
+                            <tr>
+                                <td width="148" height="181">
+                                    <div id="qiwi-logo"></div>
+                                </td>
+
+                                <td id="advert_td_1" valign="center" bgcolor="#f5f5f5">
+                                    <div id="advert_1" style="display: none; height: 181px; width: 100%;"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td>
+                                    <table style="border-collapse: collapse;" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td width="301" onclick=" search_provider(); ">
+                                                <div style="background-image: url(./img/ui/navigation/search_empty.gif); background-repeat: no-repeat; display: block; height: 122px; margin-top: 28px; width: 100%;">
+                                                    <div id="button_search"></div>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div style="background-image: url(./img/ui/grp_panel/grp.gif); background-repeat: no-repeat; display: block; height: 122px; margin-left: 14px; margin-top: 28px; width: 100%;">
+                                                    <div id="grp_image">
+                                                        <div id="grp_name" style="color: white; font: 30px 'Tahoma', Arial; left: 150px; position: relative; top: 40px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div style="display: block; height: 491px; margin-bottom: 18px; margin-top: 18px; overflow: hidden; width: 100%;">
+                                        <div id='dp1' style='display: '>
+                                            <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tr>
+                                                    <td id='page1' align="center">-</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div id='dp2' style='display: none'>
+                                            <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tr>
+                                                    <td id='page2' align="center">-</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <script type="text/javascript"> bottom_menu(); </script>
+            </table>
+
+            <form name="ff" action="" method="post">
+                <input type="hidden" name="prv_id" value="">
+                <input type="hidden" name="prv_name" value="">
+                <input type="hidden" name="komissiya" value="">
+                <input type="hidden" name="EmbedParams" value="">
+                <input type="hidden" name="_receipt_prt_top_reklama" value="">
+                <input type="hidden" name="_receipt_prt_bottom_reklama" value="">
+                <input type="hidden" name="_receipt_prt_top_msg" value="">
+                <input type="hidden" name="Language" value="">
+                <div id="hiddens"></div>
+            </form>
+        </div>
+    </body>
+</html>

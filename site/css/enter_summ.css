@@ -1,0 +1,573 @@
+﻿@import url("base.css");
+
+.c_fff
+{
+    color: #fff;
+}
+
+.inp
+{
+    background: ;
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.title
+{
+    height: 90px;
+    margin-top: 10px;
+}
+
+.min_summ
+{
+    margin-top: 55px;
+    width: 100%;
+    height: 20px;
+}
+
+.h_line
+{
+    height: 20px;
+}
+
+.h_rect
+{
+    width: 976px;
+    height: 20px;
+    background: #e2e2e2;
+    float: left;
+}
+
+.angle
+{
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.tl
+{
+    background: url('../img/ui/angles_cel_info.gif') no-repeat;
+}
+
+.tr
+{
+    background: url('../img/ui/angles_cel_info.gif') -20px 0px no-repeat;
+}
+
+.bl
+{
+    background: url('../img/ui/angles_cel_info.gif') 0px -20px no-repeat;
+}
+
+.br
+{
+    background: url('../img/ui/angles_cel_info.gif') -20px -20px no-repeat;
+}
+
+.info_body
+{
+    width: 100%;
+    background: #e2e2e2;
+    padding-top: 88px;
+}
+
+.commission
+{
+    width: 800px;
+    position: relative;
+    left: 20px;
+}
+
+.c_l
+{
+    width: 625px;
+    height: 1px;
+    background: #888;
+    margin: 15px 0px 0px 5px;
+}
+
+.rs_l
+{
+    width:466px;
+    height: 1px;
+    background: #888;
+    margin: 15px 0px 0px 5px;
+}
+
+.d_l
+{
+    width:650px;
+    height: 1px;
+    background: #888;
+    margin: 15px 0px 0px 5px;
+}
+
+.line
+{
+    width: 100%;
+    height: 68px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.f_s_12
+{
+    font-size: 12px;
+}
+
+.max_summ
+{
+    width: 100%;
+    margin: 20px 0px 0px 160px;
+}
+
+.c_btn
+{
+    width: 187px;
+    height: 62px;
+    background: url('../img/ui/c_btn.gif') no-repeat;
+}
+
+.l_u_l
+{
+    width: 802px;
+    background: url('../img/ui/es/line_bg.gif') 0px 13px repeat-x;
+}
+
+.i_s
+{
+    background: #2c68b3;
+    padding-right: 5px;
+}
+
+#content
+{
+    width: 1280px;
+    height: 1024px;
+}
+
+#title_body
+{
+    width: 1145px;
+    height: 100%;
+    text-align: center;
+    background: url('../img/ui/title/bg.gif') repeat-x;
+    float: left;
+}
+
+#title_txt
+{
+    margin-top: 25px;
+    color: #fff;
+    font-size: 25px;
+}
+
+#title_r
+{
+    width: 25px;
+    height: 100%;
+    background: url('../img/ui/title/r.gif') no-repeat;
+    float: left;
+}
+
+#page_body
+{
+    width: 1016px;
+    height: 700px;
+    margin-top: 20px;
+    clear: left;
+}
+
+#min_summ_txt
+{
+    float: left;
+    width: 462px;
+    height: 100%;
+    margin-top: 3px;
+    font-size: 16px;
+    color: #F2692B;
+}
+
+#min_summ_div
+{
+    width: 375px;
+    height: 35px;
+    float: left;
+    margin-top: -7px;
+}
+
+#min_summ_um
+{
+    width: 50px;
+    height: 100%;
+    float: left;
+    font-size: 24px;
+    margin-left: 5px;
+    margin-top: -4px;
+    color: #a0a0a0;
+}
+
+#min_summ
+{
+    width: 150px;
+    height: 100%;
+    margin-top: 5px;
+    font-size: 24px;
+    color: #a0a0a0;
+    text-align: right;
+}
+
+
+#amount_bg_l
+{
+    float: left;
+    width: 23px;
+    height: 100%;
+    background: url('../img/ui/die/o_l.gif') no-repeat;
+}
+
+#amount_bg_c
+{
+    float: left;
+    width: 970px;
+    height: 100%;
+    background: url('../img/ui/die/o_c.gif') repeat-x;
+}
+
+#amount_bg_r
+{
+    float: left;
+    width: 23px;
+    height: 100%;
+    background: url('../img/ui/die/o_r_w.gif') no-repeat;
+}
+
+#amount_h
+{
+    float: left;
+    position: relative;
+    left: 20px;
+    width: 230px;
+    height: 100%;
+    margin: 15px 0px 0px 0px;
+    color: #fff;
+    font-size: 25px;
+}
+
+#amount_v
+{
+    float: right;
+    width: 250px;
+    height: 100%;
+}
+
+#amount_txt_l
+{
+    float: left;
+    width: 23px;
+    height: 100%;
+    background: url('../img/ui/die/o_l_w.gif') no-repeat;
+}
+
+#amount_txt_c
+{
+    float: left;
+    width: 227px;
+    height: 100%;
+    background:url('../img/ui/die/o_c_w.gif') repeat-x;
+}
+
+#getAmount
+{
+    width: 100%;
+    font-size: 80px;
+    font-weight: bold;
+    color: #F2692B;
+    text-align: center;
+}
+
+#info_1
+{
+    margin-top: -68px;
+}
+
+#info_2
+{
+    margin-top: 20px;
+}
+
+#msg
+{
+    margin-top: -68px;
+}
+
+#komiss
+{
+    font-size: 26px;
+    margin-right: 5px;
+    width: 70px;    
+    background: transparent;
+}
+
+#bottom-button-center-container
+{
+	width: 301;
+	height:121px;
+	background-image: url('../img/ui/navigation/menu_empty.gif');
+	background-repeat: no-repeat;
+}
+
+#bottom-button-right-container
+{
+	width: 301; 
+	height:121px; 
+	background-image: url('../img/ui/navigation/payment_empty.gif'); 
+	background-repeat: no-repeat;
+}
+
+#bottom-button-left-container
+{
+	width: 301;
+	height:121px;
+	background-image: url('../img/ui/navigation/but_commission_empty.gif');
+	background-repeat: no-repeat;
+}
+
+#komissprop
+{
+    font-size: 26px;
+    text-align: left;
+    width: 55px;    
+    background: transparent;
+}
+
+#really_summ
+{
+    font-size: 26px;
+    margin-right: 5px;
+    width: 70px;    
+    background: transparent;
+}
+
+#really_summ_prop
+{
+    font-size: 26px;
+    text-align: left;
+    width: 55px;   
+    background: transparent;
+}
+
+#komissprofile
+{
+    width: 100%;
+    margin: 5px 0px 5px -20px;
+    background: transparent;
+}
+
+#change_span
+{
+    font-size: 20px;
+}
+
+#change
+{
+    font-size: 26px;
+    margin-right: 5px;
+    width: 70px;    
+}
+
+#komiss2
+{
+    font-size: 26px;
+    margin-right: 5px;
+    width: 70px;    
+    background: transparent;
+}
+
+#komissprop2
+{
+    font-size: 26px;
+    text-align: left;
+    width: 55px;   
+    background: transparent; 
+}
+
+#really_summ2
+{
+    font-size: 26px;
+    margin-right: 5px;
+    width: 70px;    
+    background: transparent;
+}
+
+#really_summ_prop2
+{
+    font-size: 26px;
+    text-align: left;
+    width: 55px;    
+    background: transparent;
+}
+
+#komissprofile2
+{
+    width: 100%;
+    margin: 5px 0px 5px -20px;
+}
+
+
+#changeprop
+{
+    font-size: 26px;
+    text-align: left;
+    width: 55px;    
+}
+
+#delivery_div
+{
+    margin-top: 5px;
+    display: none;
+}
+
+#dc_body
+{
+    padding: 0px;
+}
+
+#rl_l
+{
+    float: left;
+    width: 23px;
+    height: 100%;
+    background: url('../img/ui/die/r_l.gif') no-repeat;
+}
+
+#rl_c
+{
+    float: left;
+    width: 970px;
+    height: 100%;
+    background: url('../img/ui/die/r_c.gif') repeat-x;
+}
+
+#rl_r
+{
+    float: left;
+    width: 23px;
+    height: 100%;
+    background: url('../img/ui/die/r_r.gif') no-repeat;
+}
+
+#rl_txt
+{
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    margin-top: 15px;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+}
+
+#i_body
+{
+    padding: 60px 0px 0px 60px;
+}
+
+#v_separator
+{
+    width: 3px;
+    height: 70px;
+    background: #888;
+    margin: 0px 20px 0px 20px;
+}
+
+#info_txt
+{
+    margin-top: 27px;
+    color: #039;
+}
+
+#info_list
+{
+    margin-top: 15px;
+}
+
+#max_cash_summ
+{
+    margin-left: 20px;
+    color: #F2692B;
+    font-size: 18px;
+    margin-top: -2px;
+    background: transparent;
+}
+
+#alert1
+{
+    margin-top: 20px;
+    color: #e82d2d;
+    font-size: 24px;
+    text-align: center;
+    background: transparent;
+}
+
+#commission_info
+{
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 100px;
+    background: #000;
+    z-index: 5;
+}
+
+#commission_txt
+{
+    text-align: center;
+    color: #ffe;
+}
+
+#komisswarn_span
+{
+    font-size: 26px;
+    font-size: 20px;
+}
+
+#really_summ_span
+{
+    font-size: 20px;
+}
+
+#komisswarn2_span
+{
+    font-size: 26px;
+}
+
+#really_summ_span2
+{
+    font-size: 20px;
+}
+#advert_1
+{
+    display: none;
+}
+
+#ff
+{
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+

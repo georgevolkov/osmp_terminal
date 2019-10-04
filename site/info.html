@@ -1,0 +1,865 @@
+﻿<html>
+<head>
+	<title>Info</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/info.css" type="text/css" />
+
+		<script src="./func/engine/pars_cookie.js"></script>
+		<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+		
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+		<script type="text/javascript">
+
+			var OFF_PARS = 10;
+			var HELP_PARS = 11;
+			var nCurPar = 0;
+			var nCurOfferPar = 0;
+			var nCurHelpPar = 0;
+
+			function initPage() {
+				if (storage.get("ttp_oferta") == "true") clickBtn(3);
+				else clickBtn(1);
+				
+				
+				loadvar();                
+				processTranslate();
+				
+			}
+
+			function clickBtn(nIdx) {
+				var oCurBtn = $("btn_" + nCurPar);
+				var oCurCont = $("cont_" + nCurPar);
+				var oSelectBtn = $("btn_" + nIdx);
+				var oSelectCont = $("cont_" + nIdx);
+				if (oCurBtn == oSelectBtn) return;
+				if (!($isNoU(oSelectBtn) || $isNoU(oSelectCont))) {
+					oSelectBtn.className = "menu_btn_on";
+					oSelectBtn.childNodes[0].className = "menu_txt_on";
+					oSelectCont.style.display = "block";
+					if (!($isNoU(oCurBtn) || $isNoU(oCurCont))) {
+						oCurBtn.className = "menu_btn_off";
+						oCurBtn.childNodes[0].className = "menu_txt_off";
+						oCurCont.style.display = "none";
+					}
+					if (nIdx == 3) {
+						nCurOfferPar = 0;
+						arrowClick("RIGHT");
+					}
+
+					if (nIdx == 15) {
+						nCurHelpPar = 0;                        
+						helpArrowClick("RIGHT");
+					}
+					nCurPar = nIdx;
+				}
+			}
+
+			function processTranslate(sLang)
+			{                
+			   var sLocale = getcookie('locale');
+			   getTextById("button_menu", sLocale);
+			   getTextById("title_text_div", sLocale);
+			   getTextById("info_term", sLocale);
+			   getTextById("info_firm", sLocale);
+			   getTextById("info_client", sLocale);
+			   getTextById("info_faq", sLocale);
+			   getTextById("info_about", sLocale);
+			   getTextById("info_adv", sLocale);
+			   getTextById("info_license", sLocale);
+			   getTextById("info_term_no", sLocale);
+			   getTextById("info_addr", sLocale);
+			   getTextById("info_executer_name", sLocale);
+			   getTextById("info_contract_no", sLocale);
+			   getTextById("info_contact_tel", sLocale);
+			   getTextById("requisite", sLocale);
+			   getTextById("info_t1", sLocale);
+			   getTextById("info_t2", sLocale);
+			   getTextById("info_t3", sLocale);
+			   getTextById("info_t4", sLocale);
+			   getTextById("info_t5", sLocale);
+			   getTextById("info_t6", sLocale);
+			   getTextById("info_t7", sLocale);
+			   getTextById("info_t8", sLocale);
+			   getTextById("info_t9", sLocale);               
+			   getTextById("info_t10", sLocale);
+			   getTextById("info_t11", sLocale);
+			   getTextById("info_t12", sLocale);
+			   getTextById("info_t13", sLocale);
+			   getTextById("info_t14", sLocale);
+			   getTextById("info_t15", sLocale);
+			   getTextById("info_t16", sLocale);
+			   getTextById("info_t17", sLocale);
+			   getTextById("info_t18", sLocale);               
+			   getTextById("info_t19", sLocale);
+			   getTextById("info_t20", sLocale);
+			   getTextById("info_t21", sLocale);
+			   getTextById("info_t22", sLocale);
+			   getTextById("info_t23", sLocale);
+			   getTextById("info_t24", sLocale);
+			   getTextById("info_t25", sLocale);
+			   getTextById("info_t26", sLocale);               
+			   getTextById("info_t27", sLocale);
+			   getTextById("info_t28", sLocale);
+			   getTextById("info_t29", sLocale);
+			   getTextById("info_t30", sLocale);
+			   getTextById("info_t31", sLocale);
+			   getTextById("info_t32", sLocale);
+			   getTextById("info_t33", sLocale);
+			   getTextById("info_t34", sLocale);               
+			   getTextById("info_name", sLocale);               
+			   getTextById("info_name2", sLocale);               
+			   getTextById("info_okpo", sLocale);               
+			   getTextById("info_tel_q", sLocale);
+			   getTextById("info_tel_q2", sLocale);
+			   getTextById("info_site_q", sLocale);
+			   getTextById("info_site_q2", sLocale);
+			   getTextById("info_contacts_q", sLocale);
+			   getTextById("info_place_q", sLocale);
+			   getTextById("info_inn_q", sLocale);
+			   getTextById("info_t35", sLocale);               
+			   getTextById("info_cert_q", sLocale);
+			   getTextById("info_mail_q", sLocale);
+			   getTextById("info_t36", sLocale);
+			   getTextById("info_t37", sLocale);
+			   getTextById("info_t38", sLocale);
+			   getTextById("info_tel_short_q", sLocale);
+			   getTextById("info_qiwi_adv", sLocale);
+
+			   getTextById("otdel_podderjki_clientov", sLocale);
+			   getTextById("otdel_marketinga", sLocale);
+			   getTextById("sotrudnichestvo_voprosy", sLocale);
+
+			   getTextById("legal_info_text", sLocale);
+			   getTextById("fact_info_text1", sLocale);
+			   getTextById("fact_info_text2", sLocale);
+			   getTextById("organization_name", sLocale);
+
+			   getTextById("operator_name_text", sLocale);
+			   getTextById("operator_opk_text", sLocale);
+			   getTextById("operator_tsibigei_text", sLocale);
+			   getTextById("operator_kozachenko_text", sLocale);
+			   getTextById("operator_place_text", sLocale);
+
+			   getTextById("guide_1", sLocale);
+			   getTextById("guide_2", sLocale);
+			   getTextById("guide_3", sLocale);
+			   getTextById("guide_4", sLocale);
+			   getTextById("guide_5", sLocale);
+			   getTextById("guide_6", sLocale);
+			   getTextById("guide_7", sLocale);
+			   getTextById("guide_8", sLocale);
+			   getTextById("guide_9", sLocale);
+			   getTextById("guide_10", sLocale);
+			   getTextById("guide_11", sLocale);
+			   getTextById("guide_12", sLocale);
+			   getTextById("guide_13", sLocale);
+			   getTextById("guide_14", sLocale);
+			   getTextById("guide_15", sLocale);
+			   getTextById("guide_16", sLocale);
+			   getTextById("guide_17", sLocale);
+			   getTextById("guide_18", sLocale);
+			   getTextById("guide_19", sLocale);
+			   getTextById("guide_20", sLocale);
+			   getTextById("guide_21", sLocale);
+			   getTextById("guide_22", sLocale);
+
+			   getTextById("info_oferta", sLocale);
+			   getTextById("info_help", sLocale);
+			   getTextById("oferta_1", sLocale);
+			   getTextById("oferta_2", sLocale);
+			   getTextById("oferta_3", sLocale);
+			   getTextById("oferta_4", sLocale);
+			   getTextById("oferta_5", sLocale);
+			   getTextById("oferta_6", sLocale);
+			   getTextById("oferta_7", sLocale);
+			   getTextById("oferta_8", sLocale);
+			   getTextById("oferta_9", sLocale);
+			   getTextById("oferta_10", sLocale);
+			   getTextById("oferta_11", sLocale);
+			   getTextById("oferta_12", sLocale);
+			   getTextById("oferta_13", sLocale);
+			   getTextById("oferta_14", sLocale);
+			   getTextById("oferta_15", sLocale);
+			   getTextById("oferta_16", sLocale);
+			   getTextById("oferta_17", sLocale);
+			   getTextById("oferta_18", sLocale);
+			   getTextById("oferta_19", sLocale);
+			   getTextById("oferta_20", sLocale);
+			   getTextById("oferta_21", sLocale);
+			   getTextById("oferta_22", sLocale);
+			   getTextById("oferta_23", sLocale);
+			   getTextById("oferta_24", sLocale);
+			   getTextById("oferta_25", sLocale);
+			   getTextById("oferta_26", sLocale);
+			   getTextById("oferta_27", sLocale);
+			   getTextById("oferta_28", sLocale);
+			   getTextById("oferta_29", sLocale);
+			   getTextById("oferta_30", sLocale);
+			   getTextById("oferta_31", sLocale);
+			   getTextById("oferta_32", sLocale);
+			   getTextById("oferta_33", sLocale);
+			   getTextById("oferta_34", sLocale);
+			   getTextById("oferta_35", sLocale);
+			   getTextById("oferta_36", sLocale);
+			   getTextById("oferta_37", sLocale);
+			   getTextById("oferta_38", sLocale);
+			   getTextById("oferta_39", sLocale);
+			   getTextById("oferta_40", sLocale);
+			   getTextById("oferta_41", sLocale);
+			   getTextById("oferta_42", sLocale);
+			   getTextById("oferta_43", sLocale);
+			   getTextById("oferta_44", sLocale);
+			   getTextById("oferta_45", sLocale);
+			   getTextById("oferta_46", sLocale);
+			   getTextById("oferta_47", sLocale);
+			   getTextById("oferta_48", sLocale);
+			   getTextById("oferta_49", sLocale);
+			   getTextById("oferta_50", sLocale);
+			   getTextById("oferta_51", sLocale);
+			   getTextById("oferta_52", sLocale);
+			   getTextById("oferta_53", sLocale);
+			   getTextById("oferta_54", sLocale);
+			   getTextById("oferta_55", sLocale);
+			   getTextById("oferta_56", sLocale);
+			   getTextById("oferta_57", sLocale);
+			   getTextById("oferta_58", sLocale);
+			   getTextById("oferta_59", sLocale);
+			}
+
+			function helpArrowClick(sDelivery) {
+				var oCurHelpPar = $("help_" + nCurHelpPar);
+				if (!$isNoU(oCurHelpPar)) {
+					oCurHelpPar.style.display = "none";
+				}
+				if (sDelivery == "LEFT") {
+					nCurHelpPar--;
+				}
+				else if (sDelivery == "RIGHT") {
+					nCurHelpPar++;
+				}
+
+				oCurHelpPar = $("help_" + nCurHelpPar);
+				if (!$isNoU(nCurHelpPar)) {
+					oCurHelpPar.style.display = "block";
+				}
+
+				if (nCurHelpPar == 1) {
+					$("help_arrow_left").style.display = "none";
+				}
+				else if (nCurHelpPar > 1) {
+					$("help_arrow_left").style.display = "block";
+				}
+				if (nCurHelpPar == HELP_PARS) {
+					$("help_arrow_right").style.display = "none";
+				}
+				else if (nCurHelpPar < HELP_PARS) {
+					$("help_arrow_right").style.display = "block";
+				}
+			}
+
+			function arrowClick(sDelivery) {
+				var oCurOfferPar = $("off_" + nCurOfferPar);
+				if (!$isNoU(oCurOfferPar)) {
+					oCurOfferPar.style.display = "none";
+				}
+				if (sDelivery == "LEFT") {
+					nCurOfferPar--;
+				}
+				else if (sDelivery == "RIGHT") {
+					nCurOfferPar++;
+				}
+				oCurOfferPar = $("off_" + nCurOfferPar);
+				if (!$isNoU(oCurOfferPar)) {
+					oCurOfferPar.style.display = "block";
+				}
+				if (nCurOfferPar == 1) {
+					$("arrow_left").style.display = "none";
+				}
+				else if (nCurOfferPar > 1) {
+					$("arrow_left").style.display = "block";
+				}
+				if (nCurOfferPar == OFF_PARS) {
+					$("arrow_right").style.display = "none";
+				}
+				else if (nCurOfferPar < OFF_PARS) {
+					$("arrow_right").style.display = "block";
+				}
+			}
+
+			function displayPrvData() {
+				storage.put("prv_data_page", "0");
+				ff.submit();
+			}
+
+			function loadvar(){
+				var props = document.getElementById('dealer_bank_props').value;
+				document.getElementById('dealer_bank_props_txtarea').innerHTML = props;
+				new CInnerShadow($('btn_left'), { color: 30 });
+				new CInnerShadow($('btn_center'), { saturation: 1, brightness: 200 });
+				new CInnerShadow($('btn_right'), { color: 30 });
+				attachPropertyChangeListener('OfferType', showOffer);
+				showOffer();
+			}
+
+			function showOffer()
+			{
+				$('cont_off_place').className = 'offer' + (parseInt($('OfferType').value) + 1) + '_show';
+			};
+
+		</script>
+</head>
+<body onload="initPage();">
+<div id="content">
+	<div id="title">
+		<div id="title_text" class="title"><div id="title_text_div"></div></div>
+	</div>
+	<div id="work_place">
+		<div id="menu" class="f_l">
+			<div id="btn_1" class="menu_btn_off" onclick="clickBtn(1);"><span id="info_term" class="menu_txt_off"></span></div>
+			<div id="btn_11" class="menu_btn_off" onclick="clickBtn(11);"><span id="info_firm" class="menu_txt_off"></span></div>
+			<div id="btn_2" class="menu_btn_off" onclick="clickBtn(2);"><span id="info_client" class="menu_txt_off"></span></div>
+			<div id="btn_12" class="menu_btn_off" onclick="clickBtn(12);"><span style="margin-top: -10px;" id="info_faq" class="menu_txt_off"></span></div>
+			<div id="btn_3" class="menu_btn_off" onclick="clickBtn(3);"><span id="info_oferta" class="menu_txt_off">ДОГОВОР-ОФЕРТА</span></div>
+			<div id="btn_10" class="menu_btn_off" onclick="clickBtn(10);"><span id="info_license" class="menu_txt_off">ЛИЦЕНЗИЯ</span></div>
+			<div id="btn_4" class="menu_btn_off" onclick="clickBtn(4);"><span id="info_about" class="menu_txt_off"></span></div>
+			<div id="btn_5" class="menu_btn_off" style="display: none;" onclick="clickBtn(5);"><span class="menu_txt_off">О РАСЧЕТНОМ БАНКЕ</span></div>
+			<!--div id="btn_6" class="menu_btn_off" onclick="location = './guid.html';"><span class="menu_txt_off">ПРАВИЛА ПОЛЬЗОВАНИЯ</span></div-->
+			<div id="btn_8" class="menu_btn_off" style="display: none;" onclick="clickBtn(8);"><span class="menu_txt_off">О ЛОТЕРЕЯХ</span></div>
+			<!--<div id="btn_15" class="menu_btn_off" onclick="clickBtn(15);"><span id="info_help" class="menu_txt_off">ПРАВИЛА ПОЛЬЗОВАНИЯ</span></div>-->
+			<div id="btn_9" class="menu_btn_off" onclick="clickBtn(9);"><span id="info_adv" class="menu_txt_off"></span></div>
+			
+			<!--div id="btn_7" class="menu_btn_off" onclick="location = './pay_status.html'"><span class="menu_txt_off">ПРОВЕРКА ПЛАТЕЖА</span></div-->            
+		</div>
+		<div id="info" class="f_r">
+			<div class="round_line">
+				<div class="angle bg_lt f_l"></div>
+				<div class="hor_rect f_l"></div>
+				<div class="angle bg_rt f_l"></div>
+			</div>
+			<div id="info_cont">
+				<div id="cont_1" class="cont_txt" style="display: none; position:relative">
+					<form id="ff1" name="ff1" method="post" action="#" style="">
+						<div class="par">
+							<div id="info_term_no" class="f_l">Номер терминала:</div>
+							<div class="f_r"><input id="terminal_number" name="terminal_number" class="inp" type="text" value="" /></div>
+						</div>
+						<div class="par">
+							<div id="info_addr" class="f_l">Адрес:</div>
+							<div class="f_r"><input id="address" name="address" class="inp" type="text" value="" /></div>
+						</div>
+						<div class="par">
+							<div id="info_executer_name" class="f_l">Наименование исполнителя:</div>
+							<div class="f_r"><input id="name" name="name" class="inp" type="text" value="" /></div>
+						</div>
+						<div class="par">
+							<div id="info_contract_no" class="f_l">Номер договора с Расчетным Банком:</div>
+							<div class="f_r"><input id="number" name="number" class="inp" type="text" value="" /></div>
+						</div>
+						<div class="par">
+							<div id="info_contact_tel" class="f_l">Контактный телефон:</div>
+							<div class="f_r"><input id="phone" name="phone" class="inp" type="text" value="" /></div>
+						</div>
+						<!--<div class="menu_btn_off" style="position:absolute; left:0; bottom:0; margin: 0" onclick="displayPrvData()"><span id="requisite">РЕКВИЗИТЫ ПОСТАВЩИКОВ</span></div>-->
+					</form>
+				</div>
+				<div id="cont_11" class="cont_txt" style="display: none;">                   
+					<p><span id="info_t1">«Объединенная система моментальных платежей» (ОсОО «ОСМП») входит в группу компаний, профессионально занимающихся интеграцией платежных систем в реальный сектор рынка. ОСМП работает и успешно развивается на рынке платежных систем с 2004 года. На сегодняшний день компания является лидером рынка, предоставляя абонентам удобный, надежный и оперативный способ оплаты услуг сотовых операторов, интернет-провайдеров, коммерческого телевидения, IP-телефонии. В марте 2010 года компания открылась в Кыргызстане, а в Марте 2011 года запустила на рынок розничный бренд ОҢОЙ.</span></p>
+					<br/>
+					<div style="float:left; width: 500px;">
+						<p style="font-weight: normal;"><span id="info_t2">Отсутствие свободного времени – одна из главных проблем современного человека. В сутках всего 24 часа, и существенная их часть тратится на выполнение бытовых обязанностей и рутинных дел.QIWI  – личный помощник, который возьмет на себя часть ваших текущих дел - организацию платежей за коммунальные услуги, интернет, домашний и мобильный телефон и многое другое. Благодаря нашим технологиям Вы можете воспользоваться его помощью в удобном для Вас месте.</span></p>
+						<br/>
+						<p style="font-weight: normal;"><span id="info_t3">Отличить платежный терминал ОҢОЙ, можно по интерфейсу, на котором каждый плательщик увидит логотип ОҢОЙ.</span></p>
+					</div>
+					<!--<img src="img/ui/info/info_show.gif" alt="" />-->
+					<p><span id="info_t4">Мы хотим, чтобы мир стал более красочным, приятным и удобным для жизни. Из технологического посредника между пользователем и поставщиком услуг, мы стали полноценным брендом, который предлагает продуманные решения посредством персонально настроенного и дружественного интерфейса. Нашей конечной целью является предоставление нашему клиенту главной жизненной ценности – времени!</span></p>
+					<br/>
+					<p><span id="info_t5">Мы открыты, и дружелюбны.</span></p>
+					<br/>
+					<p><span id="info_t6">Мы идем на контакт, и предлагаем помощь каждому, используя индивидуальный подход.</span></p>
+					<br/>
+					<p><span id="info_t7">Мы гарантируем надежность!</span></p>
+				</div>
+				<div id="cont_2" class="cont_txt" style="display: none;">
+					<form id="Form1" name="ff2" method="post" action="#">
+						<p><span id="info_t8">Обязательства плательщика перед провайдером считаются исполненными с момента внесения им наличных денежных средств в терминал.</span></p>
+						<br/>
+						<p><span id="info_t9">Обязательно сохраняйте квитанцию, являющуюся подтверждением совершения платежа.</span></p>
+						<p><span id="info_t10">В случае, если Вы по ошибке указали неправильный номер, перепутали наименование провайдера либо не смогли удостовериться в корректном проведении платежа, обратитесь в службу поддержки по телефону: +996 (312) 90-90-90</span></p>                        
+						<p><span id="info_t11">Отзывы и замечания, а также предложения по работе Системы Вы можете направлять по адресу: Кыргызская Республика, город Бишкек, 720011, ул. Шевченко 97, а также по телефону, указанному выше. При направлении обращений, касающихся совершенных в Системе Платежей, просим указывать дату и время совершения Платежа, номер Терминала и номер транзакции либо номер пополняемого лицевого счета и наименования Провайдера. Все сообщения Клиентов важны для нас, мы обязательно рассмотрим Ваше обращение и сообщим о результатах его рассмотрения.</span></p>
+					</form>
+				</div>
+				<div id="cont_12" class="cont_txt" style="display: none;">
+					<span class="boldp" id="info_t12">Я положил деньги на счет, но они до сих пор не поступили</span>
+					<p><span id="info_t13">Необходимо позвонить в Call Center,продиктовать дату/время платежа, реквизит, терминал, сумму платежа.</span></p>
+					<br/>
+					<span class="boldp" id="info_t14">Я оплачивал услугу, и вдруг терминал завис (выключился), что мне делать?</span>
+					<p><span id="info_t15">Необходимо позвонить в Call Center для проверки платежа, продиктовать оператору дату/время платежа, реквизит, терминал, сумму платежа.</span></p>
+					<br/>
+					<span class="boldp" id="info_t16">Если вы допустили ошибку при проведении платежа, и данный ошибочный номер существует</span>
+					<p><span id="info_t17">Необходимо позвонить в Call Center продиктовать дату/время платежа, неверный  реквизит, верный реквизит,  терминал, сумму платежа.</span></p>
+					<p><span id="info_t18">Платеж, возможно, отменить при соблюдении сроков рассмотрения и когда сумма внесенного платежа или ее часть,  не использована лицом, по реквизитам которого произведен платеж.</span></p>
+					<br/>
+					<span class="boldp" id="info_t19">Если вы допустили ошибку при проведении платежа, и данный ошибочный номер не существует</span>
+					<p><span id="info_t20">Необходимо позвонить в Call Center продиктовать дату/время платежа, неверный  реквизит, верный реквизит,  терминал, сумму платежа. При отличие реквизитов на 1-3 цифры, платеж будет перепроведен на верный  в течение 1-го рабочего дня.</span></p>
+					<p><span id="info_t21">При кардинальном отличие реквизитов, платеж будет перепроведен по заявлению от клиента. Для заполнения заявления клиенту необходимо подойти по адресу ул. Шевченко 97, с 9:00 до 17:00 кроме выходных дней. При себе необходимо иметь чек подтверждающий  оплату, паспорт, квитанцию/договор от поставщика.</span></p>
+					<br/>
+					<span class="boldp" id="info_t22">Дубликат чека</span>
+					<p><span id="info_t23">Необходимо позвонить в Call Center.Продиктовать данные платежа.</span></p>
+					<p><span id="info_t24">Дубликат чека можно получить на e-mail,по факсу, через курьера.</span></p>
+					<br/>
+					<span class="boldp" id="info_t25">Что делать, если купюру терминал АСУ зажевал?</span>
+					<p><span id="info_t26">Необходимо позвонить в Call Center.</span></p>
+					<p><span id="info_t27">Сообщить время, номинал купюры, и за какую услугу вы хотели оплатить.</span></p>
+					<p><span id="info_t28">Как только купюра будет изъята мы проведем Ваш платеж.</span></p>
+					
+					<span class="boldp" id="info_t29">Как можно вернуть деньги?</span>
+					<p><span id="info_t30">Необходимо позвонить в Call Center. Продиктовать данные платежа.</span></p>
+					<p><span id="info_t31">Возврат денежных средств возможен при наличие чека подтверждающего оплату, паспорта клиента, квитанции от поставщика.</span></p>
+					
+					<span class="boldp" id="info_t32">Какие сроки зачисления денежных средств?</span>
+					<p><span id="info_t33">Сотовые операторы, интернет провайдеры, кабельное/цифровое телевидение – моментально</span></p>
+					<p><span id="info_t34">ЖКХ сектор – в течение 3–х рабочих дней.</span></p>
+				</div>
+				<div id="cont_3" class="cont_txt" style="display: none;">
+					<div id="cont_off_place" class="offer1_show">
+						<div id="off_1" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_1">ПУБЛИЧНАЯ ОФЕРТА</p>
+								<br/>
+								<!--<p id="oferta_2">-->о предоставлении услуг по обеспечению информационного и технологического взаимодействия при проведении платежей посредством использования настоящего программно-технического комплекса<!--</p>-->
+								<br/>
+								<p id="oferta_3">1. ОБЩИЕ ПОЛОЖЕНИЯ</p>
+								<p id="oferta_4">1.1. Настоящий документ является публичной офертой [далее по тексту – “ОФЕРТА”] в соответствии с пунктом 2 статьи 398 Гражданского кодекса Кыргызской Республики.</p>
+								<p id="oferta_5">1.2. Исполнителем по настоящей ОФЕРТЕ является Оператор Платежной Системы, а именно:</p>
+
+							</div>
+							<div class="offer2">					
+							</div>
+							<form id="ff4" name="ff4" method="post" action="#">
+								<input id="dealer_bank_props" name="dealer_bank_props" class="inp" type="hidden" value="" />
+								<div class="par">
+									<div class="f_l" id="oferta_6">Наименование:</div>
+									<div class="f_r"><span class="right_info_text" style="width:650px;" id="organization_name">Общество с ограниченной ответственностью “Объединённая система моментальных платежей</span></div>
+									<br/>
+									<br/>
+									<!--</div>
+										<div class="par">-->
+									<div class="f_l" id="oferta_7">Регистрационный номер:</div>
+									<div class="f_r"><input id="dealer_regnum1" name="dealer_regnum1" class="inp" type="text" value="110902-3300-ООО" /></div>
+									<br/>
+									<br/>
+									<!--</div>
+										<div class="par">-->
+									<div class="f_l" id="oferta_8">ИНН:</div>
+									<div class="f_r"><input id="dealer_inn" name="dealer_inn1" class="inp" type="text" value="00303201010081" /></div>
+									<br/>
+									<br/>
+									<!--</div>
+										<div class="par">-->
+									<div class="f_l" id="oferta_9">Юридический адрес:</div>
+									<div class="f_r"><span class="right_info_text" id="legal_info_text">Кыргызская Республика, город Бишкек, улица Шопокова, 99/1</span></div>
+									<!--<div class="f_r"><input id="dealer_uraddr1" name="dealer_uraddr1" class="inp" type="text" value="Кыргызская Республика, город Бишкек, улица Шопокова, 99/1" /></div>-->
+									<br/>
+									<br/>
+									<!-- </div>
+										<div class="par">-->
+									<div class="f_l" id="oferta_10">Фактический и почтовый адрес:</div>
+									<!--<div class="f_r"><input id="dealer_addrmail1" name="dealer_addrmail1" class="inp" type="text" value="Кыргызская Республика, город Бишкек, улица Шопокова, " /></div>
+										<div class="f_r"><input id="dealer_addrmail2" name="dealer_addrmail2" class="inp" type="text" value="121/1, БИЗНЕС-ЦЕНТР “Red Centre”, офис 412 " /></div>-->
+									<div class="f_r"><span class="right_info_text" id="fact_info_text">Кыргызская Республика, город Бишкек, улица Игембердиева,1А</span></div>
+									<!--<div class="f_r"><span class="right_info_text" id="fact_info_text2">121/1, БИЗНЕС-ЦЕНТР “Red Centre”, офис 412 </span></div>-->
+									<!-- </div>
+										<div class="par">-->
+									<br/>
+									<br/>
+									<div class="f_l" id="oferta_11">Телефон:</div>
+									<div class="f_r"><input id="dealer_telephone1" name="dealer_telephone1" class="inp" type="text" value="+996 (312) 911-625" /></div>
+									<!-- </div>
+										<div class="par">-->
+									<br/>
+									<br/>
+									<div class="f_l" id="oferta_12">Веб-сайт:</div>
+									<div class="f_r"><input id="dealer_site1" name="dealer_site1" class="inp" type="text" value="www.osmp.kg" /></div>
+									<br/>
+									<br/>
+									<!-- </div>
+										<div class="par">-->
+									<div class="f_l" id="oferta_13">Адрес электронной почты:</div>
+									<div class="f_r"><input id="dealer_email1" name="dealer_email1" class="inp" type="text" value="opk@osmp.kg" /></div>
+									<br/>
+									<br/>
+									<!--</div>
+										<div class="par">-->
+									<div class="f_l">Банковские реквизиты:</div>
+									<div class="f_r">
+										<table cellpadding="0" cellspacing="0" border="0">
+											<tr>
+												<td id="dealer_bank_props_txtarea" style="font-family : arial, arial narrow; text-align: right; font-size:15px; color:#333333;"></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div id="off_2" class="off_txt w_h_100 d_n">
+							<div class="offer1" >
+								<p id="oferta_14">1.3. В настоящей ОФЕРТЕ используются термины “Получатель платежа”, “Клиент”, “Поставщик”, “Плательщик”,  “Оператор Платежной Системы” в следующем значении:</p>
+								<p id="oferta_15"><b>Получатель платежа или Получатель</b> – любое лицо [в том числе Поставщик], в адрес которого Плательщиком, в целях исполнения [прекращения] определенных денежных обязательств перед Получателем, совершается тот или иной платёж посредством настоящего аппаратно-программного комплекса.</p>
+								<p id="oferta_16"><b>Клиент</b> – любое лицо, состоящее в договорных отношениях с Получателем [абонент, покупатель, арендатор, заказчик и пр.] и имеющее денежные обязательства перед Получателем [в том числе, авансовые], вытекающие из таких договорных отношений, а также любое лицо, имеющее денежные обязательства по уплате налогов, сборов, пошлин, финансовых санкций, неустойки [штрафов, пени], иных подобных платежей в бюджеты различных уровней и во внебюджетные государственные фонды [социальныйфонд, фонд обязательного медицинского страхования и пр.].</p>
+								<p id="oferta_17"><b>Поставщик</b> – поставщик [продавец] товаров [работ, услуг] состоящий в договорных отношениях с соответствующими Клиентами, которые имеют или будут иметь денежные обязательства перед Поставщиком за полученный товар, выполненные работы, оказанные услуги.</p>
+								<p id="oferta_18"><b>Плательщик</b> – Клиент или любое иное лицо, действующее в интересах Клиента, совершающий / совершающее платёж посредством использования настоящего аппаратно-программного комплекса.</p>
+								
+								
+							</div>
+							<div class="offer2">					
+							</div>
+						</div>
+						
+						<div id="off_3" class="off_txt w_h_100 d_n">
+							<div class="offer1" >
+								<p id="oferta_18_1"><b>Оператор Платежной Системы и/или Платежная организация</b> -  лицо, имеющее лицензию Национального банка Кыргызской Республики на оказание следующих видов услуг:</p>
+								<p id="oferta_18_2"><b></b>- по приему и проведению Платежей и расчетов за товары и услуги, не являющиеся результатом своей деятельности, в пользу третьих лиц посредством платежных систем, основанных на информационных технологиях и электронных средствах и способах проведения платежей;</p>
+								<p id="oferta_18_3"><b></b>- оказание услуг по приему, обработке и выдаче финансовой информации (процессинг, клиринг) по Платежам и расчетам третьих лиц участникам платежной системы, данного процессингового, клирингового центра.</p>
+								<br/>
+								<p id="oferta_19">1.4. ОФЕРТА содержит все существенные условия Договора о предоставлении услуг по обеспечению информационного и технологического взаимодействия при проведении платежей посредством использования настоящего аппаратно-программного комплекса выражает волю Исполнителя заключить Договор на изложенных в ОФЕРТЕ условиях с любым лицом, безусловно принимающим указанные в ОФЕРТЕ условия и именуемым далее – “Плательщик”.</p>
+								<p id="oferta_20">1.5. Настоящий аппаратно-программный комплекс, далее именуемый “Платёжный Терминал [ПТ]” или “Автомата Самообслуживания [АСО]”, принадлежит на праве собственности или на праве временного владения и пользования или на ином законном праве лицу, указанному в интерфейсе настоящего Автомата Самообслуживания. В связи с чем, Исполнитель не несёт ответственность за техническое состояние настоящего Автомат Самообслуживания и за последствия его ненадлежащего технического состояния.</p>
+							</div>
+							<div class="offer2">					
+							</div>
+						</div>
+						
+
+						<div id="off_4" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_21">1.6. Услугами по обеспечению информационного и технологического взаимодействия при проведении платежей посредством настоящего Автомата Самообслуживания [далее по тексту – “УСЛУГИ”] являются:</p>
+								<p id="oferta_22">1.6.1. предоставление Плательщику возможности использовать настоящий Автомат Самообслуживания для целей доведения информации о совершённом платеже в адрес соответствующего Получателя, в пользу которого совершён платёж;</p>
+								<p id="oferta_23">1.6.2. предоставление Плательщику возможности совершить платеж в пользу любого Получателя, включённого в ПЕРЕЧЕНЬ Получателей платежей, указанный в интерфейсе настоящего Автомата Самообслуживания;</p>
+								<p id="oferta_24">1.6.3. автоматическое формирование реквизитов, необходимых для передачи данных о платеже Получателю, на основании введенного Плательщиком реквизита платежа [номер телефона; номер счёта; номер договора или другой тип данных, указанный на соответствующей странице осуществления транзакции в интерфейсе настоящего Автомата Самообслуживания];</p>
+								<p id="oferta_25">1.6.4. обеспечение передачи информации о платеже его Получателю в кратчайшие сроки, обусловленные техническими возможностями настоящего Автомата Самообслуживания и используемых Исполнителем и Получателем внешних сетей передачи данных [срок передачи данных в пользу отдельных Получателей может составлять 48 [сорок восемь] часов]. При этом, Исполнитель не гарантирует своевременность зачисления Получателем платежа на лицевой счёт Клиента, на котором учитываются обязательства Клиента перед Получателем, поскольку оконечные аппаратно-программные средства Получателя находятся вне контроля и ответственности Исполнителя.</p>
+							</div>
+							<div class="offer2">					
+							</div>
+						</div>
+						
+
+						<div id="off_5" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_26">2. ПРЕДМЕТ ОФЕРТЫ И УСЛОВИЯ ПРЕДОСТАВЛЕНИЯ УСЛУГ</p>
+								<p id="oferta_27">2.1. Действия Плательщика по использованию настоящего Автомата Самообслуживания для передачи Получателю платежа данных о платеже на основе указанных Плательщиком реквизитов рассматриваются как полный и безоговорочный акцепт ОФЕРТЫ Исполнителя путем совершения конклюдентных действий, в соответствии с пунктом 3 статьи 399 Гражданского кодекса Кыргызской Республики. Каждый факт передачи данных о платеже с использованием настоящего Автомата Самообслуживания является отдельной сделкой с Исполнителем, совершаемой на указанных в ОФЕРТЕ условиях.</p>
+								<p id="oferta_28">2.2. Плательщик обязан изучить и соблюдать ИНСТРУКЦИЮ по использованию настоящего Автомата Самообслуживания [далее по тексту – “ИНСТРУКЦИЯ”]. Совершение Плательщиком действий, не предусмотренных ИНСТРУКЦИЕЙ, не является основанием для возникновения у Исполнителя обязательств по оказанию УСЛУГ. В случае несогласия с условиями ОФЕРТЫ или непонимания требований ИНСТРУКЦИИ Плательщик не вправе использовать настоящий Автомат Самообслуживания для совершения любых действий, как предусмотренных, так и не предусмотренных ИНСТРУКЦИЕЙ. При нарушении Плательщиком ограничений [запретов], указанных выше в настоящем пункте, всю ответственность за последствия таких нарушений [включая обязанность возместить убытки] несёт Плательщик, но не Исполнитель.</p>
+								<p id="oferta_29">2.3. Плательщик обязан сохранять выданную настоящим Автоматом Самообслуживания квитанцию [кассовый чек, иной подобный документ], подтверждающую проведение платежа и оказание УСЛУГ, вплоть до получения от Получателя платежа информации о зачислении суммы такого платежа в счёт исполнения [прекращения] денежных обязательств Клиента перед Получателем платежа.</p>
+							</div>
+							<div class="offer2">
+					
+							</div>
+						</div>
+						
+
+						<div id="off_6" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_30">3. СТОИМОСТЬ УСЛУГ</p>
+								<p id="oferta_31">3.1. Стоимость УСЛУГ определяется Исполнителем или уполномоченным Исполнителем лицом в процентном отношении от суммы внесенного Плательщиком платежа и/или в твёрдой сумме за каждый [один] платёж и/или путём использования комбинации способов определения стоимости с учётом предельных [максимальных и/или минимальных] значений и может изменяться в зависимости от времени совершения платежа, суммы платежа, а также иных условий совершения платежа, которые могут быть определены конкретным Получателем. При этом Исполнитель информирует Плательщика о стоимости Услуг до совершения платежа [прим. информация о стоимости определённой услуги указана на соответствующей странице осуществления транзакции в интерфейсе настоящего Автомата Самообслуживания]. Плательщик вправе отказаться от УСЛУГ в любой момент до внесения [ввода] денежных средств в купюроприёмник настоящего Автомата Самообслуживания.</p>
+								<p id="oferta_32">3.2. Оплата УСЛУГ производится путем удержания Исполнителем или уполномоченным Исполнителем лицом стоимости УСЛУГ из суммы соответствующего платежа, внесенного Плательщиком посредством настоящего Автомата Самообслуживания.</p>
+								<p id="oferta_33">3.3. Факт оказания и оплаты УСЛУГ подтверждается соответствующим документом [квитанцией, кассовым чеком или иным подобным документом], выданным настоящим Автоматом Самообслуживания, а также иным способом, в том числе, на основе отчётных данных Исполнителя.</p>
+							</div>
+							<div class="offer2">
+					
+							</div>
+						</div>
+						
+
+						<div id="off_7" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_34">4. ОСОБЫЕ УСЛОВИЯ</p>
+								<p id="oferta_35">4.1. При отсутствии технической возможности Исполнитель имеет право временно прекратить оказание УСЛУГ.</p>
+								<p id="oferta_36">4.2. Исполнитель не несет ответственности за прямой или косвенный ущерб, возникший у Плательщика или Клиента вследствие использования настоящего Автомата Самообслуживания.</p>
+								<p id="oferta_37">4.3. Исполнитель не несет ответственности за перерывы в предоставлении УСЛУГ в случае сбоев программного обеспечения или поломок оборудования, не принадлежащего Исполнителю. Исполнитель не несет ответственности за полные или частичные перерывы в предоставлении УСЛУГ, связанные с заменой оборудования, программного обеспечения или проведения других работ, вызванных необходимостью поддержания работоспособности и модернизации программного и/или аппаратного обеспечения.</p>
+								<p id="oferta_38">4.4. Условия предоставления УСЛУГ могут изменяться Исполнителем и доводятся до сведения Плательщика посредством размещения соответствующей информации об изменениях в интерфейсе настоящего Автомата Самообслуживания.</p>
+								<p id="oferta_39">4.5. Воспользовавшись УСЛУГАМИ, Плательщик подтверждает своё согласие и согласие Клиента [если Плательщик, действует в интересах Клиента] на получение сообщений рекламного и иного характера по сетям электросвязи, в том числе на телефонный номер, указанный Плательщиком при совершении соответствующего платежа.</p>
+								<p id="oferta_40">4.6. Плательщик вправе предъявлять претензии, связанные с качеством и сроками оказания УСЛУГ, в письменной форме, в срок: не позднее трёх [3] рабочих дней с момента, когда УСЛУГА была оказана или должна была быть оказана в соответствии с условиями ОФЕРТЫ.</p>
+							</div>
+							<div class="offer2">
+									
+							</div>
+						</div>
+						
+
+						<div id="off_8" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_41">4.7. Плательщик вправе путем направления письма на адрес электронной почты: opk@osmp.kg, а также по телефону, указанному в квитанции [кассовом чеке или в ином подобном документе] обратиться в Справочную Службу Исполнителя [далее по тексту – “ССИ”] с запросом относительно проверки состояния внесенного платежа. В этом случае:</p>
+								<p id="oferta_42">4.7.1. при обращении в ССИ Плательщик обязан сообщить оператору ССИ дату, сумму, идентификатор [реквизиты] платежа, а также номер транзакции [<i>прим. все эти данные указаны в квитанции [кассовом чеке или в ином подобном документе] о проведении платежа и об оказании Услуг</i>].</p>
+								<p id="oferta_43">4.7.2. оператор ССИ предоставляет Плательщику данные о статусе платежа в следующие сроки: в течение 10 [десяти] минут с момента обращения Плательщика по телефону, указанному в квитанции [кассовом чеке или в ином подобном документе], либо в течение 60 [шестидесяти] минут с момента поступления письма Плательщика на адрес электронной почты: opk@osmp.kg .</p>
+								<p id="oferta_44">4.7.3. При отсутствии возможности предоставить данные о статусе платежа в указанные сроки по техническим причинам, оператор ССИ сообщает Плательщику иной срок, в течение которого Плательщику могут быть предоставлены данные о статусе платежа.</p>
+								<p id="oferta_45">4.8. В случае, если в результате ввода Плательщиком по ошибке неверных идентификационных данных платежа [номера лицевого счёта, номера телефона, номера контракта и т.п.], платёж будет зачислен по ошибочно введенным Плательщиком идентификационным данным, то на основании заявления [заявки] Плательщика и при определенных условиях может быть проведена процедура корректировки платежа, если такая процедура объективно возможна и допустима. При этом, информация относительно порядка и сроков подачи такого заявления, а также относительно порядка и сроков его рассмотрения, предоставляется по реквизитам, указанным в интерфейсе настоящего Автомата Самообслуживания или в квитанции [кассовом чеке или в ином подобном документе].</p>
+							</div>
+							<div class="offer2">                                    
+								   
+							</div>
+						</div>
+						
+
+						<div id="off_9" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_46">4.9. В любом случае в принятии заявления о корректировке платежа и в его рассмотрении, а также собственно в корректировке платежа может быть отказано, в числе прочих, в следующих случаях:</p>
+								<p id="oferta_47">4.9.1. если заявление подано по истечении срока, установленного соответствующим Получателем;</p>
+								<p id="oferta_48">4.9.2. если заявление подано не по форме, установленной Исполнителем;</p>
+								<p id="oferta_49">4.9.3. если к заявлению не приложена квитанция [кассовый чек или иной подобный документ] и при этом отсутствует информация в отчётных данных Исполнителя о совершении платежа;</p>
+								<p id="oferta_50">4.9.4. если при подаче заявления заявителем не будет представлен один из следующих документов, удостоверяющих личность: паспорт, водительское удостоверение, военный билет, удостоверение офицера;</p>
+								<p id="oferta_51">4.9.5. если сумма платежа [с учетом платы [комиссии] за УСЛУГИ] не превышает пятидесяти [50] сомов;</p>
+								<p id="oferta_52">4.9.6. если расхождение между ошибочными идентификационными данными платежа с его верными идентификационными данными превышает два [2] знака [цифры];</p>
+								<p id="oferta_53">4.9.7. если истекли установленные соответствующим Получателем предельные сроки, в течение которых, объективно возможно изменить реквизиты соответствующего платежа;</p>
+								<p id="oferta_54">4.9.8. если соответствующим Получателем установлены запреты [ограничения] относительно изменения реквизитов платежа;</p>
+								<p id="oferta_55">4.9.9. если сумма внесенного платежа или ее часть, использована лицом, по реквизитам которого произведен платеж, об изменении реквизитов которого подано соответствующее заявление;</p>
+								<p id="oferta_56">4.9.10. если данные, указанные в заявлении не соответствуют отчётным данным Исполнителя;</p>
+								<p id="oferta_57">4.9.11. если определённым Получателем не предусмотрена процедура корректировки платежа;</p>
+								<p id="oferta_58">4.9.12. если Получателем отказано в корректировке платежа.</p>
+							</div>
+							<div class="offer2">
+							</div>
+						</div>
+						
+						<div id="off_10" class="off_txt w_h_100 d_n">
+							<div class="offer1">
+								<p id="oferta_59">4.10. Принимая во внимание, что Получатель вправе отказать в корректировке или в отмене [аннулировании] платежа, в том числе, без объяснения причин, то в случае такого отказа, Плательщик вправе обратиться с заявлением о корректировке платежа непосредственно к Получателю.</p>
+							</div>
+							<div class="offer2">
+							</div>
+						</div>
+
+					</div>
+					<div id="cont_off_arrows">
+						<div id="arrow_left" class="f_l arrow" onclick="arrowClick('LEFT');"></div>
+						<div id="arrow_right" class="f_r arrow" onclick="arrowClick('RIGHT');"></div>
+					</div>
+				</div>
+				
+				<!-- Текст о Лицензии -->
+				<div id="cont_10" style="display: none;">
+					<div class="license_show_text">
+						<div class="off_txt w_h_100">
+							<br/>
+							<div class="f_l">Лицензия</div>
+						    <div class="f_r"><input id="Text1" name="dealer_email1" class="inp" type="text" value="№2002120515, №3001120515 НБКР"/>
+						    </div>
+						    <br/>
+                            <br/>
+						    <p>Лицензия выдана: 21 мая 2015 года</p>
+						</div>
+					</div>
+				</div>
+
+
+				<div id="cont_4" class="cont_txt" style="display: none;">
+					<form id="ff3" name="ff3" method="post" action="#">
+						<div class="w_100" align="right"><img alt="" src="./img/ui/logo_osmp.gif" /></div>
+						<br />
+						<div class="par2">
+							<div id="info_name" class="f_l">Наименование:</div>
+							<!--<div class="f_r"><input id="Text1" name="Text1" class="inp" type="text" value="ОсОО «Объединенная Система Моментальных Платежей»" /></div>-->
+							<div class="f_r"><span id="operator_name_text" class="right_info_text"></span></div>
+						</div>
+						<div class="par2">
+							<div id="info_okpo" class="f_l">ОКПО:</div>
+							<div class="f_r"><input id="Text2" name="Text2" class="inp" type="text" value="26740912" /></div>
+						</div>
+						<div class="par2">
+							<div id="info_tel_q" class="f_l">Телефон:</div>
+							<div class="f_r"><input id="operator_phone" name="operator_phone" class="inp" type="text" value="+996 (312) 911-625" /></div>
+						</div>
+						<div class="par2">
+							<div id="info_site_q" class="f_l">Веб-сайт:</div>
+							<div class="f_r"><input id="Text4" name="Text4" class="inp" type="text" value="www.osmp.kg" /></div>
+						</div>
+						<div class="par2">
+							<div id="info_contacts_q" class="f_l">Контакты:</div>                                                        
+						</div>
+						<div class="par2">
+							<div id="info_contacts_q" class="f_l"><span class="list">• </span><span id="otdel_podderjki_clientov">Отдел поддержки клиентов: </span></div>
+						</div>
+						<div class="par2">
+							<div id="info_contacts_q" class="f_l">e-mail: opk@neotech.kg</div>
+							<!--<div class="f_r"><input id="Text5" name="Text5" class="inp" type="text" value="Тел.: +996 (312) 90-90-90;" /></div>-->
+							<div class="f_r"><span class="right_info_text" id="operator_opk_text">Тел.: +996 (312) 90-90-90</span></div>
+						</div>
+						<div class="par2">
+							<div id="info_contacts_q" class="f_l"><span class="list">• </span><span id="otdel_marketinga">Отдел маркетинга и рекламы: </span></div>
+						</div>
+						<div class="par2">
+							<div id="info_contacts_q" class="f_l">e-mail: d.akopyan@osmp.kg</div>
+							<!--<div class="f_r"><input id="Text5" name="Text5" class="inp" type="text" value="Тел.: +996 (312) 30-60-92" /></div>-->
+							<div class="f_r"><span class="right_info_text" id="operator_tsibigei_text">Тел.: +996 (312) 911-625</span></div>
+						</div>
+						<div class="par2">
+							<div id="info_contacts_q" class="f_l"><span class="list">• </span><span id="sotrudnichestvo_voprosy">По вопросам сотрудничества с ОсОО «ОСМП»: </span></div>
+						</div>
+						<div class="par2">
+							<div id="info_contacts_q" class="f_l">e-mail: d.akopyan@osmp.kg</div>
+							<!--<div class="f_r"><input id="Text5" name="Text5" class="inp" type="text" value="Тел.: +996 (312) 30-60-92" /></div>-->
+							<div class="f_r"><span class="right_info_text" id="operator_kozachenko_text">Тел.: +996 (312) 911-625</span></div>
+						</div>                        
+						
+						<br/>
+						<div class="par2">
+							<div id="info_place_q" class="f_l">Местонахождение оператора системы:</div>
+							<!--<div class="f_r"><input id="Text10" name="Text10" class="inp" type="text" value="720011, г.Бишкек, ул. Шопокова 121/1, 4 этаж, офис 411" /></div>-->
+							<div class="f_r"><span class="right_info_text" id="operator_place_text">720011, г.Бишкек, ул. Шопокова 121/1, 4 этаж, офис 411</span></div>
+						</div>
+						<div class="par2">
+							<div id="info_inn_q" class="f_l">ИНН оператора системы:</div>
+							<div class="f_r"><input id="Text11" name="Text11" class="inp" type="text" value="00303201010081" /></div>
+						</div>
+						
+						<div id="info_t35" style="overflow: hidden; color: #222;">Объединенная система моментальных платежей приглашает заинтересованных лиц к сотрудничеству в сфере приема платежей. В зависимости от типа и площади помещений и с учетом Ваших пожеланий, мы поможем выбрать оптимальные модели автоматов самообслуживания. Список доступных клиентам услуг постоянно расширяется!</div>
+					</form>
+				</div>
+				<div id="cont_5" class="cont_txt">
+					<form id="ff5" name="ff5" method="post" action="#">
+						<div class="w_100" align="right"><img alt="" src="./img/ui/logo_ric.gif" /></div>
+						<br />
+						<div class="par">
+							<div id="info_name2" class="f_l">Наименование:</div>
+							<div class="f_r"><input id="Text3" name="Text3" class="inp" type="text" value="Акционерный Коммерческий Банк «1-й Процессинговый Банк» (ЗАО)" /></div>
+						</div>
+						<div class="par">
+							<div id="info_cert_q" class="f_l">Лицензия на осуществление операций:</div>
+							<div class="f_r"><input id="Text6" name="Text6" class="inp" type="text" value="Лицензия ЦБ РФ №2241 от 23.07.2008г." /></div>
+						</div>
+						<div class="par">
+							<div id="info_tel_q2" class="f_l">Телефон:</div>
+							<div class="f_r"><input id="bank_phone" name="bank_phone" class="inp" type="text" value="" /></div>
+						</div>
+						<div class="par">
+							<div id="info_site_q2" class="f_l">Веб-сайт:</div>
+							<div class="f_r"><input id="Text8" name="Text8" class="inp" type="text" value="1pb.ru" /></div>
+						</div>
+						<div class="par">
+							<div id="info_mail_q" class="f_l">Электронная почта:</div>
+							<div class="f_r"><input id="Text9" name="Text9" class="inp" type="text" value="info@1pb.ru" /></div>
+						</div>
+					</form>
+				</div>
+				<div id="cont_8" style="display: none;">
+					<p class="l_p">Лотерея – это игра, которая проводится в соответствии с договором и в которой одна сторона (организатор лотереи) проводит розыгрыш призового фонда, а вторая сторона (участник лотереи) получает право на выигрыш в соответствии с условиями лотереи.</p>
+					<p class="l_p">Организация и проведение лотерей регулируются Федеральным законом Российской Федерации № 138-ФЗ от 11.11.2003 года «О лотереях».<b>Запрет на осуществление деятельности вне игровых зон, указанный в Законе  «Об азартных играх», не распространяется на лотереи</b>.</p>
+					<p class="l_p">Представленные на данном терминале лотереи проводятся организаторами и оператором лотереи в соответствии с утвержденными условиями лотереи на основании разрешений, выданных в соответствии с Федеральным законом Российской Федерации № 138-ФЗ от 11.11.2003 года «О лотереях». Вся необходимая информация о проведении лотереи размещена непосредственно в интерфейсе платежного терминала, в том числе номера разрешений, выданных на проведение лотерей ФНС России и Минфином России. Указанную информацию в интерфейсе можно найти в меню «Оплата услуг» - раздел «Лотереи» - подраздел с наименованием конкретной лотереи - подраздел «Правила».</p>
+					<p class="l_p"><b>Посредством  терминала осуществляется только выбор игровых комбинаций лотереи и лотерейных ставок</b>. При осуществлении выбора с использованием терминала игровой комбинации лотереи и лотерейной ставки (реквизиты «электронного лотерейного билета») все данные о них передаются организатору лотереи (оператору лотереи), который поэтапно принимая и обрабатывая данную информацию, в дальнейшем осуществляет розыгрыш призового фонда лотереи (тиражные лотереи) либо предоставляет участнику возможность сопоставить реквизиты «электронного лотерейного билета» с базой данных выигрышных лотерейных билетов (бестиражные лотереи). Договор плательщика на участие в лотерее заключается с организатором лотереи, а не с владельцем терминала, принимающего оплату.</p>
+					<p class="l_p">В соответствии с п. 14 ст. 2 Федерального закона Российской Федерации № 138-ФЗ от 11.11.2003 «О лотереях» лотерейное оборудование –  это оборудование, специально изготовленное и используемое для проведения лотереи, или оборудование, оснащенное лотерейными программами. В соответствии с п. 18 ст. 4 Федерального закона Российской Федерации № 244-ФЗ от 29.12.2006 «О государственном регулировании деятельности по организации и проведению азартных игр», игровой автомат – это оборудование, используемое для проведения азартных игр с материальным выигрышем, который определяется случайным образом устройством, находящимся внутри корпуса такого игрового оборудования, без участия организатора азартных игр или его работников.</p>
+					<p class="l_p"><b>Данный терминал не является ни лотерейным оборудованием, ни игровым автоматом, т.к. не оснащен никакими лотерейными либо игровыми программами, создан для приема платежей, а не для проведения лотереи, и с помощью него не представляется возможным осуществлять розыгрыш призового фонда, а программное обеспечение, установленное на терминале, позволяет отображать лишь выбранную игровую комбинацию лотереи, лотерейной ставки и информацию о результате розыгрыша призового фонда лотереи, предоставляемую организатором лотереи (оператором лотереи).</b></p>
+					<p class="l_p">Выбор на данном терминале игровых комбинаций лотерей и лотерейных ставок разрешен действующим законодательством Российской Федерации и не относится к игровой деятельности вне разрешенных игровых зон. <b>Владелец терминала не несет ответственности за содержание представленных лотерей.</b> Вопросы и претензии по результатам деятельности лотерей следует направлять в адрес организаторов лотерей, указанных в Правилах соответствующей лотереи при ее выборе в разделе «Оплата услуг» - «Лотереи».</p>
+				</div>
+
+				<div id="cont_9" class="off_txt w_h_100 d_n" style="display: none;">
+					<p><span id="info_t36"><b>QIWI реклама</b> уникальный способ донесения информации с экранов более 500 платежных терминалов в Кыргызстане.</span></p>
+					<p><span id="info_t37">Реклама на платежных терминалах – это новое современнейшее медиа пространство, которое позволяет максимально расширить аудиторию Ваших потенциальных клиентов. В настоящее время, платежные терминалы в Кыргызстане имеют колоссальный рост в сфере приема платежей.</span></p>
+					<p><span id="info_t38">Система позволяет работать как с массовой аудиторией, так и четко ее сегментировать. Индивидуальный подход - одно из основных преимуществ QIWI рекламы по сравнению с другими рекламными носителями.</span></p>
+					<br/>
+					<p><span id="info_qiwi_adv">Контакты <b>QIWI реклама</b></span></p>
+					<p><span id="info_tel_short_q">Тел.:  +996 (312) 911-625,</span></p>
+					<p>e-mail: <b>d.akopyan@osmp.kg</b></p>
+					<!--<img alt="" src="./img/ui/info/info_o_reklame.jpg" style="margin-top:5px;" />-->
+				</div>
+				
+
+				<div id="cont_15" style="display: none; padding-left: 20px;">
+					<div id="cont_off_place2" class="offer1_show" style="height: 550px; overflow: hidden;">
+						<div id="help_1" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_1" >Шаг 1</span></p>
+							<span id="guide_2" class="guide_span">Выберите категорию «Оплата услуг».</span>
+							<img src="img/ui/info/steps/help_1.gif" alt="" />
+						</div>
+						<div id="help_2" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_3">Шаг 2</span></p>
+							<span id="guide_4" class="guide_span">Выберите необходимую Вам категорию услуг, например, «ЖКХ»</span>
+							<img src="img/ui/info/steps/help_2.gif" alt="" />
+						</div>
+						<div id="help_3" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_5">Шаг 3</span></p>
+							<span id="guide_6" class="guide_span">Выберите из доступных услуг ту, которую вы хотите оплатить. В данном примере выбирается оплата за Газ.</span>
+							<img src="img/ui/info/steps/help_3.gif" alt="" />
+						</div>
+						<div id="help_4" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_7">Шаг 4</span></p>
+							<span id="guide_8" class="guide_span">Далее необходимо выбрать регион, в данном случае это город Бишкек.</span>
+							<img src="img/ui/info/steps/help_4.gif" alt="" />
+						</div>
+						<div id="help_5" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_9">Шаг 5</span></p>
+							<span id="guide_10" class="guide_span">Необходимо выбрать поставщика из выбранной категории. Например,   «Бишкекгаз»</span>
+							<img src="img/ui/info/steps/help_5.gif" alt="" />
+						</div>
+						<div id="help_6" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_11">Шаг 6</span></p>
+							<span id="guide_12" class="guide_span">Выберите услугу, которую Вы желаете оплатить.</span>
+							<img src="img/ui/info/steps/help_6.gif" alt="" />
+						</div>
+						<div id="help_7" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_13">Шаг 7</span></p>
+							<span id="guide_14" class="guide_span">Вводится  лицевой счет плательщика, на которые необходимо произвести платеж и нажать кнопку «Вперед»</span>
+							<img src="img/ui/info/steps/help_7.gif" alt="" />
+						</div>
+						<div id="help_8" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_15">Шаг 8</span></p>
+							<span id="guide_16" class="guide_span">Далее необходимо подтвердить правильность введенного реквизита и если все верно, нажать кнопку «Вперед», в случае ошибки во введении реквизита нажать кнопку «Назад» и ввести данные заново.</span>
+							<img src="img/ui/info/steps/help_8.gif" alt="" />
+						</div>
+						<div id="help_9" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_17">Шаг 9</span></p>
+							<span id="guide_18" class="guide_span">Для просмотра градации комиссии необходимо нажать кнопку "ИНФОРМАЦИЯ О КОМИССИИ"</span>
+							<img style="display:inline; float: left;" src="img/ui/info/steps/help_9_0.gif"  alt="" />
+							<img style="display:inline; float: right; margin-right: 50px;" src="img/ui/info/steps/help_9_2.gif" alt="" />
+						</div>
+						<div id="help_10" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_19">Шаг 10</span></p>
+							<span id="guide_20" class="guide_span">Затем внесите наличные средства в купюроприемник и на экране отобразится внесенная вами сумма, сумма комиссии и сумма, которая зачислится на Ваш счет. После внесения денежных средств для завершения платежа нажмите кнопку «Оплатить».</span>
+							<img style="display:inline; float: left;" src="img/ui/info/steps/help_9.gif"  alt="" />
+							<img style="display:inline; float: right; margin-right: 50px;" src="img/ui/info/steps/help_10_2.gif" alt="" />
+						</div>
+						<div id="help_11" class="off_txt w_h_100 d_n">
+							<p><span class="boldp" id="guide_21">Шаг 11</span></p>
+							<span id="guide_22" class="guide_span">После того, как сумма была принята к зачислению, Автомат самообслуживания выдаст Вам чек, а на экране будет выведена информация о проведении платежа.</span>
+							<img style="display:inline; float: left;" src="img/ui/info/steps/help_10.gif"  alt="" />
+							<img style="display:inline; float: right; margin-right: 50px;" src="img/ui/info/steps/help_10_2.gif" alt="" />
+						</div>
+					</div>
+					<div id="cont_off_arrows">                        
+						<div id="help_arrow_left"  class="f_l" style="background: url(img/ui/info/arrowleft.gif) no-repeat;height: 100px;width:95;overflow: hidden;" onclick="helpArrowClick('LEFT');"></div>
+						<div id="help_arrow_right" class="f_r" style="background: url(img/ui/info/arrowright.gif) no-repeat;height: 100px;width:95;overflow: hidden;" onclick="helpArrowClick('RIGHT');"></div>
+					</div>
+				</div>
+			</div>
+			<div class="round_line">
+				<div class="angle bg_lb f_l"></div>
+				<div class="hor_rect f_l"></div>
+				<div class="angle bg_rb f_l"></div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div id="btn_left" class="bottom-button-left"></div>
+		<div id="btn_center" class="bottom-button-center" onclick="top.location.href = './index.html';">
+			<!--<img src="./img/ui/navigation/menu.gif" />-->
+			<div id="bottom-button-center-container">
+				<div id="button_menu"></div>
+			</div>
+		</div>
+		<div id="btn_right" class="bottom-button-right"></div>
+	</div>
+</div>
+	<form name="ff" method="post" action="prov_list_130fz.html" target="_top">
+	<input id="ProvListStartRange" name="ProvListStartRange" type="hidden" value="0" />
+	<input id="ProvListEndRange" name="ProvListEndRange" type="hidden" value="13" />
+	</form>
+	<form id="OfferTypeForm" name="OfferTypeForm" method="post">
+	<input id="OfferType" name="OfferType" type="hidden" value="0" />
+	</form>
+</body>
+</html>

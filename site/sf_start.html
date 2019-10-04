@@ -1,0 +1,74 @@
+﻿<html>
+	<head>
+		<title>Refresh_Cookie</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="refresh" content="180; URL=./index.html" />
+		<link href="./css/sf.css" rel="stylesheet" />
+
+		<script src="./func/jquery.min.js" type="text/javascript"></script>
+		<script src="./prv_values.js" type="text/javascript"></script>
+		<script src="./prv_validate.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+		<script src="./func/engine/pars_cookie.js" type="text/javascript"></script>
+	
+		<script src="./func/engine/sf/sf_start.js" type="text/javascript"></script>
+		<script src="func/engine/new_engine/unselect_all.js" type="text/javascript"></script>
+
+	</head>
+<body onload="initPage()">
+	<div class="wrapper">
+	    <div class="header">
+	        <div class="img_logo"></div>
+	        <div class="right-top-alert" id="advert_1">
+	            <img src="./bin/default_header.gif"/>
+	            <!--<embed width="100%" height="100%" wmode="transparent" src="./swf/500_banner.swf" />-->
+	            <!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1090" height="180">
+	                    <param name="movie" value="./bin/swf.swf" />
+	                    <object type="application/x-shockwave-flash"></object>
+	                </object>-->
+	        </div>
+	        <div class="clearfix"></div>
+	    </div>
+		<div class="clearfix"></div>
+		<div class="content">
+			<div class="container-advert">
+				
+				<div class="container-logo">
+					<div class="prv_logo"></div>
+				</div>
+				<div class="container-prv_name">
+					<div class="prv_name_text"></div>
+				</div>
+				
+				<div class="container-alert-text">
+					<div class="alert-text"></div>
+				</div>
+
+				<div class="container-result-text">
+					<div class="result-text"></div>
+				</div>
+
+			</div>
+
+			<div class="wapper">
+				<div class="sf_start_button" id="sf-b-1" onclick="pressSymbol('KFH', this.id)" style="display: none;">КФХ</div>
+				<div class="sf_start_button" id="sf-b-2" onclick="pressSymbol('IP', this.id)">ИП</div>
+			</div>
+			
+			<div class="container-advert-right" id="advert_2"><!--img src="bin/Baner-364x472.gif" /--></div>
+			<div class="clearfix"></div>
+
+			<div class="back" id="button_back" onclick="pressSymbol('back', this.id)"></div>
+			<div class="index" id="button_menu" onclick="pressSymbol('menu', this.id)"></div>
+			<div class="forward" id="button_forward" onclick="pressSymbol('forward', this.id)"></div>
+			
+		</div>
+	</div>
+</body>
+</html>

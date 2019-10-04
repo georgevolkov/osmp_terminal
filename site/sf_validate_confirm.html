@@ -1,0 +1,103 @@
+﻿<html>
+<head>
+	<title>Validate_Confirm_SF</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+
+	<script src="./advert.js" type="text/javascript"></script>
+	<script src="./advert_content.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+	<script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+	<script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+	<script type="text/javascript" src="func/engine/new_engine/Sql.js" ></script>
+
+	<script type="text/javascript">
+
+		var cook = new CookieClass();
+		var prv_value = getcookie('prv_value');
+
+		var pAccount
+			= cook.getCookie("account_result") + ";"
+			+ cook.getCookie("sf_client_type") + ";"
+			+ cook.getCookie("sf_rayon_id");
+		
+		function init() {
+		    
+
+			saveAhtungMessages();
+		}
+
+		function saveAhtungMessages() {
+
+			var oProvider = {};
+			oProvider.prvId = getcookie("prv_id");
+			oProvider.prvName = getcookie("prv_name");
+			oProvider.prvLogo = getcookie("prv_image");
+			oProvider.account = pAccount;
+			oProvider.minCashSum = "10";
+			oProvider.minSum = "20";
+			oProvider.maxSum = "0";
+
+			storage.put("pay_info", oProvider.serialize());
+			storage.put("locale", getcookie('locale'), true);
+			storage.put("prv_online_check", getcookie("prv_online_check"));
+
+			msg1 = ff.ahtung_printer1.value;
+			msg2 = ff.ahtung_printer2.value;
+			msg3 = ff.ahtung_printer3.value;
+
+			storage.put("ahtung_message_1", msg1, true);
+			storage.put("ahtung_message_2", msg2, true);
+			storage.put("ahtung_message_3", msg3, true);
+			
+			ff.prv_id.value = getcookie("prv_id");
+			ff.prv_name.value = getcookie("prv_name");
+			ff.getAccountNumber.value = pAccount;
+
+			var needOnlineCheck = getcookie("prv_online_check");
+			var action;
+			
+			if (needOnlineCheck == "true") {
+				ff._extra_auth_page.value = 'online_auth.html';
+				ff._extra_auth_success.value = 'sf_validate.html';
+				ff._extra_auth_fail.value = 'sf_online_auth_error.html';
+				action = "online_auth.html";
+			}
+			else {
+			    action = "sf_validate.html";
+			}
+
+			ff.action = action;
+			ff.submit();
+		}
+	</script>
+			
+</head>
+<body onload="init();">
+
+	<form id="ff" name="ff" method="post" action="#">
+		<input id="ahtung_printer1" name="ahtung_printer1" class="msg" type="hidden" value="" />
+		<input id="ahtung_printer2" name="ahtung_printer2" class="msg" type="hidden" value="" />
+		<input id="ahtung_printer3" name="ahtung_printer3" class="msg" type="hidden" value="" />
+
+		<input type="hidden" name="prv_id" />
+		<input type="hidden" name="prv_name" />
+		<input type="hidden" name="getAccountNumber" />
+
+		<input type="hidden" name="_extra_auth_page" value="" />
+		<input type="hidden" name="_extra_auth_success" value="" />
+		<input type="hidden" name="_extra_auth_fail" value="" />
+	</form>
+</body>
+</html>

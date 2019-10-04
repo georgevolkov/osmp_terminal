@@ -1,0 +1,236 @@
+﻿<html>
+<head>
+    <title>Lottery Rules Page</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" content="180; URL=./index.html" />
+    <link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+    <link rel="stylesheet" href="./css/loto.css" type="text/css" />
+    <link rel="stylesheet" href="./css/loto_new.css" type="text/css" />
+
+    <script src="./advert.js" type="text/javascript"></script>
+    <script src="./advert_content.js" type="text/javascript"></script>
+    <script src="prv_values.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+    <script src="./func/engine/pars_cookie.js"></script>
+    <script type="text/javascript" src="func/jquery.min.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+    <script type="text/javascript" src="./func/engine/new_engine/lottery.js"></script>
+    <script>
+        var rule_page = 1;
+        function init() {
+            new CInnerShadow($('btn_left').getElementsByTagName('img')[0], { color: 30 });
+            new CInnerShadow($('btn_center').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+            new CInnerShadow($('btn_right').getElementsByTagName('img')[0], { color: 30 });
+            processTranslate();
+
+            $("btn_center_t").style.display = "none";
+            $("loto_rules_text_full_1").style.display = "none";
+            $("loto_rules_text_full_2").style.display = "none";
+            $("loto_rules_text_full_3").style.display = "none";
+            $("loto_rules_text_full_4").style.display = "none";
+            $("loto_rules_text_full_5").style.display = "none";
+            $("loto_rules_text_full_6").style.display = "none";
+            $("loto_rules_text_full_7").style.display = "none";
+            $("loto_rules_text_full_8").style.display = "none";
+            $("loto_rules_text_full_9").style.display = "none";
+            $("loto_rules_text_full_9_1").style.display = "none";
+            $("loto_rules_text_full_10").style.display = "none";
+            $("loto_rules_text_full_11").style.display = "none";
+            $("loto_rules_text_full_12").style.display = "none";
+            $("loto_rules_text_full_13").style.display = "none";
+            $("loto_rules_text_full_14").style.display = "none";
+        }
+
+        function processTranslate() {
+            sLocale = getcookie('locale');
+            getTextById("loto_button_back", sLocale);
+            getTextById("rules_prv_name", sLocale);
+            getTextById("attention_rules_text", sLocale);
+            getTextById("btn_center_text", sLocale);
+            getTextById("loto_button_forward", sLocale);
+            getTextById("loto_button_menu", sLocale);
+            getTextById("validate_data_loto", sLocale);
+            getTextById("loto_rules_text_mini", sLocale);
+            getTextById("loto_rules_text_full_1", sLocale);
+            getTextById("loto_rules_text_full_3", sLocale);
+            getTextById("loto_rules_text_full_4", sLocale);
+            getTextById("loto_rules_text_full_5", sLocale);
+            getTextById("loto_rules_text_full_6", sLocale);
+            getTextById("loto_rules_text_full_7", sLocale);
+            getTextById("loto_rules_text_full_8", sLocale);
+            getTextById("loto_rules_text_full_9", sLocale);
+            getTextById("loto_rules_text_full_9_1", sLocale);
+            getTextById("loto_rules_text_full_10", sLocale);
+            getTextById("loto_rules_text_full_11", sLocale);
+            getTextById("loto_rules_text_full_12", sLocale);
+            getTextById("loto_rules_text_full_13", sLocale);
+            getTextById("loto_rules_text_full_14", sLocale);
+        }
+
+        function onMenuBtnClick(sBtn) {
+            switch (sBtn) {
+                case "READALL":
+                    $("bottom-button-left-container").className = "rules_readAll_d";
+                    setTimeout(function () {
+                        $("btn_right").style.display = "none";
+                        $("btn_left").style.display = "none";
+                        $("btn_center_t").style.display = "";
+                        $("loto_rules_text_mini").style.display = "none";
+                        $("loto_rules_text_full_1").style.display = "";
+                    }, 150);
+                    break;
+                case "NEXT_READ":
+                    rule_page++;
+                    switch (rule_page) {
+                        case 2:
+                            $("loto_rules_text_full_1").style.display = "none";
+                            $("loto_rules_text_full_3").style.display = "";
+                            break;
+                        case 3:
+                            $("loto_rules_text_full_3").style.display = "none";
+                            $("loto_rules_text_full_4").style.display = "";
+                            break;
+                        case 4:
+                            $("loto_rules_text_full_4").style.display = "none";
+                            $("loto_rules_text_full_5").style.display = "";
+                            break;
+                        case 5:
+                            $("loto_rules_text_full_5").style.display = "none";
+                            $("loto_rules_text_full_6").style.display = "";
+                            break;
+                        case 6:
+                            $("loto_rules_text_full_6").style.display = "none";
+                            $("loto_rules_text_full_7").style.display = "";
+                            break;
+                        case 7:
+                            $("loto_rules_text_full_7").style.display = "none";
+                            $("loto_rules_text_full_8").style.display = "";
+                            if (sLocale == "en_en") {
+                                $("btn_right").style.display = "";
+                                $("btn_center_t").style.display = "none";
+                            }
+                            break;
+                        case 8:
+                            $("loto_rules_text_full_8").style.display = "none";
+                            $("loto_rules_text_full_9").style.display = "";
+                            if (sLocale == "kg") {
+                                $("btn_right").style.display = "";
+                                $("btn_center_t").style.display = "none";
+                            }
+                            break;
+                        case 9:
+                            $("loto_rules_text_full_9").style.display = "none";
+                            $("loto_rules_text_full_9_1").style.display = "";
+                                $("btn_right").style.display = "";
+                                $("btn_center_t").style.display = "none";
+                            break;
+                        case 10:
+                            $("loto_rules_text_full_9_1").style.display = "none";
+                            $("loto_rules_text_full_10").style.display = "";
+                            $("loto_rules_text_full_11").style.display = "";
+                            
+                            break;
+                        case 11:
+                            $("loto_rules_text_full_10").style.display = "none";
+                            $("loto_rules_text_full_11").style.display = "none";
+                            $("loto_rules_text_full_12").style.display = "";
+                            
+                            break;
+                        case 12:
+                            $("loto_rules_text_full_11").style.display = "none";
+                            $("loto_rules_text_full_12").style.display = "none";
+                            $("loto_rules_text_full_13").style.display = "";
+                            
+                            break;
+                        case 13:
+                            $("loto_rules_text_full_13").style.display = "none";
+                            $("loto_rules_text_full_14").style.display = "";
+                            break;
+                        case 14:
+                            $("loto_rules_text_full_14").style.display = "none";
+                            $("loto_rules_text_full_15").style.display = "none";
+                            $("btn_right").style.display = "";
+                            $("btn_center_t").style.display = "none";
+                            break;
+                    }
+                    break;
+                case "NONE":
+                    document.location = 'index.html';
+                    break;
+                case "YES":
+                    document.location = "enter_summ.html";
+                    break;
+            }
+        }
+    </script>
+</head>
+<body onload="init();">
+    <div id="content">
+        <div id="container1">
+            <div id="qiwi_logo">
+                <img alt="" src="./img/ui/qiwicel.gif" /></div>
+            <div id="advert_1"><img src="file:///D:/osmp/exe/osmp_kg/interface/adv/Baner-1090x180.gif" /></div>
+        </div>
+        <div id="back_warn" style="text-align: center; background-color: #FE9800;">
+            <p id="par_back_warn">
+                <span id="validate_data_loto"></span>
+            </p>
+        </div>
+        <div class="Lottery_kodeks">
+            <h2 id="attention_rules_text"></h2>
+            <br />
+            <br />
+            <p id="loto_rules_text_mini"></p>
+            <p id="loto_rules_text_full_1"></p>
+            <p id="loto_rules_text_full_2"></p>
+            <p id="loto_rules_text_full_3"></p>
+            <p id="loto_rules_text_full_4"></p>
+            <p id="loto_rules_text_full_5"></p>
+            <p id="loto_rules_text_full_6"></p>
+            <p id="loto_rules_text_full_7"></p>
+            <p id="loto_rules_text_full_8"></p>
+            <p id="loto_rules_text_full_9"></p>
+            <p id="loto_rules_text_full_9_1"></p>
+            <p id="loto_rules_text_full_10"></p>
+            <p id="loto_rules_text_full_11"></p>
+            <p id="loto_rules_text_full_12"></p>
+            <p id="loto_rules_text_full_13"></p>
+            <p id="loto_rules_text_full_14"></p>
+            <p id="loto_rules_text_full_15"></p>
+            <h2 id="rules_prv_name"></h2>
+        </div>
+        <div id="bottom_menu">
+            <div id="btn_left" class="bottom-button-left" onclick="onMenuBtnClick('READALL');">
+                <div id="bottom-button-left-container" class="loto_bottom-button-left-container">
+                    <div id="loto_button_back"></div>
+                </div>
+            </div>
+            <div id="btn_center_t" class="next_read" onclick="onMenuBtnClick('NEXT_READ');">
+                <div id="btn_center_text"></div>
+            </div>
+            <div id="btn_center" class="bottom-button-center" onclick="onMenuBtnClick('NONE');">
+                <div id="bottom-button-center-container" class="loto_bottom-button-center-container">
+                    <div id="loto_button_menu"></div>
+                </div>
+            </div>
+            <div id="btn_right" class="bottom-button-right" onclick="onMenuBtnClick('YES');">
+                <div id="bottom-button-right-container" class="loto_bottom-button-right-container">
+                    <div id="loto_button_forward"></div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

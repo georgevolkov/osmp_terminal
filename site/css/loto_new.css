@@ -1,0 +1,51 @@
+﻿#clrBtn{
+	background-image: url('../img/lottery/b_inactive_cl.png');
+	width: 220px; 
+	height: 100px;
+	font-size: 40px;
+	background-repeat: no-repeat;
+	text-align: center;
+	color: white;
+	line-height:2.35;
+	}
+#result_table{
+	position:relative;
+	float:right;
+	top:-5px;
+	right:20px;
+	margin-left: 20px;
+	}
+#result_table div{
+	float:left;
+	}
+.result_t{
+	text-align:center;
+	width:104px;
+	color: #f18b02;
+	font-size:65px;
+	line-height:1.4;
+	height:91px;
+	background-image: url('../img/lottery/tt.gif');
+	margin-right:6px;
+	}
+.disabledBtn{
+	background-image: url('../img/lottery/button_updwon_inactive.gif') !important;
+	}
+.text_loto_success{
+	margin-left:30px;
+	float:left;
+	color: #f18b02;
+	font-size:20px;
+	}
+.loto_bottom-button-left-container{
+	text-align:center;
+	background-image: url('../img/lottery/read.png') !important;
+	}
+.loto_bottom-button-right-container{
+	text-align:center;
+	background-image: url('../img/lottery/yes.png') !important;
+	}
+.loto_bottom-button-center-container{
+	text-align:center;
+	background-image: url('../img/lottery/no.png') !important;
+	}

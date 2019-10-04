@@ -1,0 +1,415 @@
+﻿<html>
+<head>
+	<title>Validate_Confirm</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+
+        <script src="./advert.js" type="text/javascript"></script>
+        <script src="./advert_content.js" type="text/javascript"></script>
+        <script src="prv_values.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+        <script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+        <script src="./func/engine/pars_cookie.js"></script>
+
+	<script type="text/javascript" src="./func/engine/new_engine/utils.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/base.js"></script>
+	<script type="text/javascript" src="./func/engine/new_engine/storage.js"></script>
+	<!--<script type="text/javascript" src="./func/engine/new_engine/advert.js"></script>-->
+	<script type="text/javascript" src="./func/engine/new_engine/hyphen.js"></script>
+
+        <style type="text/css">
+            .category {
+                margin:5px 0px 0px 0px;
+                padding:0;
+                background-image:url(./img/ui/p_voice_greetings/space_on.gif);
+                background-repeat:no-repeat;
+                width:580px;
+                height:70px;
+                float: left;
+                text-align: center;
+            }
+
+            .active-category {
+                margin:5px 0px 0px 0px;
+                padding:0;
+                background-image:url(./img/ui/p_voice_greetings/3btnorange_unpress.gif);
+                background-repeat:no-repeat;
+                width:580px;
+                height:70px;
+                float: left;
+                text-align: center;
+            }
+
+            .catTitle {
+                vertical-align: middle;
+                font-size: 22px;
+                color: white;
+                display: block;
+            }
+
+            .catDescr {
+                vertical-align: middle;
+                font-size: 16px;
+                color: white;
+            }
+
+            #itemDescr {
+                width: 670px;
+                height: 600px;
+                background: url('./img/ui/p_voice_greetings/item_desc.gif') no-repeat;
+                padding: 15px 15px 15px 15px;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            #itemDescr {                
+                font-size: 28px;
+                color: black;
+                font-family: 'Myriad Pro',Arial,sans-serif;
+            }
+
+            .type-btn {
+                background: url('./img/ui/p_voice_greetings/type_btn.gif') no-repeat;
+                background-position: center;
+                width: 315px;
+                height: 130px;
+                color: white;
+                font-size: 24px;
+                font-family: 'Myriad Pro',Arial,sans-serif;
+                vertical-align: middle;
+                text-align: center;
+                margin: 15px 0 0 15px;                
+            }
+
+            .type-btn-div-text {
+                color: white;
+                font-size: 18px;
+                font-family: 'Myriad Pro',Arial,sans-serif;
+                overflow: hidden;
+            }
+
+            .type-btn-div-img {
+                width: 70px;
+                height: 75px;                
+                overflow: hidden;
+            }
+        </style>
+
+	<script type="text/javascript">
+
+        var g_sPrvType = '',
+            logo;
+        var sLocale = "ru_ru";
+        var paymentAccount = "";
+        var prvId = "";
+
+
+        var greetingText = [
+            "Новый год! Веселый праздник.<br/>Не печалься понапрасну!<br/>Наливай скорее бокал!<br/>Чтобы я тебе сказал:<br/>Будь здоров, красив, умен,<br/>Заработай миллион.<br/>Дом купи, машину, дачу!<br/>Да женись скорей! В придачу<br/>Нарожай детишек,<br/>Девочек, мальчишек!<br/>Вот чего желаю я,<br/>Чтоб была с тобой семья!<br/>С Новым годом! Будь здоров!<br/>И второй бокал готовь!",
+            "Общество защиты мандаринов предупреждает. Нет, умоляет Граждане-собутыльники, пожалуйста, закусывайте оливье С Новым Годом",
+            "Друг! Тебе желаю в Новый год,<br/>К лучшей жизни резкий поворот!<br/>Чтоб мечты сбылись и как в кино,<br/>Выиграл сто тысяч в казино!<br/>Чтоб удача поддалась тебе,<br/>И катался ты на БМВ!<br/>Чтоб директором на фирме стал,<br/>И твой бизнес бурно процветал!<br/>Чтобы кошелек набитым был,<br/>Чтобы кто-то верил, ждал, любил.<br/>И чтоб каждый новый светлый год,<br/>Приносил веселья хоровод!<br/>",
+            "Я тебя сегодня поздравляю,<br/>С новым годом, с праздником зимы!<br/>И от всей души тебе желаю,<br/>Чтобы были неразлучны мы.<br/>Чтоб зима дарила нам объятья,<br/>А снежинок белый хоровод,<br/>Сделал твой наряд венчальным платьем!<br/>Будь со мною в этот Новый год!<br/>И под елкою больших подарков,<br/>Ты январским утром не ищи.<br/>Только в маленькой коробке яркой,<br/>от счастья подарю ключи!<br/>",
+            "Скоро, скоро Новый год!<br/>Снег метет, пурга поет,<br/>Дед Мороз на санках резвых,<br/>Праздник в гости к нам везет!<br/>Поздравляем от души,<br/>Взрослые и малыши!<br/>Пусть вам всюду светит счастье,<br/>Будут годы хороши!<br/>Пусть под елкою зеленой,<br/>Каждый, будто бы влюбленный,<br/>Станет счастлив и богат,<br/>В этот Новый год зеленый!<br/>Будьте счастливы, друзья,<br/>Искренне желаю я!<br/>",
+            "Я тебе желаю в новый год,<br/>Не встречать печалей и забот!<br/>Не жалеть о прожитом и вновь,<br/>Находить и ощущать любовь!<br/>А еще тебе желаю я,<br/>Чтоб светла была судьба твоя!<br/>Чтобы в этот тихий новый год,<br/>Закружил снежинок хоровод,<br/>И унес все прошлое, а ты,<br/>Не теряла прежней красоты.<br/>И сияла на лице твоем,<br/>Все нежней улыбка с каждым днем!<br/>",
+            "С Новым Годом Поздравляю Сегодня тебя ожидает очень насыщенный день – друзья помогут тебе восстановить карту памяти Ты был вчера на высоте Даже Дед Мороз засмущался Ты – молодец",
+            "Звезды тихо уходили с неба,<br/>Чтобы не спугнуть твой мирный сон,<br/>Ты во многих странах мира не был,<br/>Но зато, весь мир в тебя влюблен!<br/>С днем рожденья поздравляет небо,<br/>И земля подарки шлет свои,<br/>Ветер песни распевает смело,<br/>И любовь свою несут друзья твои!<br/>С Днем Рождения!<br/>",
+            "Если аист тебя принес – пусть растут за спиною крылья!<br/>Если в капусте тебя нашли – пускай будет ее в изобилии.<br/>Если с неба ты прилетел – каждый день сияй раньше солнца!<br/>А если в роддоме увидел свет – то сейчас проставляться придется!<br/>С днем рождения, дружище!<br/>",
+            "С днем растения, нашяйнике! А нет… с днем рождения, нашяйнике! Желаю тебе, чтоб раскривушка всегда была свободна и секаса хватало. Чтобы фости не заканчивались и пакалодник в ровень выпирал. Шьтобы было многа зарплатама и женшин ошин красивых. С праздником, нашяйнике! Будь умный и большой!",
+            "Эй, именинник, приложи к телефончику ушко, всю правду расскажу. Вижу светлое будущее, усеянное еврами да баксами. Дом вижу, в доме том гараж. А в гараже Лендкрузер… А в Лендкрузере девки, девки, море девок. Все будет хорошо у тебя, друг С Днем рождения ",
+            "Сегодня день начался раньше, солнце светит ярче, птицы поют громче! А все потому, что у тебя день рождения! От всего своего любящего сердца, я поздравляю тебя с этим днем и желаю, чтобы каждый день был словно праздник, а каждая ночь – словно сказка! Чтобы сбывались мечты, открывались все двери, отступали любые проблемы и жизнь была озарена светом любви! С днем рождения! Я люблю тебя больше жизни.",
+            "Открывай скорей открытку,<br/>В ней открытая душа!<br/>И открытыми глазами,<br/>Внемли слову не спеша.<br/>Открывай веселья чакры,<br/>И напитки открывай,<br/>В дверь открытую скорее,<br/>День рожденья пропускай!<br/>Пусть открытием великим,<br/>Будет множество друзей,<br/>Открывай скорей открытку,<br/>Праздник начинай скорей!<br/>С днем рождения!<br/>",
+            "Любовь моя, с днем рождения! Спасибо тебе за то, что ты есть в моей жизни! Что своей улыбкой и взглядом, ты наполняешь каждый мой день. Что твоя доброта, искренность и честность делают этот мир лучше! Пусть мир вознаграждает тебя за твое нежное сердце и чистую душу каждый день. Желаю тебе приятных событий, незабываемых впечатлений и сказочных приключений! С днем рождения, любовь моя.",
+            "Конец твоим страданиям и разочарованиям. <br/>И сразу наступает хорошая погода. Когда тебе или ему, когда, ну все ровно кому, подарят в День Рождения звонок от Винни. Трум-пум-пум-пупурум. Трум-пум-пум. С Днем Рождения.",
+            "Сколько бы ни было радостных дней, <br/>Сколько б чудес не происходило,<br/>Улыбка твоя – всех цветов красивей,<br/>И лучший из дней – день, когда ты родилась.<br/>Пусть для тебя расцветает весна,<br/>Птицы поют и сверкают зарницы.<br/>Ты для меня в целом мире одна,<br/>И лучший из дней – день, когда ты родилась!<br/>С днем рождения, любимая!<br/>",
+            "Когда мимо проходит красивая девушка, я… смотрю на нее, а думаю только о тебе! Потому что нет такой красоты, которая затмила бы твою красоту. Когда ты рядом – мир становится лучше: птицы поют громче и солнце светит ярче! Оставайся всегда такой же красивой, яркой, веселой и жизнерадостной, а я, каждый день буду говорить тебе о том, как сильно люблю тебя!",
+            "Мы очень далеко друг от друга, нас разделяет пространство и время, но наша любовь не остынет и не перестанет гореть. Ведь засыпая, я слышу биение твоего сердца и чувствую твое дыхание. А ты, смотря в звездное небо – думай и помни обо мне. Я очень скучаю и жду нашей встречи, а значит – она очень скоро случится. Люблю тебя, моя далекая мечта!",
+            "Секунда, минута, день или год – не важно! Любое расставание с тобой тянется и мучает. Тускнеют краски и затихают звуки, сердце бьется медленнее. Приезжай поскорее, я очень скучаю и жду тебя. Пусть твоя улыбка разукрасит мой мир, а твой поцелуй – вдохнет в меня новую радость жизни. Я люблю тебя, приезжай скорее.",
+            "Моя самая красивая в мире невеста Хочу напомнить, что в этот день решается не только твоя судьба От одного твоего движения зависит личное счастье твоей подруги Пожалуйста, кинь букет мне Я очень тебя прошу Ну пожалуйста А я взамен одену тусклое платье и не буду краситься Чтобы ты сияла еще больше Совет да любовь",
+            "Храните любовь,<br/>Ею будьте хранимы,<br/>На крыльях ее покоряйте миры,<br/>Без крыльев любви мы слабы и наивны,<br/>А с ними, способны мечтать и творить.<br/>Несите любовь,<br/>Не теряйте ни крохи,<br/>Пусть в ваших сердцах она будет за кровь,<br/>Любовь вам сторицей вернется в дороге,<br/>Согреет, осветит, освятит любовь!<br/>",
+            "Так как подругой я зовусь,<br/>Судьба обязывает ныне,<br/>Желать, чтоб светел был союз<br/>И годы были золотыми.<br/>",
+            "Глаза сияли ярче свет,<br/>Улыбки пламенем искрились,<br/>Спустя десятки тысяч встреч,<br/>Вы так же чувствами гордились,<br/>И чтобы через сотню лет,<br/>Пусть многое утратит блеск,<br/>Мы все слетались к вам на свет,<br/>От обручальных двух колец.<br/>",
+            "Только представь, в этот день каждый при виде такой прекрасной тебя, будет суеверно держаться за деньги И только твой муж не будет лихорадочно искать их в кармане Потому что для тебя ему не жалко ни чего Поздравляю Ты сделала правильный выбор",
+            "Верховный суд нашей страны вынес постановление, которое я имею честь зачитать. Жених и невеста за злостное нарушение родительских запретов, за свидания ночи напролет, за поцелуи при луне, романтические признания, подарки и безудержную любовь друг к другу, приговариваются к лишению свободы пожизненно. Надев золотые кандалы на безымянные пальцы, каждый из вас приговорен к любви и счастью в одной камере. Приговор вступает в действие и обжалованию не подлежит. Совет да любовь, господа криминальные элементы.",
+            "Мой начальник самый лучший! И я его с этим и поздравляю! Прогиб. Какой прогиб? Я перед начальством не прогибаюсь, потому что у меня для него всегда есть предложение конструктивное. И он меня всегда выслушает и похвалит и я его похвалю. Вот так и сидим - хвалим друг друга, он меня, я его, он меня, я его. Глядишь и рабочий день подошел к концу. Работать с таким начальником одно удовольствие.",
+            "Коллега, сегодня я хочу поздравить себя с тем, что работаю бок-о-бок с таким замечательным человеком, как ты! Мне очень повезло, что ты делишься со мной своим опытом, идеями и бутербродами! Я испытываю счастье от того, что мы однажды встретились и не расстанемся аж до пенсии! Желаю тебе огромных достижений в профессиональной деятельности, крепкого здоровья и не менее крепких нервов! С праздником коллега! Респект тебе и уважуха!",
+            "Я вас люблю, как джем клубничный<br/>Как вкус ирисовых конфет!<br/>Не надо дам мне заграничных!<br/>Лишь вы очей моих рассвет!<br/>Я вас люблю! И нет важнее<br/>Мне ваших шуток и проказ! <br/>Я вас люблю, и мне светлее,<br/>Когда я глаз не отвожу от вас.<br/>",
+            "Любовь нечаянно нагрянула,<br/>И стал весь мир цветным в тот час!<br/>Когда в души углы заглянули<br/>Брильянты ваших светлых глаз! <br/>Мне каждый час минутой кажется!<br/>Когда мы с вами лишь молчим.<br/>И дольше года сутки тянутся,<br/>Пока вас дома жду один.<br/>Вы свет в ночи, вы звезд царица!<br/>Вы краше всех цветов вокруг!<br/>Хочу вам низко поклониться.<br/>Навеки ваш любимый друг!<br/>",
+            "Мы с тобой словно лебеди в небе<br/>Нас венчали закат и рассвет.<br/>И верны мы друг другу, как лебеди!<br/>Пусть так будет две тысячи лет!<br/>Я люблю тебя, я тебе верю<br/>Жду тебя и скучаю, мой друг.<br/>Для тебя все ветра одолею,<br/>Чтоб не знали мы больше разлук.<br/>Я люблю тебя, верю, надеюсь.<br/>И в мечтах обнимаю тебя.<br/>Мы с тобою, как лебеди спелись,<br/>И полет наш закончим любя!<br/>",
+            "Я встретил вас в закрытом переулке,<br/>Вы воровали яблоки в саду,<br/>Тушили о калоши вы окурки,<br/>И мне в глаза смотрели на беду.<br/>Пронзил меня ваш взгляд, я растерялся<br/>Потупил очи, сделал шаг назад…<br/>Но тут же за свой острый разум взялся.<br/>И предложил вечерний променад! <br/>С тех пор прошло уже немало весен.<br/>И яблоки воруют пацаны, <br/>А мы с тобой, родная, сушим весла,<br/>Ведь любим мы, нежны мы и верны!<br/>",
+            "Я разбужу тебя на рассвете.<br/>Поцелуем, букетом цветов.<br/>Пусть тебе ярко солнышко светит,<br/>И поют голоса соловьев!<br/>Я тебя обниму и согрею,<br/>Подарю тебе нежность цветка!<br/>И земною любовью своею,<br/>Осчастливлю тебя на века!<br/>",
+            "Нет в мире места лучше, чем наш дом. Не бывает яичницы вкуснее, чем та, которую готовишь ты. Нет почелуев нежнее, чем твои и уж точно, никто так красиво не обижается, как ты, любимая моя! Я хочу рассказать тебе о том, насколько я люблю все твои черты и насколько ценю каждый день, проведенный с тобой! Оставайся всегда моим лучиком света! Я очень, очень люблю тебя!",
+            "Я не люблю просыпаться рано утром, если меня разбудила не ты. Я не люблю кофе на завтрак, если он сварен не тобой. Я просто терпеть не могу носить галстук, если не ты мне его повязываешь. И наконец, я просто не люблю быть не рядом с тобой. Ты делаешь мой мир ярким и прекрасным! Ты – художник моей жизни! Я очень сильно люблю тебя!",
+            "Ты мой котенок, слоненок, мышенок. Ты мое солнышко, звездочка, лучик! Ты моя конфетка, пироженка, тортик! Ты мое клубничное варенье и ванильное мороженое! Ты мой молочный шоколад и сгущенное молоко! Ты – это все то, что я люблю больше всего в жизни! Люблю без вопросов и сомнений. Просто люблю, сильно и навсегда!",
+            "Люблю тебя, как булку с маслом. Как жаренную картошку с солеными огурцами. Как борщ со сметаной, как домашнюю колбасу только с жару! А еще, как утку с яблоками, как сыр и грибочки, как свиную отбивную и куриные крылышки. Дорогая, ты знаешь, что я очень люблю покушать, но знай еще и то, что я готов променять все перечисленные лакомства на один счастливый миг с тобой! Я люблю тебя, моя пышечка!",
+            "У зайки есть зайчик, у лисички – лис. У медведицы есть медведь, а у лосихи лось. У мышки есть мышь, у воробушки – воробей. Лошадку дома ждет конь, а петушка – курочка. У всех на свете есть пара, и только я сейчас один. Без тебя, моя голубушка. Я очень скучаю по тебе и спешу домой! Люблю тебя безмерно! Дождись, и получишь много подарков, один из которых – мое горячее сердце!"
+        ];
+
+        function init() {
+
+            startAdvert("");
+
+            new CInnerShadow($('btn_left').getElementsByTagName('img')[0], { color: 30 });
+            new CInnerShadow($('btn_center').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+            new CInnerShadow($('btn_right').getElementsByTagName('img')[0], { color: 30 });
+
+            processTranslate(sLocale)
+        }
+
+        var categories = [
+            {title: "С НОВЫМ ГОДОМ!!!", text: "", action: ""},
+            {title: "С ДНЕМ РОЖДЕНИЯ", text: "", action: ""},
+            {title: "ЛЮБОВЬ И ДРУЖБА", text: "", action: ""},
+            {title: "ПОЗДРАВЛЕНИЯ С ДНЕМ СВАДЬБЫ ДЛЯ ЖЕНИХА И НЕВЕСТЫ", text: "", action: ""},
+            {title: "КОЛЛЕГЕ", text: "", action: ""}
+        ];      
+
+        function processTranslate(sLang) {
+            sLocale = getcookie('locale');
+            getTextById("button_back", sLocale);
+            getTextById("button_forward", sLocale);
+            getTextById("button_menu", sLocale);
+        }
+
+        var backStatus = 0;
+
+        function onMenuBtnClick(sBtn) {
+            switch (sBtn) {
+                case "BACKWARD":
+                    if (backStatus == 0)
+                        document.location = 'index.html';
+                    else {
+                        backStatus = 0;
+                        $("type").style.display = "";
+                        $("catItems").style.display = "none";
+                        $("btn_right").style.display = "none";
+                    }
+                    break;
+                case "MENU":
+                   document.location = 'index.html';
+                    break;
+                case "FORWARD":
+                    var ff = document.forms['ff'];
+                    var recMessage = document.createElement('input');
+                    recMessage.name = recMessage.id = '_receipt_Дополнительная информация';
+                    recMessage.type = 'hidden';
+                    recMessage.value = selectedTitle;
+                    ff.appendChild(recMessage);
+                   					
+					var PayInfo = {}
+					PayInfo.Account = selectedVoice;
+					storage.put("pay_info", PayInfo.serialize());
+
+                    ff.action = 'cellular.html';
+
+                    ff.submit();
+                    break;
+            }
+        }
+
+        var greetingsType = [
+            {index: 0, title: "С НОВЫМ ГОДОМ!!!", items: [
+                    {title: "Новый год! Веселый праздник", descr: "Мелодичный приятный голос, в сопровождении с веселой музыкой", fileName: "Novyy_god_Veselyy_prazdnik", text: 0},
+                    {title: "Пожалуйста, закусывайте оливье", descr: "Мелодичный приятный голос, в сопровождении с веселой музыкой", fileName: "Pojaluysta_zakusyvayte_olive", text: 1},
+                    {title: "Пожелание для друга в Новый год", descr: "Мелодичный приятный голос, в сопровождении с веселой музыкой", fileName: "Pojelanie_dlya_druga_v_Novyy_god", text: 2},
+                    {title: "С новым годом, с праздником зимы!", descr: "Мелодичный приятный голос, в сопровождении с веселой музыкой", fileName: "S_novym_godom_s_prazdnikom_zimy", text: 3},
+                    {title: "Скоро, скоро Новый год!", descr: "Мелодичный приятный голос, в сопровождении с веселой музыкой", fileName: "Skoro_skoro_Novyy_god", text: 4},
+                    {title: "В Новый год светлой судьбы и красоты!", descr: "Мелодичный приятный голос, в сопровождении с веселой музыкой", fileName: "V_Novyy_god_svetloy_sudby_i_krasoty", text: 5},
+                    {title: "Восстанови карту памяти", descr: "Мелодичный приятный голос, в сопровождении с веселой музыкой", fileName: "Vosstanovi_kartu_pamyati", text: 6}
+                ]},
+
+            {index: 1, title: "С ДНЕМ РОЖДЕНИЯ", items: [
+                    {title: "С днем рожденья поздравляет небо, ветер и земля", descr: "Бархатный голос девушки, в сопровождении с романтической музыкой", fileName: "S_dnem_rojdenya_pozdravlyaet_nebo_veter_i_zemlya", text: 7},
+                    {title: "С днем рождения, дружище!", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "S_dnem_rojdeniya_drujische", text: 8},
+                    {title: "С днем растения, нашяйнике!", descr: "Голос Равшана, в сопровождении с веселой музыкой", fileName: "S_dnem_rasteniya_nashyaynike", text: 9},
+                    {title: "Приложи к телефончику ушко, всю правду расскажу", descr: "Бархатный голос девушки, в сопровождении с романтической музыкой", fileName: "Priloji_k_telefonchiku_ushko_vsyu_pravdu_rasskaju", text: 10},
+                    {title: "Поздравления от любящего сердца", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Pozdravleniya_ot_lyubyaschego_serdca", text: 11},
+                    {title: "Открывай скорей открытку", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Otkryvay_skorey_otkrytku", text: 12},
+                    {title: "Любовь моя, с днем рождения!", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Lyubov_moya_s_dnem_rojdeniya", text: 13}                    
+                ]},
+
+            {index: 2, title: "С ДНЕМ РОЖДЕНИЯ", items: [
+                    {title: "Конец твоим страданиям и разочарованиям", descr: "Веселый голос Винни-Пуха, в сопровождении с веселой музыкой", fileName: "Konec_tvoim_stradaniyam_i_razocharovaniyam", text: 14},
+                    {title: "Лучший из дней – день, когда ты родилась", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Luchshiy_iz_dney_den_kogda_ty_rodilas", text: 15}
+                ]},
+
+            {index: 3, title: "ЛЮБОВЬ И ДРУЖБА", items: [
+                    {title: "Когда ты рядом – мир становится лучше", descr: "В сопровождении с веселой музыкой", fileName: "Kogda_ty_ryadom_mir_stanovitsya_luchshe", text: 16},
+                    {title: "Люблю тебя, моя далекая мечта!", descr: "В сопровождении с веселой музыкой", fileName: "Lyublyu_tebya_moya_dalekaya_mechta", text: 17},
+                    {title: "Расставание с тобой тянется и мучает", descr: "В сопровождении с веселой музыкой", fileName: "Rasstavanie_s_toboy_tyanetsya_i_muchaet", text: 18}
+                ]},
+
+            {index: 4, title: "ПОЗДРАВЛЕНИЯ С ДНЕМ СВАДЬБЫ ДЛЯ ЖЕНИХА И НЕВЕСТЫ", items: [
+                    {title: "Пожалуйста, кинь букет мне", descr: "В сопровождении с веселой музыкой", fileName: "Pojaluysta_kin_buket_mne", text: 19},
+                    {title: "Пожелания в День Свадьбы", descr: "В сопровождении с веселой музыкой", fileName: "Pojelaniya_v_Den_Svadby", text: 20},
+                    {title: "Поздравление С днем свадьбы!", descr: "В сопровождении с веселой музыкой", fileName: "Pozdravlenie_S_dnem_svadby", text: 21},
+                    {title: "Поздравляю Ты сделала правильный выбор", descr: "В сопровождении с веселой музыкой", fileName: "Pozdravlyayu_Ty_sdelala_pravilnyy_vybor", text: 22},
+                    {title: "Совет да любовь", descr: "В сопровождении с веселой музыкой", fileName: "Sovet_da_lyubov", text: 23}
+            ]},
+
+            {index: 5, title: "КОЛЛЕГЕ", items: [
+                    {title: "Мой начальник самый лучший!", descr: "В сопровождении с веселой музыкой", fileName: "Moy_nachanik_samyy_luchshiy", text: 24},
+                    {title: "С праздником коллега!", descr: "В сопровождении с веселой музыкой", fileName: "S_prazdnikom_kollega", text: 25}
+            ]},
+
+            {index: 6, title: "ПРИЗНАНИЯ В ЛЮБВИ", items: [
+                    {title: "Я вас люблю, как джем клубничный", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ya_vas_lyublyu_kak_djem_klubnichnyy", text: 27},
+                    {title: "Любовь нечаянно нагрянула", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Lyubov_nechayanno_nagryanula", text: 28},
+                    {title: "Мы полет наш закончим любя!", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "My_polet_nash_zakonchim_lyubya", text: 29},
+                    {title: "Я встретил вас в закрытом переулке", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ya_vstretil_vas_v_zakrytom_pereulke", text: 30},
+                    {title: "Я осчастливлю тебя на века!", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ya_oschastlivlyu_tebya_na_veka", text: 31}
+            ]},
+
+            {index: 7, title: "ПРИЗНАНИЯ В ЛЮБВИ", items: [
+                    {title: "Оставайся всегда моим лучиком света!", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ostavaysya_vsegda_moim_luchikom_sveta", text: 32},                    
+                    {title: "Ты – художник моей жизни!", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ty_hudojnik_moey_jizni", text: 33},
+                    {title: "Ты мой котенок, слоненок, мышенок", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ty_moy_kotenok_slonenok_myshenok", text: 34},
+                    {title: "Я люблю тебя, моя пышечка!", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ya_lyublyu_tebya_moya_pyshechka", text: 35},
+                    {title: "Я  скучаю без тебя, моя голубушка", descr: "Мелодичный мужской приятный голос, в сопровождении с веселой музыкой", fileName: "Ya_skuchayu_bez_tebya_moya_golubushka", text: 36}
+            ]},
+        ];
+
+        var selectedVoice = -1;
+        var selectedTitle = "";
+
+        function typeClick(typeIndex) {
+            $("type").style.display = "none";            
+
+            showCat(typeIndex);
+            backStatus++;
+        }
+
+        function selectItem(typeIndex, catIndex, thisItem) {
+            var i = greetingsType[typeIndex].items[catIndex].text;
+            $("itemDescr").innerHTML = greetingText[i];
+
+            selectedVoice = greetingsType[typeIndex].items[catIndex].fileName;
+            selectedTitle = greetingsType[typeIndex].items[catIndex].title;
+
+            $("btn_right").style.display = "";
+        }
+
+        function showCat(typeIndex) {
+            var content = '<table><tr><td valign="top"><table id="cats" style="vertical-align: top">';
+
+            for (var i = 0; i < greetingsType.length; i++) {
+                if (i == typeIndex) {
+                    for (var j = 0; j < greetingsType[i].items.length; j++)
+                        content += '<tr><td><div onclick="selectItem('+i+','+j+',this)" class="category"><span class="catTitle">' + greetingsType[i].items[j].title + '</span><span class="catDescr">' + greetingsType[i].items[j].descr + '</span></div></td></tr>';
+                }
+            }
+
+            content += '</table></td><td><div id="itemDescr">';
+
+            $("catItems").innerHTML = content;
+
+            $("catItems").style.display = "";
+        }       
+
+	</script>
+</head>
+<body onLoad="init();">
+<div id="content">
+    <div id="container1">
+        <div id="qiwi_logo"><img alt="" src="./img/ui/qiwicel.gif" /></div>
+        <div id="advert_1">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+	                       <tr>
+	                           <td align="center" valign="middle" class="on_page_title">
+	                               <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="100%" height="100%">
+                                       <param name="allowScriptAccess" value="sameDomain" />
+                                       <param name="movie" value="img\swf\banner.swf" />
+                                       <param name="quality" value="best" />
+                                       <param name="wmode" value="transparent" />
+                                   </object>
+	                           </td>
+	                       </tr>
+	                    </table>
+		</div>
+    </div>
+    <div id="back_warn" style="text-align: center; background-color: #FE9800;">
+        <p id="par_back_warn" style="color: #f5f5f5; overflow: hidden; text-transform: uppercase; text-align: center; font-family:Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-weight:bold;  height:40px;color:#2268c6;">
+            <span style="font: bold 30px Arial, FreeSans, Helvetica, Tahoma, sans-serif; color: white;">Голосовые поздравления всего за 20 сом!!!</span>
+        </p>
+    </div>
+
+    <form id="ff" name="ff" method="post" action="cellular.html">
+
+        <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+        <input id="prv_id" name="prv_id" type="hidden" value="" />                
+
+        <div id="work_place_1" style="margin: 5px 0px 0px 10px; padding: 0; width: 1255px;  height: 595px;">
+            <div id="type">
+                <table align="center">
+                    <tr>
+                        <td class="type-btn" onclick="typeClick(0)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\guitar.gif) no-repeat;"></div><div class="type-btn-div-text">С НОВЫМ ГОДОМ!!!</div></td>
+                        <td class="type-btn" onclick="typeClick(1)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\happyb.gif) no-repeat;"></div><div class="type-btn-div-text">С ДНЕМ РОЖДЕНИЯ</div></td>
+                        <td class="type-btn" onclick="typeClick(2)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\happyb.gif) no-repeat;"></div><div class="type-btn-div-text">С ДНЕМ РОЖДЕНИЯ (Продолжение)</div></td>
+                    </tr>
+                    <tr>
+                        <td class="type-btn" onclick="typeClick(3)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\guitar.gif) no-repeat;"></div><div class="type-btn-div-text">ПОЗДРАВЛЕНИЯ С ДНЕМ СВАДЬБЫ ДЛЯ ЖЕНИХА И НЕВЕСТЫ</div></td>
+                        <td class="type-btn" onclick="typeClick(4)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\guitar.gif) no-repeat;"></div><div class="type-btn-div-text">ЛЮБОВЬ И ДРУЖБА</div></td>
+                        <td class="type-btn" onclick="typeClick(5)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\guitar.gif) no-repeat;"></div><div class="type-btn-div-text">КОЛЛЕГЕ</div></td>
+                    </tr>
+                    <tr>
+                        <td class="type-btn" onclick="typeClick(6)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\love.gif) no-repeat;"></div><div class="type-btn-div-text">ПРИЗНАНИЯ В ЛЮБВИ</div></td>
+                        <td class="type-btn" onclick="typeClick(7)"><div class="type-btn-div-img" style="background: url(img\ui\p_voice_greetings\love.gif) no-repeat;"></div><div class="type-btn-div-text">ПРИЗНАНИЯ В ЛЮБВИ (Еще)</div></td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div id="catItems" style="display:none">
+                <table><tr>
+                        <td valign="top">
+                        <table id="cats" style="vertical-align: top">
+                            <tr><td><div class="category"><span class="catTitle">Приложи к телефончику ушко, всю правду расскажу</span><span class="catDescr">Мелодичный приятный голос, в сопровождении с веселой музыкой</span></div></td></tr>
+                            <tr><td><div class="category"><span class="catTitle">Пожалуйста, закусывайте оливье</span><span class="catDescr">Мелодичный приятный голос, в сопровождении с веселой музыкой</span></div></td></tr>
+                            <tr><td><div class="category"><span class="catTitle">Пожелание для друга в Новый год</span><span class="catDescr">Мелодичный приятный голос, в сопровождении с веселой музыкой</span></div></td></tr>
+                            <tr><td><div class="category"><span class="catTitle">С новым годом, с праздником зимы!</span><span class="catDescr">Мелодичный приятный голос, в сопровождении с веселой музыкой</span></div></td></tr>
+                            <tr><td><div class="category"><span class="catTitle">Скоро, скоро Новый год!</span><span class="catDescr">Мелодичный приятный голос, в сопровождении с веселой музыкой</span></div></td></tr>
+                            <tr><td><div class="category"><span class="catTitle">В Новый год светлой судьбы и красоты!</span><span class="catDescr">Мелодичный приятный голос, в сопровождении с веселой музыкой</span></div></td></tr>
+                        </table>
+                    </td>
+                    <td>
+                        <div id="itemDescr">                           
+                        </div>
+                    </td>
+                </tr></table>
+            </div>
+        </div>
+
+    </form>
+
+    <div id="bottom_menu">
+        <div id="btn_left" class="bottom-button-left" onClick="onMenuBtnClick('BACKWARD');">
+                <!--<img alt="" src="./img/ui/navigation/back_empty.gif" onClick="onMenuBtnClick('BACKWARD');" />-->
+                <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+        </div>
+        <div id="btn_center" class="bottom-button-center" onClick="onMenuBtnClick('MENU');">
+            <!--<img alt="" src="./img/ui/navigation/menu.gif" onClick="onMenuBtnClick('MENU');" />-->
+            <div id="bottom-button-center-container">
+                <div id="button_menu"></div>
+            </div>
+        </div>
+        <div style="display:none" id="btn_right" class="bottom-button-right" onClick="onMenuBtnClick('FORWARD');">
+            <!--<img alt="" src="./img/ui/navigation/forward.gif" onClick="onMenuBtnClick('FORWARD');" />-->
+            <div id="bottom-button-right-container">
+                <div id="button_forward"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+﻿@import url("base.css");
+
+.advert1
+{
+    width: 610px;
+    height: 390px;
+    float: left;
+}
+
+.advert2
+{
+    width: 400px;
+    height: 110px;
+    float: left;
+}
+
+#easy_pay
+{
+	margin: 1 0 0 380px; 
+	font: 40px 'Myriad Pro', Arial,sans-serif; 
+	color: white;
+}
+
+#thank_you_text
+{
+	margin: 20px 0 0 0px;
+	font: bold 25px 'Myriad Pro', Arial,sans-serif; 
+	color: white;
+}
+
+#account_text
+{
+	float: left;
+	margin:20px 0 0 15px;
+	font: 24px 'Myriad Pro', Arial,sans-serif; 
+	color: white;
+        background-color: #2266bb;
+}
+
+#accepted_text
+{
+	margin:15px 0 0 490px;
+	font: 24px 'Myriad Pro',Arial,sans-serif; 
+	color: white
+}
+
+#num_txt
+{
+    background-image: url('../img/ui/field/acc_field.gif');
+    background-repeat: no-repeat;
+    width: 865px;
+    height: 75px;
+    margin-top: 0px;
+    margin-left: 40px;
+    overflow: hidden;
+}
+
+#inp_sum
+{
+    background-image: url('../img/ui/field/inp_field.gif');
+    background-repeat: no-repeat;
+    width: 241px;
+    height: 73px;
+    margin-left: 0px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+#inp_sum_txt
+{
+    margin-left: 20px;
+    margin-top: 2px;
+    padding: 0px;
+    font: 54px bold 'Myriad Pro', Arial,sans-serif;
+    color: #ff6226;
+    height: 54px;
+    width: 200px;
+    text-align: center;
+}
+
+#winner_text
+{
+    font: 20px bold 'Myriad Pro', Arial,sans-serif;
+    color: white;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    margin-top: -10px;
+}
+
+#div1
+{
+    margin-top: 5px;
+    width: 241px;
+    height: 73px;
+    overflow: hidden;
+    margin-left: 40px;
+    display: inline;
+}
+
+#div2
+{
+    margin-left: 67px;
+    margin-top: 5px;
+    width: 241px;
+    height: 73px;
+    overflow: hidden;
+    display: inline;
+}
+
+#div3
+{
+    margin-left: 67px;
+    margin-top: 5px;
+   width: 241px;
+    height: 73px;
+    overflow: hidden;
+    display: inline;
+}
+
+#text_1
+{
+    display: none;
+    width: 241px;
+    height: 60px;
+    background-image: url('../img/ui/field/inp_field.gif');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-align: center;
+}
+
+#top_input_1, #top_input_2, #top_input_3
+{
+    margin-top: 2px;
+    color: #ff6226;
+    font: 16px bold 'Myriad Pro', Arial,sans-serif;
+}
+
+#input_1, #input_2, #input_3
+{
+    margin-top: -5px;
+   color: #ff6226;
+   height: 44px;
+   width: 200px;
+   font: 38px bold 'Myriad Pro', Arial,sans-serif;
+}
+
+#text_2
+{    
+   width: 241px;
+    height: 60px;
+    background-image: url('../img/ui/field/inp_field.gif');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-align: center;
+}
+
+#text_3
+{
+    display: none;
+    width: 241px;
+    height: 60px;
+    background-image: url('../img/ui/field/inp_field.gif');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-align: center;
+}
+#bottom-button-center-container
+{
+	width: 301; 
+	height:121px; 
+	background-image: url('../img/ui/navigation/menu_empty.gif'); 
+	background-repeat: no-repeat;
+}
+
+#num_inp
+{
+    width: 800px;
+    height: 70px;
+    text-align: left;
+    color: #2268c6;
+    font-weight: normal;
+    font-size: 63px;
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    margin-left: -20px;
+}
+
+#contener_summ
+{
+    width: 940px;
+    height: 70px;
+    float: left;
+    margin-top: 20px;
+    padding-left: 0px;
+}
+
+#summ_txt
+{
+    width: 215px;
+    height: 70px;
+    float: left;
+    color: #ff6226;
+    font-weight: normal;
+    font-size: 65px;
+}
+
+#advert_2
+{
+    margin-left: 20px;
+}
+
+#advert_4
+{
+    margin-left: 20px;
+}
+
+#advert_5
+{
+    margin-left: 20px;
+}
+
+#contener1
+{
+    width: 1280px;
+    height: 390px;
+    padding-left: 20px;
+    padding-top: 19px;
+}
+
+#contener2
+{
+    width: 1280px;
+    height: 324px;
+    padding-left: 42px;
+    margin-top: 13px;
+}
+
+#contener3
+{
+    width: 1280px;
+    height: 110px;
+    padding-left: 20px;
+    margin-top: 13px;
+}
+
+#qiwi_logo
+{
+    width: 86px;
+    height: 140px;
+    float: left;
+    margin-top: 23px;
+    background: url('../img/ui/qiwicel.png') no-repeat;
+}
+
+#title
+{
+    width: 940px;
+    height: 324px;
+    float: left;
+    margin-left: 42px;
+    background: url('../img/ui/field/ok_empty.gif') no-repeat;
+}
+
+
+
+
+

@@ -1,0 +1,455 @@
+﻿<html>
+<head>
+    <title>The Traffic Police Accounts</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" content="180; URL=./index.html" />
+    <link rel="stylesheet" href="./css/validate_confirm_info.css" type="text/css" />
+    <link rel="stylesheet" href="./css/ttp.css" type="text/css" />
+
+    <script src="./func/jquery.min.js" type="text/javascript"> </script>
+    <script src="./advert.js" type="text/javascript"> </script>
+    <script src="./encoder.js" type="text/javascript"> </script>
+    <script src="./advert_content.js" type="text/javascript"> </script>
+    <script src="prv_values.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/translate.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/properties.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/locale/en_en.js" type="text/javascript"> </script>
+    <script src="./func/ui/translate/locale/kg.js" type="text/javascript"> </script>
+    <script src="./func/engine/pars_cookie.js" type="text/javascript"> </script>
+    <script src="./func/engine/new_engine/utils.js" type="text/javascript"> </script>
+    <script src="./func/engine/new_engine/base.js" type="text/javascript"> </script>
+    <script src="./func/engine/new_engine/storage.js" type="text/javascript"> </script>
+    <script src="./func/engine/new_engine/hyphen.js" type="text/javascript"> </script>
+    <script src="func/engine/new_engine/Sql.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var sLocale = "ru_ru";
+        var changeFlag = false;
+        function init() {
+            log.add('The Traffic Police Accounts :: Start!');
+            new CInnerShadow($('btn_left').getElementsByTagName('img')[0], { color: 30 });
+            new CInnerShadow($('btn_center').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+            new CInnerShadow($('btn_right').getElementsByTagName('img')[0], { color: 30 });
+            Initialize();
+            NextPage();
+        }
+
+        function Initialize() {
+
+            // processTranslate
+            sLocale = getcookie('locale');
+            getTextById("button_back", sLocale);
+            getTextById("button_forward", sLocale);
+            getTextById("button_menu", sLocale);
+
+
+            //getTextById("validate_ptt_grazhdan_text", sLocale);
+
+
+            //getTextById("validate_ptt_name_text", sLocale);
+            getTextById("validate_ptt_fam_text", sLocale);
+            getTextById("validate_ptt_phoneNam_text", sLocale);
+
+            //getTextById("validate_ptt_email_text", sLocale);
+            //getTextById("validate_ptt_dateR_text", sLocale);
+            getTextById("validate_ptt_pols_text", sLocale);
+            getTextById("p_validate_ttp", sLocale);
+            getTextById("oferta_ttp", sLocale);
+            getTextById("back_ttp_warn_text", sLocale);
+            getTextById("ttp-pol-1", sLocale);
+            getTextById("ttp-pol-2", sLocale);
+            getTextById("validate_ptt_dis_text", sLocale);
+
+
+
+            getTextById("ttp-dis-1", sLocale);
+            getTextById("ttp-dis-2", sLocale);
+            getTextById("ttp-dis-3", sLocale);
+            getTextById("ttp-dis-4", sLocale);
+
+            //InitializeInputs
+            $("ptt_phoneNam").value = insertValue("ptt_phoneNam");
+           
+            $("ptt_fam").value = insertValue("ptt_fam");
+
+            face(storage.get("ptt_face"));
+            face(storage.get("ptt_dis"));
+
+            //Create Alert Message
+            //displayAlertMsg("По данной статье/части невозможно оплатить штраф в терминале. Справки по телефону 90-90-90");
+
+            //Hidden params
+            jQuery("#alertMsg").hide();
+            jQuery("#p_validate_ttp").hide();
+            jQuery("#btn_right").hide();
+            jQuery("#back_ttp_warn").hide();
+        }
+
+        function NextPage() {
+            if (
+                storage.get("ptt_fam_value") == "true" &&
+                storage.get("ptt_phoneNam_value") == "true"
+                && storage.get("ptt_face") != "5" && storage.get("ptt_dis") != "5"
+                ) {
+                jQuery("#btn_right").show();
+                jQuery("#p_validate_ttp").show();
+            }
+
+        }
+
+        function insertValue(post) {
+            var stepWork = storage.get("step_work");
+            var oPayInfo = Object.deserialize(storage.get("pay_info"));
+            switch (stepWork) {
+                case "100":
+                    break;
+                case "1":
+                    
+                    storage.put("ptt_phoneNam", oPayInfo.account);
+                    storage.put("ptt_phoneNam_value", "true");
+                    break;
+                  
+                case "3":
+                    storage.put("ptt_fam", oPayInfo.account);
+                    storage.put("ptt_fam_value", "true");
+                    break;
+
+            }
+            if (storage.get(post) != null && storage.get(post) != "undefined") {
+                return storage.get(post);
+            } else {
+                return "Нажмите для заполнения";
+            }
+        }
+
+        function buttonPress(id) {
+            switch (id) {
+
+              
+                case "ptt_fam":
+                    $("ptt_fam").value = "...";
+                    storage.put("prv_mask_reserved", "<!^.+${1,20}>");
+                    storage.put("locale", sLocale, true);
+                    storage.put("step_work", "3");
+                    storage.put("prv_invitation_reserved", "prov_ttp3");
+                    setTimeout(function () { document.location.href = "./dmm_keyboard_full.html"; }, 160);
+                    return;
+
+                  
+
+                case "ptt_phoneNam":
+                    $("ptt_phoneNam").value = "...";
+                    storage.put("prv_mask_reserved", "0<!^\\d+${3}><!^\\d+${6}>");
+                    //storage.put("prv_mask_reserved", "0<!^\\d+${9}>");
+                    //storage.put("prv_mask_reserved", "<!^\\d+${10}>");
+                    storage.put("locale", sLocale, true);
+                    storage.put("step_work", "1");
+                    storage.put("prv_invitation_reserved", "ptt_phoneNam_");
+                    setTimeout(function () { document.location = "./dmm_keyboard_full.html"; }, 160);
+                    return;
+                   
+            }
+        }
+
+        function closeAlertMsg() {
+            jQuery("#button_close_msg").css("background-image", "url(img/ui/3btnorange_pressed.gif)");
+            setTimeout(function () {
+                jQuery("#button_close_msg").css("background-image", "url(img/ui/3btnorange_unpress.gif)");
+                jQuery("#alertMsg").hide();
+            }, 100);
+            jQuery("#back_ttp_p_validate").hide();
+            jQuery("#back_ttp_warn").show();
+            setInterval(changeWarnColor, 600);
+        }
+
+        function showAlertMsg() {
+            jQuery("#alertMsg").show();
+            jQuery("#btn_right").hide();
+            jQuery("#p_validate_ttp").hide();
+        }
+
+        function displayAlertMsg(sInfo) {
+            if (isCorrect(sInfo)) {
+                var sAlertContent =
+                    '<div id="alertMsg" class="alert" style="left: ' + (screen.width - 801) / 2 + 'px; top: ' + (screen.height - 482) / 2 + 'px;">' +
+                        '  <div class="alert_header">Внимание</div>' +
+                        '  <div class="alert_msg">' + sInfo + '</div>' +
+                        '  <div class="button_close_msg" id="button_close_msg" onclick="closeAlertMsg()">ЗАКРЫТЬ</div>' +
+                        '  <div class="alert_footer">Пожалуйста, нажмите «ЗАКРЫТЬ» и измените данные ввода<br />или нажмите «НА ГЛАВНУЮ» для отмены операции</div>' +
+                        '</div>';
+                document.body.innerHTML += sAlertContent;
+            }
+            displayAlert = true;
+        }
+
+        function isCorrect(s) {
+            return (!$isNoU(s) && s.is(String) && s.length > 0);
+        }
+
+        function accountIsCorrect() {
+            var statya = storage.get("ptt_statya");
+            var page = storage.get("ptt_page");
+            switch (statya) {
+                case "228":
+                    if (page == "2" || page == "4") return true;
+                    break;
+
+                case "230":
+                    if (page == "3") return true;
+                    break;
+
+                case "235":
+                    if (page == "5") return true;
+                    break;
+
+                case "238":
+                    if (page == "3" || page == "6" || page == "7" || page == "10" || page == "11") return true;
+                    break;
+
+                case "240":
+                    if (page == "3") return true;
+                    break;
+
+                case "241":
+                    if (page == "3" || pagesCount == "4") return true;
+                    break;
+
+                case "242":
+                    if (page == "2") return true;
+                    break;
+
+                case "248":
+                    if (page == "1" || page == "2" || page == "3") return true;
+                    break;
+
+                case "250":
+                    return true;
+
+                default: return false;
+            }
+            return false;
+        }
+
+        function changeWarnColor() {
+            //if (changeFlag == true) {
+            //    $("back_ttp_warn").style.backgroundColor = "#ff0000";
+            //    $("back_ttp_warn_text").style.color = "#f5f5f5";
+            //}
+            //else {
+            //    $("back_ttp_warn").style.backgroundColor = "#f5f5f5";
+            //    $("back_ttp_warn_text").style.color = "#ff0000";
+            //}
+            changeFlag = !changeFlag;
+        }
+
+        function ofertaShow() {
+            log.add('The Traffic Police Accounts :: Oferta show!');
+            storage.put("ttp_oferta", true);
+            document.location = "info.html";
+        }
+
+        function face(id) {
+            switch (id) {
+                case '1':
+                    jQuery("#ttp-pol-1").attr("class", "ttp-face-pressDMM");
+                    jQuery("#ttp-pol-2").removeAttr("class");
+                    storage.put("ptt_face", 1);
+                    break;
+                case '0':
+                    jQuery("#ttp-pol-2").attr("class", "ttp-face-pressDMM");
+                    jQuery("#ttp-pol-1").removeAttr("class");
+                    storage.put("ptt_face", 0);
+                    break;
+            }
+            NextPage();
+        }
+
+        function faceDis(id) {
+            switch (id) {
+                case '1':
+                    jQuery("#ttp-dis-1").attr("class", "ttp-face-pressDMM_mal");
+                    jQuery("#ttp-dis-2").removeAttr("class");
+                    jQuery("#ttp-dis-3").removeAttr("class");
+                    jQuery("#ttp-dis-4").removeAttr("class");
+                    storage.put("ptt_dis", 1);
+                    break;
+                case '2':
+                    jQuery("#ttp-dis-2").attr("class", "ttp-face-pressDMM_mal");
+                    jQuery("#ttp-dis-1").removeAttr("class");
+                    jQuery("#ttp-dis-3").removeAttr("class");
+                    jQuery("#ttp-dis-4").removeAttr("class");
+                    storage.put("ptt_dis", 2);
+                    break;
+                case '3':
+                    jQuery("#ttp-dis-3").attr("class", "ttp-face-pressDMM_mal");
+                    jQuery("#ttp-dis-1").removeAttr("class");
+                    jQuery("#ttp-dis-2").removeAttr("class");
+                    jQuery("#ttp-dis-4").removeAttr("class");
+                    storage.put("ptt_dis", 3);
+                    break;
+                case '4':
+                    jQuery("#ttp-dis-4").attr("class", "ttp-face-pressDMM_mal");
+                    jQuery("#ttp-dis-1").removeAttr("class");
+                    jQuery("#ttp-dis-2").removeAttr("class");
+                    jQuery("#ttp-dis-3").removeAttr("class");
+                    storage.put("ptt_dis", 4);
+                    break;
+            }
+            NextPage();
+        }
+
+        function onMenuBtnClick(sBtn) {
+
+
+            switch (sBtn) {
+                case "BACKWARD":
+                    log.add('The Traffic Police Accounts :: Backward!');
+                    document.location.href = "./index.html";
+                    storage.put("pay_info", "null");
+                    break;
+                case "MENU":
+                    log.add('The Traffic Police Accounts :: Menu!');
+                    document.location.href = "./index.html";
+                    storage.put("pay_info", "null");
+                    break;
+                case "FORWARD":
+                    if (accountIsCorrect()) showAlertMsg();
+                    else {
+
+                      
+
+
+                        var FIO_Grazh = storage.get("ptt_fam");
+
+                        //FIO_Grazh = FIO_Grazh.replace(/%/g, ':');
+                        
+                        var totalNumber =FIO_Grazh+";"+ storage.get("ptt_phoneNam") + ";" + storage.get("ptt_face") + ";" + storage.get("ptt_dis");
+
+                        //alert(totalNumber);
+                        //alert(totalNumber.length);
+                        // Sql.INSERT_ToDevel(5421, totalNumber, accountInfo);
+                        storage.put("pay_info", "null");
+                        var oProvider = {};
+                        oProvider.prvId = "16244";
+                        oProvider.prvName = "ДММ";
+                        oProvider.prvLogo = "./img/ui_item/dmm100_100.png";
+                       // alert(totalNumber);
+                        oProvider.account = totalNumber;
+                        oProvider.minCashSum = "10";
+                        oProvider.minSum = "0";
+                        oProvider.maxSum = "0";
+                        storage.put("pay_info", oProvider.serialize());
+                        storage.put("locale", sLocale, true);
+                        storage.put("prv_online_check_ttp", true);
+                        log.add('The Traffic Police Accounts :: Complete!');
+                        document.location = "validate_confirm.html";
+                    }
+                    break;
+            }
+        }
+
+    </script>
+</head>
+
+<body onload=" init(); ">
+    <div id="content">
+        <div id="container1">
+            <div id="qiwi_logo">
+                <img alt="" src="./img/ui/qiwicel.gif" />
+            </div>
+            <div class="borderline"></div>
+            <div id="back_ttp_p_validate">
+                <div id="p_validate_ttp"></div>
+            </div>
+            <div id="back_ttp_warn">
+                <p id="back_ttp_warn_text"></p>
+            </div>
+        </div>
+        <div id="back_warn" style="background-color: #FE9800; text-align: center;">
+            <p id="par_back_warn" style="color: #f5f5f5; color: #2268c6; font-family: Arial, FreeSans, Helvetica, Tahoma, sans-serif; font-weight: bold; height: 40px; overflow: hidden; text-align: center; text-transform: uppercase; width: 1024px;">
+                <span style="color: white; font: bold 30px Arial, FreeSans, Helvetica, Tahoma, sans-serif;">Заполните поля</span>
+            </p>
+        </div>
+        <form id="ff" name="ff" method="post" action="validate_confirm.html">
+            <input id="getAccountNumber" name="getAccountNumber" type="hidden" value="" />
+            <input id="prv_id" name="prv_id" type="hidden" value="" />
+            <input type="hidden" name="disp1" id="disp1" value="" />
+            <input type="hidden" name="disp2" id="disp2" value="" />
+
+            <div class="list_accounts_ttp_dmm">
+
+
+              
+
+                <div>
+                    <div class="label_text" id="label_text3"><span id="validate_ptt_fam_text">Фамилия</span></div>
+                    <div id="ptt_fam_label" onclick=" buttonPress('ptt_fam') " class="div_field">
+                        <input name="ptt_fam" id="ptt_fam" type="text" class="input_field" value=""></div>
+                </div>
+
+
+
+               
+
+                <div>
+                    <div class="label_text" id="label_text1"><span id="validate_ptt_phoneNam_text">Номер телефона</span></div>
+                    <div id="ptt_phoneNam_label" onclick=" buttonPress('ptt_phoneNam') " class="div_field">
+                        <input name="ptt_phoneNam" id="ptt_phoneNam" type="text" class="input_field" value="" /></div>
+                </div>
+                
+
+
+                <div>
+                    <div class="label_text" id="label_text8"><span id="validate_ptt_dis_text">Дистанция</span></div>
+                    <div class="ttp-faceDMM_mal">
+                        <span id="ttp-dis-1" onclick="faceDis('1')">42,195 км</span>
+                        <span id="ttp-dis-2" onclick="faceDis('2')">21,097 км</span>
+                        <span id="ttp-dis-3" onclick="faceDis('3')">10 км</span>
+                        <span id="ttp-dis-4" onclick="faceDis('4')">5 км</span>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <br />
+
+                <div>
+                    <div class="label_text" id="label_text6"><span id="validate_ptt_pols_text">Пол</span></div>
+
+                    <div class="ttp-faceDMM">
+                        <span id="ttp-pol-1" onclick="face('1')">Должностное лицо</span>
+                        <span id="ttp-pol-2" onclick="face('0')">Гражданское лицо</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+       
+        <div id="bottom_menu">
+            <div id="btn_left" class="bottom-button-left" onclick=" onMenuBtnClick('BACKWARD'); ">
+                <div id="bottom-button-left-container">
+                    <div id="button_back"></div>
+                </div>
+            </div>
+            <div id="btn_center" class="bottom-button-center" onclick=" onMenuBtnClick('MENU'); ">
+                <div id="bottom-button-center-container">
+                    <div id="button_menu"></div>
+                </div>
+            </div>
+            <div id="btn_right" class="bottom-button-right" onclick=" onMenuBtnClick('FORWARD'); ">
+                <div id="bottom-button-right-container">
+                    <div id="button_forward"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

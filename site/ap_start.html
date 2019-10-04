@@ -1,0 +1,82 @@
+﻿<html>
+	<head>
+		<title>Refresh_Cookie</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="refresh" content="180; URL=./index.html" />
+	    <link href="./css/ap.css" rel="stylesheet"/>
+        <link href="./css/pageTypes.css" rel="stylesheet" />
+
+		<script src="./func/jquery.min.js" type="text/javascript"></script>
+		<script src="./prv_values.js" type="text/javascript"></script>
+		<script src="./prv_validate.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/translate.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/properties.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/ru_ru.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/en_en.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/kg.js" type="text/javascript"></script>
+		<script src="./func/ui/translate/locale/prvlocale.js" type="text/javascript"></script>
+		<script src="./func/engine/pars_cookie.js" type="text/javascript"></script>
+	
+		<script src="./func/engine/sf/sf_start.js" type="text/javascript"></script>
+		<script src="func/engine/new_engine/unselect_all.js" type="text/javascript"></script>
+
+	</head>
+<body onload="initPage()">
+	<div class="wrapper">
+	    <div class="header">
+	        <div class="img_logo"></div>
+	        <div class="right-top-alert"><img src="bin/default_header_140.gif"/>
+	        </div>
+	        <div class="clearfix"></div>
+	        <div class="panel">
+	            <div class="prv_logo"></div>
+	            <p class="prv_name_text"></p>
+	        </div>
+	        <div class="clearfix"></div>
+	    </div>
+          <div class="atention" style="width: 1250px; margin-left: 10px;">ВЫБЕРИТЕ ПРОЕКТ ДЛЯ ПОЖЕРТВОВАНИЯ</div>
+		
+		<div class="content">
+			<!--<div class="container-advert">
+				
+				<div class="container-logo">
+					<div class="prv_logo"></div>
+				</div>
+				<div class="container-prv_name">
+					<div class="prv_name_text"></div>
+				</div>
+				
+				<div class="container-alert-text">
+					<div class="alert-text"></div>
+				</div>
+
+				<div class="container-result-text">
+					<div class="result-text"></div>
+				</div>
+
+			</div>-->
+
+			<div class="wapper">
+				<div class="sf_start_button" id="sf-b-1" onclick="pressSymbol('6', this.id)">Чуйская обл.</div>
+				<div class="sf_start_button" id="sf-b-2" onclick="pressSymbol('7', this.id)">И-Куль обл.</div>
+				<div class="sf_start_button" id="sf-b-3" onclick="pressSymbol('8', this.id)">Жалалабат обл.</div>
+				<div class="sf_start_button" id="sf-b-4" onclick="pressSymbol('9', this.id)">Талаская обл.</div>
+				<div class="sf_start_button" id="sf-b-5" onclick="pressSymbol('10', this.id)">г.Ош</div>
+				<div class="sf_start_button" id="sf-b-6" onclick="pressSymbol('11', this.id)">Ошская обл.</div>
+				<div class="sf_start_button" id="sf-b-7" onclick="pressSymbol('12', this.id)">Баткенская обл.</div>
+				<div class="sf_start_button" id="sf-b-8" onclick="pressSymbol('13', this.id)">Нарынская обл.</div>
+				<div class="sf_start_button" id="sf-b-9" onclick="pressSymbol('14', this.id)">г.Бишкек</div>
+			</div>
+			
+			
+			<div class="clearfix"></div>
+
+			<div class="back" id="button_back" onclick="pressSymbol('back', this.id)"></div>
+			<div class="index" id="button_menu" onclick="pressSymbol('menu', this.id)"></div>
+			<div class="forward" id="button_forward" onclick="pressSymbol('forward', this.id)"></div>
+			
+		</div>
+	</div>
+</body>
+</html>

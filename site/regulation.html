@@ -1,0 +1,547 @@
+﻿<html>
+
+<head>
+
+	<title>provider_list / 180</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="180; URL=./index.html">
+
+</head>
+
+<script src="./func/ui/objects.js"></script>
+
+<script>
+
+var curent_page = '1';
+
+function check_page(curent_page) {
+
+	max_page=6;
+
+	if(curent_page>max_page) curent_page=max_page;
+
+	return curent_page;
+
+}
+
+function switch_page (curent_page, change) {
+
+	curent_page = eval(curent_page) + change;
+
+	curent_page=check_page(curent_page);
+
+	if (curent_page == '1') { 
+
+		page_1.style.display='';
+
+		page_2.style.display='none';
+
+		page_3.style.display='none';
+
+		page_4.style.display='none';
+
+		page_5.style.display='none';
+
+		page_6.style.display='none';
+
+		forward_yes.style.display='';
+
+		forward_no.style.display='none';
+
+	}
+
+	if (curent_page == '2') { 
+
+		page_1.style.display='none';
+
+		page_2.style.display='';
+
+		page_3.style.display='none';
+
+		page_4.style.display='none';
+
+		page_5.style.display='none';
+
+		page_6.style.display='none';
+
+		forward_yes.style.display='';
+
+		forward_no.style.display='none';
+
+	}
+
+
+	if (curent_page == '3') { 
+
+		page_1.style.display='none';
+
+		page_2.style.display='none';
+
+		page_3.style.display='';
+
+		page_4.style.display='none';
+
+		page_5.style.display='none';
+
+		page_6.style.display='none';
+
+		forward_yes.style.display='';
+
+		forward_no.style.display='none';
+
+	}
+
+
+	if (curent_page == '4') { 
+
+		page_1.style.display='none';
+
+		page_2.style.display='none';
+
+		page_3.style.display='none';
+
+		page_4.style.display='';
+
+		page_5.style.display='none';
+
+		page_6.style.display='none';
+
+		forward_yes.style.display='';
+
+		forward_no.style.display='none';
+
+	}
+
+	if (curent_page == '5') { 
+
+		page_1.style.display='none';
+
+		page_2.style.display='none';
+
+		page_3.style.display='none';
+
+		page_4.style.display='none';
+
+		page_5.style.display='';
+
+		page_6.style.display='none';
+
+		forward_yes.style.display='';
+
+		forward_no.style.display='none';
+
+	}
+
+	if (curent_page == '6') { 
+
+		page_1.style.display='none';
+
+		page_2.style.display='none';
+
+		page_3.style.display='none';
+
+		page_4.style.display='none';
+
+		page_5.style.display='none';
+
+		page_6.style.display='';
+
+		forward_yes.style.display='';
+
+		forward_no.style.display='none';
+
+	}
+
+
+	if (curent_page <= '0') { 
+
+		parent.location= "./info.html";
+
+	}
+
+	if (curent_page == max_page) { 
+
+		forward_yes.style.display='none';
+
+		forward_no.style.display='';
+
+	}
+
+}
+
+function backward (){
+
+	switch_page(curent_page,-1);
+
+	curent_page=eval(curent_page)-1;
+
+	curent_page=check_page(curent_page);
+
+} 
+
+function forward(){
+
+	switch_page(curent_page,1);
+
+	curent_page=eval(curent_page)+1;
+
+	curent_page=check_page(curent_page);
+
+}
+
+function menu() {
+
+	parent.location = './index.html';
+
+}
+
+
+function bdef(){
+
+     backward_yes.style.display='';
+
+     backward_no.style.display='none';
+
+     forward_yes.style.display='';
+
+     forward_no.style.display='none';
+
+     menu_yes.style.display='';
+
+     menu_no.style.display='none';
+}
+
+</script>
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+<body onLoad="bdef();" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+
+<center>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+
+<tr><td height="300">
+
+	<div id="page_1" style="display:">
+	
+	<table cellpadding="10" cellspacing="10" border="0" align="center">
+	
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
+
+			<tr>
+
+			<td background="./img/ui/title_left.gif" width="11"></td>
+
+			<td background="./img/ui/title_bg.gif" align="center" valign="middle"><img border="0" src="./img/ui/regulation.gif"></td>
+
+			<td background="./img/ui/title_right.gif" width="11"></td>
+
+			</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+	<img src="img/ui/use_01.gif" width="800" height="500" onClick="document.location='main.html'">
+
+	</td>
+
+	</tr>
+	
+	<tr>
+
+	<td align="left" valign="middle" class="title">
+	
+	1. Выберите пункт меню "ОПЛАТА УСЛУГ"
+
+	</td>
+
+	</tr>
+
+	</table>
+
+	</div>
+
+
+	<div id="page_2" style="display:none">
+
+	<table cellpadding="10" cellspacing="10" border="0" align="center">
+	
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
+
+			<tr>
+
+			<td background="./img/ui/title_left.gif" width="11"></td>
+
+			<td background="./img/ui/title_bg.gif" align="center" valign="middle"><img border="0" src="./img/ui/regulation.gif"></td>
+
+			<td background="./img/ui/title_right.gif" width="11"></td>
+
+			</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+	<img src="img/ui/use_02.gif" width="800" height="500" onClick="document.location='main.html'">
+
+	</td>
+
+	</tr>
+	
+	<tr>
+
+	<td align="left" valign="middle" class="title">
+	
+	2. Выберите категорию услуг
+
+	</td>
+
+	</tr>
+
+	</table>
+
+	</div>
+
+
+	<div id="page_3" style="display:none">
+
+	<table cellpadding="10" cellspacing="10" border="0" align="center">
+	
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
+
+			<tr>
+
+			<td background="./img/ui/title_left.gif" width="11"></td>
+
+			<td background="./img/ui/title_bg.gif" align="center" valign="middle"><img border="0" src="./img/ui/regulation.gif"></td>
+
+			<td background="./img/ui/title_right.gif" width="11"></td>
+
+			</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+	<img src="img/ui/use_03.gif" width="800" height="500" onClick="document.location='main.html'">
+
+	</td>
+
+	</tr>
+	
+	<tr>
+
+	<td align="left" valign="middle" class="title">
+	
+	3. Введите номер оплачиваемого мобильного телефона<br>
+	4. Набрав номер, нажмите "ВПЕРЕД"
+
+	</td>
+
+	</tr>
+
+	</table>
+
+	</div>
+
+	<div id="page_4" style="display:none">
+
+	<table cellpadding="10" cellspacing="10" border="0" align="center">
+	
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
+
+			<tr>
+
+			<td background="./img/ui/title_left.gif" width="11"></td>
+
+			<td background="./img/ui/title_bg.gif" align="center" valign="middle"><img border="0" src="./img/ui/regulation.gif"></td>
+
+			<td background="./img/ui/title_right.gif" width="11"></td>
+
+			</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+	<img src="img/ui/use_04.gif" width="800" height="500" onClick="document.location='main.html'">
+
+	</td>
+
+	</tr>
+	
+	<tr>
+
+	<td align="left" valign="middle" class="title">
+	
+	5. Проверьте правильность набранного телефона<br>
+	6. Если номер набран правильно, нажмите "ВПЕРЕД"
+
+	</td>
+
+	</tr>
+
+	</table>
+
+	</div>
+
+	<div id="page_5" style="display:none">
+
+	<table cellpadding="10" cellspacing="10" border="0" align="center">
+	
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
+
+			<tr>
+
+			<td background="./img/ui/title_left.gif" width="11"></td>
+
+			<td background="./img/ui/title_bg.gif" align="center" valign="middle"><img border="0" src="./img/ui/regulation.gif"></td>
+
+			<td background="./img/ui/title_right.gif" width="11"></td>
+
+			</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+	<img src="img/ui/use_05.gif" width="800" height="500" onClick="document.location='main.html'">
+
+	</td>
+
+	</tr>
+	
+	<tr>
+
+	<td align="left" valign="middle" class="title">
+	
+	7.Вставьте купюру (рубли) в отделение для купюр и дождитесь пока в поле<br>
+	"ВНЕСЁННАЯ СУММА" не отобразится сумма внесённых вами купюр.<br>
+	8.Нажмите "ОПЛАТИТЬ"
+
+	</td>
+
+	</tr>
+
+	</table>
+	</div>
+
+	<div id="page_6" style="display:none">
+
+	<table cellpadding="10" cellspacing="10" border="0" align="center">
+	
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
+
+			<tr>
+
+			<td background="./img/ui/title_left.gif" width="11"></td>
+
+			<td background="./img/ui/title_bg.gif" align="center" valign="middle"><img border="0" src="./img/ui/regulation.gif"></td>
+
+			<td background="./img/ui/title_right.gif" width="11"></td>
+
+			</tr>
+
+		</table>
+
+	</td>
+
+	</tr>
+
+	<tr bgcolor="#dedede">
+
+	<td align="left" valign="middle">
+	
+	<img src="img/ui/use_06.gif" width="800" height="500" onClick="document.location='main.html'">
+
+	</td>
+
+	</tr>
+	
+	<tr>
+
+	<td align="left" valign="middle" class="title">
+	
+	9. Благодарим за использование нашей системы!
+
+	</td>
+
+	</tr>
+
+	</table>
+
+	</div>
+
+	
+</td></tr>
+
+<tr><td></td></tr>
+
+
+<script>bottom_menu();</script>
+
+</table>
+
+</body>
+
+</html>

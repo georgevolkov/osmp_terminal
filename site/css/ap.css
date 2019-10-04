@@ -1,0 +1,222 @@
+﻿html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	color: #000;
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("../fonts/GOTHIC.eot");
+}
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	cursor: pointer;
+}
+*:focus {
+	outline: none;
+}
+
+body {
+	background: #f5f5f5;
+	overflow: hidden;
+}
+.wrapper {
+	width: 1280px;
+}
+.clearfix {
+	clear: both;
+}
+
+.img_logo {
+	background: url("../logo_2.png") ;
+	width: 84px;
+	height: 140px;
+	margin: 21px 0 0 45px;
+	float: left;
+	background-repeat: no-repeat;
+}
+.right-top-alert {
+	float: left;
+	width: 1090px;
+	margin-left: 25px; 
+	margin-top: 20px; 
+	height: 180px;
+}
+
+.content {
+	margin-top: 30px;
+}
+.container-advert {
+	float: left;
+	width: 265px;
+	height: 473px;
+	background: url(../img/ui/vc/pole.gif) no-repeat;
+	margin-left: 15px;
+}
+.container-logo {
+	text-align: center;
+	padding: 10px 0;
+}
+.prv_logo {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+.container-prv_name {
+	text-align: center;
+	padding: 5px 0;
+}
+.prv_name_text {
+	font-size: 18px;
+	color: #555;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: MyCustomFont;
+}
+.container-alert-text {
+	text-align: center;
+	margin: 0 20px;
+	padding: 5px 10px;
+}
+.alert-text {
+	font-family: MyCustomFont;
+	color: #FF6821;
+}
+.alert-text hr {
+	border: 1px dashed #FF6821;
+}
+.container-result-text {
+	text-align: left;
+	margin: 10px 20px 0 20px;
+	padding: 5px 10px;
+}
+.result-text {
+	font-family: MyCustomFont;
+}
+.result-text.success {
+	color: green;
+}
+.result-text.error {
+	color: red;
+}
+.container-advert-right {
+	height: 472px;
+	float: right;
+	width: 364px;
+	margin-right: 20px;
+}
+
+.wapper {
+	float: left;
+	margin-left: 18px;
+	margin-top: 60px;
+}
+.img_logo {
+	background: url("../logo_2.png") ;
+	width: 84px;
+	height: 140px;
+	margin: 21px 0 0 45px;
+	float: left;
+	background-repeat: no-repeat;
+}
+.wapper .sf_start_button {
+    float: left;
+    margin-left: 40px;
+	margin-bottom: 43px;
+	background: url('../img/ui/keyboard/orange_unpress.gif');
+	width: 360px;
+	height: 86px;
+	color: #fff;
+	font-size: 36px;
+	font-family: MyCustomFont, Arial, sans-serif;
+	text-align: center;
+	line-height: 86px;
+}
+.wapper #sf-b-1.click, .wapper #sf-b-2.click, .wapper #sf-b-3.click, .wapper #sf-b-4.click, .wapper #sf-b-5.click, .wapper #sf-b-6.click, .wapper #sf-b-7.click, .wapper #sf-b-8.click, .wapper #sf-b-9.click {
+	background: url('../img/ui/keyboard/orange_press.gif');
+}
+.wapper .sf_start_button_mini {
+	background: url('../img/ui/keyboard/al/2btnorange_unpress.gif') no-repeat;
+	width: 184px;
+	height: 87px;
+	color: #fff;
+	font-size: 22px;
+	font-family: MyCustomFont, Arial, sans-serif;
+	text-align: center;
+    float: left;
+    line-height: 28px;
+    margin-left: 38px;
+}
+/*.wapper #sf-b-4.click, .wapper #sf-b-3.click {
+	background: url('../img/ui/keyboard/al/2btnorange_press.gif') no-repeat;
+}*/
+.wapper .sf_start_button_mini#sf-b-4 {
+    padding-top: 13px;
+}
+.wapper.kbid {
+    margin-top: 0px;
+}
+.kbid .kbid_start_button_mini {
+	width: 300px;
+	height: 114px;
+    background: url("../img/ui/vc/logo2.gif");
+	color: #3a3a3a;
+	font-size: 28px;
+	font-family: MyCustomFont, Arial, sans-serif;
+	text-align: center;
+    float: left;
+    line-height: 48px;
+    margin-left: 38px;
+    margin-bottom: 25px;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+.kbid .kbid_start_button_mini img {
+    float: left;
+}
+
+.kbid .kbid_start_button_mini.click {
+    background: url("../img/ui/vc/logo2_click.gif");
+}
+
+.back {
+	position: absolute;
+	left: 15px;
+	bottom: 20px;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/back.gif) no-repeat;
+}
+#button_back.click {
+	background: url(../img/ui/navigation/back_inactive.gif) no-repeat;
+}
+.index {
+	position: absolute;
+	left: 490px;
+	bottom: 20px;
+	float: right;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/menu.gif) no-repeat;
+}
+#button_menu.click {
+	background: url(../img/ui/navigation/menu_press.gif) no-repeat;
+}
+.forward {
+	position: absolute;
+	right: 25px;
+	bottom: 20px;
+	float: right;
+	width: 301px;
+	height: 121px;
+	background: url(../img/ui/navigation/forward.gif) no-repeat;
+}
+#button_forward.click {
+	background: url(../img/ui/navigation/forward_press.gif) no-repeat;
+}
