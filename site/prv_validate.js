@@ -1166,6 +1166,9 @@ function setValidateArray() {
 
     //AVTONALOG.KG
 	array["22164"] = { mask: new RegExp('^\\d{14}$', 'i'), minSum: '230', maxSum: '420' };
+	
+	//Энерготрейд
+	array["22172"] = { mask: new RegExp('^\\d{7,8}$', 'i'), minSum: '100', maxSum: '10000' };
 
 	return array;
 }

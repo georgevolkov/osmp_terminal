@@ -431,19 +431,20 @@ value["5183"]["prv_online_check"] = "true";
 //value["9765"]["prv_online_check"] = "false";
 
 // ADSL Кыргызтелеком
-value["5191"] = new Array();
-value["5191"]["prv_id"] = "5191";
-value["5191"]["prv_name"] = "КЫРГЫЗТЕЛЕКОМ - ADSL";
-value["5191"]["prv_folder"] = "internet";
-value["5191"]["prv_page"] = "./cellular.html";
-value["5191"]["prv_image"] = "img/ui_item/ktelecom.png";
-value["5191"]["prv_page_conf"] = "./validate_confirm.html";
-value["5191"]["prv_alert"] = "";
-value["5191"]["prv_invitation"] = "prov_enter_code";
-value["5191"]["prv_button_text"] = "";
-value["5191"]["prv_mask"] = "<!^\\d+${1,20}>";
-value["5191"]["prv_group"] = "Интернет-услуги";
-value["5191"]["prv_online_check"] = "true";
+// Comment provider
+// value["5191"] = new Array();
+// value["5191"]["prv_id"] = "5191";
+// value["5191"]["prv_name"] = "КЫРГЫЗТЕЛЕКОМ - ADSL";
+// value["5191"]["prv_folder"] = "internet";
+// value["5191"]["prv_page"] = "./cellular.html";
+// value["5191"]["prv_image"] = "img/ui_item/ktelecom.png";
+// value["5191"]["prv_page_conf"] = "./validate_confirm.html";
+// value["5191"]["prv_alert"] = "";
+// value["5191"]["prv_invitation"] = "prov_enter_code";
+// value["5191"]["prv_button_text"] = "";
+// value["5191"]["prv_mask"] = "<!^\\d+${1,20}>";
+// value["5191"]["prv_group"] = "Интернет-услуги";
+// value["5191"]["prv_online_check"] = "true";
 
 // JET
 value["5192"] = new Array();
@@ -506,20 +507,21 @@ value["5144"]["prv_group"] = "";
 value["5144"]["prv_online_check"] = "true";
 
 //ВинЭт - оплата за интернет
-value["22168"] = new Array();
-value["22168"]["prv_id"] = "22168";
-value["22168"]["prv_name"] = "ViNET";
-value["22168"]["prv_folder"] = "other";
-value["22168"]["prv_page"] = "./cellular.html";
-value["22168"]["prv_page_conf"] = "./validate_confirm.html";
-value["22168"]["prv_alert"] = "";
-value["22168"]["prv_image"] = "img/ui_item/vinet_logo.png";
-value["22168"]["prv_top_image"] = "./img/ui_item/vinet_logo.png";
-value["22168"]["prv_invitation"] = "prov_enter_account";
-value["22168"]["prv_button_text"] = "";
-value["22168"]["prv_mask"] = "<!^\\d+${10}>";
-value["22168"]["prv_group"] = "";
-value["22168"]["prv_online_check"] = "true";
+// Comment provider
+// value["22168"] = new Array();
+// value["22168"]["prv_id"] = "22168";
+// value["22168"]["prv_name"] = "ViNET";
+// value["22168"]["prv_folder"] = "other";
+// value["22168"]["prv_page"] = "./cellular.html";
+// value["22168"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22168"]["prv_alert"] = "";
+// value["22168"]["prv_image"] = "img/ui_item/vinet_logo.png";
+// value["22168"]["prv_top_image"] = "./img/ui_item/vinet_logo.png";
+// value["22168"]["prv_invitation"] = "prov_enter_account";
+// value["22168"]["prv_button_text"] = "";
+// value["22168"]["prv_mask"] = "<!^\\d+${10}>";
+// value["22168"]["prv_group"] = "";
+// value["22168"]["prv_online_check"] = "true";
 
 //Скайнет - оплата за интернет
 value["22186"] = new Array();
@@ -715,19 +717,20 @@ value["6408"]["prv_group"] = "";
 value["6408"]["prv_online_check"] = "false";
 
 //Namba
-value["5661"] = new Array();
-value["5661"]["prv_id"] = "5661";
-value["5661"]["prv_name"] = "Namba - Покупка контента и скидок";
-value["5661"]["prv_folder"] = "content";
-value["5661"]["prv_page"] = "./cellular.html";
-value["5661"]["prv_image"] = "img/ui_item/namba_1.png";
-value["5661"]["prv_page_conf"] = "./validate_confirm.html";
-value["5661"]["prv_alert"] = "";
-value["5661"]["prv_invitation"] = "prov_enter_code";
-value["5661"]["prv_button_text"] = "";
-value["5661"]["prv_mask"] = "<!^\\d+${1,11}>";
-value["5661"]["prv_group"] = "";
-value["5661"]["prv_online_check"] = "true";
+// Comment provider
+// value["5661"] = new Array();
+// value["5661"]["prv_id"] = "5661";
+// value["5661"]["prv_name"] = "Namba - Покупка контента и скидок";
+// value["5661"]["prv_folder"] = "content";
+// value["5661"]["prv_page"] = "./cellular.html";
+// value["5661"]["prv_image"] = "img/ui_item/namba_1.png";
+// value["5661"]["prv_page_conf"] = "./validate_confirm.html";
+// value["5661"]["prv_alert"] = "";
+// value["5661"]["prv_invitation"] = "prov_enter_code";
+// value["5661"]["prv_button_text"] = "";
+// value["5661"]["prv_mask"] = "<!^\\d+${1,11}>";
+// value["5661"]["prv_group"] = "";
+// value["5661"]["prv_online_check"] = "true";
 
 //Хостер.kg
 value["5175"] = new Array();
@@ -4650,22 +4653,21 @@ value["11882"]["prv_group"] = "оплата за интернет";
 value["11882"]["prv_online_check"] = "true";
 
 //Долон-ТВ - коммерческое ТВ
-// Delete provider
-// value["11894"] = new Array();
-// value["11894"]["prv_id"] = "11894";
-// value["11894"]["prv_name"] = 'Долон-ТВ';
-// value["11894"]["prv_folder"] = "tv";
-// value["11894"]["prv_page"] = "./cellular.html";
-// value["11894"]["prv_page_conf"] = "./validate_confirm.html";
-// value["11894"]["prv_alert"] = "";
-// value["11894"]["prv_image"] = "img/ui_item/dolontv.png";
-// value["11894"]["prv_top_image"] = "img/ui_item/dolontv.png";
-// value["11894"]["prv_is_cellular"] = false;
-// value["11894"]["prv_invitation"] = "prov_enter_code";
-// value["11894"]["prv_button_text"] = "";
-// value["11894"]["prv_mask"] = "<!^\\d+${1,6}>";
-// value["11894"]["prv_group"] = "Оплата за коммерческое телевидение";
-// value["11894"]["prv_online_check"] = "true";
+value["11894"] = new Array();
+value["11894"]["prv_id"] = "11894";
+value["11894"]["prv_name"] = 'Долон-ТВ mpay';
+value["11894"]["prv_folder"] = "tv";
+value["11894"]["prv_page"] = "./cellular.html";
+value["11894"]["prv_page_conf"] = "./validate_confirm.html";
+value["11894"]["prv_alert"] = "";
+value["11894"]["prv_image"] = "img/ui_item/dolontv.png";
+value["11894"]["prv_top_image"] = "img/ui_item/dolontv.png";
+value["11894"]["prv_is_cellular"] = false;
+value["11894"]["prv_invitation"] = "prov_enter_code";
+value["11894"]["prv_button_text"] = "";
+value["11894"]["prv_mask"] = "<!^\\d+${1,6}>";
+value["11894"]["prv_group"] = "Оплата за коммерческое телевидение";
+value["11894"]["prv_online_check"] = "true";
 
 //ОсОО "Работа для всех"
 value["12226"] = new Array();
@@ -5463,36 +5465,38 @@ value["13657"]["prv_online_check"] = "true";
 
 //---------------------Namba Taxi-----------------//
 //SWIFT Taxi
-value["13735"] = new Array();
-value["13735"]["prv_id"] = "13735";
-value["13735"]["prv_name"] = "SWIFT Taxi";
-value["13735"]["prv_folder"] = "tax";
-value["13735"]["prv_page"] = "./cellular.html";
-value["13735"]["prv_page_conf"] = "./validate_confirm.html";
-value["13735"]["prv_alert"] = "";
-value["13735"]["prv_image"] = "img/ui_item/swif.png";
-value["13735"]["prv_top_image"] = "./img/ui_item/swif.png";
-value["13735"]["prv_invitation"] = "prov_enter_phone";
-value["13735"]["prv_button_text"] = "";
-value["13735"]["prv_mask"] = "<!^\\d+${10}>";
-value["13735"]["prv_group"] = "";
-value["13735"]["prv_online_check"] = "true";
+// Comment provider
+// value["13735"] = new Array();
+// value["13735"]["prv_id"] = "13735";
+// value["13735"]["prv_name"] = "SWIFT Taxi";
+// value["13735"]["prv_folder"] = "tax";
+// value["13735"]["prv_page"] = "./cellular.html";
+// value["13735"]["prv_page_conf"] = "./validate_confirm.html";
+// value["13735"]["prv_alert"] = "";
+// value["13735"]["prv_image"] = "img/ui_item/swif.png";
+// value["13735"]["prv_top_image"] = "./img/ui_item/swif.png";
+// value["13735"]["prv_invitation"] = "prov_enter_phone";
+// value["13735"]["prv_button_text"] = "";
+// value["13735"]["prv_mask"] = "<!^\\d+${10}>";
+// value["13735"]["prv_group"] = "";
+// value["13735"]["prv_online_check"] = "true";
 
 //Namba Taxi
-value["13736"] = new Array();
-value["13736"]["prv_id"] = "13736";
-value["13736"]["prv_name"] = "Namba Taxi";
-value["13736"]["prv_folder"] = "tax";
-value["13736"]["prv_page"] = "./cellular.html";
-value["13736"]["prv_page_conf"] = "./validate_confirm.html";
-value["13736"]["prv_alert"] = "";
-value["13736"]["prv_image"] = "img/ui_item/namba.png";
-value["13736"]["prv_top_image"] = "./img/ui_item/namba.png";
-value["13736"]["prv_invitation"] = "prov_enter_phone";
-value["13736"]["prv_button_text"] = "";
-value["13736"]["prv_mask"] = "<!^\\d+${10}>";
-value["13736"]["prv_group"] = "";
-value["13736"]["prv_online_check"] = "true";
+// Comment provider
+// value["13736"] = new Array();
+// value["13736"]["prv_id"] = "13736";
+// value["13736"]["prv_name"] = "Namba Taxi";
+// value["13736"]["prv_folder"] = "tax";
+// value["13736"]["prv_page"] = "./cellular.html";
+// value["13736"]["prv_page_conf"] = "./validate_confirm.html";
+// value["13736"]["prv_alert"] = "";
+// value["13736"]["prv_image"] = "img/ui_item/namba.png";
+// value["13736"]["prv_top_image"] = "./img/ui_item/namba.png";
+// value["13736"]["prv_invitation"] = "prov_enter_phone";
+// value["13736"]["prv_button_text"] = "";
+// value["13736"]["prv_mask"] = "<!^\\d+${10}>";
+// value["13736"]["prv_group"] = "";
+// value["13736"]["prv_online_check"] = "true";
 //---------------------end Namba Taxi-----------------//
 
 
@@ -5822,37 +5826,22 @@ value["14629"]["prv_mask"] = "<!^\\d+${5,6}>";
 value["14629"]["prv_group"] = "";
 value["14629"]["prv_online_check"] = "true";
 
-//Бастион
-value["14859"] = new Array();
-value["14859"]["prv_id"] = "14859";
-value["14859"]["prv_name"] = "Охранное Агентство «Бастион»";
-value["14859"]["prv_folder"] = "tax";
-value["14859"]["prv_page"] = "./cellular.html";
-value["14859"]["prv_page_conf"] = "./validate_confirm.html";
-value["14859"]["prv_alert"] = "";
-value["14859"]["prv_image"] = "img/ui_item/Bastion100x100.png";
-value["14859"]["prv_top_image"] = "./img/ui_item/Bastion100x100.png";
-value["14859"]["prv_invitation"] = "prov_enter_account";
-value["14859"]["prv_button_text"] = "";
-value["14859"]["prv_mask"] = "<!^\\d+${6}>";
-value["14859"]["prv_group"] = "";
-value["14859"]["prv_online_check"] = "true";
-
 //Namba Taxi OSH
-value["14992"] = new Array();
-value["14992"]["prv_id"] = "14992";
-value["14992"]["prv_name"] = "Намба Такси Ош";
-value["14992"]["prv_folder"] = "tax";
-value["14992"]["prv_page"] = "./cellular.html";
-value["14992"]["prv_page_conf"] = "./validate_confirm.html";
-value["14992"]["prv_alert"] = "";
-value["14992"]["prv_image"] = "img/ui_item/namba_taxi_osh.png";
-value["14992"]["prv_top_image"] = "./img/ui_item/namba_taxi_osh.png";
-value["14992"]["prv_invitation"] = "prov_enter_phone";
-value["14992"]["prv_button_text"] = "";
-value["14992"]["prv_mask"] = "<!^\\d+${10}>";
-value["14992"]["prv_group"] = "";
-value["14992"]["prv_online_check"] = "true";
+// Comment provider
+// value["14992"] = new Array();
+// value["14992"]["prv_id"] = "14992";
+// value["14992"]["prv_name"] = "Намба Такси Ош";
+// value["14992"]["prv_folder"] = "tax";
+// value["14992"]["prv_page"] = "./cellular.html";
+// value["14992"]["prv_page_conf"] = "./validate_confirm.html";
+// value["14992"]["prv_alert"] = "";
+// value["14992"]["prv_image"] = "img/ui_item/namba_taxi_osh.png";
+// value["14992"]["prv_top_image"] = "./img/ui_item/namba_taxi_osh.png";
+// value["14992"]["prv_invitation"] = "prov_enter_phone";
+// value["14992"]["prv_button_text"] = "";
+// value["14992"]["prv_mask"] = "<!^\\d+${10}>";
+// value["14992"]["prv_group"] = "";
+// value["14992"]["prv_online_check"] = "true";
 
 
 
@@ -6113,6 +6102,22 @@ value["15552"]["prv_online_check"] = "true";
 //Бакайатинский энергосбыт
 //////////////////////
 //////////////////////
+
+//Энерготрейд
+value["22172"] = new Array();
+value["22172"]["prv_id"] = "22172";
+value["22172"]["prv_name"] = "Энерготрейд";
+value["22172"]["prv_folder"] = "other";
+value["22172"]["prv_page"] = "./cellular.html";
+value["22172"]["prv_page_conf"] = "./validate_confirm.html";
+value["22172"]["prv_alert"] = "";
+value["22172"]["prv_image"] = "img/ui_item/energotreid_logo.png";
+value["22172"]["prv_top_image"] = "./img/ui_item/energotreid_logo.png";
+value["22172"]["prv_invitation"] = "prov_enter_account";
+value["22172"]["prv_button_text"] = "";
+value["22172"]["prv_mask"] = "<!^\\d+${7,8}>";
+value["22172"]["prv_group"] = "";
+value["22172"]["prv_online_check"] = "true";
 
 //Карабууринский энергосбыт
 //////////////////////
@@ -6839,20 +6844,21 @@ value["16272"]["prv_group"] = "";
 value["16272"]["prv_online_check"] = "true";
 
 //Namba Taxi - кошелек
-value["16408"] = new Array();
-value["16408"]["prv_id"] = "16408";
-value["16408"]["prv_name"] = "Намба-такси баланс для клиента";
-value["16408"]["prv_folder"] = "tax";
-value["16408"]["prv_page"] = "./cellular.html";
-value["16408"]["prv_page_conf"] = "./validate_confirm.html";
-value["16408"]["prv_alert"] = "";
-value["16408"]["prv_image"] = "img/ui_item/namba_taxi_klient.png";
-value["16408"]["prv_top_image"] = "./img/ui_item/namba_taxi_klient.png";
-value["16408"]["prv_invitation"] = "prov_enter_phone";
-value["16408"]["prv_button_text"] = "";
-value["16408"]["prv_mask"] = "0<!^\\d+${9}>";
-value["16408"]["prv_group"] = "";
-value["16408"]["prv_online_check"] = "true";
+// Comment provider
+// value["16408"] = new Array();
+// value["16408"]["prv_id"] = "16408";
+// value["16408"]["prv_name"] = "Намба-такси баланс для клиента";
+// value["16408"]["prv_folder"] = "tax";
+// value["16408"]["prv_page"] = "./cellular.html";
+// value["16408"]["prv_page_conf"] = "./validate_confirm.html";
+// value["16408"]["prv_alert"] = "";
+// value["16408"]["prv_image"] = "img/ui_item/namba_taxi_klient.png";
+// value["16408"]["prv_top_image"] = "./img/ui_item/namba_taxi_klient.png";
+// value["16408"]["prv_invitation"] = "prov_enter_phone";
+// value["16408"]["prv_button_text"] = "";
+// value["16408"]["prv_mask"] = "0<!^\\d+${9}>";
+// value["16408"]["prv_group"] = "";
+// value["16408"]["prv_online_check"] = "true";
 
 // Megaline - TV
 value["16422"] = new Array();
@@ -8324,21 +8330,22 @@ value["22050"]["prv_online_check"] = "true";
 
 
 //Namba- подключение водителя
-value["22051"] = new Array();
-value["22051"]["prv_id"] = "22051";
-value["22051"]["prv_name"] = "Namba - подключение водителя";
-value["22051"]["prv_folder"] = "content";
-value["22051"]["prv_page"] = "./cellular.html";
-value["22051"]["prv_image"] = "img/ui_item/NambaTaxi_podkluchenie.png";
-value["22051"]["prv_top_image"] = "./img/ui_item/NambaTaxi_podkluchenie.png";
-value["22051"]["prv_page_conf"] = "./validate_confirm.html";
-value["22051"]["prv_alert"] = "";
-value["22051"]["prv_invitation"] = "prov_enter_code";
-value["22051"]["prv_button_text"] = "";
-value["22051"]["prv_mask"] = "<!^\\d+${10}>";
-value["22048"]["prv_is_cellular"] = true;
-value["22051"]["prv_group"] = "";
-value["22051"]["prv_online_check"] = "true";
+// Comment provider
+// value["22051"] = new Array();
+// value["22051"]["prv_id"] = "22051";
+// value["22051"]["prv_name"] = "Namba - подключение водителя";
+// value["22051"]["prv_folder"] = "content";
+// value["22051"]["prv_page"] = "./cellular.html";
+// value["22051"]["prv_image"] = "img/ui_item/NambaTaxi_podkluchenie.png";
+// value["22051"]["prv_top_image"] = "./img/ui_item/NambaTaxi_podkluchenie.png";
+// value["22051"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22051"]["prv_alert"] = "";
+// value["22051"]["prv_invitation"] = "prov_enter_code";
+// value["22051"]["prv_button_text"] = "";
+// value["22051"]["prv_mask"] = "<!^\\d+${10}>";
+// value["22048"]["prv_is_cellular"] = true;
+// value["22051"]["prv_group"] = "";
+// value["22051"]["prv_online_check"] = "true";
 
 
 
@@ -8363,28 +8370,27 @@ value["22055"]["prv_online_check"] = "true";
 
 
 // Административный штраф за нарушение ПДД(фото-видео фиксация)
-// Comment provider
-// value["22054"] = new Array();
-// value["22054"]["prv_id"] = "22054";
-// value["22054"]["prv_name"] = 'Штраф за нарушение ПДД(фото-видео фиксация)';
-// value["22054"]["prv_folder"] = "tax";
-// value["22054"]["prv_image"] = "img/ui_item/mvd.png";
-// value["22054"]["prv_top_image"] = "img/ui_item/mvd.png";
-// value["22054"]["prv_page"] = "./num_keyboard.html";
-// value["22054"]["prv_page_back_any"] = "./pages.html";
-// value["22054"]["prv_page_conf"] = "./pdd_validate_confirm.html";
-// value["22054"]["prv_alert"] = "Сумма комиссии составляет 40 сом и не зависит от размера вносимой суммы штрафа";
-// value["22054"]["prv_lang_any_keyboard"] = "ru";
-// value["22054"]["prv_type_any_keyboard"] = "NORM";
-// value["22054"]["prv_invitation"] = "prov_ttp2";
-// value["22054"]["prv_success_sign"] = "cellular_successful_notice";
-// value["22054"]["prv_error_sign"] = "cellular_bad_format";
-// value["22054"]["prv_surmask"] = "16$16$****************";
-// value["22054"]["prv_button_text"] = "";
-// value["22054"]["prv_mask"] = "";
-// value["22054"]["prv_group"] = "ГАИ";
-// value["22054"]["prv_online_check"] = "true";
-// value["22054"]["prv_receipt_extra_message"] = "";
+value["22054"] = new Array();
+value["22054"]["prv_id"] = "22054";
+value["22054"]["prv_name"] = 'Штраф за нарушение ПДД(фото-видео фиксация)';
+value["22054"]["prv_folder"] = "tax";
+value["22054"]["prv_image"] = "img/ui_item/mvd.png";
+value["22054"]["prv_top_image"] = "img/ui_item/mvd.png";
+value["22054"]["prv_page"] = "./num_keyboard.html";
+value["22054"]["prv_page_back_any"] = "./pages.html";
+value["22054"]["prv_page_conf"] = "./pdd_validate_confirm.html";
+value["22054"]["prv_alert"] = "Сумма комиссии составляет 40 сом и не зависит от размера вносимой суммы штрафа";
+value["22054"]["prv_lang_any_keyboard"] = "ru";
+value["22054"]["prv_type_any_keyboard"] = "NORM";
+value["22054"]["prv_invitation"] = "prov_ttp2";
+value["22054"]["prv_success_sign"] = "cellular_successful_notice";
+value["22054"]["prv_error_sign"] = "cellular_bad_format";
+value["22054"]["prv_surmask"] = "16$16$****************";
+value["22054"]["prv_button_text"] = "";
+value["22054"]["prv_mask"] = "";
+value["22054"]["prv_group"] = "ГАИ";
+value["22054"]["prv_online_check"] = "true";
+value["22054"]["prv_receipt_extra_message"] = "";
 
 
 
@@ -8753,36 +8759,36 @@ value["22075"]["prv_online_check"] = "true";
 
 
 // 	МА Жетиогуз 
-value["22077"] = new Array();
-value["22077"]["prv_id"] = "22077";
-value["22077"]["prv_name"] = "МА Жетиогуз";
-value["22077"]["prv_image"] = "./img/ui_item/MAJ.png";
-value["22077"]["prv_folder"] = "charity";
-value["22077"]["prv_page"] = "./cellular.html";
-value["22077"]["prv_page_conf"] = "./validate_confirm.html";
-value["22077"]["prv_alert"] = "";
-value["22077"]["prv_invitation"] = "prov_enter_account";
-value["22077"]["prv_button_text"] = "";
-value["22077"]["prv_mask"] = "<!^\\.+${10,11}>";
-value["22077"]["prv_group"] = "";
-value["22077"]["prv_online_check"] = "true";
-
-
+// Comment provider
+// value["22077"] = new Array();
+// value["22077"]["prv_id"] = "22077";
+// value["22077"]["prv_name"] = "МА Жетиогуз";
+// value["22077"]["prv_image"] = "./img/ui_item/MAJ.png";
+// value["22077"]["prv_folder"] = "charity";
+// value["22077"]["prv_page"] = "./cellular.html";
+// value["22077"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22077"]["prv_alert"] = "";
+// value["22077"]["prv_invitation"] = "prov_enter_account";
+// value["22077"]["prv_button_text"] = "";
+// value["22077"]["prv_mask"] = "<!^\\.+${10,11}>";
+// value["22077"]["prv_group"] = "";
+// value["22077"]["prv_online_check"] = "true";
 
 // 	Намба Такси Джалал-Абад
-value["22078"] = new Array();
-value["22078"]["prv_id"] = "22078";
-value["22078"]["prv_name"] = "Намба Такси Джалал-Абад";
-value["22078"]["prv_image"] = "./img/ui_item/namba_jb.png";
-value["22078"]["prv_folder"] = "tax";
-value["22078"]["prv_page"] = "./cellular.html";
-value["22078"]["prv_page_conf"] = "./validate_confirm.html";
-value["22078"]["prv_alert"] = "";
-value["22078"]["prv_invitation"] = "prov_enter_account";
-value["22078"]["prv_button_text"] = "";
-value["22078"]["prv_mask"] = "0<!^\\d+${9}>";
-value["22078"]["prv_group"] = "пополнение счета";
-value["22078"]["prv_online_check"] = "true";
+// Comment provider
+// value["22078"] = new Array();
+// value["22078"]["prv_id"] = "22078";
+// value["22078"]["prv_name"] = "Намба Такси Джалал-Абад";
+// value["22078"]["prv_image"] = "./img/ui_item/namba_jb.png";
+// value["22078"]["prv_folder"] = "tax";
+// value["22078"]["prv_page"] = "./cellular.html";
+// value["22078"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22078"]["prv_alert"] = "";
+// value["22078"]["prv_invitation"] = "prov_enter_account";
+// value["22078"]["prv_button_text"] = "";
+// value["22078"]["prv_mask"] = "0<!^\\d+${9}>";
+// value["22078"]["prv_group"] = "пополнение счета";
+// value["22078"]["prv_online_check"] = "true";
 
 
 
@@ -9469,20 +9475,20 @@ value["22105"]["prv_online_check"] = "true";
 
 
 // 	Намба Такси Токмок 
-value["22106"] = new Array();
-value["22106"]["prv_id"] = "22106";
-value["22106"]["prv_name"] = "Намба Такси Токмок";
-value["22106"]["prv_image"] = "./img/ui_item/namba-tokmok.png";
-value["22106"]["prv_folder"] = "tax";
-value["22106"]["prv_page"] = "./cellular.html";
-value["22106"]["prv_page_conf"] = "./validate_confirm.html";
-value["22106"]["prv_alert"] = "";
-value["22106"]["prv_invitation"] = "prov_enter_account";
-value["22106"]["prv_button_text"] = "";
-value["22106"]["prv_mask"] = "0<!^\\d+${9}>";
-value["22106"]["prv_group"] = "пополнение счета";
-value["22106"]["prv_online_check"] = "true";
-
+// Comment provider
+// value["22106"] = new Array();
+// value["22106"]["prv_id"] = "22106";
+// value["22106"]["prv_name"] = "Намба Такси Токмок";
+// value["22106"]["prv_image"] = "./img/ui_item/namba-tokmok.png";
+// value["22106"]["prv_folder"] = "tax";
+// value["22106"]["prv_page"] = "./cellular.html";
+// value["22106"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22106"]["prv_alert"] = "";
+// value["22106"]["prv_invitation"] = "prov_enter_account";
+// value["22106"]["prv_button_text"] = "";
+// value["22106"]["prv_mask"] = "0<!^\\d+${9}>";
+// value["22106"]["prv_group"] = "пополнение счета";
+// value["22106"]["prv_online_check"] = "true";
 
 
 //Эко-Банк
@@ -10160,23 +10166,23 @@ value["22119"]["prv_mask"] = "<!^.+${10,10}>";
 value["22119"]["prv_group"] = "";
 value["22119"]["prv_online_check"] = "true";
 
-
 //	Сауна.кг - пополнение счета
-value["22122"] = new Array();
-value["22122"]["prv_id"] = "22122";
-value["22122"]["prv_name"] = "Сауна.kg - пополнение счета";
-value["22122"]["prv_folder"] = "other";
-value["22122"]["prv_page"] = "./cellular.html";
-value["22122"]["prv_page_conf"] = "./validate_confirm.html";
-value["22122"]["prv_alert"] = "";
-value["22122"]["prv_is_cellular"] = true;
-value["22122"]["prv_image"] = "img/ui_item/sauna.png";
-value["22122"]["prv_top_image"] = "./img/ui_item/sauna.png";
-value["22122"]["prv_invitation"] = "prov_enter_account";
-value["22122"]["prv_button_text"] = "";
-value["22122"]["prv_mask"] = "<!^.+${1,5}>";
-value["22122"]["prv_group"] = "";
-value["22122"]["prv_online_check"] = "true";
+// Comment provider
+// value["22122"] = new Array();
+// value["22122"]["prv_id"] = "22122";
+// value["22122"]["prv_name"] = "Сауна.kg - пополнение счета";
+// value["22122"]["prv_folder"] = "other";
+// value["22122"]["prv_page"] = "./cellular.html";
+// value["22122"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22122"]["prv_alert"] = "";
+// value["22122"]["prv_is_cellular"] = true;
+// value["22122"]["prv_image"] = "img/ui_item/sauna.png";
+// value["22122"]["prv_top_image"] = "./img/ui_item/sauna.png";
+// value["22122"]["prv_invitation"] = "prov_enter_account";
+// value["22122"]["prv_button_text"] = "";
+// value["22122"]["prv_mask"] = "<!^.+${1,5}>";
+// value["22122"]["prv_group"] = "";
+// value["22122"]["prv_online_check"] = "true";
 
 //	Ресторан.кг - пополнение счета
 value["22120"] = new Array();
@@ -10196,39 +10202,39 @@ value["22120"]["prv_group"] = "";
 value["22120"]["prv_online_check"] = "true";
 
 //	Салон.кг - пополнение счета
-value["22121"] = new Array();
-value["22121"]["prv_id"] = "22121";
-value["22121"]["prv_name"] = "Салон.kg - пополнение счета";
-value["22121"]["prv_folder"] = "other";
-value["22121"]["prv_page"] = "./cellular.html";
-value["22121"]["prv_page_conf"] = "./validate_confirm.html";
-value["22121"]["prv_alert"] = "";
-value["22121"]["prv_is_cellular"] = true;
-value["22121"]["prv_image"] = "img/ui_item/salon.png";
-value["22121"]["prv_top_image"] = "./img/ui_item/salon.png";
-value["22121"]["prv_invitation"] = "prov_enter_account";
-value["22121"]["prv_button_text"] = "";
-value["22121"]["prv_mask"] = "<!^.+${1,5}>";
-value["22121"]["prv_group"] = "";
-value["22121"]["prv_online_check"] = "true";
-
-
+// Comment provider
+// value["22121"] = new Array();
+// value["22121"]["prv_id"] = "22121";
+// value["22121"]["prv_name"] = "Салон.kg - пополнение счета";
+// value["22121"]["prv_folder"] = "other";
+// value["22121"]["prv_page"] = "./cellular.html";
+// value["22121"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22121"]["prv_alert"] = "";
+// value["22121"]["prv_is_cellular"] = true;
+// value["22121"]["prv_image"] = "img/ui_item/salon.png";
+// value["22121"]["prv_top_image"] = "./img/ui_item/salon.png";
+// value["22121"]["prv_invitation"] = "prov_enter_account";
+// value["22121"]["prv_button_text"] = "";
+// value["22121"]["prv_mask"] = "<!^.+${1,5}>";
+// value["22121"]["prv_group"] = "";
+// value["22121"]["prv_online_check"] = "true";
 
 //Намба Фуд - для курьеров22060
-value["22123"] = new Array();
-value["22123"]["prv_id"] = "22123";
-value["22123"]["prv_name"] = "Намба Фуд - для курьеров";
-value["22123"]["prv_folder"] = "tax";
-value["22123"]["prv_page"] = "./cellular.html";
-value["22123"]["prv_page_conf"] = "./validate_confirm.html";
-value["22123"]["prv_alert"] = "";
-value["22123"]["prv_image"] = "img/ui_item/food.png";
-value["22123"]["prv_top_image"] = "./img/ui_item/food.png";
-value["22123"]["prv_invitation"] = "prov_enter_phone";
-value["22123"]["prv_button_text"] = "";
-value["22123"]["prv_mask"] = "0<!^\\d+${9}>";
-value["22123"]["prv_group"] = "";
-value["22123"]["prv_online_check"] = "true";
+// Comment provider
+// value["22123"] = new Array();
+// value["22123"]["prv_id"] = "22123";
+// value["22123"]["prv_name"] = "Намба Фуд - для курьеров";
+// value["22123"]["prv_folder"] = "tax";
+// value["22123"]["prv_page"] = "./cellular.html";
+// value["22123"]["prv_page_conf"] = "./validate_confirm.html";
+// value["22123"]["prv_alert"] = "";
+// value["22123"]["prv_image"] = "img/ui_item/food.png";
+// value["22123"]["prv_top_image"] = "./img/ui_item/food.png";
+// value["22123"]["prv_invitation"] = "prov_enter_phone";
+// value["22123"]["prv_button_text"] = "";
+// value["22123"]["prv_mask"] = "0<!^\\d+${9}>";
+// value["22123"]["prv_group"] = "";
+// value["22123"]["prv_online_check"] = "true";
 
 
 //Элим Барсынбы?!
