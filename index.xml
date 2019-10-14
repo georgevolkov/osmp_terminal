@@ -1,7 +1,7 @@
-<update lastchange="09:10 11.10.2019">
+<update lastchange="15:46 11.10.2019">
   <default-profile>
     <file crc32="5D048B65" length="2826192">flashsetup.exe</file>
-    <file crc32="AE01F8D0" length="158034">index.xml</file>
+    <file crc32="2F537B4D" length="158034">index.xml</file>
     <file crc32="EDAB8945" length="4982784">maratl.exe</file>
     <file crc32="6229E428" length="20657">site/advert.js</file>
     <file crc32="37C9A030" length="846">site/advert_content.js</file>
@@ -120,7 +120,7 @@
     <file crc32="A6ED910A" length="1623">site/online_auth.html</file>
     <file crc32="959457AB" length="9537">site/online_auth_error.html</file>
     <file crc32="14FA71F7" length="3408">site/online_auth_error_gns.html</file>
-    <file crc32="D3D4B253" length="28916">site/pages.html</file>
+    <file crc32="1DF2B9F6" length="28917">site/pages.html</file>
     <file crc32="7CCA6FDF" length="3127">site/page_types.html</file>
     <file crc32="F9387752" length="31598">site/pdd_validate.html</file>
     <file crc32="76B7D28D" length="4080">site/pdd_validate_confirm.html</file>
@@ -133,7 +133,7 @@
     <file crc32="43C75749" length="75">site/prv_on_first_page_static.js</file>
     <file crc32="CF8D503D" length="115">site/prv_on_main_page.js</file>
     <file crc32="3E9F7E2A" length="73271">site/prv_validate.js</file>
-    <file crc32="DA0C24F5" length="506229">site/prv_values.js</file>
+    <file crc32="A27DEC56" length="506201">site/prv_values.js</file>
     <file crc32="C4C3D9CB" length="35927">site/publications.xml</file>
     <file crc32="36B91944" length="10032">site/p_beeline_act.html</file>
     <file crc32="D244EE48" length="3148">site/p_beeline_act_params.html</file>
