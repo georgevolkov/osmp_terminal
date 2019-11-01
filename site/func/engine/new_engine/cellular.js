@@ -921,6 +921,7 @@ function accConvert(prvId, account) {
     switch (prvId) {
         //cellular
         case "5131":
+		case "22376":
             // megacom
             return insertString(account, "996", 0);
             break;
@@ -970,8 +971,8 @@ function accConvert(prvId, account) {
             //Sapatcom
         case "5176":
             return insertString(account, "996312", 0);
-            break;
-            //sava
+            break;			
+            //sava		
         case "5154":
             return insertString(account, "0", 0);
             break;
@@ -983,6 +984,14 @@ function accConvert(prvId, account) {
         case "22159":
             return insertString(account, "KP", 0);
             break;
+			// Jorgo taxi
+		case "16243":           
+		   return insertString(account, "5", 0)
+            break;	
+			// Такси 1200
+		case "22362":           
+		   return insertString(account, "0", 0)
+            break;	
             //ala tv
         case "5183":
             return insertString(account, "/0", account.length);

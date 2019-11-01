@@ -111,6 +111,23 @@ value["5131"]["prv_mask"] = "0 (<!^d+${3}>) <!^d+${6}>";
 value["5131"]["prv_group"] = "Сотовая связь";
 value["5131"]["prv_online_check"] = "false";
 
+//Megacom TILZ
+value["22376"] = new Array();
+value["22376"]["prv_id"] = "22376";
+value["22376"]["prv_name"] = "Megacom TILZ";
+value["22376"]["prv_folder"] = "cellular";
+value["22376"]["prv_page"] = "./cellular.html";
+value["22376"]["prv_page_conf"] = "./validate_confirm.html";
+value["22376"]["prv_alert"] = "";
+value["22376"]["prv_image"] = "img/ui_item/Z logo-01.png";
+value["22376"]["prv_top_image"] = "./img/ui_item/Z logo-01.png";
+value["22376"]["prv_is_cellular"] = true;
+value["22376"]["prv_invitation"] = "prov_enter_phone";
+value["22376"]["prv_button_text"] = "";
+value["22376"]["prv_mask"] = "0 (<!^d+${3}>) <!^d+${6}>";
+value["22376"]["prv_group"] = "Сотовая связь";
+value["22376"]["prv_online_check"] = "false";
+
 //O!
 value["5132"] = new Array();
 value["5132"]["prv_id"] = "5132";
@@ -431,20 +448,19 @@ value["5183"]["prv_online_check"] = "true";
 //value["9765"]["prv_online_check"] = "false";
 
 // ADSL Кыргызтелеком
-// Comment provider
-// value["5191"] = new Array();
-// value["5191"]["prv_id"] = "5191";
-// value["5191"]["prv_name"] = "КЫРГЫЗТЕЛЕКОМ - ADSL";
-// value["5191"]["prv_folder"] = "internet";
-// value["5191"]["prv_page"] = "./cellular.html";
-// value["5191"]["prv_image"] = "img/ui_item/ktelecom.png";
-// value["5191"]["prv_page_conf"] = "./validate_confirm.html";
-// value["5191"]["prv_alert"] = "";
-// value["5191"]["prv_invitation"] = "prov_enter_code";
-// value["5191"]["prv_button_text"] = "";
-// value["5191"]["prv_mask"] = "<!^\\d+${1,20}>";
-// value["5191"]["prv_group"] = "Интернет-услуги";
-// value["5191"]["prv_online_check"] = "true";
+value["5191"] = new Array();
+value["5191"]["prv_id"] = "5191";
+value["5191"]["prv_name"] = "КЫРГЫЗТЕЛЕКОМ - ADSL";
+value["5191"]["prv_folder"] = "internet";
+value["5191"]["prv_page"] = "./cellular.html";
+value["5191"]["prv_image"] = "img/ui_item/ktelecom.png";
+value["5191"]["prv_page_conf"] = "./validate_confirm.html";
+value["5191"]["prv_alert"] = "";
+value["5191"]["prv_invitation"] = "prov_enter_code";
+value["5191"]["prv_button_text"] = "";
+value["5191"]["prv_mask"] = "<!^\\d+${1,20}>";
+value["5191"]["prv_group"] = "Интернет-услуги";
+value["5191"]["prv_online_check"] = "true";
 
 // JET
 value["5192"] = new Array();
@@ -1835,6 +1851,7 @@ value["5162"]["prv_group"] = "";
 value["5162"]["prv_online_check"] = "true";
 
 //Бишкектеплосеть
+// Comment provider
 value["5163"] = new Array();
 value["5163"]["prv_id"] = "5163";
 value["5163"]["prv_name"] = "Бишкектеплосеть";
@@ -5533,6 +5550,23 @@ value["22362"]["prv_mask"] = "0<!^\\d+${9}>";
 value["22362"]["prv_group"] = "";
 value["22362"]["prv_online_check"] = "true";
 
+
+//Такси 999
+value["22361"] = new Array();
+value["22361"]["prv_id"] = "22361";
+value["22361"]["prv_name"] = "Такси 999";
+value["22361"]["prv_folder"] = "tax";
+value["22361"]["prv_page"] = "./cellular.html";
+value["22361"]["prv_page_conf"] = "./validate_confirm.html";
+value["22361"]["prv_alert"] = "";
+value["22361"]["prv_image"] = "img/ui_item/logo-Taxi999.png";
+value["22361"]["prv_top_image"] = "./img/ui_item/logo-Taxi999.png";
+value["22361"]["prv_invitation"] = "prov_enter_account";
+value["22361"]["prv_button_text"] = "";
+value["22361"]["prv_mask"] = "0<!^\\d+${9}>";
+value["22361"]["prv_group"] = "";
+value["22361"]["prv_online_check"] = "true";
+
 //1200 Яндекс
 value["22238"] = new Array();
 value["22238"]["prv_id"] = "22238";
@@ -6658,9 +6692,25 @@ value["16243"]["prv_image"] = "img/ui_item/jorgo100x100.png";
 value["16243"]["prv_top_image"] = "./img/ui_item/jorgo100x100.png";
 value["16243"]["prv_invitation"] = "prov_enter_account";
 value["16243"]["prv_button_text"] = "";
-value["16243"]["prv_mask"] = "<!^\\d+${6}>";
+value["16243"]["prv_mask"] = "5 <!^\\d+${5}>";
 value["16243"]["prv_group"] = "";
 value["16243"]["prv_online_check"] = "true";
+
+//ОО «Алгыр Куш» (школа 87) - членский взнос
+value["22206"] = new Array();
+value["22206"]["prv_id"] = "22206";
+value["22206"]["prv_name"] = "ОО «Алгыр Куш» (школа 87) - членский взнос";
+value["22206"]["prv_folder"] = "tax";
+value["22206"]["prv_page"] = "./cellular.html";
+value["22206"]["prv_page_conf"] = "./validate_confirm.html";
+value["22206"]["prv_alert"] = "";
+value["22206"]["prv_image"] = "img/ui_item/algyr_kush_logo.png";
+value["22206"]["prv_top_image"] = "./img/ui_item/algyr_kush_logo.png";
+value["22206"]["prv_invitation"] = "prov_enter_account";
+value["22206"]["prv_button_text"] = "";
+value["22206"]["prv_mask"] = "<!^\\d+${1,4}>";
+value["22206"]["prv_group"] = "";
+value["22206"]["prv_online_check"] = "true";
 
 //Ustalar.kg - заказ услуг онлайн
 value["22169"] = new Array();

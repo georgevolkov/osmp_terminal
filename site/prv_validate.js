@@ -20,6 +20,8 @@ function setValidateArray() {
 	array["9031"] = { mask: new RegExp('^[0-9]{1,14}$', 'i'), minSum: '50', maxSum: '1000' };
 	// megacom
 	array["5131"] = { mask: new RegExp('^996(7|5)5[0-9][0-9]{6,6}$', 'i'), minSum: '10', maxSum: '0' };
+	// megacom TILZ
+	array["22376"] = { mask: new RegExp('^996997[0-9]{6,6}$', 'i'), minSum: '10', maxSum: '0' };
 	//O
 	array["5132"] = { mask: new RegExp('^996(7|5)0[0-9][0-9]{6,6}$', 'i'), minSum: '10', maxSum: '10000' };
     //O
@@ -1043,6 +1045,18 @@ function setValidateArray() {
 
     // (Моментальные платежи) Gamenet - пополнение счета
 	array["22108"] = { mask: new RegExp('^[0-9a-zA-Z]', 'i'), minSum: '50', maxSum: '0' };
+	
+	 //ОО «Онугуу» (школа 12) - членские и прочие добровольные взносы
+	array["22205"] = { mask: new RegExp('^.{5,30}$', 'i'), minSum: '20', maxSum: '30000' };
+
+    //ОО «Онугуу» (школа 12) - взнос на охрану
+	array["22209"] = { mask: new RegExp('^.{5,30}$', 'i'), minSum: '20', maxSum: '30000' };
+
+    //ОО «Онугуу» (школа 12) - другие
+	array["22210"] = { mask: new RegExp('^.{5,30}$', 'i'), minSum: '20', maxSum: '30000' };
+
+    //ОО «Алгыр Куш» (школа 87) - членский взнос
+	array["22206"] = { mask: new RegExp('^\\d{1,4}$', 'i'), minSum: '20', maxSum: '30000' };
 
     //Алтын
 	array["22117"] = { mask: new RegExp('^\\d{7}$', 'i'), minSum: '20', maxSum: '20000' };
@@ -1169,6 +1183,9 @@ function setValidateArray() {
 	
 	//Энерготрейд
 	array["22172"] = { mask: new RegExp('^\\d{7,8}$', 'i'), minSum: '100', maxSum: '10000' };
+	
+	// Skynet 
+	array["22186"] = { mask: new RegExp('^\\d{1,9}$', 'i'), minSum: '20', maxSum: '10000' };
 
 	return array;
 }
